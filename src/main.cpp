@@ -28,7 +28,18 @@ void opcontrol() {
     		frontRight.move(right);
 			backRight.move(right);
 
-			
+			// Suck Disks 😏🤤😈
+      		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
+      			intake.move(100);
+			} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
+      			intake.move(100);
+      		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
+      			flywheel.move(100);
+      		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+				flywheel.move(100);
+      		} else {
+
+			}
 		}
 
     	pros::delay(20);
