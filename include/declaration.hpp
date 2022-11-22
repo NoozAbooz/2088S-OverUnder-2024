@@ -1,10 +1,19 @@
 #include "main.h"
 
+// Controller
+extern pros::Controller controller;
+
 // Drivetrain
 extern pros::Motor frontLeft;
 extern pros::Motor frontRight;
 extern pros::Motor backLeft;
 extern pros::Motor backRight;
 
-// Controller
-extern pros::Controller controller;
+// Intake
+extern pros::Motor intake;
+
+// Flywheel
+extern pros::Motor flywheel;
+
+// Roller
+extern pros::Motor roller;

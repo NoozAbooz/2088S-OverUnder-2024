@@ -8,7 +8,7 @@ void opcontrol() {
       		if(driveMode == 1){
         		driveMode = 0;
 
-        		controller.rumble("-");
+        		controller.rumble(".");
 
       		} else if(driveMode == 0) {
         		driveMode = 1;
@@ -28,18 +28,18 @@ void opcontrol() {
     		frontRight.move(right);
 			backRight.move(right);
 
-			// Suck Disks 😏🤤😈
+			// Michael is hardstuck iron 1
       		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
-      			intake.move(100);
-			} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
-      			intake.move(100);
-      		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-      			flywheel.move(100);
-      		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-				flywheel.move(100);
-      		} else {
-
+      			intake.move_voltage(12000);
+			} else {
+			    intake.brake();
 			}
+
+			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
+      			flywheel.move_voltage(12000);
+			} else {
+				flywheel.brake();
+      		}
 		}
 
     	pros::delay(20);

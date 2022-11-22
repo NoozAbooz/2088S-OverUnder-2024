@@ -30,11 +30,11 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/declaration.cpp.o",
-            "src/declaration.cpp"
+            "bin/main.cpp.o",
+            "src/main.cpp"
         ],
         "directory": "/Users/michael/Documents/WestMech/Spin Up/V1-Pros",
-        "file": "src/declaration.cpp"
+        "file": "src/main.cpp"
     },
     {
         "arguments": [
@@ -104,10 +104,10 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin\\old-code.txt.o",
-            "src\\old-code.txt"
+            "bin/declaration.cpp.o",
+            "src/declaration.cpp"
         ],
-        "directory": "/c:/Users/Michael/Documents/GitHub/2088X",
-        "file": "src\\old-code.txt"
+        "directory": "/Users/michael/Documents/WestMech/Spin Up/V1-Pros",
+        "file": "src/declaration.cpp"
     }
 ]
