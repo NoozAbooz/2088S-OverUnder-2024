@@ -30,48 +30,11 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/main.cpp.o",
-            "src/main.cpp"
+            "bin/declaration.cpp.o",
+            "src/declaration.cpp"
         ],
         "directory": "/Users/michael/Documents/WestMech/Spin Up/V1-Pros",
-        "file": "src/main.cpp"
-    },
-    {
-        "arguments": [
-            "src/main.cpp",
-            "bin/main.cpp.o",
-            "-o",
-            "--std=gnu++17",
-            "-funwind-tables",
-            "-fdiagnostics-color",
-            "-fdata-sections",
-            "-ffunction-sections",
-            "-Wno-psabi",
-            "-D_POSIX_MONOTONIC_CLOCK",
-            "-D_POSIX_TIMERS",
-            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
-            "-D_POSIX_THREADS",
-            "-g",
-            "-Os",
-            "-mfloat-abi=softfp",
-            "-mfpu=neon-fp16",
-            "-mcpu=cortex-a9",
-            "-iquote./include/./",
-            "-iquote./include/okapi/squiggles",
-            "-iquote./include",
-            "-isystem/usr/local/Cellar/arm-gcc-bin@10/10.3-2021.10_1/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include",
-            "-isystem/usr/local/Cellar/arm-gcc-bin@10/10.3-2021.10_1/bin/../lib/gcc/arm-none-eabi/10.3.1/include-fixed",
-            "-isystem/usr/local/Cellar/arm-gcc-bin@10/10.3-2021.10_1/bin/../lib/gcc/arm-none-eabi/10.3.1/include",
-            "-isystem/usr/local/Cellar/arm-gcc-bin@10/10.3-2021.10_1/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward",
-            "-isystem/usr/local/Cellar/arm-gcc-bin@10/10.3-2021.10_1/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi/thumb/v7-a+simd/softfp",
-            "-isystem/usr/local/Cellar/arm-gcc-bin@10/10.3-2021.10_1/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1",
-            "armv7ar-none-none-eabi",
-            "-target",
-            "-c",
-            "clang++"
-        ],
-        "directory": "/Users/michael/Documents/WestMech/Spin Up/V1-Pros",
-        "file": "src/main.cpp"
+        "file": "src/declaration.cpp"
     },
     {
         "arguments": [
@@ -104,10 +67,10 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/declaration.cpp.o",
-            "src/declaration.cpp"
+            "bin/main.cpp.o",
+            "src/main.cpp"
         ],
         "directory": "/Users/michael/Documents/WestMech/Spin Up/V1-Pros",
-        "file": "src/declaration.cpp"
+        "file": "src/main.cpp"
     }
 ]

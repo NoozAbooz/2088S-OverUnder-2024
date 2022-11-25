@@ -31,15 +31,33 @@ void opcontrol() {
 			// Michael is hardstuck iron 1
       		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
       			intake.move_voltage(12000);
-			} else {
+			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
+			    intake.brake();
+			}
+
+			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
+      			intake.move_voltage(-12000);
+			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
 			    intake.brake();
 			}
 
 			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
       			flywheel.move_voltage(12000);
-			} else {
+			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
 				flywheel.brake();
       		}
+
+			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+      			flywheel.move_voltage(-12000);
+			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+				flywheel.brake();
+      		}
+
+			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)){
+      			roller.move_voltage(12000);
+			} else {
+			    roller.brake();
+			}
 		}
 
     	pros::delay(20);
