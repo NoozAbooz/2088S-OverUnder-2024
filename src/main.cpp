@@ -21,12 +21,12 @@ void opcontrol() {
 		if(driveMode == 1){
     		int power = controller.get_analog(ANALOG_LEFT_Y);
     		int turn = controller.get_analog(ANALOG_RIGHT_X);
-    		int left = (power - turn) / 1.5;
-    		int right = (power + turn) / 1.5;
-    		frontLeft.move(left);
-			backLeft.move(left);
-    		frontRight.move(right);
-			backRight.move(right);
+    		int left = (power - turn) * (12000 / 127);
+    		int right = (power + turn) * (12000 / 127);
+    		frontLeft.move_voltage(left);
+			backLeft.move_voltage(left);
+    		frontRight.move_voltage(right);
+			backRight.move_voltage(right);
 
 			// Michael is hardstuck iron 1
       		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
