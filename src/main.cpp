@@ -58,6 +58,12 @@ void opcontrol() {
 			} else {
 			    roller.brake();
 			}
+
+			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+      			roller.move_voltage(-12000);
+			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)){
+				roller.brake();
+      		}
 		}
 
     	pros::delay(20);
