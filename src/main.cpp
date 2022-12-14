@@ -28,7 +28,7 @@ void opcontrol() {
     		frontRight.move_voltage(right);
 			backRight.move_voltage(right);
 
-			// Michael is hardstuck iron 1
+			// Individual button code
       		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
       			intake.move_voltage(12000);
 			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
@@ -59,7 +59,7 @@ void opcontrol() {
 			    roller.brake();
 			}
 
-			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
       			roller.move_voltage(-12000);
 			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)){
 				roller.brake();
