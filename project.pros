@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "SpinUp-V1",
+    "project_name": "2088X-V1",
     "target": "v5",
     "templates": {
       "kernel": {
@@ -311,7 +311,7 @@
     "upload_options": {
       "icon": "pros",
       "after": "run",
-      "description": "sussus amogus"
+      "description": "\"It'll work tomorrow\""
     }
   }
 }
