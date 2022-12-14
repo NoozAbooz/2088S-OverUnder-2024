@@ -7,13 +7,14 @@ void opcontrol() {
     	if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)){
       		if(driveMode == 1){
         		driveMode = 0;
-
         		controller.rumble(".");
-
+				controller.set_text(0, 0, "Drive DISABLED");
+				pros::delay(50);
       		} else if(driveMode == 0) {
         		driveMode = 1;
-
         		controller.rumble("-");
+				controller.set_text(0, 0, "DRIVE ENABLED");
+				pros::delay(50);
       		}
     	}
 
@@ -64,8 +65,20 @@ void opcontrol() {
 			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)){
 				roller.brake();
       		}
+
+			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_X)) {
+      			expansion.move_voltage(12000);
+			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_A)){
+				expansion.brake();
+      		}
+
+			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+      			expansion.move_voltage(-12000);
+			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_X)){
+				expansion.brake();
+      		}
 		}
 
-    	pros::delay(20);
+    	pros::delay(50);
   	}
 }

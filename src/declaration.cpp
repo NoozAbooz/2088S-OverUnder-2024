@@ -18,3 +18,6 @@ pros::Motor flywheel(7, pros::E_MOTOR_GEAR_BLUE, false);
 
 // Roller
 pros::Motor roller(12, pros::E_MOTOR_GEAR_GREEN, true);
+
+// Expansion
+pros::Motor expansion(9, pros::E_MOTOR_GEAR_GREEN, false);
