@@ -14,6 +14,3 @@ const char *b[] = {AUTONS, ""};
 void init(int hue = HUE, int default_auton = DEFAULT, const char **autons = b);
 
 }
-//michael is a nerd
-//michael has a small pp
-//michael has no balls
