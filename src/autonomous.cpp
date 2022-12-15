@@ -13,6 +13,31 @@
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
+
+void drivetrainMove(int voltage) {
+	frontLeft.move_voltage(voltage);
+	backLeft.move_voltage(voltage);
+	frontRight.move_voltage(voltage);
+	backRight.move_voltage(voltage);
+}
+
+void drivetrainBrake() {
+	frontLeft.brake();
+	backLeft.brake();
+	frontRight.brake();
+	backRight.brake();
+}
+
+void rollers(int hue) {
+	roller.move_voltage(12000);
+
+	drivetrainMove(3000);
+
+	while(rollerColour.get_hue() == hue) {
+    	roller.brake();
+	}
+}
+
 void autonomous() {
     frontLeft.move_voltage(3000);
 	backLeft.move_voltage(3000);
@@ -29,12 +54,6 @@ void autonomous() {
     intake.move_voltage(-12000);
     pros::delay(2000);
     intake.brake();
-
-    void rollers() {
-        roller.move_voltage(12000);
-        pros::delay(2000);
-        roller.brake();
-    }
 
     /* ADD THE FOLLOWING TO YOUR AUTONOMOUS FUNTION IN MAIN.CPP */
     switch (autonSelection) {

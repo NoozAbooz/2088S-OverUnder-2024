@@ -20,3 +20,6 @@ extern pros::Motor roller;
 
 // Expansion
 extern pros::Motor expansion;
+
+// Roller Colour Sensor
+extern pros::Motor rollerColour;

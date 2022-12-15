@@ -21,3 +21,6 @@ pros::Motor roller(12, pros::E_MOTOR_GEAR_GREEN, true);
 
 // Expansion
 pros::Motor expansion(9, pros::E_MOTOR_GEAR_GREEN, false);
+
+// Roller Colour Sensor
+pros::Optical rollerColour(10);
