@@ -22,8 +22,8 @@ void opcontrol() {
 		if(driveMode == 1){
     		int power = controller.get_analog(ANALOG_LEFT_Y);
     		int turn = controller.get_analog(ANALOG_RIGHT_X);
-    		int left = (power - turn) * (12000 / 127);
-    		int right = (power + turn) * (12000 / 127);
+    		int left = (power - turn) * ((12000 / 127) / 1.2);
+    		int right = (power + turn) * ((12000 / 127) / 1.2);
     		frontLeft.move_voltage(left);
 			backLeft.move_voltage(left);
     		frontRight.move_voltage(right);
@@ -78,7 +78,5 @@ void opcontrol() {
 				expansion.brake();
       		}
 		}
-
-    	pros::delay(50);
   	}
 }
