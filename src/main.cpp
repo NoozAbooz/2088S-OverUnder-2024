@@ -4,19 +4,19 @@ int driveMode = 1;
 
 void opcontrol() {
 	while(true) {
-    	if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
-      		if(driveMode == 1) {
-        		driveMode = 0;
-        		controller.rumble(".");
-				controller.set_text(0, 0, "Drive DISABLED");
-				pros::delay(50);
-      		} else if(driveMode == 0) {
-        		driveMode = 1;
-        		controller.rumble("-");
-				controller.set_text(0, 0, "DRIVE ENABLED");
-				pros::delay(50);
-      		}
-    	}
+    	//if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
+      	//	if(driveMode == 1) {
+        //		driveMode = 0;
+        //		controller.rumble(".");
+		//		controller.set_text(0, 0, "Drive DISABLED");
+		//		pros::delay(50);
+      	//	} else if(driveMode == 0) {
+        //		driveMode = 1;
+        //		controller.rumble("-");
+		//		controller.set_text(0, 0, "DRIVE ENABLED");
+		//		pros::delay(50);
+      	//	}
+    	//}
 
 		// Drive
 		if(driveMode == 1) {

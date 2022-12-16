@@ -100,12 +100,9 @@ void selectorInit(){
 	lv_theme_t *th = lv_theme_nemo_init(286, NULL);
 	lv_theme_set_current(th);
 
-
-
 	// create a tab view object
 	lv_obj_t *tabview;
 	tabview = lv_tabview_create(lv_scr_act(), NULL);
-
 
 	// add 3 tabs (the tabs are page (lv_page) and can be scrolled
 	lv_obj_t *redTab = lv_tabview_add_tab(tabview, "Red");
@@ -130,7 +127,6 @@ void selectorInit(){
 	lv_obj_set_size(blueBtnm, 450, 130);
 	lv_obj_set_pos(blueBtnm, 0, 100);
 	lv_obj_align(blueBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
-
 
 	// skills tab
 	lv_obj_t *skillsBtn = lv_btn_create(skillsTab, NULL);

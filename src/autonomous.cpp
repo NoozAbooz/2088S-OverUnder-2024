@@ -28,12 +28,14 @@ void drivetrainBrake() {
 	backRight.brake();
 }
 
-void rollers(int hue) {
+void rollers(int minHue, int maxHue) {
 	roller.move_voltage(12000);
 
 	drivetrainMove(3000);
+	pros::delay(2000);
+	drivetrainBrake();
 
-	while(rollerColour.get_hue() == hue) {
+	while(!(rollerColour.get_hue() < minHue) && rollerColour.get_hue() <= maxHue) {
     	roller.brake();
 	}
 }
@@ -58,42 +60,42 @@ void autonomous() {
     /* ADD THE FOLLOWING TO YOUR AUTONOMOUS FUNTION IN MAIN.CPP */
     switch (autonSelection) {
 		case RED_1:
-			// Auton function here
+			rollers(0, 30);
 			break;
 		case BLUE_1:
-			// Auton function here
+			rollers(0, 30);
 			break;
 
 		case RED_2:
-            // Auton function here
+            rollers(0, 30);
 			break;
 		case BLUE_2:
-            // Auton function here
+            rollers(0, 30);
 			break;
 			
 		case RED_3:
-            // Auton function here
+            rollers(0, 30);
 			break;
 		case BLUE_3:
-            // Auton function here
+            rollers(0, 30);
 			break;
 			
 		case RED_4:
-            // Auton function here
+            rollers(0, 30);
 			break;
 		case BLUE_4:
-            // Auton function here
+            rollers(0, 30);
 			break;
 			
 		case RED_5:
-            // Auton function here
+            rollers(0, 30);
 			break;
 		case BLUE_5:
-            // Auton function here
+            rollers(0, 30);
 			break;
 			
 		case SKILLS:
-			// Skills function here
+			rollers(0, 30);
 			break;
 	}
 }
