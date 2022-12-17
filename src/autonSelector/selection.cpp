@@ -1,11 +1,10 @@
 /* IMPORTS */
 
-//change these includes to match your project
 #include "main.h"
 #include "selection.h"
 #include "globals.hpp"
 
-/* Set up button map for both red and blue autonomouses */
+/* Set up button map for red and blue autonomouses */
 static const char *btnmMap[] = {"Auton 1", "Auton 2", "Auton 3", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing", ""};
 
 

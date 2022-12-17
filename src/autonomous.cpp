@@ -49,6 +49,7 @@ void autonomous() {
     switch (autonSelection) {
 		case RED_1:
 			rollers(160, 260);
+			
 			break;
 		case BLUE_1:
 			rollers(0, 30);
@@ -84,5 +85,5 @@ void autonomous() {
 	}
 }
 
-160 - 250 blue roller
-000 - 030 red roller
+//160 - 250 blue roller
+//000 - 030 red roller
