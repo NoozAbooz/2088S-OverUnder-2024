@@ -38,60 +38,44 @@ void rollers(int minHue, int maxHue) {
 	while(!(rollerColour.get_hue() < minHue) && rollerColour.get_hue() <= maxHue) {
     	roller.brake();
 	}
+
+
 }
 
 void autonomous() {
-    frontLeft.move_voltage(3000);
-	backLeft.move_voltage(3000);
-    frontRight.move_voltage(3000);
-	backRight.move_voltage(3000);
-
-    pros::delay(2000);
-
-    frontLeft.brake();
-	backLeft.brake();
-    frontRight.brake();
-	backRight.brake();
-
-    intake.move_voltage(-12000);
-    pros::delay(2000);
-    intake.brake();
+    
 
     /* ADD THE FOLLOWING TO YOUR AUTONOMOUS FUNTION IN MAIN.CPP */
     switch (autonSelection) {
 		case RED_1:
-			rollers(0, 30);
+			rollers(160, 260);
 			break;
 		case BLUE_1:
 			rollers(0, 30);
 			break;
 
 		case RED_2:
-            rollers(0, 30);
+            rollers(160, 260);
 			break;
 		case BLUE_2:
             rollers(0, 30);
 			break;
 			
 		case RED_3:
-            rollers(0, 30);
+			rollers(160, 260);
 			break;
 		case BLUE_3:
-            rollers(0, 30);
+			rollers(0, 30);
 			break;
 			
 		case RED_4:
-            rollers(0, 30);
 			break;
 		case BLUE_4:
-            rollers(0, 30);
 			break;
 			
 		case RED_5:
-            rollers(0, 30);
 			break;
 		case BLUE_5:
-            rollers(0, 30);
 			break;
 			
 		case SKILLS:
