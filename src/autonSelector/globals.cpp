@@ -1,4 +1,4 @@
 #include "globals.hpp"
 
 // default auton
-int autonSelection = SKILLS;
+int autonSelection = RED_3;

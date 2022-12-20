@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "2088X-V1",
+    "project_name": "2088X-V2",
     "target": "v5",
     "templates": {
       "kernel": {

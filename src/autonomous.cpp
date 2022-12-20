@@ -1,4 +1,5 @@
 #include "main.h"
+#include "pros/rtos.hpp"
 #include "selection.h"
 #include "globals.hpp"
 
@@ -28,45 +29,54 @@ void drivetrainBrake() {
 	backRight.brake();
 }
 
-void rollers(int minHue, int maxHue) {
-	roller.move_voltage(12000);
+void rollers(int rollerVoltage) {
+	roller.move_voltage(rollerVoltage);
 
-	drivetrainMove(3000);
-	pros::delay(2000);
+	drivetrainMove(6000);
+	pros::delay(220);
 	drivetrainBrake();
-
-	while(!(rollerColour.get_hue() < minHue) && rollerColour.get_hue() <= maxHue) {
-    	roller.brake();
-	}
-
-
+    roller.brake();
+	drivetrainMove(-3000);
+	pros::delay(500);
+	drivetrainBrake();
 }
 
 void autonomous() {
-    
-
     /* ADD THE FOLLOWING TO YOUR AUTONOMOUS FUNTION IN MAIN.CPP */
     switch (autonSelection) {
 		case RED_1:
-			rollers(160, 260);
-			
+			rollers(12000);
 			break;
 		case BLUE_1:
-			rollers(0, 30);
+			rollers(12000);
 			break;
 
 		case RED_2:
-            rollers(160, 260);
+            rollers(-12000);
 			break;
 		case BLUE_2:
-            rollers(0, 30);
+            rollers(-12000);
 			break;
 			
 		case RED_3:
-			rollers(160, 260);
+			drivetrainMove(6000);
+			pros::delay(1000);
+			drivetrainBrake();
+
+			intake.move_voltage(-12000);
+			pros::delay(1000);
+
+			intake.brake();
 			break;
 		case BLUE_3:
-			rollers(0, 30);
+			drivetrainMove(6000);
+			pros::delay(1000);
+			drivetrainBrake();
+
+			intake.move_voltage(-12000);
+			pros::delay(1000);
+
+			intake.brake();
 			break;
 			
 		case RED_4:
@@ -80,7 +90,6 @@ void autonomous() {
 			break;
 			
 		case SKILLS:
-			rollers(0, 30);
 			break;
 	}
 }

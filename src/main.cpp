@@ -22,8 +22,8 @@ void opcontrol() {
 		if(driveMode == 1) {
     		int power = controller.get_analog(ANALOG_LEFT_Y);
     		int turn = controller.get_analog(ANALOG_RIGHT_X);
-    		int left = (power - turn) * ((12000 / 127) / 1.5);
-    		int right = (power + turn) * ((12000 / 127) / 1.5);
+    		int left = (power - turn) * (12000 / 127);
+    		int right = (power + turn) * (12000 / 127);
     		frontLeft.move_voltage(left);
 			backLeft.move_voltage(left);
     		frontRight.move_voltage(right);
@@ -55,26 +55,26 @@ void opcontrol() {
       		}
 
 			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-      			roller.move_voltage(12000);
+      			roller.move_voltage(6000);
 			} else {
 			    roller.brake();
 			}
 
 			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
-      			roller.move_voltage(-12000);
+      			roller.move_voltage(-6000);
 			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)){
 				roller.brake();
       		}
 
-			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_X)) {
+			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
       			expansion.move_voltage(12000);
-			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
 				expansion.brake();
       		}
 
-			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+			if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
       			expansion.move_voltage(-12000);
-			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_X)) {
+			} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
 				expansion.brake();
       		}
 		}
