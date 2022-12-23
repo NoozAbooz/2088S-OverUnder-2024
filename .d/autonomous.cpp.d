@@ -76,8 +76,10 @@ bin/autonomous.cpp.o: src/autonomous.cpp include/main.h include/api.h \
  include/pros/rotation.hpp include/pros/rotation.h include/pros/rtos.hpp \
  include/pros/screen.hpp include/pros/screen.h include/pros/vision.hpp \
  include/pros/vision.h include/pros/link.hpp include/pros/link.h \
- include/declaration.hpp include/main.h include/selection.h \
- include/globals.hpp
+ include/subsystemGlobals/declaration.hpp \
+ include/autonGlobals/autonSelector.h \
+ include/autonGlobals/autonSelector.hpp \
+ include/autonGlobals/autonSelector.hpp
 include/main.h:
 include/api.h:
 include/pros/adi.h:
@@ -231,7 +233,7 @@ include/pros/vision.hpp:
 include/pros/vision.h:
 include/pros/link.hpp:
 include/pros/link.h:
-include/declaration.hpp:
-include/main.h:
-include/selection.h:
-include/globals.hpp:
+include/subsystemGlobals/declaration.hpp:
+include/autonGlobals/autonSelector.h:
+include/autonGlobals/autonSelector.hpp:
+include/autonGlobals/autonSelector.hpp:

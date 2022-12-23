@@ -1,5 +1,4 @@
 #include "main.h"
-#include "selection.h"
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -9,6 +8,9 @@
  */
 void initialize() {
     selectorInit();
+
+    // Set the brake mode for the drive motors
+    roller.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }
 
 /**

@@ -4,5 +4,4 @@
 extern void selectorInit();
 extern int autonSelection;
 
-
 #endif

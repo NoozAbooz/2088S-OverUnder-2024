@@ -1,4 +1,4 @@
-bin/autonSelector/selection.cpp.o: src/autonSelector/selection.cpp \
+bin/core/autonSelector/globals.cpp.o: src/core/autonSelector/globals.cpp \
  include/main.h include/api.h include/pros/adi.h include/pros/colors.h \
  include/pros/distance.h include/pros/error.h include/pros/ext_adi.h \
  include/pros/adi.h include/pros/adi.h include/pros/gps.h \

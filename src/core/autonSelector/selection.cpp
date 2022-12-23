@@ -1,12 +1,7 @@
-/* IMPORTS */
-
 #include "main.h"
-#include "selection.h"
-#include "globals.hpp"
 
 /* Set up button map for red and blue autonomouses */
 static const char *btnmMap[] = {"Auton 1", "Auton 2", "Auton 3", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing", ""};
-
 
 /* Selector code when Red tab is pressed */
 lv_res_t redBtnmAction(lv_obj_t *btnm, const char *txt){
@@ -95,6 +90,7 @@ lv_res_t skillsBtnAction(lv_obj_t *btn)
 
 /* INITIALIZE SELECTOR */
 void selectorInit(){
+
 	// lvgl theme
 	lv_theme_t *th = lv_theme_nemo_init(286, NULL);
 	lv_theme_set_current(th);

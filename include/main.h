@@ -73,8 +73,12 @@ void opcontrol(void);
 
 #ifdef __cplusplus
 
-// Add declarations
-#include "declaration.hpp"
+// declaration
+#include "subsystemGlobals/declaration.hpp"
+
+// autonGlobals
+#include "autonGlobals/autonSelector.h"
+#include "autonGlobals/autonSelector.hpp"
 
 /**
  * You can add C++-only headers here

@@ -19,7 +19,6 @@ pros::Motor flywheel(7, pros::E_MOTOR_GEAR_BLUE, false);
 
 // Roller
 pros::Motor roller(12, pros::E_MOTOR_GEAR_GREEN, true);
-roller.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
 // Expansion
 pros::Motor expansion(9, pros::E_MOTOR_GEAR_GREEN, false);
