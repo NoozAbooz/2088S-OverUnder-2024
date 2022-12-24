@@ -73,10 +73,10 @@ void opcontrol(void);
 
 #ifdef __cplusplus
 
-// declaration
+// Device Init
 #include "subsystemGlobals/declaration.hpp"
 
-// autonGlobals
+// Autonomous Selector
 #include "autonGlobals/autonSelector.h"
 #include "autonGlobals/autonSelector.hpp"
 

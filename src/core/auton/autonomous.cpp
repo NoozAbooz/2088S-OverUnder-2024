@@ -1,5 +1,4 @@
 #include "main.h"
-#include "autonGlobals/autonSelector.hpp"
 #include "pros/rtos.hpp"
 
 /**
@@ -15,6 +14,7 @@
  */
 
 void drivetrainMove(int voltage) {
+	// Drive forward based on voltage
 	frontLeft.move_voltage(voltage);
 	backLeft.move_voltage(voltage);
 	frontRight.move_voltage(voltage);
@@ -22,14 +22,22 @@ void drivetrainMove(int voltage) {
 }
 
 void drivetrainBrake() {
+	// Stop drivetrain
 	frontLeft.brake();
 	backLeft.brake();
 	frontRight.brake();
 	backRight.brake();
 }
 
-void rollers(int rollerVoltage) {
-	roller.move_voltage(rollerVoltage);
+void rollerAuton(std::string colour) {
+	roller.move_voltage(-12000);
+
+	// Spin rollers to proper colour based on voltage and desired colour
+	if (colour == "red") {
+		roller.move_voltage(12000);
+	} else if (colour == "blue") {
+		roller.move_voltage(-12000);
+	}
 
 	drivetrainMove(6000);
 	pros::delay(220);
@@ -41,20 +49,19 @@ void rollers(int rollerVoltage) {
 }
 
 void autonomous() {
-    /* ADD THE FOLLOWING TO YOUR AUTONOMOUS FUNTION IN MAIN.CPP */
     switch (autonSelection) {
 		case RED_1:
-			rollers(12000);
+			rollerAuton(red);
 			break;
 		case BLUE_1:
-			rollers(12000);
+			rollerAuton(red);
 			break;
 
 		case RED_2:
-            rollers(-12000);
+            rollerAuton(blue);
 			break;
 		case BLUE_2:
-            rollers(-12000);
+            rollerAuton(blue);
 			break;
 			
 		case RED_3:

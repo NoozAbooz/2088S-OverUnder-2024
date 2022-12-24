@@ -8,7 +8,7 @@ void opcontrol() {
             timeFlag=pros::millis();
         }
 		
-		// Drive
+		// Drive code
     	int power = controller.get_analog(ANALOG_LEFT_Y);
     	int turn = controller.get_analog(ANALOG_RIGHT_X);
     	int left = (power - turn) * (12000 / 127);
@@ -18,7 +18,7 @@ void opcontrol() {
     	frontRight.move_voltage(right);
 		backRight.move_voltage(right);
 
-		// Individual button code
+		// Subsystem trigger
      	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
       		intake.move_voltage(12000);
 		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
