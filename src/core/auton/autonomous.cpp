@@ -29,15 +29,11 @@ void drivetrainBrake() {
 	backRight.brake();
 }
 
-void rollerAuton(std::string colour) {
+void rollerAuton() {
 	roller.move_voltage(-12000);
 
 	// Spin rollers to proper colour based on voltage and desired colour
-	if (colour == "red") {
-		roller.move_voltage(12000);
-	} else if (colour == "blue") {
-		roller.move_voltage(-12000);
-	}
+	roller.move_voltage(12000);
 
 	drivetrainMove(6000);
 	pros::delay(220);
@@ -51,17 +47,17 @@ void rollerAuton(std::string colour) {
 void autonomous() {
     switch (autonSelection) {
 		case RED_1:
-			rollerAuton(red);
+			rollerAuton();
 			break;
 		case BLUE_1:
-			rollerAuton(red);
+			rollerAuton();
 			break;
 
 		case RED_2:
-            rollerAuton(blue);
+            rollerAuton();
 			break;
 		case BLUE_2:
-            rollerAuton(blue);
+            rollerAuton();
 			break;
 			
 		case RED_3:
