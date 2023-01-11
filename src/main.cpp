@@ -1,13 +1,7 @@
 #include "main.h"
 
 void opcontrol() {
-	auto timeFlag=pros::millis();
 	while(true) {
-		if(pros::millis()-timeFlag>=1000) {
-			controller.print(1, 0, "test");
-            timeFlag=pros::millis();
-        }
-		
 		// Drive code
     	int power = controller.get_analog(ANALOG_LEFT_Y);
     	int turn = controller.get_analog(ANALOG_RIGHT_X);
@@ -67,6 +61,7 @@ void opcontrol() {
 			expansion.brake();
       	}
 		
-		pros::Task::delay_until(&timeFlag, 10);
+		controller.print(1, 0, "Speed: %lf | Temp: %dC", motorSpeed, flywheelTemp);
+		pros::delay(10);
   	}
 }

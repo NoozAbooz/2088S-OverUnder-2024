@@ -32,13 +32,11 @@ void drivetrainBrake() {
 void rollerAuton() {
 	roller.move_voltage(-12000);
 
-	// Spin rollers to proper colour based on voltage and desired colour
-	roller.move_voltage(12000);
-
 	drivetrainMove(6000);
 	pros::delay(220);
 	drivetrainBrake();
     roller.brake();
+
 	drivetrainMove(-3000);
 	pros::delay(500);
 	drivetrainBrake();
@@ -95,6 +93,3 @@ void autonomous() {
 			break;
 	}
 }
-
-//160 - 250 blue roller
-//000 - 030 red roller

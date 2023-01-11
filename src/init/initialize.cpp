@@ -7,9 +7,6 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-    // Initialize the auton selector
-    selectorInit();
-
     // Set the brake mode for the roller
     roller.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }
@@ -33,5 +30,6 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-
+    // Initialize the auton selector
+    selectorInit();
 }
