@@ -1,6 +1,8 @@
 #include "main.h"
 
 void opcontrol() {
+	bool intakeSwitch = false;
+
 	while(true) {
 		// Drive code
     	int power = controller.get_analog(ANALOG_LEFT_Y);
@@ -13,10 +15,10 @@ void opcontrol() {
 		backRight.move_voltage(right);
 
 		// Subsystem trigger
-     	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      		intake.move_voltage(12000);
-		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-		   intake.brake();
+     	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2 or intakeSwitch == true)) {
+      		intake.brake();
+		} else {
+		   intake.move_voltage(12000);
 		}
 
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
