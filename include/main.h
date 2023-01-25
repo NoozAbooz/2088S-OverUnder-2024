@@ -75,16 +75,10 @@ void opcontrol(void);
 
 // Device Init
 #include "subsystemGlobals/declaration.hpp"
-#include "subsystemGlobals/210Y.h"
 
 // Autonomous Selector
 #include "autonGlobals/autonSelector.h"
 #include "autonGlobals/autonSelector.hpp"
-
-// Grafana
-#include "grafana/guimanager.h"
-#include "grafana/variables/variable.h"
-#include "grafana/variables/variablegroup.h"
 
 /**
  * You can add C++-only headers here

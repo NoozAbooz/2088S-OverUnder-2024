@@ -29,11 +29,18 @@ void drivetrainBrake() {
 	backRight.brake();
 }
 
+void drivetrainTurn(int dir) {
+	frontLeft.move_voltage(3000 * dir);
+	backLeft.move_voltage(3000 * dir);
+	frontRight.move_voltage(-3000 * dir);
+	backRight.move_voltage(-3000 * dir);
+}
+
 void rollerAuton() {
-	roller.move_voltage(-12000);
+	roller.move_voltage(3000);
 
 	drivetrainMove(6000);
-	pros::delay(220);
+	pros::delay(500);
 	drivetrainBrake();
     roller.brake();
 

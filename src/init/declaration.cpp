@@ -18,7 +18,7 @@ pros::Motor intake(6, pros::E_MOTOR_GEAR_GREEN, true);
 pros::Motor flywheel(7, pros::E_MOTOR_GEAR_BLUE, false);
 
 // Roller
-pros::Motor roller(13, pros::E_MOTOR_GEAR_GREEN, true);
+pros::Motor roller(19, pros::E_MOTOR_GEAR_GREEN, true);
 
 // Expansion
 pros::Motor expansion(20, pros::E_MOTOR_GEAR_GREEN, false);

@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string>
 
 void opcontrol() {
 	bool intakeSwitch = false;
@@ -40,19 +41,19 @@ void opcontrol() {
       	}
 
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-      		roller.move_voltage(6000);
+      		roller.move_voltage(3000);
 		} else {
 		    roller.brake();
 		}
 
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
-      		roller.move_voltage(-6000);
+      		roller.move_voltage(-3000);
 		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)){
 			roller.brake();
       	}
 
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
-      		expansion.move_voltage(12000);
+      		expansion.move_voltage(6000);
 		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
 			expansion.brake();
       	}
@@ -62,10 +63,9 @@ void opcontrol() {
 		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
 			expansion.brake();
       	}
-
-		// bind shoot func
 		
-		controller.print(1, 0, "Speed: %lf | Temp: %dC", motorSpeed, flywheelTemp);
+		controller.print(1, 0, "%.0f RPM | %.0f°C     ", 100 * round((flywheel.get_actual_velocity() * 5)/100), flywheel.get_temperature());
+
 		pros::delay(10);
   	}
 }
