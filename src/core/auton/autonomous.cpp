@@ -51,11 +51,15 @@ void rollerAuton() {
 
 void autonomous() {
     switch (autonSelection) {
-		case RED_1:
+		case RED_1: BLUE_1:
 			rollerAuton();
-			break;
-		case BLUE_1:
-			rollerAuton();
+
+			drivetrainTurn(-1);
+			pros::delay(1000);
+
+			drivetrainMove(6000);
+			pros::delay(2000);
+			drivetrainBrake();
 			break;
 
 		case RED_2:
@@ -66,16 +70,12 @@ void autonomous() {
 			break;
 			
 		case RED_3:
-			drivetrainMove(6000);
-			pros::delay(1000);
-			drivetrainBrake();
-
-			intake.move_voltage(-12000);
-			pros::delay(1000);
-
-			intake.brake();
+			rollerAuton();
 			break;
 		case BLUE_3:
+			rollerAuton();
+			break;
+		case RED_4:
 			drivetrainMove(6000);
 			pros::delay(1000);
 			drivetrainBrake();
@@ -85,10 +85,15 @@ void autonomous() {
 
 			intake.brake();
 			break;
-			
-		case RED_4:
-			break;
 		case BLUE_4:
+			drivetrainMove(6000);
+			pros::delay(1000);
+			drivetrainBrake();
+
+			intake.move_voltage(-12000);
+			pros::delay(1000);
+
+			intake.brake();
 			break;
 			
 		case RED_5:

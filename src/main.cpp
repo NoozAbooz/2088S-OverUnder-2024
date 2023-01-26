@@ -16,51 +16,35 @@ void opcontrol() {
 		backRight.move_voltage(right);
 
 		// Subsystem trigger
-     	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2 or intakeSwitch == true)) {
-      		intake.brake();
+     	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
+      		intake.move_voltage(12000);
+		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+	  		intake.move_voltage(-12000);
 		} else {
-		   intake.move_voltage(12000);
-		}
-
-		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-      		intake.move_voltage(-12000);
-		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
 		    intake.brake();
 		}
-
+		
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
       		flywheel.move_voltage(12000);
-		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-			flywheel.brake();
-      	}
-
-		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-      		flywheel.move_voltage(-12000);
-		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
+		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+			flywheel.move_voltage(-12000);
+		} else {
 			flywheel.brake();
       	}
 
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
       		roller.move_voltage(3000);
+		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y)){
+			roller.move_voltage(-3000);
 		} else {
 		    roller.brake();
 		}
 
-		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
-      		roller.move_voltage(-3000);
-		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)){
-			roller.brake();
-      	}
-
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
-      		expansion.move_voltage(6000);
-		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-			expansion.brake();
-      	}
-
-		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-      		expansion.move_voltage(-12000);
-		} else if(!controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
+      		expansion.move_voltage(12000);
+		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+			expansion.move_voltage(-12000);
+		} else {
 			expansion.brake();
       	}
 		
