@@ -33,9 +33,9 @@ void opcontrol() {
       	}
 
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-      		roller.move_voltage(3000);
+      		roller.move_voltage(6000);
 		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y)){
-			roller.move_voltage(-3000);
+			roller.move_voltage(-6000);
 		} else {
 		    roller.brake();
 		}
@@ -48,7 +48,7 @@ void opcontrol() {
 			expansion.brake();
       	}
 		
-		controller.print(1, 0, "%.0f RPM | %.0f°C     ", 100 * round((flywheel.get_actual_velocity() * 5)/100), flywheel.get_temperature());
+		controller.print(1, 0, "%.0f RPM %.0f°C %.0f°C   ", (100 * round((flywheel.get_actual_velocity() * 5)/100)), flywheel.get_temperature(), frontLeft.get_temperature());
 
 		pros::delay(10);
   	}

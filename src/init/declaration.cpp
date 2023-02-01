@@ -21,7 +21,7 @@ pros::Motor flywheel(7, pros::E_MOTOR_GEAR_BLUE, false);
 pros::Motor roller(19, pros::E_MOTOR_GEAR_GREEN, true);
 
 // Expansion
-pros::Motor expansion(20, pros::E_MOTOR_GEAR_GREEN, false);
+pros::Motor expansion(20, pros::E_MOTOR_GEAR_RED, false);
 
 // Roller Colour Sensor
-pros::Optical rollerColour(10);
+//pros::Optical rollerColour(10);

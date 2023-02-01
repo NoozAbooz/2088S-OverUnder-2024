@@ -79,7 +79,8 @@ bin/core/autonSelector/selection.cpp.o: \
  include/pros/vision.h include/pros/link.hpp include/pros/link.h \
  include/subsystemGlobals/declaration.hpp \
  include/autonGlobals/autonSelector.h \
- include/autonGlobals/autonSelector.hpp
+ include/autonGlobals/autonSelector.hpp \
+ include/autonGlobals/autonomous.hpp
 include/main.h:
 include/api.h:
 include/pros/adi.h:
@@ -236,3 +237,4 @@ include/pros/link.h:
 include/subsystemGlobals/declaration.hpp:
 include/autonGlobals/autonSelector.h:
 include/autonGlobals/autonSelector.hpp:
+include/autonGlobals/autonomous.hpp:

@@ -13,12 +13,15 @@
  * from where it left off.
  */
 
-void drivetrainMove(int voltage) {
+void drivetrainMove(int voltage, int time) {
 	// Drive forward based on voltage
 	frontLeft.move_voltage(voltage);
 	backLeft.move_voltage(voltage);
 	frontRight.move_voltage(voltage);
 	backRight.move_voltage(voltage);
+
+	pros::delay(time);
+	drivetrainBrake();
 }
 
 void drivetrainBrake() {
@@ -29,44 +32,67 @@ void drivetrainBrake() {
 	backRight.brake();
 }
 
-void drivetrainTurn(int dir) {
-	frontLeft.move_voltage(3000 * dir);
-	backLeft.move_voltage(3000 * dir);
-	frontRight.move_voltage(-3000 * dir);
-	backRight.move_voltage(-3000 * dir);
+void drivetrainTurn(int dir, int time) {
+	frontLeft.move_voltage(-3000 * dir);
+	backLeft.move_voltage(-3000 * dir);
+	frontRight.move_voltage(3000 * dir);
+	backRight.move_voltage(3000 * dir);
+
+	pros::delay(time);
+	drivetrainBrake();
 }
 
 void rollerAuton() {
-	roller.move_voltage(3000);
+	roller.move_voltage(-6000);
 
-	drivetrainMove(6000);
-	pros::delay(500);
-	drivetrainBrake();
+	drivetrainMove(6000, 800);
     roller.brake();
 
-	drivetrainMove(-3000);
-	pros::delay(500);
-	drivetrainBrake();
+	drivetrainMove(-3000, 200);
+}
+
+void dispenseDiscs() {
+	// Dispense discs
+	intake.move_voltage(-12000);
+	pros::delay(6000);
+	intake.brake();
 }
 
 void autonomous() {
     switch (autonSelection) {
-		case RED_1: BLUE_1:
+		case RED_1:
 			rollerAuton();
 
-			drivetrainTurn(-1);
-			pros::delay(1000);
+			drivetrainTurn(-1, 2200);
 
-			drivetrainMove(6000);
-			pros::delay(2000);
-			drivetrainBrake();
+			drivetrainMove(4000, 3200);
+
+			dispenseDiscs();
 			break;
+		case BLUE_1:
+			rollerAuton();
 
+			drivetrainTurn(-1, 2200);
+
+			drivetrainMove(4000, 3200);
+
+			dispenseDiscs();
+			break;
 		case RED_2:
-            rollerAuton();
+            drivetrainMove(3000, 2100);
+			drivetrainTurn(1, 2000);
+			drivetrainMove(2000, 2000);
+
+			rollerAuton();
+
+			drivetrainMove(-2000, 500);
+			drivetrainTurn(1, 2000);
+			drivetrainMove(4000, 3200);
+
+			dispenseDiscs();
 			break;
 		case BLUE_2:
-            rollerAuton();
+            
 			break;
 			
 		case RED_3:
@@ -76,23 +102,17 @@ void autonomous() {
 			rollerAuton();
 			break;
 		case RED_4:
-			drivetrainMove(6000);
-			pros::delay(1000);
-			drivetrainBrake();
+			drivetrainMove(6000, 1000);
 
 			intake.move_voltage(-12000);
-			pros::delay(1000);
-
+			pros::delay(6000);
 			intake.brake();
 			break;
 		case BLUE_4:
-			drivetrainMove(6000);
-			pros::delay(1000);
-			drivetrainBrake();
+			drivetrainMove(6000, 1000);
 
 			intake.move_voltage(-12000);
-			pros::delay(1000);
-
+			pros::delay(6000);
 			intake.brake();
 			break;
 			

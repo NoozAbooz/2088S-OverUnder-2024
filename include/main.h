@@ -79,6 +79,7 @@ void opcontrol(void);
 // Autonomous Selector
 #include "autonGlobals/autonSelector.h"
 #include "autonGlobals/autonSelector.hpp"
+#include "autonGlobals/autonomous.hpp"
 
 /**
  * You can add C++-only headers here

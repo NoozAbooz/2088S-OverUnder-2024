@@ -1,3 +1,3 @@
 #include "main.h"
 
-int autonSelection = RED_3; // specifies the default auton selected
+int autonSelection = RED_2; // specifies the default auton selected
