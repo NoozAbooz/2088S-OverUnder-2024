@@ -92,9 +92,18 @@ void autonomous() {
 			dispenseDiscs();
 			break;
 		case BLUE_2:
-            
+            drivetrainMove(3000, 2100);
+			drivetrainTurn(1, 2000);
+			drivetrainMove(2000, 2000);
+
+			rollerAuton();
+
+			drivetrainMove(-2000, 500);
+			drivetrainTurn(1, 2000);
+			drivetrainMove(4000, 3200);
+
+			dispenseDiscs();
 			break;
-			
 		case RED_3:
 			rollerAuton();
 			break;
