@@ -1,5 +1,7 @@
 #include "main.h"
 
+int autonSelection = RED_1; // specifies the default auton selected
+
 /* Set up button map for red and blue autonomouses */
 static const char *btnmMap[] = {"Auton 1", "Auton 2", "Auton 3", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing", ""};
 

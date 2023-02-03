@@ -60,72 +60,58 @@ void dispenseDiscs() {
 
 void autonomous() {
     switch (autonSelection) {
-		case RED_1:
+		case RED_1: // Within auton starting line, facing rollers
+			// Move forward, spin rollers, move back
 			rollerAuton();
 
+			// Turn left 90 deg
 			drivetrainTurn(-1, 2200);
-
+			// Drive into low goal
 			drivetrainMove(4000, 3200);
 
+			// Dispense discs
 			dispenseDiscs();
 			break;
-		case BLUE_1:
-			rollerAuton();
-
-			drivetrainTurn(-1, 2200);
-
-			drivetrainMove(4000, 3200);
-
-			dispenseDiscs();
-			break;
-		case RED_2:
+		case RED_2: // Outside auton starting line
+			// Navigate from starting line to roller
             drivetrainMove(3000, 2100);
 			drivetrainTurn(1, 2000);
 			drivetrainMove(2000, 2000);
 
+			// Spin rollers
 			rollerAuton();
 
+			// Turn and drive into low goal
 			drivetrainMove(-2000, 500);
 			drivetrainTurn(1, 2000);
 			drivetrainMove(4000, 3200);
 
-			dispenseDiscs();
-			break;
-		case BLUE_2:
-            drivetrainMove(3000, 2100);
-			drivetrainTurn(1, 2000);
-			drivetrainMove(2000, 2000);
-
-			rollerAuton();
-
-			drivetrainMove(-2000, 500);
-			drivetrainTurn(1, 2000);
-			drivetrainMove(4000, 3200);
-
+			// Dispense discs
 			dispenseDiscs();
 			break;
 		case RED_3:
-			rollerAuton();
-			break;
-		case BLUE_3:
+			// Pure roller auton only
 			rollerAuton();
 			break;
 		case RED_4:
+			// Pure low goal dispense only
 			drivetrainMove(6000, 1000);
 
 			intake.move_voltage(-12000);
 			pros::delay(6000);
 			intake.brake();
+			break;
+
+		// Unused blue autons
+		case RED_5:
+			break;
+		case BLUE_1:
+			break;
+		case BLUE_2:
+			break;
+		case BLUE_3:
 			break;
 		case BLUE_4:
-			drivetrainMove(6000, 1000);
-
-			intake.move_voltage(-12000);
-			pros::delay(6000);
-			intake.brake();
-			break;
-			
-		case RED_5:
 			break;
 		case BLUE_5:
 			break;
