@@ -33,22 +33,22 @@ void drivetrainBrake() {
 }
 
 void drivetrainTurn(int dir, int time) {
-	frontLeft.move_voltage(-3000 * dir);
-	backLeft.move_voltage(-3000 * dir);
-	frontRight.move_voltage(3000 * dir);
-	backRight.move_voltage(3000 * dir);
+	frontLeft.move_voltage(-6000 * dir);
+	backLeft.move_voltage(-6000 * dir);
+	frontRight.move_voltage(6000 * dir);
+	backRight.move_voltage(6000 * dir);
 
 	pros::delay(time);
 	drivetrainBrake();
 }
 
 void rollerAuton() {
-	roller.move_voltage(-6000);
+	roller.move_voltage(-5000);
 
-	drivetrainMove(6000, 800);
+	drivetrainMove(6000, 1000);
     roller.brake();
 
-	drivetrainMove(-3000, 200);
+	drivetrainMove(-3000, 1000);
 }
 
 void dispenseDiscs() {
@@ -65,9 +65,9 @@ void autonomous() {
 			rollerAuton();
 
 			// Turn left 90 deg
-			drivetrainTurn(-1, 2200);
+			drivetrainTurn(-1, 690);
 			// Drive into low goal
-			drivetrainMove(4000, 3200);
+			drivetrainMove(4000, 4000);
 
 			// Dispense discs
 			dispenseDiscs();

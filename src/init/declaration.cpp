@@ -15,7 +15,7 @@ pros::Motor backRight(5, pros::E_MOTOR_GEAR_GREEN, false);
 pros::Motor intake(6, pros::E_MOTOR_GEAR_GREEN, true);
 
 // Flywheel
-pros::Motor flywheel(7, pros::E_MOTOR_GEAR_BLUE, false);
+pros::Motor flywheel(8, pros::E_MOTOR_GEAR_BLUE, false);
 
 // Roller
 pros::Motor roller(19, pros::E_MOTOR_GEAR_GREEN, true);
@@ -24,4 +24,4 @@ pros::Motor roller(19, pros::E_MOTOR_GEAR_GREEN, true);
 pros::Motor expansion(20, pros::E_MOTOR_GEAR_RED, false);
 
 // Roller Colour Sensor
-//pros::Optical rollerColour(10);
+pros::Optical rollerColour(13);
