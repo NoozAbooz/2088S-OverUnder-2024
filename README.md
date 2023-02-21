@@ -7,7 +7,7 @@
     <img src="https://static.wixstatic.com/media/c5567e_903085760f6440b3958a1139b64c2b04~mv2.png/v1/fit/w_2500,h_1330,al_c/c5567e_903085760f6440b3958a1139b64c2b04~mv2.png" alt="Logo" width="200">
   </a>
 
-<h1 align="center">2023 Spin Up Robot</h1>
+<h1 align="center">Spin Up V3</h1>
 
   <p align="center">
     VRC Team 2088X - "It'll Work Tomorrow"
@@ -23,7 +23,7 @@
 
 <!-- ABOUT THE REPOSITORY -->
 ## About The Repository
-This code was built for VRC Spin Up. Our robot has a single flywheel shooting mechanism, linear puncher expansion and lots of scuffed design choices.
+This code was built for VRC Spin Up. Our robot has a catapult mechanism, string expansion and lots of scuffed design choices.
 
 <!-- GETTING STARTED -->
 ## Getting Started
