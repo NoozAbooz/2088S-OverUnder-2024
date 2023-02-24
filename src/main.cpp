@@ -17,13 +17,13 @@ void opcontrol() {
 		    intake.brake();
 		}
 		
-		// Flywheel
+		// Catapult
 		if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-      		flywheel.move_voltage(12000);
+      		catapult.move_voltage(12000);
 		} else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-			flywheel.move_voltage(-12000);
+			catapult.move_voltage(-12000);
 		} else {
-			flywheel.brake();
+			catapult.brake();
       	}
 
 		// Roller
