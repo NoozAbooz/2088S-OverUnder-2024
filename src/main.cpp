@@ -23,7 +23,7 @@ void opcontrol() {
 		    intake.brake();
 		}
 		
-		// Flywheel
+		// Catapult
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
       		flywheel.move_voltage(12000);
 		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
