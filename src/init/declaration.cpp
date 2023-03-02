@@ -8,20 +8,21 @@ pros::Controller controller(pros::E_CONTROLLER_MASTER);
 // Drivetrain
 pros::Motor frontLeft(2, pros::E_MOTOR_GEAR_GREEN, true);
 pros::Motor frontRight(3, pros::E_MOTOR_GEAR_GREEN, false);
-pros::Motor backLeft(4, pros::E_MOTOR_GEAR_GREEN, true);
-pros::Motor backRight(5, pros::E_MOTOR_GEAR_GREEN, false);
+pros::Motor backLeft(12, pros::E_MOTOR_GEAR_GREEN, true);
+pros::Motor backRight(13, pros::E_MOTOR_GEAR_GREEN, false);
 
 // Intake
-pros::Motor intake(6, pros::E_MOTOR_GEAR_GREEN, true);
+pros::Motor intake(14, pros::E_MOTOR_GEAR_BLUE, true);
 
-// Flywheel
-pros::Motor flywheel(8, pros::E_MOTOR_GEAR_BLUE, false);
+// Catapult
+pros::Motor catapult(20, pros::E_MOTOR_GEAR_RED, false);
 
 // Roller
-pros::Motor roller(19, pros::E_MOTOR_GEAR_GREEN, true);
+pros::Motor roller(5, pros::E_MOTOR_GEAR_GREEN, true);
 
 // Expansion
-pros::Motor expansion(20, pros::E_MOTOR_GEAR_RED, false);
+pros::Motor expansion(19, pros::E_MOTOR_GEAR_RED, false);
 
-// Roller Colour Sensor
-pros::Optical rollerColour(13);
+// Catapult Sensor
+pros::ADIAnalogIn cataStatus(H);
+cataStatus.calibrate();

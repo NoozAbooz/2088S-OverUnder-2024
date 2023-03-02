@@ -15,8 +15,8 @@ extern pros::Motor intake;
 // Flywheel
 extern pros::Motor flywheel;
 
-// Roller
-extern pros::Motor roller;
+// Catapult
+extern pros::Motor catapult;
 
 // Expansion
 extern pros::Motor expansion;
