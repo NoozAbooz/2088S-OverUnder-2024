@@ -25,11 +25,11 @@ void opcontrol() {
 		
 		// Catapult
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-      		flywheel.move_voltage(12000);
+      		catapult.move_voltage(12000);
 		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-			flywheel.move_voltage(-12000);
+			catapult.move_voltage(-12000);
 		} else {
-			flywheel.brake();
+			catapult.brake();
       	}
 
 		// Roller
@@ -50,7 +50,7 @@ void opcontrol() {
 			expansion.brake();
       	}
 		
-		controller.print(1, 0, "%.0f RPM %.0f°C %.0f°C     ", (100 * round((flywheel.get_actual_velocity() * 5)/100)), flywheel.get_temperature(), frontLeft.get_temperature());
+		controller.print(1, 0, "%.0f %.0f°C %.0f°C     ", cataStatus.get_value(), expansion.get_temperature(), frontLeft.get_temperature());
 
 		pros::delay(10);
   	}

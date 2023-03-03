@@ -1,8 +1,6 @@
 #include "main.h"
 #include "pros/rtos.hpp"
 
-#define
-
 void drivetrainMove(int voltage, int time) {
 	// Drive forward based on voltage
 	frontLeft.move_voltage(voltage);

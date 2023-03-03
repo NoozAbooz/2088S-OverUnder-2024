@@ -310,7 +310,7 @@
     },
     "upload_options": {
       "icon": "pros",
-      "after": "none",
+      "after": "run",
       "description": "\"It'll Work Tomorrow\""
     }
   }
