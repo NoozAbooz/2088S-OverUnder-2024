@@ -43,9 +43,9 @@ void opcontrol() {
 
 		// Expansion
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
-      		expansion.move_voltage(7000);
+      		expansion.move_voltage(12000);
 		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-			expansion.move_voltage(-4000);
+			expansion.move_voltage(-12000);
 		} else {
 			expansion.brake();
       	}
