@@ -78,8 +78,7 @@ bin/init/initialize.cpp.o: src/init/initialize.cpp include/main.h \
  include/pros/vision.h include/pros/link.hpp include/pros/link.h \
  include/subsystemGlobals/declaration.hpp \
  include/autonGlobals/autonSelector.h \
- include/autonGlobals/autonSelector.hpp \
- include/autonGlobals/autonomous.hpp
+ include/autonGlobals/autonSelector.hpp
 include/main.h:
 include/api.h:
 include/pros/adi.h:
@@ -236,4 +235,3 @@ include/pros/link.h:
 include/subsystemGlobals/declaration.hpp:
 include/autonGlobals/autonSelector.h:
 include/autonGlobals/autonSelector.hpp:
-include/autonGlobals/autonomous.hpp:
