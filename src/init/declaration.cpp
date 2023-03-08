@@ -21,7 +21,3 @@ pros::Motor roller(5, pros::E_MOTOR_GEAR_GREEN, true);
 
 // Expansion
 pros::Motor expansion(19, pros::E_MOTOR_GEAR_RED, false);
-
-// Catapult Sensor
-#define CATA_SENSOR_PORT 'H'
-pros::ADIDigitalIn cataStatus(CATA_SENSOR_PORT);

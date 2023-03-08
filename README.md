@@ -3,27 +3,27 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/2088X">
+  <a href="https://github.com/2088S">
     <img src="https://static.wixstatic.com/media/c5567e_903085760f6440b3958a1139b64c2b04~mv2.png/v1/fit/w_2500,h_1330,al_c/c5567e_903085760f6440b3958a1139b64c2b04~mv2.png" alt="Logo" width="200">
   </a>
 
 <h1 align="center">2023 Spin Up Robot</h1>
 
   <p align="center">
-    VRC Team 2088X - "It'll Work Tomorrow"
+    VRC Team 2088S - "us"
     <br/>
-    1st year VEX team based in Calgary, Alberta
+    1st year MS VEX team based in Calgary, Alberta
     <br/>
     Part of the Western Mechatronics Robotics Club
     <br/>
     <br/>
-    <a href="https://www.robotevents.com/teams/VRC/2088X">RobotEvents</a>
+    <a href="https://www.robotevents.com/teams/VRC/2088S">RobotEvents</a>
   </p>
 </div>
 
-<!-- ABOUT THE REPOSITORY -->
+<!-- ABOUT THE REPOSITORY
 ## About The Repository
-This code was built for VRC Spin Up. Our robot has a single flywheel shooting mechanism, linear puncher expansion and lots of scuffed design choices.
+This code was built for VRC Spin Up. Our robot has a single flywheel shooting mechanism, linear puncher expansion and lots of scuffed design choices.-->
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -35,7 +35,7 @@ These steps detail how to build and run the code locally. Because this code does
 ### Installation
 1. Clone the repo
    ```sh
-   git clone https://github.com/2088X/VRC-SpinUp-2023.git
+   git clone https://github.com/NoozSBC/VRC-SpinUp-2023.git
    ```
 2. Open the project in VSCode
 3. Build and deploy the code to your robot (`pros mu`)
