@@ -1,3 +1,5 @@
 .cache/
 .vscode/
 bin/
+.d/
+bin/
