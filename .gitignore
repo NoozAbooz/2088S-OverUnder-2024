@@ -15,3 +15,6 @@ temp.log
 temp.errors
 *.ini
 .d/
+.DS_Store
+docs/.DS_Store
+docs/

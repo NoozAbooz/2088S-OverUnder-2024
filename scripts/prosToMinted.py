@@ -61,6 +61,7 @@ def main():
             or ('include' and 'output') in components
             or 'cquery_cached_index' in components
             or (not 'include') in components
+            or '.cache' in components
             or '.vscode' in components):
                 continue
 
@@ -127,7 +128,6 @@ def main():
     '''
     # Create Path objects to the output zip and the temp folder containing all the assets
     zip_dest = docs_dest / "output.zip"
-
 
     # create a ZipFile object with the provided parameters
     zipf = zipfile.ZipFile(str(zip_dest), mode='w', compression=zipfile.ZIP_DEFLATED)
