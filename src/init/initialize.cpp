@@ -10,6 +10,9 @@ void initialize() {
     // Set the brake mode for the roller
     roller.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     //expansion.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+
+    // Initialize the auton selector
+    selectorInit();
 }
 
 /**
@@ -31,6 +34,5 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-    // Initialize the auton selector
-    selectorInit();
+
 }
