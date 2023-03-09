@@ -135,13 +135,15 @@ def main():
     # Function (defined above) recursively writes each file to the zip
     zip_source_truncated = Path('.') / 'output'
     zipdir(str(zip_source_truncated), zipf)
-    zipf.close()
 
     # Recursively delete output folder once we have zipped it
     try:
         rmtree(str(zip_source_truncated))
     except OSError as e:
         print(e)
+
+    zipf.extractall("/Users/michael/Documents/WestMech/Spin Up/docs/")
+    zipf.close()
 
     print("\033[92m" + "Success! Find your zip at: docs/output.zip" + "\033[0m")
     print("Upload the zip directly to overleaf and let it compile into a PDF!")

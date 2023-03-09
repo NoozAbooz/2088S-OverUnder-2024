@@ -1,5 +1,4 @@
 #include "main.h"
-#include "pros/motors.h"
 
 // Controller
 pros::Controller controller(pros::E_CONTROLLER_MASTER);

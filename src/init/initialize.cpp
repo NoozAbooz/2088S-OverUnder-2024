@@ -1,5 +1,4 @@
 #include "main.h"
-#include "pros/rtos.hpp"
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
