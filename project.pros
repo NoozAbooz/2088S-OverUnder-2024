@@ -189,8 +189,9 @@
       }
     },
     "upload_options": {
-      "description": "\"It'll Work Tomorrow\"",
-      "icon": "X"
+      "icon": "pros",
+      "after": "run",
+      "description": "\"It'll Work Tomorrow\""
     }
   }
 }

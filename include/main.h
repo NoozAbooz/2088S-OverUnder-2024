@@ -79,6 +79,14 @@ void opcontrol(void);
 #endif
 
 #ifdef __cplusplus
+
+// Device Init
+#include "subsystemGlobals/declaration.hpp"
+
+// Autonomous Selector
+#include "autonGlobals/autonSelector.h"
+#include "autonGlobals/autonSelector.hpp"
+
 /**
  * You can add C++-only headers here
  */
