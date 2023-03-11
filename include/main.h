@@ -4,7 +4,7 @@
  * Contains common definitions and header files used throughout your PROS
  * project.
  *
- * Copyright (c) 2017-2021, Purdue University ACM SIGBots.
+ * Copyright (c) 2017-2022, Purdue University ACM SIGBots.
  * All rights reserved.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
@@ -35,19 +35,13 @@
 #define PROS_USE_LITERALS
 
 #include "api.h"
+#include "sylib/sylib.hpp"
 
 /**
  * You should add more #includes here
  */
 //#include "okapi/api.hpp"
 //#include "pros/api_legacy.h"
-#include "EZ-Template/api.hpp"
-#include "autons.hpp"
-#include "subsystems.hpp"
-
-// More includes here...
-//
-// . . .
 
 /**
  * If you find doing pros::Motor() to be tedious and you'd prefer just to do
@@ -79,14 +73,6 @@ void opcontrol(void);
 #endif
 
 #ifdef __cplusplus
-
-// Device Init
-#include "subsystemGlobals/declaration.hpp"
-
-// Autonomous Selector
-#include "autonGlobals/autonSelector.h"
-#include "autonGlobals/autonSelector.hpp"
-
 /**
  * You can add C++-only headers here
  */

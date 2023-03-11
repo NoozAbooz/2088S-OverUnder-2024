@@ -28,6 +28,12 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
+
+#include "vector"
+#include "variant"
+#include "array"
+#include "map"
+#include "string"
 #else /* (not) __cplusplus */
 #include <errno.h>
 #include <math.h>
@@ -41,8 +47,8 @@
 
 #define PROS_VERSION_MAJOR 3
 #define PROS_VERSION_MINOR 7
-#define PROS_VERSION_PATCH 3
-#define PROS_VERSION_STRING "3.7.3"
+#define PROS_VERSION_PATCH 2
+#define PROS_VERSION_STRING "3.7.2"
 
 #include "pros/adi.h"
 #include "pros/colors.h"

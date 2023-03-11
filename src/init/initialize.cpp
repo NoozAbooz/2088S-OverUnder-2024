@@ -1,3 +1,10 @@
+/**
+ * @file main.cpp
+ * @author Michael Zheng
+ * @brief Extra code that runs on robot init (mainly auton selector)
+ * @date 2023-03-10
+ */
+
 #include "main.h"
 
 /**
@@ -7,9 +14,11 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-    // Set the brake mode for the roller
-    roller.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-    //expansion.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    // Init LEDs
+    sylib::initialize();
+
+    // Calibrate chassis
+    chassis.calibrate();
 
     // Initialize the auton selector
     selectorInit();
@@ -34,5 +43,6 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-
+    // Initialize the auton selector
+    selectorInit();
 }

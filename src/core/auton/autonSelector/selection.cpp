@@ -1,13 +1,19 @@
+/**
+ * @file main.cpp
+ * @author Michael Zheng
+ * @brief Main auton select on the brain, built using LVGL
+ * @date 2023-03-10
+ */
+
 #include "main.h"
 
 int autonSelection = RED_3; // specifies the default auton selected
 
-/* Set up button map for red and blue autonomouses */
+/* Set up button map for red and blue autonomous */
 static const char *btnmMap[] = {"Auton 1", "Auton 2", "Auton 3", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing", ""};
 
 /* Selector code when Red tab is pressed */
 lv_res_t redBtnmAction(lv_obj_t *btnm, const char *txt){
-	printf("red button: %s released\n", txt);
 	lv_theme_t *th = lv_theme_nemo_init(0, NULL);
 	lv_theme_set_current(th);
 	if (strcmp(txt, "Auton 1") == 0)
@@ -35,7 +41,7 @@ lv_res_t redBtnmAction(lv_obj_t *btnm, const char *txt){
 		autonSelection = NOTHING;
 	}
 
-	return LV_RES_OK; // return OK because the button matrix is not deleted
+	return LV_RES_OK;
 }
 
 
@@ -83,31 +89,27 @@ lv_res_t skillsBtnAction(lv_obj_t *btn)
 	lv_theme_set_current(th);
 	
 	lv_style_scr.body.main_color = LV_COLOR_BLACK; 
-	
-	printf("skills pressed");
+
 	autonSelection = SKILLS;
 	return LV_RES_OK;
 }
 
 
-/* INITIALIZE SELECTOR */
+/* Init selector */
 void selectorInit(){
 
 	// lvgl theme
 	lv_theme_t *th = lv_theme_nemo_init(286, NULL);
 	lv_theme_set_current(th);
-
-	// create a tab view object
 	lv_obj_t *tabview;
 	tabview = lv_tabview_create(lv_scr_act(), NULL);
 
-	// add 3 tabs (the tabs are page (lv_page) and can be scrolled
-	lv_obj_t *redTab = lv_tabview_add_tab(tabview, "Red");
-	lv_obj_t *blueTab = lv_tabview_add_tab(tabview, "Blue");
+	// Add 3 tabs
+	lv_obj_t *redTab = lv_tabview_add_tab(tabview, "Solo");
+	lv_obj_t *blueTab = lv_tabview_add_tab(tabview, "Duo");
 	lv_obj_t *skillsTab = lv_tabview_add_tab(tabview, "Skills");
 
-	// add content to the tabs
-	// button matrix
+	// Red tab
 	lv_obj_t *redBtnm = lv_btnm_create(redTab, NULL);
 	lv_btnm_set_map(redBtnm, btnmMap);
 	lv_btnm_set_action(redBtnm, redBtnmAction);
@@ -116,7 +118,7 @@ void selectorInit(){
 	lv_obj_set_pos(redBtnm, 0, 100);
 	lv_obj_align(redBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
 
-	// blue tab
+	// Blue tab
 	lv_obj_t *blueBtnm = lv_btnm_create(blueTab, NULL);
 	lv_btnm_set_map(blueBtnm, btnmMap);
 	lv_btnm_set_action(blueBtnm, blueBtnmAction);
@@ -125,7 +127,7 @@ void selectorInit(){
 	lv_obj_set_pos(blueBtnm, 0, 100);
 	lv_obj_align(blueBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
 
-	// skills tab
+	// Skills tab
 	lv_obj_t *skillsBtn = lv_btn_create(skillsTab, NULL);
 	lv_obj_t *label = lv_label_create(skillsBtn, NULL);
 	lv_label_set_text(label, "Skills");

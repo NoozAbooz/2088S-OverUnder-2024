@@ -55,9 +55,11 @@ def main():
             # It is good convention to keep all your header files in include/
             # Sub directories within include/ will still be found
             if('api.h' in components
-            or ('include' and 'pros') in components
-            or ('include' and 'okapi') in components
             or ('include' and 'display') in components
+            or ('include' and 'gif-pros') in components
+            or ('include' and 'lemlib') in components
+            or ('include' and 'pros') in components
+            or ('include' and 'sylib') in components
             or ('include' and 'output') in components
             or 'cquery_cached_index' in components
             or (not 'include') in components
@@ -115,11 +117,13 @@ def main():
         f.write("\\documentclass{article}\n"
                  + "\\usepackage[utf8]{inputenc}\n"
                  + "\\usepackage[margin=1in]{geometry}\n"
-                 + "\\title{" + PROJECT_NAME + "}\n"
-                 + "\\author{LAST_FIRST}\n"
-                 + "\\date{MONTH_YEAR}\n"
+                 + "\\title{2088S Programming Logbook}\n"
+                 + "\\author{Michael Zheng}\n"
+                 + "\\date{Apr 2023}\n"
                  + "\\usepackage{minted}\n"
                  + "\\begin{document}\n\n"
+                 + "\\maketitle\n\n"
+                 + "\\tableofcontents\n\n"  
                  + "\\input{wrapper.tex}\n\n"
                  + "\\end{document}")
 
@@ -142,7 +146,7 @@ def main():
     except OSError as e:
         print(e)
 
-    zipf.extractall("/Users/michael/Documents/WestMech/Spin Up/docs/")
+    #zipf.extractall("/Users/michael/Documents/WestMech/Spin Up/docs/")
     zipf.close()
 
     print("\033[92m" + "Success! Find your zip at: docs/output.zip" + "\033[0m")
