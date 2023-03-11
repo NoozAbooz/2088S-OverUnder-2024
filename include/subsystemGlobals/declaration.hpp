@@ -28,5 +28,11 @@ extern pros::Motor catapult;
 // Inertial
 extern pros::Imu inertial;
 
+<<<<<<< Updated upstream
 // Cata Rotation
 extern pros::ADIDigitalIn cataRot;
+=======
+// Cata Sensor
+extern pros::ADIDigitalIn cataStatus;
+//karl is a black monkey
+>>>>>>> Stashed changes
