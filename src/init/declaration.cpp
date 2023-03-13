@@ -12,29 +12,31 @@
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-pros::Motor frontLeft(2, pros::E_MOTOR_GEAR_GREEN, false);
+pros::Motor frontLeft(1, pros::E_MOTOR_GEAR_GREEN, false);
+pros::Motor midLeft(2, pros::E_MOTOR_GEAR_GREEN, false);
 pros::Motor backLeft(3, pros::E_MOTOR_GEAR_GREEN, false);
-pros::Motor frontRight(13, pros::E_MOTOR_GEAR_GREEN, true);
-pros::Motor backRight(14, pros::E_MOTOR_GEAR_GREEN, true);
+pros::Motor frontRight(4, pros::E_MOTOR_GEAR_GREEN, true);
+pros::Motor midRight(5, pros::E_MOTOR_GEAR_GREEN, true);
+pros::Motor backRight(6, pros::E_MOTOR_GEAR_GREEN, true);
 
-pros::MotorGroup leftSide({frontLeft, backLeft});
-pros::MotorGroup rightSide({frontRight, backRight});
+pros::MotorGroup leftSide({frontLeft, midLeft, backLeft});
+pros::MotorGroup rightSide({frontRight, midRight, backRight});
 
 // Intake
-pros::Motor intake(15, pros::E_MOTOR_GEAR_BLUE, false);
+pros::Motor intake(14, pros::E_MOTOR_GEAR_BLUE, false);
 
 // Catapult
-pros::Motor catapult(20, pros::E_MOTOR_GEAR_RED, true);
+pros::Motor catapult(9, pros::E_MOTOR_GEAR_RED, true);
 
 // LED Lights
 auto bodyLED = sylib::Addrled(1, 3, 64);
 
 /* Declare sensors */
 // Inertial
-pros::Imu inertial(2);
+pros::Imu inertial(17);
 
 // Cata Rotation
-pros::ADIAnalogIn cataRot();
+pros::ADIAnalogIn cataRot(A);
 
 // left tracking wheel encoder
 pros::ADIEncoder left_enc('A', 'B', true); // ports A and B, reversed
@@ -64,7 +66,7 @@ lemlib::OdomSensors_t sensors {
     &right_tracking_wheel, // vertical tracking wheel 2
     &back_tracking_wheel, // horizontal tracking wheel 1
     nullptr, // we don't have a second tracking wheel, so we set it to nullptr
-    &inertial_sensor // inertial sensor
+    &inertial // inertial sensor
 };
 
 /* PID Calibration */

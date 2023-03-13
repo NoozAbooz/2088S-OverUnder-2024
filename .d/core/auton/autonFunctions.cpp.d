@@ -76,10 +76,17 @@ bin/core/auton/autonFunctions.cpp.o: src/core/auton/autonFunctions.cpp \
  include/pros/rotation.hpp include/pros/rotation.h include/pros/rtos.hpp \
  include/pros/screen.hpp include/pros/screen.h include/pros/vision.hpp \
  include/pros/vision.h include/pros/link.hpp include/pros/link.h \
- include/subsystemGlobals/declaration.hpp \
- include/autonGlobals/autonSelector.h \
- include/autonGlobals/autonSelector.hpp \
- include/autonGlobals/autonomous.hpp
+ include/subsystemGlobals/declaration.hpp include/sylib/sylib.hpp \
+ include/sylib/addrled.hpp include/sylib/env.hpp \
+ include/sylib/pros_includes.h include/api.h \
+ include/sylib/sylib_apitypes.hpp include/sylib/system.hpp \
+ include/sylib/math.hpp include/sylib/motor.hpp include/lemlib/api.hpp \
+ include/lemlib/util.hpp include/lemlib/pid.hpp include/lemlib/pose.hpp \
+ include/lemlib/chassis/trackingWheel.hpp include/pros/motors.hpp \
+ include/pros/adi.hpp include/pros/rotation.hpp \
+ include/lemlib/chassis/odom.hpp include/lemlib/chassis/chassis.hpp \
+ include/pros/imu.hpp include/autonGlobals/autonSelector.h \
+ include/autonGlobals/autonSelector.hpp include/autonGlobals/autons.hpp
 include/main.h:
 include/api.h:
 include/pros/adi.h:
@@ -234,6 +241,26 @@ include/pros/vision.h:
 include/pros/link.hpp:
 include/pros/link.h:
 include/subsystemGlobals/declaration.hpp:
+include/sylib/sylib.hpp:
+include/sylib/addrled.hpp:
+include/sylib/env.hpp:
+include/sylib/pros_includes.h:
+include/api.h:
+include/sylib/sylib_apitypes.hpp:
+include/sylib/system.hpp:
+include/sylib/math.hpp:
+include/sylib/motor.hpp:
+include/lemlib/api.hpp:
+include/lemlib/util.hpp:
+include/lemlib/pid.hpp:
+include/lemlib/pose.hpp:
+include/lemlib/chassis/trackingWheel.hpp:
+include/pros/motors.hpp:
+include/pros/adi.hpp:
+include/pros/rotation.hpp:
+include/lemlib/chassis/odom.hpp:
+include/lemlib/chassis/chassis.hpp:
+include/pros/imu.hpp:
 include/autonGlobals/autonSelector.h:
 include/autonGlobals/autonSelector.hpp:
-include/autonGlobals/autonomous.hpp:
+include/autonGlobals/autons.hpp:

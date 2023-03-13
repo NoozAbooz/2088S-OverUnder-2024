@@ -12,12 +12,16 @@ extern pros::Controller controller;
 
 // Drivetrain
 extern pros::Motor frontLeft;
+extern pros::Motor midLeft;
 extern pros::Motor backLeft;
 extern pros::Motor frontRight;
+extern pros::Motor midRight;
 extern pros::Motor backRight;
 
 extern pros::MotorGroup leftSide;
 extern pros::MotorGroup rightSide;
+
+extern lemlib::Chassis chassis;
 
 // Intake
 extern pros::Motor intake;
@@ -28,11 +32,5 @@ extern pros::Motor catapult;
 // Inertial
 extern pros::Imu inertial;
 
-<<<<<<< Updated upstream
-// Cata Rotation
-extern pros::ADIDigitalIn cataRot;
-=======
 // Cata Sensor
 extern pros::ADIDigitalIn cataStatus;
-//karl is a black monkey
->>>>>>> Stashed changes

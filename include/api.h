@@ -46,15 +46,9 @@
 #endif /* __cplusplus */
 
 #define PROS_VERSION_MAJOR 3
-<<<<<<< Updated upstream
-#define PROS_VERSION_MINOR 7
-#define PROS_VERSION_PATCH 2
-#define PROS_VERSION_STRING "3.7.2"
-=======
 #define PROS_VERSION_MINOR 8
 #define PROS_VERSION_PATCH 0
 #define PROS_VERSION_STRING "3.8.0"
->>>>>>> Stashed changes
 
 #include "pros/adi.h"
 #include "pros/colors.h"
