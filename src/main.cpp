@@ -12,6 +12,9 @@
 #include "gif-pros/gifclass.hpp"
 
 void opcontrol() {
+	//-- Booleans //--
+	bool cataLoaded = false;
+
 	//-- Render funny gif on screen //--
 	lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
 	lv_obj_set_size(obj, 185, 147);
@@ -29,28 +32,29 @@ void opcontrol() {
 		rightSide.move_voltage(right);
 
 		//-- Subsystem controls //--
-
 		// Intake/Roller
-     	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
+     	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
       		intake.move_voltage(12000);
-		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
 	  		intake.move_voltage(-12000);
 		} else {
 		    intake.brake();
 		}
 		
 		// Catapult/Expansion
-		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-      		catapult.move_voltage(6000);
-		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-			catapult.move_voltage(-10000);
-		} else {
+		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && cataLoaded == true) {
+      		catapult.move_voltage(12000);
+			cataLoaded = false;
+		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+			catapult.move_voltage(-12000);
+		} else if(cataLoaded == true) {
 			catapult.brake();
       	}
 		
 		//-- Print debug info to controller //--
 		controller.print(1, 0, "%.0f°C %.0f°C %.0f°C     ", catapult.get_temperature(), intake.get_temperature(), leftSide.get_temperatures());
 
+		// Delay to prevent overloading brain :)
 		pros::delay(10);
   	}
 }

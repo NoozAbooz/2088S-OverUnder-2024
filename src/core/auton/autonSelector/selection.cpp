@@ -9,22 +9,22 @@
 
 int autonSelection = RED_3; // specifies the default auton selected
 
-/* Set up button map for red and blue autonomous */
-static const char *btnmMap[] = {"Auton 1", "Auton 2", "Auton 3", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing", ""};
+/* Set up button map for autonomous */
+static const char *btnmMap[] = {"Rollers + 3 Disc", "Rollers + 3 Disc", "Rollers + Low Goal", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing", ""};
 
 /* Selector code when Red tab is pressed */
 lv_res_t redBtnmAction(lv_obj_t *btnm, const char *txt){
 	lv_theme_t *th = lv_theme_nemo_init(0, NULL);
 	lv_theme_set_current(th);
-	if (strcmp(txt, "Auton 1") == 0)
+	if (strcmp(txt, "Rollers + 3 Disc") == 0)
 	{
 		autonSelection = RED_1;
 	}
-	if (strcmp(txt, "Auton 2") == 0)
+	if (strcmp(txt, "Rollers + 3 Disc") == 0)
 	{
 		autonSelection = RED_2;
 	}
-	if (strcmp(txt, "Auton 3") == 0)
+	if (strcmp(txt, "Rollers + Low Goal") == 0)
 	{
 		autonSelection = RED_3;
 	}
@@ -96,7 +96,6 @@ lv_res_t skillsBtnAction(lv_obj_t *btn)
 
 /* Init selector */
 void selectorInit(){
-
 	// lvgl theme
 	lv_theme_t *th = lv_theme_nemo_init(286, NULL);
 	lv_theme_set_current(th);

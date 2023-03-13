@@ -36,4 +36,6 @@ extern pros::Motor catapult;
 extern pros::Imu inertial;
 
 // Cata Sensor
-extern pros::ADIAnalogIn cataRot;
+extern pros::ADIPotentiometer cataRot;
+#define CATA_POTENTIOMETER_PORT 'A'
+#define POTENTIOMETER_TYPE pros::E_ADI_POT_EDR

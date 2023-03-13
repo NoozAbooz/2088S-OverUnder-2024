@@ -2,3 +2,5 @@
 
 void rollerAuton();
 void dispenseDiscs();
+
+void reloadCata();

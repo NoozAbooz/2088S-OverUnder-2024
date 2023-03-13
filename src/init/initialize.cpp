@@ -14,13 +14,13 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-    // Init LEDs
+    // Init outer LEDs
     sylib::initialize();
 
-    // Calibrate chassis
+    // Calibrate chassis inertial sensor
     chassis.calibrate();
 
-    // Initialize the auton selector
+    // Initialize the auton selector screen on brain LCD
     selectorInit();
 }
 
@@ -43,6 +43,6 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-    // Initialize the auton selector
+    // Initialize the auton selector on brain LCD
     selectorInit();
 }
