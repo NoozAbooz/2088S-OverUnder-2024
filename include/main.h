@@ -35,7 +35,6 @@
 #define PROS_USE_LITERALS
 
 #include "api.h"
-#include "sylib/sylib.hpp"
 
 /**
  * You should add more #includes here
@@ -73,6 +72,17 @@ void opcontrol(void);
 #endif
 
 #ifdef __cplusplus
+
+// Device Init
+#include "subsystemGlobals/declaration.hpp"
+#include "sylib/sylib.hpp"
+#include "lemlib/api.hpp"
+
+// Autonomous Selector
+#include "autonGlobals/autonSelector.h"
+#include "autonGlobals/autonSelector.hpp"
+#include "autonGlobals/autons.hpp"
+
 /**
  * You can add C++-only headers here
  */

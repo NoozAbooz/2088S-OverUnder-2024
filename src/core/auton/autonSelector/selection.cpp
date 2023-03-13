@@ -44,7 +44,6 @@ lv_res_t redBtnmAction(lv_obj_t *btnm, const char *txt){
 	return LV_RES_OK;
 }
 
-
 /* Selector code when Blue tab is pressed */
 lv_res_t blueBtnmAction(lv_obj_t *btnm, const char *txt)
 {
