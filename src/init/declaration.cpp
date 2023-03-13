@@ -29,14 +29,15 @@ pros::Motor intake(14, pros::E_MOTOR_GEAR_BLUE, false);
 pros::Motor catapult(9, pros::E_MOTOR_GEAR_RED, true);
 
 // LED Lights
-auto bodyLED = sylib::Addrled(1, 3, 64);
+auto bodyLED = sylib::Addrled(1, 3, 64); 
 
 /* Declare sensors */
 // Inertial
 pros::Imu inertial(17);
 
 // Cata Rotation
-pros::ADIAnalogIn cataRot(A);
+#define CATA_POTENTIOMETER_PORT 'A'
+pros::ADIAnalogIn cataRot(CATA_POTENTIOMETER_PORT);
 
 // left tracking wheel encoder
 pros::ADIEncoder left_enc('A', 'B', true); // ports A and B, reversed

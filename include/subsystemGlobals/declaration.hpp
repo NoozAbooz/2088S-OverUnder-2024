@@ -5,7 +5,10 @@
  * @date 2023-03-10
  */
 
+#pragma once
+
 #include "main.h"
+#include "lemlib/api.hpp"
 
 // Controller
 extern pros::Controller controller;
@@ -33,4 +36,4 @@ extern pros::Motor catapult;
 extern pros::Imu inertial;
 
 // Cata Sensor
-extern pros::ADIDigitalIn cataStatus;
+extern pros::ADIAnalogIn cataRot;
