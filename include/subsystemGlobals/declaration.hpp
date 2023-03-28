@@ -15,10 +15,8 @@ extern pros::Controller controller;
 
 // Drivetrain
 extern pros::Motor frontLeft;
-extern pros::Motor midLeft;
 extern pros::Motor backLeft;
 extern pros::Motor frontRight;
-extern pros::Motor midRight;
 extern pros::Motor backRight;
 
 extern pros::MotorGroup leftSide;

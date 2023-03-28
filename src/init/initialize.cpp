@@ -19,6 +19,7 @@ void initialize() {
 
     // Calibrate chassis inertial sensor
     chassis.calibrate();
+    chassis.setPose(0, 0, 0);
 
     // Initialize the auton selector screen on brain LCD
     selectorInit();

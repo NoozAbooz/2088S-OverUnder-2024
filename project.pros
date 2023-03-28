@@ -311,7 +311,8 @@
     "upload_options": {
       "icon": "pros",
       "after": "run",
-      "description": "\"Straitis"
+      "description": "Straitis",
+      "slot": 1
     }
   }
 }
