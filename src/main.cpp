@@ -23,7 +23,7 @@ void opcontrol() {
 	Gif gif("/usd/sus.gif", obj);
 
 	while(true) {
-		//-- Main drive code //--
+		//-- Main drive code - Split Arcade Drive //--
     	int power = controller.get_analog(ANALOG_LEFT_Y);
     	int turn = controller.get_analog(ANALOG_RIGHT_X);
     	int left = (power + turn) * (12000 / 127);

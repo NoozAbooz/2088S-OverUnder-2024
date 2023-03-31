@@ -23,20 +23,21 @@ pros::MotorGroup leftSide({frontLeft, midLeft, backLeft});
 pros::MotorGroup rightSide({frontRight, midRight, backRight});
 
 // Intake
-pros::Motor intake(14, pros::E_MOTOR_GEAR_BLUE, false);
+pros::Motor intake(14, pros::E_MOTOR_GEAR_GREEN, false);
 
 // Catapult
 pros::Motor catapult(9, pros::E_MOTOR_GEAR_RED, true);
 
 // LED Lights
-auto bodyLED = sylib::Addrled(22, "B", 64); // Smart expander port, ADI port,number, # of pixels
+auto bodyLED = sylib::Addrled(22, "B", 64); // Smart expander port, ADI port, # of pixels
 
 /* Declare sensors */
 // Inertial
 pros::Imu inertial(17);
 
-// Cata Rotation
+// Cata Position
 pros::ADIPotentiometer cataRot(CATA_POTENTIOMETER_PORT);
+pros::ADIAnalogIn cataPosition();
 
 // Horizontal tracking wheel encoder
 pros::ADIEncoder horizontalTrackingWheel('C', 'D', false);

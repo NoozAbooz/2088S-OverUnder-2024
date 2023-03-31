@@ -106,6 +106,7 @@ void selectorInit(){
 	lv_obj_t *redTab = lv_tabview_add_tab(tabview, "Solo");
 	lv_obj_t *blueTab = lv_tabview_add_tab(tabview, "Duo");
 	lv_obj_t *skillsTab = lv_tabview_add_tab(tabview, "Skills");
+	lv_obj_t *testTab = lv_tabview_add_tab(tabview, "Test");
 
 	// Red tab
 	lv_obj_t *redBtnm = lv_btnm_create(redTab, NULL);
@@ -134,4 +135,16 @@ void selectorInit(){
 	lv_obj_set_size(skillsBtn, 450, 50);
 	lv_obj_set_pos(skillsBtn, 0, 100);
 	lv_obj_align(skillsBtn, NULL, LV_ALIGN_CENTER, 0, 0);
+
+	// Testing tab
+	lv_obj_t *testBtn = lv_btn_create(testTab, NULL);
+	lv_obj_t *label = lv_label_create(testBtn, NULL);
+
+	lv_obj_t *testBtnm = lv_btnm_create(testTab, NULL);
+	lv_btnm_set_map(redBtnm, btnmMap);
+	lv_btnm_set_action(redBtnm, redBtnmAction);
+	lv_btnm_set_toggle(redBtnm, true, 3);//3
+	lv_obj_set_size(redBtnm, 450, 130);
+	lv_obj_set_pos(redBtnm, 0, 100);
+	lv_obj_align(redBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
 }

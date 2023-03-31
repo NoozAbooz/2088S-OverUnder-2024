@@ -57,9 +57,9 @@ def main():
             if('api.h' in components
             or ('include' and 'display') in components
             or ('include' and 'gif-pros') in components
-            or ('include' and 'lemlib') in components
+            #or ('include' and 'lemlib') in components
             or ('include' and 'pros') in components
-            or ('include' and 'sylib') in components
+            #or ('include' and 'sylib') in components
             or ('include' and 'output') in components
             or 'cquery_cached_index' in components
             or (not 'include') in components
