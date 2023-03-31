@@ -6,6 +6,7 @@
  */
 
 #include "main.h"
+#include "subsystemGlobals/declaration.hpp"
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -19,40 +20,43 @@
  * from where it left off.
  */
 
-void autonomous() {
-    switch (autonSelection) {
-		case RED_1: // Within auton starting line, facing rollers
-
-			break;
-		case RED_2: // Outside auton starting line
-
-			break;
-		case RED_3:
-
-			break;
-		case RED_4:
-
-			break;
-
-		// Unused blue autons
-		case RED_5:
-			break;
-		case BLUE_1:
-			break;
-		case BLUE_2:
-			break;
-		case BLUE_3:
-			break;
-		case BLUE_4:
-			break;
-		case BLUE_5:
-			break;
-			
-		case SKILLS:
-
-			break;
-	}
-}
+//void autonomous() {
+//    switch (autonSelection) {
+//		// Solo autons
+//		case RED_1: // Main auton - 2 rollers, 
+//
+//			break;
+//		case RED_2: // Outside auton starting line
+//
+//			break;
+//		case RED_3:
+//
+//			break;
+//		case RED_4:
+//
+//			break;
+//
+//		case RED_5:
+//			chassis.moveTo(20, 20, 2000);
+//			break;
+//
+//		// Duo
+//		case BLUE_1:
+//			break;
+//		case BLUE_2:
+//			break;
+//		case BLUE_3:
+//			break;
+//		case BLUE_4:
+//			break;
+//		case BLUE_5:
+//			break;
+//			
+//		case SKILLS:
+//
+//			break;
+//	}
+//}
 
 //void autonomous() {
 //	roller.move_voltage(-5000);
@@ -78,3 +82,8 @@ void autonomous() {
 //	frontRight.brake();
 //	backRight.brake();
 //}
+
+void autonomous() {
+	chassis.moveTo(0, 5, 5000, 50);
+}	
+

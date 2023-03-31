@@ -16,11 +16,12 @@ void opcontrol() {
 	bool cataLoaded = false;
 
 	//-- Render funny gif on screen //--
+	lv_obj_clean(lv_scr_act());
 	lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
-	lv_obj_set_size(obj, 185, 147);
-	lv_obj_set_style(obj, &lv_style_transp);
+	lv_obj_set_size(obj, 500, 500);
+	//lv_obj_set_style(obj, &lv_style_transp);
 	lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 0, 0);
-	Gif gif("/usd/sus.gif", obj);
+	Gif gif("/usd/sus/shid.gif", obj);
 
 	while(true) {
 		//-- Main drive code - Split Arcade Drive //--

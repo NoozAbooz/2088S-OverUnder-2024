@@ -7,7 +7,7 @@
 
 #include "main.h"
 
-int autonSelection = RED_3; // specifies the default auton selected
+int autonSelection = RED_5; // specifies the default auton selected
 
 /* Set up button map for autonomous */
 static const char *btnmMap[] = {"Rollers + 3 Disc", "Rollers + 3 Disc", "Rollers + Low Goal", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing", ""};
