@@ -34,5 +34,3 @@ void dispenseDiscs() {
 	pros::delay(6000);
 	intake.brake();
 }
-
-GROUP PHOTO

@@ -84,6 +84,7 @@
 //}
 
 void autonomous() {
+	chassis.setPose(0, 0, 0);
 	chassis.moveTo(0, 5, 5000, 50);
 }	
 

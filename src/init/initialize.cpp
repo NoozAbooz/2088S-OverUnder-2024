@@ -16,10 +16,10 @@
 void initialize() {
     // Init outer LEDs
     sylib::initialize();
+    bodyLED.gradient(0xda8d53, 0x9e93ac);
 
     // Calibrate chassis inertial sensor
     chassis.calibrate();
-    chassis.setPose(0, 0, 0);
 
     // Initialize the auton selector screen on brain LCD
     selectorInit();
