@@ -14,7 +14,10 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-    // Init outer LEDs
+	//-- Booleans //--
+	bool cataLoaded = false;
+
+    // Init LEDs
     sylib::initialize();
     bodyLED.gradient(0xda8d53, 0x9e93ac);
 

@@ -16,7 +16,7 @@ static const char *btnmMap[] = {"Rollers + 3 Disc", "Rollers + 3 Disc", "Rollers
 lv_res_t redBtnmAction(lv_obj_t *btnm, const char *txt){
 	lv_theme_t *th = lv_theme_nemo_init(0, NULL);
 	lv_theme_set_current(th);
-	if (strcmp(txt, "Rollers + 3 Disc") == 0)
+	if (strcmp(txt, "Roller + 6") == 0)
 	{
 		autonSelection = RED_1;
 	}

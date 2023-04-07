@@ -9,12 +9,15 @@
 
 // Auto-reload the catapult
 void reloadCata() {
-	while (cataRot.get_angle() < 75) {
-		catapult.move_voltage(12000);
+	if (cataLoaded == false) {
+		while(cataPosition.get_value() > 800) {
+    		catapult.move_voltage(8000);
+  		}
+
+		// Set cataLoaded to true
+		cataLoaded = true;
 	}
-	if (cataRot.get_angle() >= 75) {
-		
-	}
+	
 }
 
 // Spin rollers

@@ -9,12 +9,7 @@
 #include "pros/rtos.hpp"
 #include <string>
 
-#include "gif-pros/gifclass.hpp"
-
 void opcontrol() {
-	//-- Booleans //--
-	bool cataLoaded = false;
-
 	//-- Render funny gif on screen //--
 	lv_obj_clean(lv_scr_act());
 	lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
@@ -24,7 +19,7 @@ void opcontrol() {
 	Gif gif("/usd/sus/shid.gif", obj);
 
 	while(true) {
-		//-- Main drive code - Split Arcade Drive //--
+		//-- Main drive code - Split Arcade Format //--
     	int power = controller.get_analog(ANALOG_LEFT_Y);
     	int turn = controller.get_analog(ANALOG_RIGHT_X);
     	int left = (power + turn) * (12000 / 127);
@@ -45,11 +40,12 @@ void opcontrol() {
 		// Catapult/Expansion
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && cataLoaded == true) {
       		catapult.move_voltage(12000);
+			pros::delay(1000);
+
 			cataLoaded = false;
-		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-			catapult.move_voltage(-12000);
-		} else if(cataLoaded == true) {
-			catapult.brake();
+			loadCatapult();
+		} else if(cataLoaded == false) {
+			break;
       	}
 		
 		//-- Print debug info to controller //--

@@ -7,68 +7,56 @@
 
 #include "main.h"
 
-/* Declare main ports */
+/* Declare functional components */
 // Controller
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-//pros::Motor frontLeft(1, pros::E_MOTOR_GEAR_BLUE, false);
-//pros::Motor backLeft(2, pros::E_MOTOR_GEAR_BLUE, false);
-//pros::Motor frontRight(3, pros::E_MOTOR_GEAR_BLUE, true);
-//pros::Motor backRight(4, pros::E_MOTOR_GEAR_BLUE, true);
-
-pros::Motor frontLeft(19, pros::E_MOTOR_GEAR_GREEN, false);
-pros::Motor backLeft(11, pros::E_MOTOR_GEAR_GREEN, false);
-pros::Motor frontRight(16, pros::E_MOTOR_GEAR_GREEN, true);
-pros::Motor backRight(10, pros::E_MOTOR_GEAR_GREEN, true);
+pros::Motor frontLeft(1, pros::E_MOTOR_GEAR_BLUE, false);
+pros::Motor backLeft(2, pros::E_MOTOR_GEAR_BLUE, false);
+pros::Motor frontRight(3, pros::E_MOTOR_GEAR_BLUE, true);
+pros::Motor backRight(4, pros::E_MOTOR_GEAR_BLUE, true);
 
 pros::MotorGroup leftSide({frontLeft, backLeft});
 pros::MotorGroup rightSide({frontRight, backRight});
 
 // Intake
-pros::Motor intake(15, pros::E_MOTOR_GEAR_BLUE, false);
+pros::Motor intake(5, pros::E_MOTOR_GEAR_GREEN, false);
 
 // Catapult
-pros::Motor catapult(9, pros::E_MOTOR_GEAR_RED, true);
+pros::Motor catapult(6, pros::E_MOTOR_GEAR_RED, true);
 
 // LED Lights
-auto bodyLED = sylib::Addrled(22, 5, 64); // Smart expander port, ADI port,number, # of pixels
+auto bodyLED = sylib::Addrled(22, 4, 64); // Smart expander port, ADI port,number, # of pixels
 
 /* Declare sensors */
 // Inertial
-pros::Imu inertial(14);
+pros::Imu inertialSensor(11);
 
 // Cata Position
-pros::ADIPotentiometer cataRot(CATA_POTENTIOMETER_PORT);
-pros::ADIAnalogIn cataPosition();
+pros::ADIAnalogIn cataPosition('A');
 
 // Horizontal tracking wheel encoder
-pros::ADIEncoder verticalTrackingWheel('G', 'H', true);
-pros::Rotation horizontalTrackingWheel(5, true);
+pros::ADIEncoder trackingWheel('B', 'C', true);
 
 /* Auton setup with lemlib */
 // Setup drivetrain
 lemlib::Drivetrain_t drivetrain {
     &leftSide,
     &rightSide,
-    //15, // Chassis width
-    //3.25, // Wheel diameter
-    //360 // Wheel rpm (after gear ratio)
-
-    17.5, // Chassis width
-    4, // Wheel diameter
-    600 // Wheel rpm (after gear ratio)
+    15, // Chassis width
+    3.25, // Wheel diameter
+    360 // Wheel rpm (after gear ratio)
 };
 
 // Tracking wheel info
-lemlib::TrackingWheel vertical_tracking_wheel(&verticalTrackingWheel, 2.75, -1);
-lemlib::TrackingWheel horizontal_tracking_wheel(&horizontalTrackingWheel, 2.75, 1);
+lemlib::TrackingWheel horizontal_tracking_wheel(&trackingWheel, 2.75, 1);
 lemlib::OdomSensors_t sensors {
     nullptr,
     nullptr,
     &horizontal_tracking_wheel,
     nullptr,
-    &inertial
+    &inertialSensor
 };
 
 /* PID Calibration */
