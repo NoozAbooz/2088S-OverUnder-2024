@@ -10,13 +10,13 @@
 int autonSelection = RED_5; // specifies the default auton selected
 
 /* Set up button map for autonomous */
-static const char *btnmMap[] = {"Rollers + 3 Disc", "Rollers + 3 Disc", "Rollers + Low Goal", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing", ""};
+static const char *btnmMap[] = {"Rollers + 3 Disc", "Rollers + 3 Disc", "Rollers + Low Goal", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing"};
 
 /* Selector code when Red tab is pressed */
 lv_res_t redBtnmAction(lv_obj_t *btnm, const char *txt){
 	lv_theme_t *th = lv_theme_nemo_init(0, NULL);
 	lv_theme_set_current(th);
-	if (strcmp(txt, "Roller + 6") == 0)
+	if (strcmp(txt, "Roller + 6") == 0) 
 	{
 		autonSelection = RED_1;
 	}
