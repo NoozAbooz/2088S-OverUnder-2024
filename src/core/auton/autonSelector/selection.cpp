@@ -137,14 +137,21 @@ void selectorInit(){
 	lv_obj_align(skillsBtn, NULL, LV_ALIGN_CENTER, 0, 0);
 
 	// Testing tab
-	lv_obj_t *testBtn = lv_btn_create(testTab, NULL);
-	lv_obj_t *label = lv_label_create(testBtn, NULL);
-
 	lv_obj_t *testBtnm = lv_btnm_create(testTab, NULL);
-	lv_btnm_set_map(redBtnm, btnmMap);
-	lv_btnm_set_action(redBtnm, redBtnmAction);
-	lv_btnm_set_toggle(redBtnm, true, 3);//3
-	lv_obj_set_size(redBtnm, 450, 130);
-	lv_obj_set_pos(redBtnm, 0, 100);
-	lv_obj_align(redBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
+	lv_btnm_set_map(testBtnm, testBtnmMap);
+	lv_btnm_set_action(testBtnm, testBtnmAction);
+	lv_btnm_set_toggle(testBtnm, true, 3);//3
+	lv_obj_set_size(testBtnm, 450, 130);
+	lv_obj_set_pos(testBtnm, 0, 100);
+	lv_obj_align(testBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
+
+	// Skills tab
+	lv_obj_t *testBtn = lv_btn_create(skillsTab, NULL);
+	lv_obj_t *test = lv_label_create(skillsBtn, NULL);
+	lv_label_set_text(label, "Skills");
+	lv_btn_set_action(skillsBtn, LV_BTN_ACTION_CLICK, skillsBtnAction);
+	// lv_btn_set_state(skillsBtn, LV_BTN_STATE_TGL_REL);
+	lv_obj_set_size(skillsBtn, 450, 50);
+	lv_obj_set_pos(skillsBtn, 0, 100);
+	lv_obj_align(skillsBtn, NULL, LV_ALIGN_CENTER, 0, 0);
 }
