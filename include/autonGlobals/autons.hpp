@@ -3,4 +3,4 @@
 void rollerAuton();
 void dispenseDiscs();
 
-void reloadCata();
+void loadCatapult();

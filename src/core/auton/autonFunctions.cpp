@@ -8,11 +8,13 @@
 #include "main.h"
 
 // Auto-reload the catapult
-void reloadCata() {
+void loadCatapult() {
 	if (cataLoaded == false) {
-		while(cataPosition.get_value() > 800) {
+		while(cataPosition.get_value() > 2800) {
     		catapult.move_voltage(8000);
-  		}
+		}
+
+		catapult.brake();
 
 		// Set cataLoaded to true
 		cataLoaded = true;

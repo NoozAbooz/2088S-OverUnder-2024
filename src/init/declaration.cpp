@@ -8,30 +8,39 @@
 #include "main.h"
 
 /* Declare functional components */
+
+//-- Booleans //--
+bool cataLoaded = false;
+
 // Controller
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-pros::Motor frontLeft(20, pros::E_MOTOR_GEAR_BLUE, false);
-pros::Motor backLeft(19, pros::E_MOTOR_GEAR_BLUE, false);
-pros::Motor frontRight(18, pros::E_MOTOR_GEAR_BLUE, true);
-pros::Motor backRight(17, pros::E_MOTOR_GEAR_BLUE, true);
-//hail hitler
+pros::Motor frontLeft(20, pros::E_MOTOR_GEAR_BLUE, true);
+pros::Motor backLeft(19, pros::E_MOTOR_GEAR_BLUE, true);
+pros::Motor frontRight(18, pros::E_MOTOR_GEAR_BLUE, false);
+pros::Motor backRight(17, pros::E_MOTOR_GEAR_BLUE, false);
+
 pros::MotorGroup leftSide({frontLeft, backLeft});
 pros::MotorGroup rightSide({frontRight, backRight});
 
 // Intake
-pros::Motor intake(10, pros::E_MOTOR_GEAR_GREEN, false);
+pros::Motor intake(10, pros::E_MOTOR_GEAR_GREEN, true);
 
 // Catapult
-pros::Motor catapult(6, pros::E_MOTOR_GEAR_RED, true);
+pros::Motor catapultLeft(6, pros::E_MOTOR_GEAR_RED, false);
+pros::Motor catapultRight(7, pros::E_MOTOR_GEAR_RED, true);
+pros::MotorGroup catapult({catapultLeft, catapultRight});
+
+// Expansion
+pros::Motor expansion(2, pros::E_MOTOR_GEAR_RED, false);
 
 // LED Lights
 auto bodyLED = sylib::Addrled(22, 4, 64); // Smart expander port, ADI port,number, # of pixels
 
 /* Declare sensors */
 // Inertial
-pros::Imu inertialSensor(13);
+pros::Imu inertialSensor(1);
 
 // Cata Position
 pros::ADIAnalogIn cataPosition('A');

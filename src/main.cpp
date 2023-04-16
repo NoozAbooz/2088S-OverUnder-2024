@@ -6,17 +6,20 @@
  */
 
 #include "main.h"
+#include "declaration.hpp"
 #include "pros/rtos.hpp"
 #include <string>
 
 void opcontrol() {
 	//-- Render funny gif on screen //--
-	lv_obj_clean(lv_scr_act());
-	lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
-	lv_obj_set_size(obj, 500, 500);
+	//lv_obj_clean(lv_scr_act());
+	//lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
+	//lv_obj_set_size(obj, 500, 500);
 	//lv_obj_set_style(obj, &lv_style_transp);
-	lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 0, 0);
-	Gif gif("/usd/sus/shid.gif", obj);
+	//lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 0, 0);
+	//Gif gif("/usd/sus/logo.gif", obj);
+
+	int i = 0;
 
 	while(true) {
 		//-- Main drive code - Split Arcade Format //--
@@ -41,15 +44,15 @@ void opcontrol() {
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && cataLoaded == true) {
       		catapult.move_voltage(12000);
 			pros::delay(1000);
-
+			catapult.brake();
+			
 			cataLoaded = false;
 			loadCatapult();
-		} else if(cataLoaded == false) {
-			break;
       	}
 		
 		//-- Print debug info to controller //--
-		controller.print(1, 0, "%.0f°C %.0f°C %.0f°C     ", catapult.get_temperature(), intake.get_temperature(), leftSide.get_temperatures());
+		//controller.print(1, 0, "%.0f°C %.0f°C %.0f     ", catapult.get_temperatures(), leftSide.get_temperatures(), cataPosition.get_value());
+		//controller.print(1, 0, "%.0f°C     ", cataPosition.get_value());
 
 		// Delay to prevent overloading brain :)
 		pros::delay(10);

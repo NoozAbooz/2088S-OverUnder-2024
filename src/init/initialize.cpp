@@ -6,6 +6,7 @@
  */
 
 #include "main.h"
+#include "pros/rtos.hpp"
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -14,15 +15,17 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-	//-- Booleans //--
-	bool cataLoaded = false;
-
     // Init LEDs
+    extern sylib::Addrled bodyLED;
     sylib::initialize();
     bodyLED.gradient(0xda8d53, 0x9e93ac);
 
     // Calibrate chassis inertial sensor
     chassis.calibrate();
+
+    // Setup Cata
+    catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
+    pros::Task cataTask(loadCatapult);
 
     // Initialize the auton selector screen on brain LCD
     selectorInit();

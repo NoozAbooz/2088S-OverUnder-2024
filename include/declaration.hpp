@@ -9,6 +9,10 @@
 
 #include "main.h"
 #include "lemlib/api.hpp"
+#include "sylib/sylib.hpp"
+
+//-- Booleans //--
+extern bool cataLoaded;
 
 // Controller
 extern pros::Controller controller;
@@ -28,14 +32,15 @@ extern lemlib::Chassis chassis;
 extern pros::Motor intake;
 
 // Catapult
-extern pros::Motor catapult;
+extern pros::Motor catapultLeft;
+extern pros::Motor catapultRight;
+extern pros::MotorGroup catapult;
+
+// Expansion
+extern pros::Motor expansion;
 
 // Inertial
 extern pros::Imu inertial;
 
 // Cata Sensor
 extern pros::ADIAnalogIn cataPosition;
-
-/* Variables */
-extern bool cataLoaded;
-
