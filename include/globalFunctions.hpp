@@ -9,5 +9,4 @@ void loadCatapult();
 void fireCatapult();
 
 // Logic
-double getAverageOfVector(std::vector<T> const& v);
 void debugInit();

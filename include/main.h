@@ -75,6 +75,9 @@ void opcontrol(void);
 
 // Device Init
 #include "declaration.hpp"
+#include "globalFunctions.hpp"
+
+// 3rd party libraries
 #include "sylib/sylib.hpp"
 #include "lemlib/api.hpp"
 #include "gif-pros/gifclass.hpp"
@@ -82,7 +85,6 @@ void opcontrol(void);
 // Autonomous Selector
 #include "autonGlobals/autonSelector.h"
 #include "autonGlobals/autonSelector.hpp"
-#include "autonGlobals/autons.hpp"
 
 /**
  * You can add C++-only headers here

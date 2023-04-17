@@ -4,6 +4,7 @@
  * @brief Extra subsystem functions for auton routine.
  */
 
+#include "declaration.hpp"
 #include "main.h"
 
 /* Catapult */
@@ -13,6 +14,7 @@ void loadCatapult() {
         if (cataLoaded == false) {
 			// Change LED colour
 			bodyLED.set_all(0xffff00);
+			bodyLED.update();
 
 			// Load cata until brightness is lower than threshold
 			while(cataPosition.get_value() > 2800) {
@@ -30,6 +32,7 @@ void loadCatapult() {
 
 			// Change LED colour
 			bodyLED.set_all(0x27D507);
+			bodyLED.update();
 		}
     }};
 }
@@ -38,13 +41,12 @@ void loadCatapult() {
 void fireCatapult() {
 	pros::Task task{[=] {
         if (cataLoaded == true) {
-			myLights.pulse(0xffff00, 4, 10);
-
 			// Fire cata
 			catapult.move_voltage(12000);
 
 			// Change LED colour
 			bodyLED.set_all(0xEE574E);
+			bodyLED.update();
 
 			// Delay and brake motors
 			pros::delay(1000);
@@ -58,18 +60,10 @@ void fireCatapult() {
 
 // Spin rollers
 void rollerAuton() {
-	roller.move_voltage(-5000);
 
-	drivetrainMove(6000, 1000);
-    roller.brake();
-
-	drivetrainMove(-3000, 1000);
 }
 
 // Move discs OUT of the intake
 void dispenseDiscs() {
-	// Dispense discs
-	intake.move_voltage(-12000);
-	pros::delay(6000);
-	intake.brake();
+
 }

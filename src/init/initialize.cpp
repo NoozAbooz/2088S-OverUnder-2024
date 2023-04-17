@@ -15,11 +15,13 @@
  */
 void initialize() {
     // Init LEDs
-    sylib::initialize();
-    bodyLED.gradient(0xda8d53, 0x9e93ac);
+    bodyLED.set_all(0xda8d53);
+    bodyLED.update();
 
     // Calibrate chassis inertial sensor
-    pros::Task chassisCalibration(chassis.calibrate);
+    pros::Task task{[=] {
+        chassis.calibrate();
+    }};
 
     // Setup Cata
     loadCatapult();
@@ -34,7 +36,7 @@ void initialize() {
  * the robot is enabled, this task will exit.
  */
 void disabled() {
-
+    bodyLED.clear();
 }
 
 /**

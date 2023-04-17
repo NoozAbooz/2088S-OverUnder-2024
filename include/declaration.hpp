@@ -8,7 +8,7 @@
 
 #include "main.h"
 #include "lemlib/api.hpp"
-#include "sylib/sylib.hpp"
+#include "pros/adi.hpp"
 
 //-- Booleans //--
 extern bool cataLoaded;
@@ -45,4 +45,4 @@ extern pros::Imu inertial;
 extern pros::ADIAnalogIn cataPosition;
 
 // LED
-extern sylib::Addrled bodyLED;
+extern pros::ADILed bodyLED;

@@ -48,17 +48,13 @@ void opcontrol() {
 			expansion.move_voltage(12000);
 			pros::delay(1000);
 
-			bodyLED.gradient(0x3e7690, 0xa0998e);
-			bodyLED.cycle(*bodyLED, 10);
+			bodyLED.set_all(0xf1cbff);
 		} else {
 			expansion.brake();
 		}
 
 		//-- Print debug info to controller //--
-		double chassisTempAvg = getAverage(leftSide.get_temperatures());
-		double catapultTempAvg = getAverage(catapult.get_temperatures());
-
-		controller.print(1, 0, "%.0f°C %.0f°C %.0f     ", chassisTempAvg, catapultTempAvg, cataPosition.get_value());
+		controller.print(1, 0, "%.0f°C %.0f°C %.0f     ", frontLeft.get_temperature(), catapultLeft.get_temperature(), cataPosition.get_value());
 
 		// Delay to prevent overloading brain :)
 		pros::delay(10);

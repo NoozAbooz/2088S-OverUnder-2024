@@ -34,8 +34,8 @@ pros::MotorGroup catapult({catapultLeft, catapultRight});
 // Expansion
 pros::Motor expansion(2, pros::E_MOTOR_GEAR_RED, false);
 
-// LED Lights
-auto bodyLED = sylib::Addrled(22, 4, 64); // Smart expander port, ADI port,number, # of pixels
+// LED
+pros::ADILed bodyLED(4, 64);
 
 /* Declare sensors */
 // Inertial

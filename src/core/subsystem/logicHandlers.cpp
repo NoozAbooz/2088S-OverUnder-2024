@@ -4,14 +4,7 @@
  * @brief General logic handlers for functions
  */
 
-#include main.h
-
-double getAverageOfVector(std::vector<T> const& v) {
-    if (v.empty()) {
-        return 0;
-    }
-    return std::accumulate(v.begin(), v.end(), 0.0) / v.size();
-}
+#include "main.h"
 
 // Brain debug info screen
 void debugInit() {
