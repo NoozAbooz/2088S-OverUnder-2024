@@ -2,7 +2,6 @@
  * @file main.cpp
  * @author Michael Zheng
  * @brief Declare subsystems for use in other files
- * @date 2023-03-10
  */
 
 #pragma once
@@ -44,3 +43,6 @@ extern pros::Imu inertial;
 
 // Cata Sensor
 extern pros::ADIAnalogIn cataPosition;
+
+// LED
+extern sylib::Addrled bodyLED;

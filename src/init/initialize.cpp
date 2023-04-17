@@ -2,7 +2,6 @@
  * @file main.cpp
  * @author Michael Zheng
  * @brief Extra code that runs on robot init (mainly auton selector)
- * @date 2023-03-10
  */
 
 #include "main.h"
@@ -16,16 +15,14 @@
  */
 void initialize() {
     // Init LEDs
-    extern sylib::Addrled bodyLED;
     sylib::initialize();
     bodyLED.gradient(0xda8d53, 0x9e93ac);
 
     // Calibrate chassis inertial sensor
-    chassis.calibrate();
+    pros::Task chassisCalibration(chassis.calibrate);
 
     // Setup Cata
-    catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
-    pros::Task cataTask(loadCatapult);
+    loadCatapult();
 
     // Initialize the auton selector screen on brain LCD
     selectorInit();

@@ -2,7 +2,6 @@
  * @file main.cpp
  * @author Michael Zheng
  * @brief Main auton routine. Different autons are selected via the auton selector.
- * @date 2023-03-10
  */
 
 #include "main.h"
@@ -20,6 +19,9 @@
  */
 
 void autonomous() {
+	// Init debug screen for auton
+    debugInit();
+
     switch (autonSelection) {
 		// Solo autons
 		case RED_1: // Main auton - 2 rollers, 
@@ -58,6 +60,7 @@ void autonomous() {
 			break;
 	}
 }
+
 //void autonomous() {
 //	roller.move_voltage(-5000);
 //

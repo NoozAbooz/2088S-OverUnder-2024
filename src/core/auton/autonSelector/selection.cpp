@@ -1,3 +1,9 @@
+/**
+ * @file main.cpp
+ * @author Michael Zheng
+ * @brief LVGL Auton Selector screen
+ */
+
 #include "main.h"
 
 int autonSelection = TEST; // specifies the default auton selected

@@ -2,7 +2,6 @@
  * @file main.cpp
  * @author Michael Zheng
  * @brief Defines all motors and sensors. Also sets up the chasis and additional sensor info for autonomous.
- * @date 2023-03-10
  */
 
 #include "main.h"
