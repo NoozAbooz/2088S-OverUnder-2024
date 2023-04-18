@@ -16,7 +16,7 @@ void loadCatapult() {
 
 	// Load cata until brightness is lower than threshold
 	while(cataPosition.get_value() > 2800) {
-    	catapult.move_voltage(9000);
+    	catapult.move_voltage(8500);
 	}
 
 	// Stop catapult and hold position
@@ -45,7 +45,7 @@ void fireCatapult() {
 
 		// Delay and brake motors
 		pros::delay(1000);
-		catapult.brake();
+		catapult.move_voltage(0);
 
 		// Set cataLoaded to false
 		cataLoaded = false;

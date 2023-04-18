@@ -30,9 +30,11 @@ pros::Motor intake(10, pros::E_MOTOR_GEAR_GREEN, true);
 pros::Motor catapultLeft(6, pros::E_MOTOR_GEAR_RED, false);
 pros::Motor catapultRight(7, pros::E_MOTOR_GEAR_RED, true);
 pros::MotorGroup catapult({catapultLeft, catapultRight});
+catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
 
 // Expansion
 pros::Motor expansion(2, pros::E_MOTOR_GEAR_RED, false);
+expansion.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
 // LED
 pros::ADILed bodyLED(4, 64);

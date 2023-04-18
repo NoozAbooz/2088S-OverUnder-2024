@@ -20,7 +20,6 @@ void initialize() {
 
     // Setup Cata
     pros::Task loadCataTask{[=] {
-        catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
         pros::delay(200);
         loadCatapult();
     }};

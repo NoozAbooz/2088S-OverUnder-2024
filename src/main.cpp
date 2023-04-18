@@ -34,7 +34,7 @@ void opcontrol() {
 		} else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
 	  		intake.move_voltage(-12000);
 		} else {
-		    intake.brake();
+		    intake.move_voltage(0);
 		}
 		
 		// Catapult
@@ -48,10 +48,13 @@ void opcontrol() {
 		
 		// Expansion
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
-			expansion.move_voltage(12000);
-			pros::delay(1000);
+			pros::Task deployExpansion{[=] {
+				expansion.move_voltage(12000);
+				pros::delay(800);
+				expansion.brake();
 
-			bodyLED.set_all(0xf1cbff);
+				bodyLED.set_all(0xf1cbff);
+			}};
 		} else {
 			expansion.brake();
 		}
