@@ -10,7 +10,7 @@
 <h1 align="center">Spin Up V3</h1>
 
   <p align="center">
-    VRC Team 2088S - "us"
+    VRC Team 2088S - "Straitis"
     <br/>
     1st year MS VEX team based in Calgary, Alberta
     <br/>
@@ -23,7 +23,7 @@
 
 <!-- ABOUT THE REPOSITORY
 ## About The Repository
-This code was built for VRC Spin Up. Our robot has a single flywheel shooting mechanism, linear puncher expansion and lots of scuffed design choices.-->
+This code was built for VRC Spin Up. Our robot has a dual motor scatapult, 4-string expansion and lots of scuffed design choices.-->
 
 <!-- GETTING STARTED -->
 ## Getting Started
