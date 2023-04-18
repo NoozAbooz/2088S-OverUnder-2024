@@ -54,7 +54,8 @@ void opcontrol() {
 		}
 
 		//-- Print debug info to controller //--
-		controller.print(1, 0, "%.0f°C %.0f°C %.0f     ", frontLeft.get_temperature(), catapultLeft.get_temperature(), cataPosition.get_value());
+		int cataValue = cataPosition.get_value();
+		controller.print(1, 0, "%.0f°C %.0f°C     ", frontLeft.get_temperature(), catapultLeft.get_temperature());
 
 		// Delay to prevent overloading brain :)
 		pros::delay(10);
