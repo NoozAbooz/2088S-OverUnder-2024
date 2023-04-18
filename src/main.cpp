@@ -39,8 +39,11 @@ void opcontrol() {
 		
 		// Catapult
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-			fireCatapult();
-			loadCatapult();
+			pros::Task cataTask{[=] {
+        		fireCatapult();
+        		pros::delay(500);
+        		loadCatapult();
+    		}};
       	}
 		
 		// Expansion

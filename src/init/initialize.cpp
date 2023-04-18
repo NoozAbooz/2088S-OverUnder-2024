@@ -19,9 +19,9 @@ void initialize() {
     bodyLED.update();
 
     // Setup Cata
-    pros::Task cataTask{[=] {
+    pros::Task loadCataTask{[=] {
         catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
-        pros::delay(1000);
+        pros::delay(200);
         loadCatapult();
     }};
 
