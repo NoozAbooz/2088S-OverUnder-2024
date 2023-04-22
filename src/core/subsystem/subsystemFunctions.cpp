@@ -16,8 +16,8 @@ void loadCatapult() {
 		bodyLED.update();
 
 		// Load cata until brightness is lower than threshold
-		while(cataPosition.get_value() > 2800) {
-			catapult.move_voltage(8000);
+		while(cataPosition.get_value() > 2850) {
+    		catapult.move_voltage(8500);
 		}
 
 		// Stop catapult and hold position
