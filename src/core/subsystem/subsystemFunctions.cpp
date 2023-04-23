@@ -12,7 +12,7 @@
 // Reload the catapult
 void loadCatapult() {
 	pros::Task loadCata{[=] {
-		pros::delay(800);
+		pros::delay(1000);
 
 		// Change LED colour
 		bodyLED.set_all(0x27D507);
@@ -21,6 +21,7 @@ void loadCatapult() {
 		// Load cata until brightness is lower than threshold
 		while(cataPosition.get_value() > 2780) {
     		catapult.move_voltage(10000);
+			pros::delay(10);
 		}
 
 		// Stop catapult and hold position

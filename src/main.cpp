@@ -41,10 +41,8 @@ void opcontrol() {
 
     // Catapult
     if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      pros::Task fireCata{[=] {
-        fireCatapult();
-        loadCatapult();
-      }};
+      fireCatapult();
+      loadCatapult();
     } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
       loadCatapult();
     }
