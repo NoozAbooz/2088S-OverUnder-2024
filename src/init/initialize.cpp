@@ -18,11 +18,6 @@ void initialize() {
     bodyLED.set_all(0xda8d53);
     bodyLED.update();
 
-    // Calibrate chassis inertial sensor
-    pros::Task chassisCalibrateTask{[=] {
-        chassis.calibrate();
-    }};
-
     // Motor holds
     catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
     expansion.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
@@ -35,6 +30,11 @@ void initialize() {
 
     // Debug screen
     //debugInit();
+
+    // Calibrate chassis inertial sensor
+    // pros::Task chassisCalibrateTask{[=] {
+    //     chassis.calibrate();
+    // }};
 }
 
 /**
