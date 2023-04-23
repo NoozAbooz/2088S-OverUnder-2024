@@ -12,13 +12,13 @@
 void opcontrol() {
 	bodyLED.set_all(0x0000FF);
 	bodyLED.update();
+  
   //-- Render funny gif on screen //--
-  // lv_obj_clean(lv_scr_act());
-  // lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
-  // lv_obj_set_size(obj, 500, 500);
-  // lv_obj_set_style(obj, &lv_style_transp);
-  // lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 0, 0);
-  // Gif gif("/usd/sus/logo.gif", obj);
+  lv_obj_clean(lv_scr_act());
+  lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
+  lv_obj_set_size(obj, 540, 300);
+  lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 30, 30);
+  Gif gif("/usd/gif/logo.gif", obj);
 
   while (true) {
     //-- Main drive code - Split Arcade Format //--
@@ -41,28 +41,30 @@ void opcontrol() {
 
     // Catapult
     if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      pros::Task cataFireTask{[=] {
+      pros::Task fireCata{[=] {
         fireCatapult();
-        pros::delay(200);
         loadCatapult();
       }};
+    } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+      loadCatapult();
     }
 
     // Expansion
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
 			pros::Task deployExpansion{[=] {
-				expansion.move_voltage(12000);
+				expansion.move_voltage(8000);
 				pros::delay(800);
 				expansion.brake();
 
         bodyLED.set_all(0xf1cbff);
+      }};
     } else {
       expansion.brake();
     }
 
     //-- Print debug info to controller //--
     int cataValue = cataPosition.get_value();
-    controller.print(1, 0, "%.0f°C %.0f°C     ", frontLeft.get_temperature(), catapultLeft.get_temperature());
+    controller.print(1, 0, "%.0f°C %.0f°C %.0f°C      ", frontLeft.get_temperature(), catapultLeft.get_temperature(), intake.get_temperature());
 
     // Delay to prevent overloading brain :)
     pros::delay(10);
