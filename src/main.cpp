@@ -49,13 +49,11 @@ void opcontrol() {
 
     // Expansion
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-			pros::Task deployExpansion{[=] {
 				expansion.move_voltage(8000);
 				pros::delay(800);
 				expansion.brake();
 
         bodyLED.set_all(0xf1cbff);
-      }};
     } else {
       expansion.brake();
     }

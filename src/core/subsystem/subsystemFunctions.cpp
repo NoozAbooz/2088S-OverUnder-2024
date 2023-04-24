@@ -15,7 +15,7 @@ void loadCatapult() {
 		pros::delay(1000);
 
 		// Change LED colour
-		bodyLED.set_all(0x27D507);
+		bodyLED.set_all(0xFFFF8B);
 		bodyLED.update();
 
 		// Load cata until brightness is lower than threshold
@@ -35,7 +35,7 @@ void loadCatapult() {
 		bodyLED.update();
 
 		// Vibrate controller
-		controller.rumble(". .");
+		controller.rumble(".");
 	}};
 }
 
