@@ -15,7 +15,7 @@
  */
 void initialize() {
     // Init LEDs
-    bodyLED.set_all(0xda8d53);
+    bodyLED.set_all(0x7CFEF0);
     bodyLED.update();
 
     // Motor holds

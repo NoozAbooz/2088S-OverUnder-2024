@@ -32,9 +32,9 @@ void opcontrol() {
     //-- Subsystem controls //--
     // Intake/Roller
     if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-      intake.move_voltage(10000);
+      intake.move_voltage(10500);
     } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-      intake.move_voltage(-10000);
+      intake.move_voltage(-10500);
     } else {
       intake.move_voltage(0);
     }
@@ -49,17 +49,16 @@ void opcontrol() {
 
     // Expansion
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-				expansion.move_voltage(8000);
-				pros::delay(800);
-				expansion.brake();
+			expansion.move_voltage(10000);
+			pros::delay(600);
+			expansion.brake();
 
-        bodyLED.set_all(0xf1cbff);
+      bodyLED.set_all(0xCBC5EA);
     } else {
       expansion.brake();
     }
 
     //-- Print debug info to controller //--
-    int cataValue = cataPosition.get_value();
     controller.print(1, 0, "%.0f°C %.0f°C %.0f°C      ", frontLeft.get_temperature(), catapultLeft.get_temperature(), intake.get_temperature());
 
     // Delay to prevent overloading brain :)
