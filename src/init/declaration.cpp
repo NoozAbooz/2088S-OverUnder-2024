@@ -35,7 +35,7 @@ pros::MotorGroup catapult({catapultLeft, catapultRight});
 pros::Motor expansion(1, pros::E_MOTOR_GEAR_RED, false);
 
 // LED
-pros::ADILed bodyLED('D', 64);
+pros::ADILed bodyLED('E', 64);
 
 /* Declare sensors */
 // Inertial
