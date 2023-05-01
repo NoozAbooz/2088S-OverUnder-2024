@@ -26,15 +26,15 @@ void initialize() {
     loadCatapult();
 
     // Initialize the auton selector screen on brain LCD
-    //selectorInit();
+    selectorInit();
 
     // Debug screen
     //debugInit();
 
     // Calibrate chassis inertial sensor
-    // pros::Task chassisCalibrateTask{[=] {
-    //     chassis.calibrate();
-    // }};
+    pros::Task chassisCalibrateTask{[=] {
+         chassis.calibrate();
+    }};
 }
 
 /**

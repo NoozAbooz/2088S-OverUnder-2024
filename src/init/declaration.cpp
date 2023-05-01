@@ -32,7 +32,7 @@ pros::Motor catapultRight(7, pros::E_MOTOR_GEAR_RED, true);
 pros::MotorGroup catapult({catapultLeft, catapultRight});
 
 // Expansion
-pros::Motor expansion(1, pros::E_MOTOR_GEAR_RED, false);
+pros::Motor expansion(3, pros::E_MOTOR_GEAR_RED, false);
 
 // LED
 pros::ADILed bodyLED('E', 64);

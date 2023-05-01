@@ -57,6 +57,9 @@ void autonomous() {
 			break;
 
 		case TEST:
+			rollerAuton();
+
+			//chassis.setPose(
 			break;
 	}
 }

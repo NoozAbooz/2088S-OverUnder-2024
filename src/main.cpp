@@ -14,11 +14,11 @@ void opcontrol() {
 	bodyLED.update();
   
   //-- Render funny gif on screen //--
-  lv_obj_clean(lv_scr_act());
-  lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
-  lv_obj_set_size(obj, 540, 300);
-  lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 30, 30);
-  Gif gif("/usd/gif/logo.gif", obj);
+  // lv_obj_clean(lv_scr_act());
+  // lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
+  // lv_obj_set_size(obj, 540, 300);
+  // lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 30, 30);
+  // Gif gif("/usd/gif/logo.gif", obj);
 
   while (true) {
     //-- Main drive code - Split Arcade Format //--
@@ -32,9 +32,9 @@ void opcontrol() {
     //-- Subsystem controls //--
     // Intake/Roller
     if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-      intake.move_voltage(10500);
+      intake.move_voltage(12000);
     } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-      intake.move_voltage(-10500);
+      intake.move_voltage(-11000);
     } else {
       intake.move_voltage(0);
     }
@@ -50,7 +50,7 @@ void opcontrol() {
     // Expansion
 		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
 			expansion.move_voltage(10000);
-			pros::delay(600);
+			pros::delay(500);
 			expansion.brake();
 
       bodyLED.set_all(0xCBC5EA);
