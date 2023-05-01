@@ -7,12 +7,12 @@
     <img src="https://static.wixstatic.com/media/c5567e_903085760f6440b3958a1139b64c2b04~mv2.png/v1/fit/w_2500,h_1330,al_c/c5567e_903085760f6440b3958a1139b64c2b04~mv2.png" alt="Logo" width="200">
   </a>
 
-<h1 align="center">Spin Up V3</h1>
+<h1 align="center">Over Under V1</h1>
 
   <p align="center">
     VRC Team 2088S - "Straitis"
     <br/>
-    1st year MS VEX team based in Calgary, Alberta
+    2nd year HS VEX team based in Calgary, Alberta
     <br/>
     Part of the Western Mechatronics Robotics Club
     <br/>
@@ -21,13 +21,9 @@
   </p>
 </div>
 
-<!-- ABOUT THE REPOSITORY
-## About The Repository
-This code was built for VRC Spin Up. Our robot has a dual motor scatapult, 4-string expansion and lots of scuffed design choices.-->
-
 <!-- GETTING STARTED -->
 ## Getting Started
-These steps detail how to build and run the code locally. Because this code does not support simulation, it is a assumed that you have a physical robot to test on.
+These steps detail how to build the code locally. Because this code does not support simulation, it is a assumed that you have a physical robot to test on.
 
 ### Prerequisites
 * [PROS](https://pros.cs.purdue.edu/)
@@ -35,7 +31,7 @@ These steps detail how to build and run the code locally. Because this code does
 ### Installation
 1. Clone the repo
    ```sh
-   git clone https://github.com/NoozSBC/VRC-SpinUp-2023.git
+   git clone https://github.com/NoozSBC/VRC-OverUnder-2024.git
    ```
 2. Open the project in VSCode
 3. Build and deploy the code to your robot (`pros mu`)
