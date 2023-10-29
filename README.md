@@ -4,15 +4,15 @@
 <br />
 <div align="center">
   <a href="https://github.com/2088S">
-    <img src="https://static.wixstatic.com/media/c5567e_903085760f6440b3958a1139b64c2b04~mv2.png/v1/fit/w_2500,h_1330,al_c/c5567e_903085760f6440b3958a1139b64c2b04~mv2.png" alt="Logo" width="200">
+    <img src="https://media.discordapp.net/attachments/918324957577093211/1087921955950313503/BE835697-5823-470A-951B-0C76C5AA13C2.png?width=463&height=463" alt="Logo" width="200">
   </a>
 
-<h1 align="center">Over Under V1</h1>
+<h1 align="center">Over Under</h1>
 
   <p align="center">
     VRC Team 2088S - "Straitis"
     <br/>
-    2nd year HS VEX team based in Calgary, Alberta
+    2nd year MS VEX team based in Calgary, Alberta
     <br/>
     Part of the Western Mechatronics Robotics Club
     <br/>
@@ -47,9 +47,5 @@ To contribute, follow these steps:
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-<!-- CONTACT -->
-## Contact
-If you would like to contact us, you can do so on the WestMech [discord server](https://discord.gg/W4mJYp3).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

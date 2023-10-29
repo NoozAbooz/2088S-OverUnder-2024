@@ -1,78 +1,60 @@
-/**
- * @file main.cpp
- * @author Michael Zheng
- * @brief Main opcontrol loop. Runs drivetrain as well as additional subsystems.
- */
-
 #include "main.h"
-#include "declaration.hpp"
-#include "pros/rtos.hpp"
-#include <string>
+ASSET(logo_gif)
 
+/**
+ * Runs initialization code. This occurs as soon as the program is started.
+ *
+ * All other competition modes are blocked by initialize; it is recommended
+ * to keep execution time for this mode under a few seconds.
+ */
+void initialize() {
+	
+}
+
+/**
+ * Runs while the robot is in the disabled state of Field Management System or
+ * the VEX Competition Switch, following either autonomous or opcontrol. When
+ * the robot is enabled, this task will exit.
+ */
+void disabled() {}
+
+/**
+ * Runs after initialize(), and before autonomous when connected to the Field
+ * Management System or the VEX Competition Switch. This is intended for
+ * competition-specific initialization routines, such as an autonomous selector
+ * on the LCD.
+ *
+ * This task will exit when the robot is enabled and autonomous or opcontrol
+ * starts.
+ */
+void competition_initialize() {}
+
+/**
+ * Runs the user autonomous code. This function will be started in its own task
+ * with the default priority and stack size whenever the robot is enabled via
+ * the Field Management System or the VEX Competition Switch in the autonomous
+ * mode. Alternatively, this function may be called in initialize or opcontrol
+ * for non-competition testing purposes.
+ *
+ * If the robot is disabled or communications is lost, the autonomous task
+ * will be stopped. Re-enabling the robot will restart the task, not re-start it
+ * from where it left off.
+ */
+void autonomous() {}
+
+/**
+ * Runs the operator control code. This function will be started in its own task
+ * with the default priority and stack size whenever the robot is enabled via
+ * the Field Management System or the VEX Competition Switch in the operator
+ * control mode.
+ *
+ * If no competition control is connected, this function will run immediately
+ * following initialize().
+ *
+ * If the robot is disabled or communications is lost, the
+ * operator control task will be stopped. Re-enabling the robot will restart the
+ * task, not resume it from where it left off.
+ */
 void opcontrol() {
-	bodyLED.set_all(0x0000FF);
-	bodyLED.update();
-
-  pros::Task flashLED{[=] {
-    while (true) {
-      bodyLED.set_all(0x0000FF);
-      bodyLED.update();
-      pros::delay(500);
-      bodyLED.set_all(0x000000);
-      bodyLED.update();
-      pros::delay(500);
-    }
-  }};
-  
-  //-- Render funny gif on screen //--
-  // lv_obj_clean(lv_scr_act());
-  // lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
-  // lv_obj_set_size(obj, 540, 300);
-  // lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 30, 30);
-  // Gif gif("/usd/gif/logo.gif", obj);
-
-  while (true) {
-    //-- Main drive code - Split Arcade Format //--
-    int power = controller.get_analog(ANALOG_LEFT_Y);
-    int turn = controller.get_analog(ANALOG_RIGHT_X);
-    int left = (power + turn) * (12000 / 127);
-    int right = (power - turn) * (12000 / 127);
-    leftSide.move_voltage(left);
-    rightSide.move_voltage(right);
-
-    //-- Subsystem controls //--
-    // Intake/Roller
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-      intake.move_voltage(12000);
-    } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-      intake.move_voltage(-11000);
-    } else {
-      intake.move_voltage(0);
-    }
-
-    // Catapult
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      fireCatapult();
-      loadCatapult();
-    } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-      loadCatapult();
-    }
-
-    // Expansion
-		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-			expansion.move_voltage(10000);
-			pros::delay(500);
-			expansion.brake();
-
-      bodyLED.set_all(0xCBC5EA);
-    } else {
-      expansion.brake();
-    }
-
-    //-- Print debug info to controller //--
-    controller.print(1, 0, "%.0f°C %.0f°C %.0f°C      ", frontLeft.get_temperature(), catapultLeft.get_temperature(), intake.get_temperature());
-
-    // Delay to prevent overloading brain :)
-    pros::delay(10);
-  }
+	Gif gif(logo_gif, lv_scr_act());
 }

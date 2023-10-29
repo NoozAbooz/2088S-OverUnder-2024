@@ -4,7 +4,7 @@
  * Contains common definitions and header files used throughout your PROS
  * project.
  *
- * Copyright (c) 2017-2022, Purdue University ACM SIGBots.
+ * \copyright Copyright (c) 2017-2023, Purdue University ACM SIGBots.
  * All rights reserved.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
@@ -36,11 +36,11 @@
 
 #include "api.h"
 
-/**
- * You should add more #includes here
- */
-//#include "okapi/api.hpp"
-//#include "pros/api_legacy.h"
+/* User Includes */
+// Asset GIF
+#include "asset.hpp
+#include "gif-pros/gifclass.hpp"
+
 
 /**
  * If you find doing pros::Motor() to be tedious and you'd prefer just to do
@@ -72,20 +72,6 @@ void opcontrol(void);
 #endif
 
 #ifdef __cplusplus
-
-// Device Init
-#include "declaration.hpp"
-#include "globalFunctions.hpp"
-
-// 3rd party libraries
-#include "sylib/sylib.hpp"
-#include "lemlib/api.hpp"
-#include "gif-pros/gifclass.hpp"
-
-// Autonomous Selector
-#include "autonGlobals/autonSelector.h"
-#include "autonGlobals/autonSelector.hpp"
-
 /**
  * You can add C++-only headers here
  */
