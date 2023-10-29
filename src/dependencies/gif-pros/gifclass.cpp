@@ -1,4 +1,4 @@
-#include "gifclass.hpp"
+#include "gif-pros/gifclass.hpp"
 
 /**
  * MIT License

@@ -38,7 +38,7 @@
 
 /* User Includes */
 // Asset GIF
-#include "asset.hpp
+#include "gif-pros/asset.h"
 #include "gif-pros/gifclass.hpp"
 
 
