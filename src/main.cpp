@@ -12,6 +12,17 @@
 void opcontrol() {
 	bodyLED.set_all(0x0000FF);
 	bodyLED.update();
+
+  pros::Task flashLED{[=] {
+    while (true) {
+      bodyLED.set_all(0x0000FF);
+      bodyLED.update();
+      pros::delay(500);
+      bodyLED.set_all(0x000000);
+      bodyLED.update();
+      pros::delay(500);
+    }
+  }};
   
   //-- Render funny gif on screen //--
   // lv_obj_clean(lv_scr_act());
