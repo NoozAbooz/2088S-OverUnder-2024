@@ -17,7 +17,7 @@ public:
    * @param fname  the gif filename on the SD card (prefixed with /usd/)
    * @param parent the LVGL parent object
    */
-  Gif(const asset file, lv_obj_t* parent);
+  Gif(const char* fname, lv_obj_t* parent);
 
   /**
    * Destructs and cleans the Gif class

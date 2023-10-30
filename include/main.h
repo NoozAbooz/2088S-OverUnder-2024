@@ -35,12 +35,14 @@
 #define PROS_USE_LITERALS
 
 #include "api.h"
+#include "declaration.hpp"
 
-/* User Includes */
-// Asset GIF
-#include "gif-pros/asset.h"
+/* Libaries */
+// gif-pros
 #include "gif-pros/gifclass.hpp"
 
+// Sylib
+#include "sylib/sylib.hpp"
 
 /**
  * If you find doing pros::Motor() to be tedious and you'd prefer just to do
