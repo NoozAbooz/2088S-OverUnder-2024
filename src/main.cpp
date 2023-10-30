@@ -27,9 +27,16 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	// Print debug info to controller
-    controller.print(1, 0, "%.0f°C %.0f°C %.0f°C      ", leftSide.get_temperature(), catapult.get_temperature(), intake.get_temperature());
+	while (true) {
 
-	// Delay to prevent overloading brain :)
-	pros::delay(10);
+		/* Subsystems */
+		spinIntake();
+		refreshCatapult();
+
+		// Print debug info to controller
+    	controller.print(1, 0, "%.0f°C %.0f°C %.0f°C      ", leftSide.get_temperature(), catapult.get_temperature(), intake.get_temperature());
+
+		// Delay to prevent overloading brain :)
+		pros::delay(10);
+	}
 }

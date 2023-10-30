@@ -29,3 +29,46 @@ pros::adi::AnalogIn cataPosition('A');
 
 // Horizontal tracking wheel encoder
 pros::adi::Encoder trackingWheel('B', 'C', true);
+
+/* Lemlib */
+// lemlib::Drivetrain_t drivetrain {
+//     &leftSide, // left drivetrain motors
+//     &rightSide, // right drivetrain motors
+//     15, // track width
+//     4, // wheel diameter
+//     257 // wheel rpm
+// };
+
+// lemlib::TrackingWheel horizontal_tracking_wheel(&trackingWheel, 2.75, -4.6);
+// lemlib::OdomSensors_t sensors {
+//     &horizontal_tracking_wheel, // vertical tracking wheel 1
+//     nullptr, // vertical tracking wheel 2
+//     nullptr, // horizontal tracking wheel 1
+//     nullptr, // we don't have a second tracking wheel, so we set it to nullptr
+//     &inertialSensor // inertial sensor
+// };
+
+// // forward/backward PID
+// lemlib::ChassisController_t lateralController {
+//     8, // kP
+//     30, // kD
+//     1, // smallErrorRange
+//     100, // smallErrorTimeout
+//     3, // largeErrorRange
+//     500, // largeErrorTimeout
+//     5 // slew rate
+// };
+ 
+// // turning PID
+// lemlib::ChassisController_t angularController {
+//     4, // kP
+//     40, // kD
+//     1, // smallErrorRange
+//     100, // smallErrorTimeout
+//     3, // largeErrorRange
+//     500, // largeErrorTimeout
+//     40 // slew rate
+// };
+ 
+// // create the chassis
+// lemlib::Chassis chassis(drivetrain, lateralController, angularController, sensors);
