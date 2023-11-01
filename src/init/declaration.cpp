@@ -12,7 +12,7 @@ pros::MotorGroup rightSide({17, 16, 15}, pros::v5::MotorGears::blue);
 pros::Motor intake(-10, pros::v5::MotorGears::blue);
 
 // Catapult
-pros::Motor catapult(6, pros::v5::MotorGears::red);
+pros::Motor catapult(-6, pros::v5::MotorGears::red);
 
 // Pneumatics
 

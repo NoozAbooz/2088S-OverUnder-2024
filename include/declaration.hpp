@@ -28,6 +28,8 @@ extern pros::adi::AnalogIn cataPosition;
 extern pros::adi::Encoder trackingWheel;
 
 /* Functions */
+void spinIntake();
+
 void refreshCatapult();
 void loadCatapult();
 void fireCatapult();
