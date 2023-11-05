@@ -14,6 +14,11 @@ extern pros::Motor intake;
 // Catapult
 extern pros::Motor catapult;
 
+// Pneumatics
+extern pros::adi::Pneumatics intakePiston;
+extern pros::adi::Pneumatics leftWing;
+extern pros::adi::Pneumatics rightWing;
+
 // LED
 extern pros::adi::Led bodyLED;
 

@@ -38,8 +38,6 @@
 #include "declaration.hpp"
 
 /* Libaries */
-// gif-pros
-#include "gif-pros/gifclass.hpp"
 
 // Sylib
 #include "sylib/sylib.hpp"
