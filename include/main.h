@@ -39,8 +39,11 @@
 
 /* Libaries */
 
-// Sylib
-#include "sylib/sylib.hpp"
+// gif
+#include "gif-pros/gifclass.hpp"
+
+// LemLib
+//#include "lemlib/api.hpp"
 
 /**
  * If you find doing pros::Motor() to be tedious and you'd prefer just to do

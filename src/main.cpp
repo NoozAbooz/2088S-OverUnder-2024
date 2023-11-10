@@ -1,19 +1,6 @@
 #include "main.h"
 
 /**
- * Runs the user autonomous code. This function will be started in its own task
- * with the default priority and stack size whenever the robot is enabled via
- * the Field Management System or the VEX Competition Switch in the autonomous
- * mode. Alternatively, this function may be called in initialize or opcontrol
- * for non-competition testing purposes.
- *
- * If the robot is disabled or communications is lost, the autonomous task
- * will be stopped. Re-enabling the robot will restart the task, not re-start it
- * from where it left off.
- */
-void autonomous() {}
-
-/**
  * Runs the operator control code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
  * the Field Management System or the VEX Competition Switch in the operator
@@ -27,16 +14,22 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	intakePiston.extend();
+
 
 	while (true) {
+		/* Drive */
+		double joystickCurve = 14;
+		int power = driveCurve(controller.get_analog(ANALOG_LEFT_Y), joystickCurve);
+    	int turn = driveCurve(controller.get_analog(ANALOG_RIGHT_X), joystickCurve);
+    	leftSide.move_voltage((power + turn) * (12000 / 127));
+    	rightSide.move_voltage((power - turn) * (12000 / 127));
 
 		/* Subsystems */
 		spinIntake();
 		refreshCatapult();
 
 		// Print debug info to controller
-    	controller.print(1, 0, "%.0f°C %.0f°C %.0f°C      ", leftSide.get_temperature(), catapult.get_temperature(), intake.get_temperature());
+    	controller.print(1, 0, "%.0i°C %.0i°C %.0i°C      ", static_cast<int>(leftSide.get_temperature()), static_cast<int>(catapult.get_temperature()), static_cast<int>(intake.get_temperature()));
 
 		// Delay to prevent overloading brain :)
 		pros::delay(10);

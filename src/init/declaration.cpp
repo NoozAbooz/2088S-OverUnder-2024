@@ -17,7 +17,7 @@ pros::Motor catapult(-20, pros::v5::MotorGears::red);
 // Pneumatics
 pros::adi::Pneumatics intakePiston('a', false);   
 
-pros::adi::Pneumatics leftWing('b', false);   
+pros::adi::Pneumatics leftWing('b', false);
 pros::adi::Pneumatics rightWing('b', false);
 
 // LED
@@ -31,47 +31,48 @@ pros::Imu inertialSensor(2);
 pros::adi::AnalogIn cataPosition('A');
 
 // Horizontal tracking wheel encoder
-pros::adi::Encoder trackingWheel('B', 'C', true);
+pros::adi::Encoder horizontalEnc('B', 'C', true);
+// lemlib::TrackingWheel horizontal(&horizontalEnc, lemlib::Omniwheel::NEW_275, -3.7);
 
 /* Lemlib */
 // lemlib::Drivetrain_t drivetrain {
 //     &leftSide, // left drivetrain motors
 //     &rightSide, // right drivetrain motors
 //     15, // track width
-//     4, // wheel diameter
-//     257 // wheel rpm
+//     lemlib::Omniwheel::NEW_400, // using new 4" omnis
+//     257.14, // wheel rpm
+//     2 // chase power is 2. If we had traction wheels, it would have been 8
 // };
 
-// lemlib::TrackingWheel horizontal_tracking_wheel(&trackingWheel, 2.75, -4.6);
 // lemlib::OdomSensors_t sensors {
-//     &horizontal_tracking_wheel, // vertical tracking wheel 1
+//     nullptr, // vertical tracking wheel 1
 //     nullptr, // vertical tracking wheel 2
-//     nullptr, // horizontal tracking wheel 1
+//     &horizontal, // horizontal tracking wheel 1
 //     nullptr, // we don't have a second tracking wheel, so we set it to nullptr
 //     &inertialSensor // inertial sensor
 // };
 
 // // forward/backward PID
 // lemlib::ChassisController_t lateralController {
-//     8, // kP
-//     30, // kD
-//     1, // smallErrorRange
-//     100, // smallErrorTimeout
-//     3, // largeErrorRange
-//     500, // largeErrorTimeout
-//     5 // slew rate
+//     10, // proportional gain (kP)
+//     30, // derivative gain (kD)
+//     1, // small error range, in inches
+//     100, // small error range timeout, in milliseconds
+//     3, // large error range, in inches
+//     500, // large error range timeout, in milliseconds
+//     20 // maximum acceleration (slew)
 // };
  
 // // turning PID
 // lemlib::ChassisController_t angularController {
-//     4, // kP
-//     40, // kD
-//     1, // smallErrorRange
-//     100, // smallErrorTimeout
-//     3, // largeErrorRange
-//     500, // largeErrorTimeout
-//     40 // slew rate
+//     2, // proportional gain (kP)
+//     10, // derivative gain (kD)
+//     1, // small error range, in degrees
+//     100, // small error range timeout, in milliseconds
+//     3, // large error range, in degrees
+//     500, // large error range timeout, in milliseconds
+//     20 // maximum acceleration (slew)
 // };
- 
+
 // // create the chassis
 // lemlib::Chassis chassis(drivetrain, lateralController, angularController, sensors);

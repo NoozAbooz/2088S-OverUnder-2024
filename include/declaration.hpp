@@ -38,3 +38,10 @@ void spinIntake();
 void refreshCatapult();
 void loadCatapult();
 void fireCatapult();
+
+void refreshWings();
+
+double driveCurve(int input, int curve);
+
+void cycleGradient(pros::adi::Led& led, std::string color1, std::string color2, int speed);
+uint32_t blend(uint32_t color1, uint32_t color2, uint8_t blendAmount);
