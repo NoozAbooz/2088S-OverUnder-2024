@@ -25,7 +25,7 @@ pros::adi::Led bodyLED('E', 64);
 
 /* Sensors */
 // Inertial
-pros::Imu inertialSensor(2);
+pros::Imu imu(2);
 
 // Cata Position
 pros::adi::AnalogIn cataPosition('A');
@@ -39,9 +39,9 @@ pros::adi::Encoder horizontalEnc('B', 'C', true);
 //     &leftSide, // left drivetrain motors
 //     &rightSide, // right drivetrain motors
 //     15, // track width
-//     lemlib::Omniwheel::NEW_400, // using new 4" omnis
+//     lemlib::Omniwheel::NEW_4, // using new 4" omnis
 //     257.14, // wheel rpm
-//     2 // chase power is 2. If we had traction wheels, it would have been 8
+//     8 // chase power is 2. If we had traction wheels, it would have been 8
 // };
 
 // lemlib::OdomSensors_t sensors {
@@ -49,7 +49,7 @@ pros::adi::Encoder horizontalEnc('B', 'C', true);
 //     nullptr, // vertical tracking wheel 2
 //     &horizontal, // horizontal tracking wheel 1
 //     nullptr, // we don't have a second tracking wheel, so we set it to nullptr
-//     &inertialSensor // inertial sensor
+//     &imu // inertial sensor
 // };
 
 // // forward/backward PID
@@ -75,4 +75,4 @@ pros::adi::Encoder horizontalEnc('B', 'C', true);
 // };
 
 // // create the chassis
-// lemlib::Chassis chassis(drivetrain, lateralController, angularController, sensors);
+// lemlib::Differential chassis(drivetrain, lateralController, angularController, sensors);
