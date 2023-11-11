@@ -7,16 +7,15 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-    lv_obj_t* obj = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(obj, 540, 300);
-    //lv_obj_set_style(obj, &lv_style_transp); // make the container invisible
-    lv_obj_align(obj, LV_ALIGN_CENTER, 30, 30);
-    static Gif gif("/usd/logo.gif", obj);
+    // lv_obj_t* obj = lv_obj_create(lv_scr_act());
+    // lv_obj_set_size(obj, 540, 300);
+    // lv_obj_align(obj, LV_ALIGN_CENTER, 30, 30);
+    // static Gif gif("/usd/logo.gif", obj);
 
-    pros::lcd::initialize(); // initialize brain screen
-    //chassis.calibrate(); // calibrate sensors
+    // pros::lcd::initialize(); // initialize brain screen
+    // //chassis.calibrate(); // calibrate sensors
 
-    intakePiston.extend();
+    // intakePiston.extend();
 }
 
 /**
