@@ -2,7 +2,7 @@
 
 /* Libaries */
 // gif
-#include "gif-pros/gifclass.hpp"
+//#include "gif-pros/gifclass.hpp"
 
 // LemLib
 //#include "lemlib/api.hpp"
@@ -12,8 +12,8 @@
 extern pros::Controller controller;
 
 // Drivetrain
-extern pros::MotorGroup leftSide;
-extern pros::MotorGroup rightSide;
+extern pros::MotorGroup leftDrive;
+extern pros::MotorGroup rightDrive;
 
 // Intake
 extern pros::Motor intake;
@@ -49,7 +49,7 @@ void fireCatapult();
 
 void refreshWings();
 
-double driveCurve(int input, int curve);
+double driveCurve(double input, double curve);
 
 void cycleGradient(pros::adi::Led& led, std::string color1, std::string color2, int speed);
 uint32_t blend(uint32_t color1, uint32_t color2, uint8_t blendAmount);

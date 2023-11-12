@@ -15,11 +15,11 @@ void refreshCatapult() {
 // Reload the catapult
 void loadCatapult() {
 	// Change LED colour
-	bodyLED.set_all(0xFFD972);
-	bodyLED.update();
+	leftLED.set_all(0xFFD972);
+	leftLED.update();
 	
 	// Load cata until brightness is lower than threshold
-	while(cataPosition.get_value() > 2700) {
+	while(cataLineSensor.get_value() > 2700) {
     	catapult.move_voltage(12000);
 	}
 
@@ -30,8 +30,8 @@ void loadCatapult() {
 	cataLoaded = true;
 
 	// Change LED colour
-	bodyLED.set_all(0x27D507);
-	bodyLED.update();
+	leftLED.set_all(0x27D507);
+	leftLED.update();
 
 	// Vibrate controller
 	controller.rumble(".");
@@ -44,8 +44,8 @@ void fireCatapult() {
 		catapult.move_voltage(12000);
 
 		// Change LED colour
-		bodyLED.set_all(0x86E0E7);
-		bodyLED.update();
+		leftLED.set_all(0x86E0E7);
+		leftLED.update();
 
 		// Delay and brake motors
 		pros::delay(800);
