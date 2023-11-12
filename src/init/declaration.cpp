@@ -5,14 +5,14 @@
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-pros::MotorGroup leftSide({-11, -12, -13}, pros::v5::MotorGears::blue);
-pros::MotorGroup rightSide({16, 17, 18}, pros::v5::MotorGears::blue);
+pros::MotorGroup leftSide({-8, -9, -10}, pros::v5::MotorGears::blue);
+pros::MotorGroup rightSide({18, 19, 20}, pros::v5::MotorGears::blue);
 
 // Intake
 pros::Motor intake(-1, pros::v5::MotorGears::blue);
 
 // Catapult
-pros::Motor catapult(-20, pros::v5::MotorGears::red);
+pros::Motor catapult(20, pros::v5::MotorGears::red);
 
 // Pneumatics
 pros::adi::Pneumatics intakePiston('a', false);   
