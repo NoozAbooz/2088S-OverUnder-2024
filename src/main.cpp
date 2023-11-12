@@ -24,6 +24,8 @@ void opcontrol() {
     	leftSide.move_voltage((power + turn) * (12000 / 127));
     	rightSide.move_voltage((power - turn) * (12000 / 127));
 
+		printf("Power: %i, Turn: %i\n", power, turn);
+
 		/* Subsystems */
 		spinIntake();
 		refreshCatapult();
