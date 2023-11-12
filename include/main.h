@@ -35,15 +35,7 @@
 #define PROS_USE_LITERALS
 
 #include "api.h"
-#include "declaration.hpp"
-
-/* Libaries */
-
-// gif
-#include "gif-pros/gifclass.hpp"
-
-// LemLib
-//#include "lemlib/api.hpp"
+#include "global.hpp"
 
 /**
  * If you find doing pros::Motor() to be tedious and you'd prefer just to do

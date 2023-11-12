@@ -1,5 +1,12 @@
 #include "main.h"
 
+/* Libaries */
+// gif
+#include "gif-pros/gifclass.hpp"
+
+// LemLib
+//#include "lemlib/api.hpp"
+
 /* Physical Devices */
 // Controller
 extern pros::Controller controller;
@@ -16,17 +23,19 @@ extern pros::Motor catapult;
 
 // Pneumatics
 extern pros::adi::Pneumatics intakePiston;
-extern pros::adi::Pneumatics wingsPiston;
+extern pros::adi::Pneumatics wingPiston;
 
 // LED
-extern pros::adi::Led bodyLED;
+extern pros::adi::Led leftLED;
+extern pros::adi::Led rightLED;
 
 /* Sensors */
 // Inertial
 extern pros::Imu inertial;
 
 // Cata Sensor
-extern pros::adi::AnalogIn cataPosition;
+extern pros::adi::AnalogIn cataLineSensor;
+extern pros::adi::DigitalIn cataLimitSwitch;
 
 // Tracking Wheel
 extern pros::adi::Encoder trackingWheel;

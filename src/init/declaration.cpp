@@ -16,19 +16,20 @@ pros::Motor catapult(-20, pros::v5::MotorGears::red);
 
 // Pneumatics
 pros::adi::Pneumatics intakePiston('a', false);   
-
-pros::adi::Pneumatics leftWing('b', false);
-pros::adi::Pneumatics rightWing('b', false);
+pros::adi::Pneumatics wingPiston('b', false);
 
 // LED
-pros::adi::Led bodyLED('E', 64);
+pros::adi::Led leftLED('E', 64);
+pros::adi::Led rightLED('E', 64);
 
 /* Sensors */
 // Inertial
 pros::Imu imu(2);
 
 // Cata Position
-pros::adi::AnalogIn cataPosition('A');
+pros::adi::AnalogIn cataLineSenor('A');
+pros::adi::DigitalIn cataLimitSwitch('B');
+
 
 // Horizontal tracking wheel encoder
 pros::adi::Encoder horizontalEnc('B', 'C', true);
