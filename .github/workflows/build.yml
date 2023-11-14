@@ -70,6 +70,7 @@ jobs:
           working_directory: 'docs/output/'
         
           root_file: main.tex
+          latexmk_shell_escape: true
           latexmk_use_xelatex: true
           
       - name: Upload PDF file
