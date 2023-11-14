@@ -67,7 +67,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          working_directory: 'docs/'
+          working_directory: 'docs/output/'
         
           root_file: main.tex
           latexmk_use_xelatex: true

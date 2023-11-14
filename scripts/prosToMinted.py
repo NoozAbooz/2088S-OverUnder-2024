@@ -46,6 +46,7 @@ def main():
     with wrapper_dest.open(mode='w') as f:
         # Recursively search the entire project for any header files
         f.write("%%---------------------\n")
+        f.write("\\AddToHook{cmd/section/before}{\clearpage}\n")
         f.write("\\section{Header Files}\n\n")
         for header in root.cwd().glob('**/*.h*'):
             # break header into components starting from the root
@@ -55,10 +56,11 @@ def main():
             # It is good convention to keep all your header files in include/
             # Sub directories within include/ will still be found
             if('api.h' in components
-            or ('include' and 'display') in components
+            or ('include' and 'liblvgl') in components
             or ('include' and 'gif-pros') in components
             or ('include' and 'lemlib') in components
             or ('include' and 'pros') in components
+            or ('include' and 'main.h') in components
             #or ('include' and 'sylib') in components
             or ('include' and 'output') in components
             or 'cquery_cached_index' in components
@@ -79,7 +81,7 @@ def main():
             # Generate LaTeX code for any valid header
             # Write it to the 'Code' LaTeX file
             f.write("\\subsection{" + rel_header_path + "}\n")
-            f.write("\\inputminted[linenos,tabsize=2,breaklines, breakanywhere]{c}{" + name + "}\n")
+            f.write("\\inputminted[linenos,tabsize=2,breaklines,frame=lines,framesep=3mm,bgcolor=LightGray]{c}{" + name + "}\n")
             f.write("\\pagebreak\n\n")
 
         # Recursively search the entire project for any relevant source files
@@ -107,23 +109,39 @@ def main():
 
             # Generate LaTeX code for any valid source file
             f.write("\\subsection{" + rel_src_path + "}\n")
-            f.write("\\inputminted[linenos,tabsize=2,breaklines, breakanywhere]{c}{" + name + "}\n")
+            f.write("\\inputminted[linenos,tabsize=2,breaklines,frame=lines,framesep=3mm,bgcolor=LightGray]{c}{" + name + "}\n")
             f.write("\\pagebreak\n\n")
 
     # Create the path to a main.tex file and insert boilerplate tex code
     main_dest = zip_source / "main.tex"
     main_dest.touch(exist_ok=True)
     with main_dest.open("w") as f:
-        f.write("\\documentclass{article}\n"
+        f.write("\\documentclass[12pt, letterpaper]{article}\n"
                  + "\\usepackage[utf8]{inputenc}\n"
-                 + "\\usepackage[margin=1in]{geometry}\n"
-                 + "\\title{2088S Programming Logbook}\n"
-                 + "\\author{Michael Zheng}\n"
-                 + "\\date{Apr 2023}\n"
+                 + "\\usepackage[margin=0.8in]{geometry}\n"
+                 + "\\usepackage{datetime}\n"
                  + "\\usepackage{minted}\n"
-                 + "\\begin{document}\n\n"
+                 + "\\usepackage{fontspec}\n"
+                 + "\\usepackage{xcolor}\n"
+                 + "\\usepackage{url}\n"
+                 + "\\definecolor{LightGray}{gray}{0.9}\n"
+                 + "\\usemintedstyle{friendly}\n\n"
+                 
+                 + "\\title{2088S Programming Guide}\n"
+                 + r"\author{Michael Zheng\thanks{with support from Western Mechatronics and VTOW}}" + "\n"
+                 + r"\date{\today}" + "\n\n"
+
+                 + "\\setmainfont{Comfortaa}\n"
+                 + "\\setmonofont{DejaVu Sans}\n\n"
+
+                 + "\\begin{document}\n"
                  + "\\maketitle\n\n"
-                 + "\\tableofcontents\n\n"  
+
+                 + "\\begin{centering}\n"
+                 + r"\url{https://github.com/NoozAbooz/2088S-OverUnder-2024/}\\" + "\n"
+                 + "\\end{centering}\n\n"
+
+                 + "\\tableofcontents\n"  
                  + "\\input{wrapper.tex}\n\n"
                  + "\\end{document}")
 
@@ -146,8 +164,11 @@ def main():
     except OSError as e:
         print(e)
 
-    #zipf.extractall("/Users/michael/Documents/WestMech/Spin Up/docs/")
+    #zipf.extractall("/Users/Michael/Documents/GitHub/2088S-OverUnder-2024/docs/")
     zipf.close()
+
+    with zipfile.ZipFile(zip_dest, 'r') as zip_ref:
+        zip_ref.extractall(docs_dest)
 
     print("\033[92m" + "Success! Find your zip at: docs/output.zip" + "\033[0m")
     print("Upload the zip directly to overleaf and let it compile into a PDF!")
