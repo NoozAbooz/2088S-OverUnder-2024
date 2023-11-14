@@ -4,6 +4,23 @@
         "project_name": "2088S V2",
         "target": "v5",
         "templates": {
+            "gif-pros": {
+                "location": "C:\\Users\\Michael\\AppData\\Roaming\\PROS\\templates\\gif-pros@3.0.0",
+                "metadata": {
+                    "origin": "local"
+                },
+                "name": "gif-pros",
+                "py/object": "pros.conductor.templates.local_template.LocalTemplate",
+                "supported_kernels": "^4.0.6",
+                "system_files": [
+                    "firmware/gif-pros.a",
+                    "include/gif-pros/gifclass.hpp",
+                    "include/gif-pros/gifdec.h"
+                ],
+                "target": "v5",
+                "user_files": [],
+                "version": "3.0.0"
+            },
             "kernel": {
                 "location": "C:\\Users\\zheng\\AppData\\Roaming\\PROS\\templates\\kernel@4.0.6",
                 "metadata": {

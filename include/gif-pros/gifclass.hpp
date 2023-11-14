@@ -1,5 +1,6 @@
 #pragma once
 #include "main.h"
+#include "liblvgl/lvgl.h"
 #include "gifdec.h"
 
 /**
@@ -23,6 +24,16 @@ public:
    * Destructs and cleans the Gif class
    */
   ~Gif();
+
+  /**
+   * Pauses the GIF task
+   */
+  void pause();
+
+  /**
+   * Resumes the GIF task
+   */
+  void resume();
 
   /**
    * Deletes GIF and frees all allocated memory

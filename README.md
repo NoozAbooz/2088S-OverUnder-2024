@@ -7,8 +7,6 @@
     <img src="https://media.discordapp.net/attachments/918324957577093211/1087921955950313503/BE835697-5823-470A-951B-0C76C5AA13C2.png?width=463&height=463" alt="Logo" width="200">
   </a>
 
-<h1 align="center">Over Under</h1>
-
   <p align="center">
     VRC Team 2088S - "Straitis"
     <br/>

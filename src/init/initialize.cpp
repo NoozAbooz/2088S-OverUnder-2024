@@ -9,13 +9,12 @@
  */
 void initialize() {
     //-- Render funny gif on screen //--
-    // lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
-    // lv_obj_set_size(obj, 540, 300);
-    // //lv_obj_set_style(obj, &lv_style_transp); // make the container invisible
-    // lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 30, 30);
-    // static Gif gif("/usd/logo.gif", obj);
+    lv_obj_t* obj = lv_obj_create(lv_scr_act());
+    lv_obj_set_size(obj, 540, 300);
+    lv_obj_align(obj, LV_ALIGN_CENTER, 30, 30);
+    static Gif gif("/usd/logo.gif", lv_scr_act());
 
-    pros::delay(1000);
+    //pros::delay(500);
 
     loadCatapult();
 }
