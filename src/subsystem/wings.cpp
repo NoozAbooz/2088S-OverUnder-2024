@@ -10,9 +10,9 @@ void refreshWings() {
     }
 
     if(wingsToggle == true) {
-		wingPiston.extend();
+		toggleWings(true);
 	} else {
-		wingPiston.retract();
+		toggleWings(false);
 	}
 }
 
@@ -20,8 +20,12 @@ void toggleWings(bool status) {
   	if (status == false) {
     	wingPiston.retract();
     	wingsToggle = false;
+
+		printf("Wings Extended\n");
   	} else {
     	wingPiston.extend();
     	wingsToggle = true;
+
+		printf("Wings Retracted\n");
   	}
 }

@@ -6,9 +6,10 @@ void cycleGradient(pros::adi::Led& ledname, std::string color1, std::string colo
   uint32_t color1Hex = std::stoul(color1.substr(1), nullptr, 16);
   uint32_t color2Hex = std::stoul(color2.substr(1), nullptr, 16);
   for (int i = 0; i < 64; i++) {
-    uint8_t blendAmount = (uint8_t)(256L * (i + shift) / 64);
-    uint32_t blendedColor = blend(color1Hex, color2Hex, blendAmount);
-    ledname.set_pixel(blendedColor, i);
+	uint8_t blendAmount = (uint8_t)(256L * (i + shift) / 64);
+	uint32_t blendedColor = blend(color1Hex, color2Hex, blendAmount);
+	ledname.set_pixel(blendedColor, i);
+	printf("Colour: %d\n, Pixel: %d\n", blendedColor, i);
   }
   pros::delay(speed);
   shift = (shift + 1) % 64;

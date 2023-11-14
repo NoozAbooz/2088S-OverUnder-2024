@@ -56,3 +56,4 @@ uint32_t blend(uint32_t color1, uint32_t color2, uint8_t blendAmount);
 
 // Wings
 void refreshWings();
+void toggleWings(bool status);

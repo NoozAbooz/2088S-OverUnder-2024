@@ -10,6 +10,8 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
+	intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+
     //-- Render funny gif on screen //--
     lv_obj_t* obj = lv_obj_create(lv_scr_act());
     lv_obj_set_size(obj, 540, 300);
@@ -20,7 +22,7 @@ void initialize() {
 
     //pros::delay(500);
 
-    loadCatapult();
+    //loadCatapult();
 }
 
 /**

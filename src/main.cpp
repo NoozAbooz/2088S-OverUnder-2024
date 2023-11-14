@@ -20,8 +20,9 @@ void opcontrol() {
 		arcadeDrive();
 
 		/* Subsystems */
-		refreshIntake();
 		refreshCatapult();
+		refreshIntake();
+		refreshWings();
 
 		// Crazy? I was crazy once. They put me in elo. Low elo. A low elo with rats in it. And rats make me crazy.
 		controller.print(1, 0, "%.0lf°C %.0lf°C %.0lf°C", leftDrive.get_temperature(), catapult.get_temperature(), intake.get_temperature());
