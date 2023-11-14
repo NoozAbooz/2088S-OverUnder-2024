@@ -12,7 +12,7 @@ pros::MotorGroup rightDrive({18, 19, 20});
 pros::Motor intake(-7, pros::v5::MotorGears::blue);
 
 // Catapult
-pros::Motor catapult(20, pros::v5::MotorGears::red);
+pros::Motor catapult(1, pros::v5::MotorGears::red);
 
 // Pneumatics
 pros::adi::Pneumatics intakePiston('a', false);   
@@ -27,8 +27,7 @@ pros::adi::Led rightLED('F', 64);
 pros::Imu imu(2);
 
 // Cata Position
-pros::adi::AnalogIn cataLineSensor('C');
-pros::adi::DigitalIn cataLimitSwitch('D');
+pros::adi::AnalogIn cataLineSensor('A');
 
 
 // Horizontal tracking wheel encoder

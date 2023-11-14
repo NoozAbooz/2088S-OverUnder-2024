@@ -27,7 +27,7 @@ void opcontrol() {
 		refreshCatapult();
 
 		// Crazy
-		controller.print(1, 0, "%.0lf°C %.0lf°C %.0lf°C      ", leftDrive.get_temperature(), catapult.get_temperature(), intake.get_temperature());
+		controller.print(1, 0, "%.0lf°C %.0lf°C %.0lf°C", leftDrive.get_temperature(), catapult.get_temperature(), intake.get_temperature());
 
 		pros::delay(20); // Run for 20 ms then update
 	}

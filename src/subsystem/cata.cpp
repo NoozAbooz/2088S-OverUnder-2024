@@ -19,7 +19,7 @@ void loadCatapult() {
 	leftLED.update();
 	
 	// Load cata until brightness is lower than threshold
-	while(cataLineSensor.get_value() > 2700) {
+	while(cataLineSensor.get_value() > 2500) {
     	catapult.move_voltage(12000);
 	}
 
@@ -48,10 +48,12 @@ void fireCatapult() {
 		leftLED.update();
 
 		// Delay and brake motors
-		pros::delay(800);
+		pros::delay(200);
 		catapult.move_voltage(0);
 
 		// Set cataLoaded to false
 		cataLoaded = false;
+
+		pros::delay(500);
 	}
 }

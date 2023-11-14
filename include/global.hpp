@@ -1,8 +1,6 @@
-#include "main.h"
-
 /* Libaries */
 // gif
-//#include "gif-pros/gifclass.hpp"
+#include "gif-pros/gifclass.hpp"
 
 // LemLib
 //#include "lemlib/api.hpp"
