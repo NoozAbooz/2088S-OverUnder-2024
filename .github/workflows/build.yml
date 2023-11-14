@@ -24,9 +24,9 @@ jobs:
           SHA: ${{ steps.short-sha.outputs.sha }}
     
       - name: Install ARM Toolchain
-        uses: fiam/arm-none-eabi-gcc@v1
+        uses: fiam/arm-none-eabi-gcc@v1.0.4
         with:
-          release: '9-2019-q4'
+          release: "10-2020-q10'
 
       - name: Setup Python
         uses: actions/setup-python@v2
