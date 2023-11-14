@@ -6,7 +6,7 @@ bool wingsToggle = false;
 // Refresh wing status
 void refreshWings() {
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-    	  wingsToggle = !wingsToggle; 
+    	wingsToggle = !wingsToggle; 
     }
 
     if(wingsToggle == true) {

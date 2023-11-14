@@ -5,6 +5,10 @@
 bool cataLoaded = false;
 bool cataLock = false;
 
+/**
+ * @brief Refreshes the catapult subsystem by checking for button presses and locking/unlocking the catapult.
+ * 
+ */
 void refreshCatapult() {
 	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
 		fireCatapult();
@@ -23,7 +27,10 @@ void refreshCatapult() {
 	}
 }
 
-// Reload the catapult
+/**
+ * Loads the catapult until the brightness of the line sensor is lower than the threshold.
+ * Sets cataLoaded to true and vibrates the controller when finished.
+ */
 void loadCatapult() {
 	pros::c::task_delay(500);
 	
@@ -44,7 +51,13 @@ void loadCatapult() {
 	controller.rumble(".");
 }
 
-// Fire catapult
+/**
+ * @brief Fires the catapult if it is loaded.
+ * 
+ * If the catapult is loaded, this function will fire the catapult by moving the catapult motor at 12000 voltage for 200ms and then stopping the motor. 
+ * It will also set the cataLoaded variable to false.
+ * 
+ */
 void fireCatapult() {
 	if (cataLoaded == true) {
 		printf("Firing Cata\n");

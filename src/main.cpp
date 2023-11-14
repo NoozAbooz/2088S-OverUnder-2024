@@ -14,6 +14,11 @@
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
+/**
+ * The operator control function that runs the robot during teleoperated mode.
+ * It continuously drives the robot using arcade drive and refreshes the subsystems.
+ * It also prints the temperature of the left drive motor group, catapult, and intake on the controller's screen.
+ */
 void opcontrol() {
 	while (true) {
 		/* Drive */

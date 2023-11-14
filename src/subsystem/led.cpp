@@ -1,6 +1,14 @@
 #include "main.h"
 #include "globals.hpp"
 
+/**
+ * Cycles a gradient between two colors on a given LED at a given speed.
+ * 
+ * @param ledname The LED to cycle the gradient on.
+ * @param color1 The first color of the gradient in hexadecimal format (e.g. "#FF0000" for red).
+ * @param color2 The second color of the gradient in hexadecimal format.
+ * @param speed The speed at which to cycle the gradient in milliseconds.
+ */
 void cycleGradient(pros::adi::Led& ledname, std::string color1, std::string color2, int speed) {
   static int shift = 0;
   uint32_t color1Hex = std::stoul(color1.substr(1), nullptr, 16);
@@ -15,6 +23,13 @@ void cycleGradient(pros::adi::Led& ledname, std::string color1, std::string colo
   shift = (shift + 1) % 64;
 }
 
+/**
+ * Blends two colors together based on a blend amount.
+ * @param color1 The first color to blend.
+ * @param color2 The second color to blend.
+ * @param blendAmount The amount to blend the two colors together, from 0 (all color1) to 255 (all color2).
+ * @return The blended color.
+ */
 uint32_t blend(uint32_t color1, uint32_t color2, uint8_t blendAmount) {
   uint8_t r1 = (color1 >> 16) & 0xFF;
   uint8_t g1 = (color1 >> 8) & 0xFF;
