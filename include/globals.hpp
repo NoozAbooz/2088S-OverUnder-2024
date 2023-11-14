@@ -1,7 +1,6 @@
-/* Libaries */
-// gif
-#include "gif-pros/gifclass.hpp"
+#include "main.h"
 
+/* Libaries */
 // LemLib
 //#include "lemlib/api.hpp"
 
@@ -39,15 +38,21 @@ extern pros::adi::DigitalIn cataLimitSwitch;
 extern pros::adi::Encoder trackingWheel;
 
 /* Functions */
-void spinIntake();
-
+// Cata
 void refreshCatapult();
 void loadCatapult();
 void fireCatapult();
 
-void refreshWings();
-
+// DT
+void arcadeDrive();
 double driveCurve(double input, double curve);
 
+// Intake
+void refreshIntake();
+
+// LED
 void cycleGradient(pros::adi::Led& led, std::string color1, std::string color2, int speed);
 uint32_t blend(uint32_t color1, uint32_t color2, uint8_t blendAmount);
+
+// Wings
+void refreshWings();

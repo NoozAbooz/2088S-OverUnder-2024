@@ -1,5 +1,7 @@
 #include "main.h"
-#include "pros/rtos.hpp"
+#include "globals.hpp"
+
+#include "gif-pros/gifclass.hpp"
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -13,6 +15,8 @@ void initialize() {
     lv_obj_set_size(obj, 540, 300);
     lv_obj_align(obj, LV_ALIGN_CENTER, 30, 30);
     static Gif gif("/usd/logo.gif", lv_scr_act());
+
+	cycleGradient(leftLED, "#215071", "#74aacc", 15);
 
     //pros::delay(500);
 

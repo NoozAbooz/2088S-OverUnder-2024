@@ -1,4 +1,5 @@
 #include "main.h"
+#include "globals.hpp"
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -16,19 +17,15 @@
 void opcontrol() {
 	while (true) {
 		/* Drive */
-		double joystickCurve = 14;
-		int power = driveCurve(controller.get_analog(ANALOG_LEFT_Y), joystickCurve);
-    	int turn = driveCurve(controller.get_analog(ANALOG_RIGHT_X), joystickCurve);
-    	leftDrive.move_voltage((power + turn) * (12000 / 127));
-    	rightDrive.move_voltage((power - turn) * (12000 / 127));
+		arcadeDrive();
 
 		/* Subsystems */
-		spinIntake();
+		refreshIntake();
 		refreshCatapult();
 
-		// Crazy
+		// Crazy? I was crazy once. They put me in elo. Low elo. A low elo with rats in it. And rats make me crazy.
 		controller.print(1, 0, "%.0lf°C %.0lf°C %.0lf°C", leftDrive.get_temperature(), catapult.get_temperature(), intake.get_temperature());
 
-		pros::delay(20); // Run for 20 ms then update
+		pros::delay(10); // Run for 20 ms then update
 	}
 }

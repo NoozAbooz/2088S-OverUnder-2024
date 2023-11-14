@@ -1,4 +1,5 @@
 #include "main.h"
+#include "globals.hpp"
 
 void cycleGradient(pros::adi::Led& ledname, std::string color1, std::string color2, int speed) {
   static int shift = 0;

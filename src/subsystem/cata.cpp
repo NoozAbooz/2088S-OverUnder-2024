@@ -1,26 +1,33 @@
 #include "main.h"
+#include "globals.hpp"
 
 // Catapult
 bool cataLoaded = false;
+bool cataLock = false;
 
 void refreshCatapult() {
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      fireCatapult();
-      loadCatapult();
-    } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-      loadCatapult();
-    }
+	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
+		fireCatapult();
+		if(cataLock == false) {
+			pros::Task loadCataTask(loadCatapult);
+		}
+	  
+	} else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2) && cataLock == false) {
+	  	pros::Task loadCataTask(loadCatapult);
+	}
+
+	if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
+		cataLock = true;
+	}
 }
 
 // Reload the catapult
 void loadCatapult() {
-	// Change LED colour
-	leftLED.set_all(0xFFD972);
-	leftLED.update();
+	pros::c::task_delay(500);
 	
 	// Load cata until brightness is lower than threshold
 	while(cataLineSensor.get_value() > 2500) {
-    	catapult.move_voltage(12000);
+		catapult.move_voltage(12000);
 	}
 
 	// Stop catapult and hold position
@@ -29,23 +36,15 @@ void loadCatapult() {
 	// Set cataLoaded to true
 	cataLoaded = true;
 
-	// Change LED colour
-	leftLED.set_all(0x27D507);
-	leftLED.update();
-
 	// Vibrate controller
 	controller.rumble(".");
 }
 
 // Fire catapult
 void fireCatapult() {
-    if (cataLoaded == true) {
+	if (cataLoaded == true) {
 		// Fire cata
 		catapult.move_voltage(12000);
-
-		// Change LED colour
-		leftLED.set_all(0x86E0E7);
-		leftLED.update();
 
 		// Delay and brake motors
 		pros::delay(200);
@@ -53,7 +52,5 @@ void fireCatapult() {
 
 		// Set cataLoaded to false
 		cataLoaded = false;
-
-		pros::delay(500);
 	}
 }

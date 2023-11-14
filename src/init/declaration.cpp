@@ -1,4 +1,5 @@
 #include "main.h"
+#include "globals.hpp"
 
 /* Physical Devices */
 // Controller

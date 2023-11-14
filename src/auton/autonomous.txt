@@ -1,4 +1,5 @@
 #include "main.h"
+#include "globals.hpp"
 
 ASSET(test_txt); // '.' replaced with "_" to make c++ happy
 
