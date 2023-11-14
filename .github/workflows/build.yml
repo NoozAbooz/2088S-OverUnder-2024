@@ -26,7 +26,7 @@ jobs:
       - name: Install ARM Toolchain
         uses: fiam/arm-none-eabi-gcc@v1.0.4
         with:
-          release: "10-2020-q10'
+          release: "10-2020-q10"
 
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -60,10 +60,13 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Generate LaTeX Files
+        run: "python scripts/prosToMinted.py"
+        shell: sh
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          pre_compile: "python scripts/prosToMinted.py"
           working_directory: 'docs/'
         
           root_file: main.tex
