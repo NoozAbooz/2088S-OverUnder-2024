@@ -3,6 +3,9 @@
 
 #include "gif-pros/gifclass.hpp"
 
+rd::SelectorView selector;
+rd::ConsoleView console;
+
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -10,13 +13,15 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-	intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	rd::initialize();
+    rd::register_views({ &console, &selector });
+    console.println("Hello world! Robodash is running!");
 
     //-- Render funny gif on screen //--
-    lv_obj_t* obj = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(obj, 540, 300);
-    lv_obj_align(obj, LV_ALIGN_CENTER, 30, 30);
-    static Gif gif("/usd/logo.gif", lv_scr_act());
+    // lv_obj_t* obj = lv_obj_create(lv_scr_act());
+    // lv_obj_set_size(obj, 540, 300);
+    // lv_obj_align(obj, LV_ALIGN_CENTER, 30, 30);
+    // static Gif gif("/usd/logo.gif", lv_scr_act());
 
 	cycleGradient(leftLED, "#215071", "#74aacc", 15);
 
