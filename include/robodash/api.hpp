@@ -22,3 +22,5 @@
 #include "views/console.hpp"
 #include "views/image.hpp"
 #include "views/selector.hpp"
+
+#include "views/gif.hpp"

@@ -1,4 +1,3 @@
-#include "main.h"
 #include "globals.hpp"
 
 // Catapult
@@ -22,7 +21,7 @@ void refreshCatapult() {
 
 	if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
 		cataLock = !cataLock;
-		controller.rumble("-");
+		controller.rumble("-.-");
 		printf("Cata Locked\n");
 	}
 }

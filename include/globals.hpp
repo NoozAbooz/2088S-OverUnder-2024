@@ -1,9 +1,15 @@
+#pragma once
 #include "main.h"
 
 /* Libaries */
 // LemLib
 //#include "lemlib/api.hpp"
+
+// Robodash
 #include "robodash/api.hpp"
+
+// gif-pros
+#include "gif-pros/gifclass.hpp"
 
 /* Physical Devices */
 // Controller

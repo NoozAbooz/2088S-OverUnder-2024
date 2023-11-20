@@ -1,11 +1,8 @@
-#include "main.h"
 #include "globals.hpp"
 
-double joystickCurve = 10;
-
 void arcadeDrive() {
-	int power = driveCurve(controller.get_analog(ANALOG_LEFT_Y), joystickCurve);
- 	int turn = controller.get_analog(ANALOG_RIGHT_X);
+	int power = driveCurve(controller.get_analog(ANALOG_LEFT_Y), 10);
+ 	int turn = driveCurve(controller.get_analog(ANALOG_RIGHT_X), 4);
   	leftDrive.move_voltage((power + turn) * (12000 / 127));
   	rightDrive.move_voltage((power - turn) * (12000 / 127));
 }

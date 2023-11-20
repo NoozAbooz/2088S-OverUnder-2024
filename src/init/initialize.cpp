@@ -1,10 +1,9 @@
-#include "main.h"
 #include "globals.hpp"
-
-#include "gif-pros/gifclass.hpp"
+#include "robodash/core.hpp"
 
 rd::SelectorView selector;
 rd::ConsoleView console;
+rd::GifView gif;
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -14,14 +13,11 @@ rd::ConsoleView console;
  */
 void initialize() {
 	rd::initialize();
-    rd::register_views({ &console, &selector });
+    rd::register_views({ &console, &selector, &gif });
     console.println("Hello world! Robodash is running!");
 
-    //-- Render funny gif on screen //--
-    // lv_obj_t* obj = lv_obj_create(lv_scr_act());
-    // lv_obj_set_size(obj, 540, 300);
-    // lv_obj_align(obj, LV_ALIGN_CENTER, 30, 30);
-    // static Gif gif("/usd/logo.gif", lv_scr_act());
+    // Render funny gif on screen
+    rd::set_view(&gif);
 
 	cycleGradient(leftLED, "#215071", "#74aacc", 15);
 
