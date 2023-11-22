@@ -4,12 +4,10 @@
 /* Libaries */
 // LemLib
 //#include "lemlib/api.hpp"
-
-// Robodash
-#include "robodash/api.hpp"
+#include "robodash/api.h"
 
 // gif-pros
-#include "gif-pros/gifclass.hpp"
+//#include "gif-pros/gifclass.hpp"
 
 /* Physical Devices */
 // Controller
