@@ -40,14 +40,14 @@ void loadCatapult() {
 		catapult.move_voltage(12000);
 	}
 
+	// Vibrate controller
+	controller.rumble("..");
+
 	// Stop catapult and hold position
 	catapult.move_voltage(0);
 
 	// Set cataLoaded to true
 	cataLoaded = true;
-
-	// Vibrate controller
-	controller.rumble(".");
 }
 
 /**

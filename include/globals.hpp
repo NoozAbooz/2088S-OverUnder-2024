@@ -12,7 +12,7 @@ extern rd::Selector selector;
 extern rd::Console console;
 
 // gif-pros
-#include "gif-pros/gifclass.hpp"
+//#include "gif-pros/gifclass.hpp"
 
 /* Physical Devices */
 // Controller
