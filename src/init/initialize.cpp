@@ -1,9 +1,7 @@
 #include "globals.hpp"
-#include "robodash/core.hpp"
 
-rd::SelectorView selector;
-rd::ConsoleView console;
-rd::GifView gif;
+rd::Selector selector;
+rd::Console console;
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -12,14 +10,13 @@ rd::GifView gif;
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-	rd::initialize();
-    rd::register_views({ &console, &selector, &gif });
     console.println("Hello world! Robodash is running!");
 
-    // Render funny gif on screen
-    rd::set_view(&gif);
+    selector.add_autons({
+      {"Fire Cata", &fireCatapult}
+   });
 
-	cycleGradient(leftLED, "#215071", "#74aacc", 15);
+    // Render funny gif on screen
 
     //pros::delay(500);
 

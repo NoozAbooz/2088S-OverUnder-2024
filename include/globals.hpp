@@ -6,7 +6,10 @@
 //#include "lemlib/api.hpp"
 
 // Robodash
-#include "robodash/api.hpp"
+#include "robodash/api.h"
+#include "robodash/views/selector.hpp"
+extern rd::Selector selector;
+extern rd::Console console;
 
 // gif-pros
 #include "gif-pros/gifclass.hpp"
@@ -39,7 +42,6 @@ extern pros::Imu inertial;
 
 // Cata Sensor
 extern pros::adi::AnalogIn cataLineSensor;
-extern pros::adi::DigitalIn cataLimitSwitch;
 
 // Tracking Wheel
 extern pros::adi::Encoder trackingWheel;
@@ -56,10 +58,6 @@ double driveCurve(double input, double curve);
 
 // Intake
 void refreshIntake();
-
-// LED
-void cycleGradient(pros::adi::Led& led, std::string color1, std::string color2, int speed);
-uint32_t blend(uint32_t color1, uint32_t color2, uint8_t blendAmount);
 
 // Wings
 void refreshWings();
