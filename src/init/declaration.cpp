@@ -15,11 +15,11 @@ pros::Motor intake(-7, pros::v5::MotorGears::blue);
 pros::Motor catapult(1, pros::v5::MotorGears::red);
 
 // Pneumatics
-pros::adi::Pneumatics intakePiston('a', false);   
+pros::adi::Pneumatics intakePiston('E', false);   
 pros::adi::Pneumatics wingPiston('b', false);
 
 // LED
-pros::adi::Led leftLED('E', 64);
+pros::adi::Led leftLED('D', 64);
 pros::adi::Led rightLED('F', 64);
 
 /* Sensors */
