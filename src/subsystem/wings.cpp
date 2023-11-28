@@ -20,11 +20,11 @@ void toggleWings(bool status) {
     	wingPiston.retract();
     	wingsToggle = false;
 
-		printf("Wings Extended\n");
+		console.println("Wings Extended\n");
   	} else {
     	wingPiston.extend();
     	wingsToggle = true;
 
-		printf("Wings Retracted\n");
+		console.println("Wings Retracted\n");
   	}
 }

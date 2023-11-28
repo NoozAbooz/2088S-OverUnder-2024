@@ -11,23 +11,13 @@ rd::Selector selector;
 rd::Console console;
 
 void initialize() {
-    /* lv_obj_t *obj = lv_obj_create(lv_scr_act());
-	lv_obj_set_size(obj, 540, 300);
-	lv_obj_align(obj, LV_ALIGN_CENTER, 30, 30);
-	static Gif gif("/usd/logo.gif", obj); */
-
-    console.println("Registered auton routines!");
+    console.println("Hello world! Robodash is running!");
 
     selector.add_autons({
-     {"Auton 0", &fireCatapult},
-    });
+      {"Fire Cata", &fireCatapult}
+   });
 
     // Render funny gif on screen
-    //rd::set_view(&gif);
-
-	//cycleGradient(leftLED, "215071", "#74aacc", 15);
-
-    leftLED.set_all(0x74aacc);
 
     //pros::delay(500);
 

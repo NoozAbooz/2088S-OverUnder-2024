@@ -59,9 +59,10 @@ def main():
             or ('include' and 'liblvgl') in components
             or ('include' and 'gif-pros') in components
             or ('include' and 'lemlib') in components
+            or ('include' and 'robodash') in components
             or ('include' and 'pros') in components
             or ('include' and 'main.h') in components
-            #or ('include' and 'sylib') in components
+            or ('include' and 'sylib') in components
             or ('include' and 'output') in components
             or 'cquery_cached_index' in components
             or (not 'include') in components
@@ -76,7 +77,6 @@ def main():
             name = components[-1]
             rel_header_path += name
             copy(header, zip_source)
-
 
             # Generate LaTeX code for any valid header
             # Write it to the 'Code' LaTeX file
@@ -116,34 +116,53 @@ def main():
     main_dest = zip_source / "main.tex"
     main_dest.touch(exist_ok=True)
     with main_dest.open("w") as f:
-        f.write("\\documentclass[12pt, letterpaper]{article}\n"
-                 + "\\usepackage[utf8]{inputenc}\n"
-                 + "\\usepackage[margin=0.8in]{geometry}\n"
-                 + "\\usepackage{datetime}\n"
-                 + "\\usepackage{minted}\n"
-                 + "\\usepackage{fontspec}\n"
-                 + "\\usepackage{xcolor}\n"
-                 + "\\usepackage{url}\n"
-                 + "\\definecolor{LightGray}{gray}{0.9}\n"
-                 + "\\usemintedstyle{friendly}\n\n"
-                 
-                 + "\\title{2088S Programming Guide}\n"
-                 + r"\author{Michael Zheng\thanks{with support from Western Mechatronics and VTOW}}" + "\n"
-                 + r"\date{\today}" + "\n\n"
+        f.write(r"""\documentclass[12pt, letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{datetime}
+\usepackage{url}
 
-                 + "\\setmainfont{Comfortaa}\n"
-                 + "\\setmonofont{DejaVu Sans}\n\n"
+\usepackage{minted}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{graphicx}
 
-                 + "\\begin{document}\n"
-                 + "\\maketitle\n\n"
+\usepackage{titlepic}
+\usepackage{titling}
+\usepackage{hyperref}
 
-                 + "\\begin{centering}\n"
-                 + r"\url{https://github.com/NoozAbooz/2088S-OverUnder-2024/}\\" + "\n"
-                 + "\\end{centering}\n\n"
+\hypersetup{
+     colorlinks=true, 
+     urlcolor=cyan,
+}
 
-                 + "\\tableofcontents\n"  
-                 + "\\input{wrapper.tex}\n\n"
-                 + "\\end{document}")
+\definecolor{LightGray}{gray}{0.9}
+\usemintedstyle{friendly}
+\setmainfont{Comfortaa}
+\setmonofont{DejaVu Sans}
+
+\pretitle{\begin{center}\fontsize{40bp}{40bp}\selectfont}
+    \posttitle{\vspace{14bp}\par\includegraphics[width=100mm]{logo}\par\end{center}}
+\preauthor{\begin{center}\fontsize{14bp}{14bp}\selectfont}
+    \postauthor{\par\end{center}}
+\predate{\begin{center}}
+    \postdate{\par\end{center}}
+
+\title{\textbf{2088S Programming Guide}}
+\author{Michael Z\thanks{with support from Western Mechatronics and VTOW}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{centering}
+\url{https://github.com/NoozAbooz/2088S-OverUnder-2024/}\\
+\end{centering}
+\newpage
+
+\tableofcontents
+\input{wrapper.tex}
+
+\end{document}""")
 
     '''
     Ultimately, create a zipfile which can be automatically read by Overleaf

@@ -78,7 +78,7 @@
                 "version": "4.0.6"
             },
             "liblvgl": {
-                "location": "C:\\Users\\zheng\\AppData\\Roaming\\PROS\\templates\\liblvgl@8.3.7",
+                "location": "C:\\Users\\Michael\\AppData\\Roaming\\PROS\\templates\\liblvgl@8.3.7",
                 "metadata": {
                     "origin": "kernel-beta-mainline"
                 },
@@ -255,7 +255,7 @@
                 "version": "8.3.7"
             },
             "robodash": {
-                "location": "C:\\Users\\zheng\\AppData\\Roaming\\PROS\\templates\\robodash@2.0.0",
+                "location": "C:\\Users\\Michael\\AppData\\Roaming\\PROS\\templates\\robodash@2.0.0",
                 "metadata": {
                     "origin": "local"
                 },

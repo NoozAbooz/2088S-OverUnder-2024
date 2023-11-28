@@ -61,7 +61,9 @@ jobs:
           python-version: 3.9
 
       - name: Generate LaTeX Files
-        run: "python scripts/prosToMinted.py"
+        run: |
+          python scripts/prosToMinted.py
+          cp logo.png docs/output/
         shell: sh
 
       - name: Compile LaTeX document
