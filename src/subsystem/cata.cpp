@@ -24,6 +24,10 @@ void refreshCatapult() {
 		controller.rumble("-.-");
 		console.println("Cata Locked");
 	}
+
+	if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
+		catapult.move_voltage(12000);
+	}
 }
 
 /**
@@ -36,8 +40,8 @@ void loadCatapult() {
 	console.println("Loading Cata\n");
 
 	// Load cata until brightness is lower than threshold
-	while(cataLineSensor.get_value() > 2400) {
-		catapult.move_voltage(12000);
+	while(cataLineSensor.get_value() > 2500) {
+		catapult.move_voltage(8000);
 	}
 
 	// Vibrate controller
