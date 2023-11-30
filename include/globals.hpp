@@ -61,4 +61,4 @@ void refreshIntake();
 
 // Wings
 void refreshWings();
-void toggleWings(bool status);
+void moveWings(bool status);

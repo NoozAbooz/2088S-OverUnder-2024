@@ -6,16 +6,16 @@ bool wingsToggle = false;
 void refreshWings() {
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
     	wingsToggle = !wingsToggle; 
-    }
 
-    if(wingsToggle == true) {
-		toggleWings(true);
-	} else {
-		toggleWings(false);
-	}
+		if(wingsToggle == true) {
+			moveWings(true);
+		} else {
+			moveWings(false);
+		}
+    }
 }
 
-void toggleWings(bool status) {
+void moveWings(bool status) {
   	if (status == false) {
     	wingPiston.retract();
     	wingsToggle = false;

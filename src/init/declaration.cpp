@@ -16,7 +16,7 @@ pros::Motor catapult(1, pros::v5::MotorGears::red);
 
 // Pneumatics
 pros::adi::Pneumatics intakePiston('H', false);   
-pros::adi::Pneumatics wingPiston('b', false);
+pros::adi::Pneumatics wingPiston('G', false);
 
 // LED
 pros::adi::Led leftLED('D', 64);
