@@ -1,7 +1,7 @@
 #include "globals.hpp"
 
 void arcadeDrive() {
-	int power = driveCurve(controller.get_analog(ANALOG_LEFT_Y), 10);
+	int power = driveCurve(controller.get_analog(ANALOG_LEFT_Y), 15);
  	int turn = driveCurve(controller.get_analog(ANALOG_RIGHT_X), 4);
   	leftDrive.move_voltage((power + turn) * (12000 / 127));
   	rightDrive.move_voltage((power - turn) * (12000 / 127));

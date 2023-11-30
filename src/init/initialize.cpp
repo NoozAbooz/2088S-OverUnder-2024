@@ -11,13 +11,13 @@ rd::Selector selector;
 rd::Console console;
 
 void initialize() {
-    pros::delay(500);
+    intakePiston.extend();
 
     console.println("Hello world! Robodash is running!");
 
     selector.add_autons({
       {"Fire Cata", &fireCatapult}
-    });
+     });
 
     console.focus();
 
