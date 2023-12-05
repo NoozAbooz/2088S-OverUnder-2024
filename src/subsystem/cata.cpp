@@ -36,7 +36,7 @@ void loadCatapult() {
 	console.println("Loading Cata\n");
 
 	// Load cata until brightness is lower than threshold
-	while(cataLineSensor.get_value() > 2400) {
+	while(cataLineSensor.get_value() > 2300) {
 		catapult.move_voltage(8000);
 	}
 
@@ -65,7 +65,7 @@ void fireCatapult() {
 		catapult.move_voltage(12000);
 
 		// Delay and brake motors
-		pros::delay(200);
+		pros::delay(160);
 		catapult.move_voltage(0);
 
 		// Set cataLoaded to false
