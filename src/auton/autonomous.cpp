@@ -1,3 +1,4 @@
+#include "abstractGlobals.hpp"
 #include "deviceGlobals.hpp"
 #include "main.h"
 
@@ -39,7 +40,7 @@ void autonomous() {
 
 
 void close_wp() {
-    wingPiston.extend();
+    moveWings(true);
 
     leftDrive.move_voltage(-12000);
     rightDrive.move_voltage(-12000);

@@ -17,7 +17,7 @@ void initialize() {
 
     console.print("Initializing Auton Routines...");
     selector.add_autons({
-        {"Plow Triball (1pt )", close_wp}
+        {"Plow Triball (1pt)", close_wp}
 	    
     });
 

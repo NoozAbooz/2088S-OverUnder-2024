@@ -18,6 +18,7 @@ extern rd::Console console;
 void refreshCatapult();
 void loadCatapult();
 void fireCatapult();
+extern bool cataLock;
 
 // DT
 void arcadeDrive();
