@@ -1,6 +1,6 @@
 #include "globals.hpp"
 
-ASSET(test_txt); // '.' replaced with "_" to make c++ happy
+//ASSET(test_txt); // '.' replaced with "_" to make c++ happy
 
 /**
  * Runs the user autonomous code. This function will be started in its own task

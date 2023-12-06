@@ -1,4 +1,5 @@
 #include "globals.hpp"
+#include "pros/misc.h"
 
 // Catapult
 bool cataLoaded = false;
@@ -14,7 +15,7 @@ void refreshCatapult() {
 		if(cataLock == false) {
 			pros::Task loadCataTask(loadCatapult);
 		}
-	  
+	
 	} else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2) && cataLock == false) {
 	  	pros::Task loadCataTask(loadCatapult);
 	}
@@ -23,6 +24,10 @@ void refreshCatapult() {
 		cataLock = !cataLock;
 		controller.rumble("-.-");
 		console.println("Cata Locked");
+	}
+
+	if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+		catapult.move_voltage(8000);
 	}
 }
 
@@ -37,7 +42,7 @@ void loadCatapult() {
 
 	// Load cata until brightness is lower than threshold
 	while(cataLineSensor.get_value() > 2300) {
-		catapult.move_voltage(8000);
+		catapult.move_voltage(7000);
 	}
 
 	// Vibrate controller
