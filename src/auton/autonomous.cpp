@@ -1,4 +1,5 @@
-#include "globals.hpp"
+#include "deviceGlobals.hpp"
+#include "main.h"
 
 //ASSET(test_txt); // '.' replaced with "_" to make c++ happy
 
@@ -14,7 +15,7 @@
  * from where it left off.
  */
 void autonomous() {
-    
+    selector.do_auton();
 
     // // example movement: Move to x: 20 and y:15, and face heading 90. Timeout set to 4000 ms
     // chassis.moveTo(20, 15, 90, 4000);
@@ -33,4 +34,18 @@ void autonomous() {
     // // wait until the movement is done
     // chassis.waitUntil(1000000);
     // pros::lcd::print(4, "pure pursuit finished!");
+}
+
+
+
+void close_wp() {
+    wingPiston.extend();
+
+    leftDrive.move_voltage(-12000);
+    rightDrive.move_voltage(-12000);
+
+    pros::delay(3000);
+
+    leftDrive.move_voltage(0);
+    rightDrive.move_voltage(0);
 }

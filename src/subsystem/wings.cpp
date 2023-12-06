@@ -1,4 +1,4 @@
-#include "globals.hpp"
+#include "main.h"
 
 bool wingsToggle = false;
 

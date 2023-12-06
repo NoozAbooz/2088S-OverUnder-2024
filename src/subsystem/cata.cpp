@@ -1,5 +1,4 @@
-#include "globals.hpp"
-#include "pros/misc.h"
+#include "main.h"
 
 // Catapult
 bool cataLoaded = false;

@@ -1,4 +1,4 @@
-#include "globals.hpp"
+#include "main.h"
 
 /* Physical Devices */
 // Controller
@@ -29,6 +29,5 @@ pros::Imu imu(2);
 // Cata Position
 pros::adi::AnalogIn cataLineSensor('A');
 
-
 // Horizontal tracking wheel encoder
-pros::adi::Encoder horizontalEnc('B', 'C', true);
+//pros::adi::Encoder horizontalEnc('B', 'C', true);

@@ -36,6 +36,9 @@
 
 #include "api.h"
 
+#include "deviceGlobals.hpp"
+#include "abstractGlobals.hpp"
+
 /**
  * You should add more #includes here
  */

@@ -1,4 +1,5 @@
-#include "globals.hpp"
+#include "abstractGlobals.hpp"
+#include "main.h"
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -12,19 +13,19 @@ rd::Console console;
 
 void initialize() {
     intakePiston.extend();
+    //loadCatapult();
+
+    console.print("Initializing Auton Routines...");
+    selector.add_autons({
+        {"Plow Triball (1pt )", close_wp}
+	    
+    });
 
     console.println("Hello world! Robodash is running!");
 
-    selector.add_autons({
-      {"Fire Cata", &fireCatapult}
-     });
-
-    console.focus();
+	selector.focus();
 
     // Render funny gif on screen
-
-    //loadCatapult();
-    //intakePiston.extend();
 }
 
 /**

@@ -116,7 +116,8 @@ def main():
     main_dest = zip_source / "main.tex"
     main_dest.touch(exist_ok=True)
     with main_dest.open("w") as f:
-        f.write(r"""\documentclass[12pt, letterpaper]{article}
+        f.write(r"""% !TEX program = xelatex
+\documentclass[12pt, letterpaper]{article}
 \usepackage[margin=0.8in]{geometry}
 \usepackage{datetime}
 \usepackage{url}
