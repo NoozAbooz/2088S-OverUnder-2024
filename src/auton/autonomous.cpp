@@ -1,5 +1,3 @@
-#include "abstractGlobals.hpp"
-#include "deviceGlobals.hpp"
 #include "main.h"
 
 //ASSET(test_txt); // '.' replaced with "_" to make c++ happy
