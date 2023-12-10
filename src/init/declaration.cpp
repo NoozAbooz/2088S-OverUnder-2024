@@ -9,7 +9,7 @@ pros::MotorGroup leftDrive({-8, -17, -10});
 pros::MotorGroup rightDrive({18, 19, 20});
 
 // Intake
-pros::Motor intake(-7, pros::v5::MotorGears::blue);
+pros::Motor intake(-3, pros::v5::MotorGears::blue);
 
 // Catapult
 pros::Motor catapult(1, pros::v5::MotorGears::red);
@@ -19,8 +19,7 @@ pros::adi::Pneumatics intakePiston('H', false);
 pros::adi::Pneumatics wingPiston('G', false);
 
 // LED
-pros::adi::Led leftLED('D', 64);
-pros::adi::Led rightLED('F', 64);
+pros::adi::Led leftLED('E', 64);
 
 /* Sensors */
 // Inertial

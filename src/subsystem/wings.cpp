@@ -19,12 +19,8 @@ void moveWings(bool status) {
   	if (status == false) {
     	wingPiston.retract();
     	wingsToggle = false;
-
-		console.println("Wings Extended\n");
   	} else {
     	wingPiston.extend();
     	wingsToggle = true;
-
-		console.println("Wings Retracted\n");
   	}
 }

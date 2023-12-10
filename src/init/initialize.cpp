@@ -1,3 +1,5 @@
+#include "abstractGlobals.hpp"
+#include "deviceGlobals.hpp"
 #include "main.h"
 
 /**
@@ -8,19 +10,15 @@
  */
 
 rd::Selector selector;
-rd::Console console;
 
 void initialize() {
     intakePiston.extend();
     //loadCatapult();
 
-    console.print("Initializing Auton Routines...");
     selector.add_autons({
-        {"Plow Triball (1pt)", close_wp}
+        {"Plow Triball (1pt)", close_wp},
 	    
     });
-
-    console.println("Hello world! Robodash is running!");
 
 	selector.focus();
 
@@ -37,6 +35,9 @@ void initialize() {
  * starts.
  */
 void competition_initialize() {
+    moveWings(false);
+    intakePiston.retract();
+    loadCatapult();
 }
 
 /**
