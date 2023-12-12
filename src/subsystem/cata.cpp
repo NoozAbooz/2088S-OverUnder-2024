@@ -25,7 +25,7 @@ void refreshCatapult() {
 	}
 
 	if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-		catapult.move_voltage(9000);
+		catapult.move_voltage(12000);
 	}
 }
 
@@ -37,15 +37,15 @@ void loadCatapult() {
 	pros::delay(500);
 
 	// Load cata until brightness is lower than threshold
-	while(cataLineSensor.get_value() > 2500) {
+	while(cataLineSensor.get_value() > 2400) {
 		catapult.move_voltage(10000);
 	}
 
-	// Vibrate controller
-	controller.rumble("..");
-
 	// Stop catapult and hold position
 	catapult.move_voltage(0);
+
+	// Vibrate controller
+	controller.rumble("..");
 
 	// Set cataLoaded to true
 	cataLoaded = true;
@@ -64,7 +64,7 @@ void fireCatapult() {
 		catapult.move_voltage(12000);
 
 		// Delay and brake motors
-		pros::delay(200);
+		pros::delay(190);
 		catapult.move_voltage(0);
 
 		// Set cataLoaded to false
