@@ -12,11 +12,11 @@ void refreshCatapult() {
 	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
 		fireCatapult();
 		if(cataLock == false) {
-			loadCatapult();
+			pros::Task loadCataTask(loadCatapult);
 		}
 	
 	} else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2) && cataLock == false) {
-	  	loadCatapult();
+	  	pros::Task loadCataTask(loadCatapult);
 	}
 
 	if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
@@ -34,8 +34,8 @@ void refreshCatapult() {
  * Sets cataLoaded to true and vibrates the controller when finished.
  */
 void loadCatapult() {
-	pros::delay(500);
-
+	pros::c::task_delay(500);
+	
 	// Load cata until brightness is lower than threshold
 	while(cataLineSensor.get_value() > 2400) {
 		catapult.move_voltage(10000);
