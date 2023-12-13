@@ -2,6 +2,8 @@
 #include "deviceGlobals.hpp"
 #include "main.h"
 
+#include "sylib/sylib.hpp"
+
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -10,17 +12,21 @@
  */
 
 rd::Selector selector;
+rd::Console console;
 
 void initialize() {
-    intakePiston.extend();
+    auto leftLED = sylib::Addrled(22, 5, 64);
+    sylib::initialize();
+    leftLED.set_all(0xE62169);
+
+    //intakePiston.extend();
     //loadCatapult();
 
     selector.add_autons({
-        {"Plow Triball (1pt)", close_wp},
-	    
+        {"Plow Triball (1pt)", &close_1pt}
     });
 
-	selector.focus();
+    console.println("Robodash is running");
 
     // Render funny gif on screen
 }

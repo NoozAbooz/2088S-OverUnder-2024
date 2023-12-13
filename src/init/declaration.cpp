@@ -19,7 +19,7 @@ pros::adi::Pneumatics intakePiston('H', false);
 pros::adi::Pneumatics wingPiston('G', false);
 
 // LED
-pros::adi::Led leftLED('E', 64);
+auto leftLED = sylib::Addrled(22, 5, 64);
 
 /* Sensors */
 // Inertial

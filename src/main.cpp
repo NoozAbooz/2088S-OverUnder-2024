@@ -11,8 +11,6 @@
  */
 
 void opcontrol() {
-	intakePiston.extend();
-
 	while (true) { // Main continuous loop
 		/* Drive */
 		arcadeDrive();

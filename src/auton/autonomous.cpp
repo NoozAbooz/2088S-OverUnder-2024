@@ -16,7 +16,7 @@
  * from where it left off.
  */
 void autonomous() {
-    close_wp();
+    selector.do_auton();
 
     // // example movement: Move to x: 20 and y:15, and face heading 90. Timeout set to 4000 ms
     // chassis.moveTo(20, 15, 90, 4000);
@@ -39,7 +39,7 @@ void autonomous() {
 
 
 
-void close_wp() {
+void close_1pt() {
     moveWings(true);
 
     leftDrive.move_voltage(-12000);

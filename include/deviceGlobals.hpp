@@ -1,4 +1,5 @@
 #pragma once
+#include "deviceGlobals.hpp"
 #include "main.h"
 
 // Controller
@@ -19,8 +20,7 @@ extern pros::adi::Pneumatics intakePiston;
 extern pros::adi::Pneumatics wingPiston;
 
 // LED
-extern pros::adi::Led leftLED;
-extern pros::adi::Led rightLED;
+
 
 /* Sensors */
 // Inertial
