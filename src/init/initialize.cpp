@@ -23,9 +23,10 @@ void initialize() {
     //loadCatapult();
 
     selector.add_autons({
-        {"Plow Triball (1pt)", &close_1pt}
+        {"Plow 1 Triball", &close_1pt}
     });
 
+    console.clear();
     console.println("Robodash is running");
 
     // Render funny gif on screen
