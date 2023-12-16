@@ -9,9 +9,7 @@
 #include "robodash/api.h"
 extern rd::Selector selector;
 extern rd::Console console;
-
-// Sylib
-#include "sylib/sylib.hpp"
+extern rd::Image image;
 
 // gif-pros
 //#include "gif-pros/gifclass.hpp"
@@ -35,4 +33,4 @@ void refreshWings();
 void moveWings(bool status);
 
 // Auton
-void close_1pt();
+void close_1tri();

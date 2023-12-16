@@ -1,3 +1,4 @@
+#include "abstractGlobals.hpp"
 #include "main.h"
 
 bool wingsToggle = false;
@@ -19,8 +20,10 @@ void moveWings(bool status) {
   	if (status == false) {
     	wingPiston.retract();
     	wingsToggle = false;
+		console.println("Wings retracted");
   	} else {
     	wingPiston.extend();
     	wingsToggle = true;
+		console.println("Wings extended");
   	}
 }

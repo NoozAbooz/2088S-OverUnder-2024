@@ -2,8 +2,6 @@
 #include "deviceGlobals.hpp"
 #include "main.h"
 
-#include "sylib/sylib.hpp"
-
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -13,17 +11,15 @@
 
 rd::Selector selector;
 rd::Console console;
+rd::Image logo("/usd/logo.bin", "Logo");
+
 
 void initialize() {
-    auto leftLED = sylib::Addrled(22, 5, 64);
-    sylib::initialize();
-    leftLED.set_all(0xE62169);
-
     //intakePiston.extend();
     //loadCatapult();
 
     selector.add_autons({
-        {"Plow 1 Triball", &close_1pt}
+        {"Plow 1 Triball", &close_1tri}
     });
 
     console.clear();
