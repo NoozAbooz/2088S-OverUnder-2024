@@ -39,7 +39,7 @@ void autonomous() {
 
 
 
-void close_1pt() {
+void close_1tri() {
     moveWings(true);
 
     leftDrive.move_voltage(-12000);

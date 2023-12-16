@@ -9,24 +9,27 @@ bool cataLock = false;
  * 
  */
 void refreshCatapult() {
-	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
+	if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+		catapult.move_voltage(10000);
+	}
+	
+	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1) && !controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
 		fireCatapult();
 		if(cataLock == false) {
 			pros::Task loadCataTask(loadCatapult);
 		}
 	
-	} else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2) && cataLock == false) {
+	} else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2) && !controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
 	  	pros::Task loadCataTask(loadCatapult);
 	}
 
 	if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
 		cataLock = !cataLock;
 		controller.rumble("-.-");
+		console.printf("Cata lock: %d\n", cataLock);
 	}
 
-	if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-		catapult.move_voltage(12000);
-	}
+	
 }
 
 /**
@@ -37,7 +40,7 @@ void loadCatapult() {
 	pros::c::task_delay(500);
 	
 	// Load cata until brightness is lower than threshold
-	while(cataLineSensor.get_value() > 2400) {
+	while(cataLineSensor.get_value() > 2500) {
 		catapult.move_voltage(12000);
 	}
 
@@ -49,6 +52,7 @@ void loadCatapult() {
 
 	// Set cataLoaded to true
 	cataLoaded = true;
+	console.println("Cata loaded");
 }
 
 /**
@@ -64,10 +68,14 @@ void fireCatapult() {
 		catapult.move_voltage(12000);
 
 		// Delay and brake motors
-		pros::delay(200);
+		while(cataLineSensor.get_value() < 2400) {
+			catapult.move_voltage(12000);
+		}
+		pros::c::task_delay(500);
 		catapult.move_voltage(0);
 
 		// Set cataLoaded to false
 		cataLoaded = false;
+		console.println("Cata fired");
 	}
 }
