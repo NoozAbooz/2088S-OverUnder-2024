@@ -63,4 +63,111 @@ void close_1tri() {
     rightDrive.move_voltage(0);
 
     intakePiston.extend();
+
+}
+
+void concept_auton() {
+
+    leftDrive.move_voltage(-12000);
+    rightDrive.move_voltage(-12000);
+
+    pros::delay(3000);
+
+    leftDrive.move_voltage(0);
+    rightDrive.move_voltage(0);
+
+    pros::delay(100);
+
+    intakePiston.extend();
+    leftDrive.move_voltage(-12000);
+    rightDrive.move_voltage(12000);
+
+    pros::delay(1000);
+
+    leftDrive.move_voltage(0);
+    rightDrive.move_voltage(0);
+
+    pros::delay(100);
+    
+    leftDrive.move_voltage(12000);
+    rightDrive.move_voltage(12000);
+
+    pros::delay(1000);   
+
+    leftDrive.move_voltage(0);
+    rightDrive.move_voltage(0);
+
+    pros::delay(10);
+
+    intake.move_voltage(-12000);
+
+    pros::delay(500);
+
+    leftDrive.move_voltage(12000);
+    rightDrive.move_voltage(-12000);
+
+    pros::delay(1000);
+
+    leftDrive.move_voltage(0);
+    rightDrive.move_voltage(0);
+
+    pros::delay(100);
+
+    intake.move_voltage(12000);
+
+    pros::delay(500);
+
+    intake.move_voltage(0);
+    leftDrive.move_voltage(-12000);
+    rightDrive.move_voltage(12000);
+
+    pros::delay(1000);
+
+    leftDrive.move_voltage(0);
+    rightDrive.move_voltage(0);
+
+    pros::delay(10);
+
+    intake.move_voltage(-12000);
+
+    pros::delay(10);
+
+    leftDrive.move_voltage(-12000);
+    rightDrive.move_voltage(-12000);
+
+    pros::delay(200);
+
+    leftDrive.move_voltage(12000);
+    rightDrive.move_voltage(-12000);
+
+    pros::delay(1000);
+
+    moveWings(true);
+    leftDrive.move_voltage(-12000);
+    rightDrive.move_voltage(-12000);
+
+    pros::delay(-250);
+
+    leftDrive.move_voltage(12000);
+    rightDrive.move_voltage(12000);
+
+    pros::delay(100);
+
+    leftDrive.move_voltage(-12000);
+    rightDrive.move_voltage(-12000);
+
+    pros::delay(100);
+
+    leftDrive.move_voltage(12000);
+    rightDrive.move_voltage(12000);
+
+    pros::delay(100);
+
+    leftDrive.move_voltage(-12000);
+    rightDrive.move_voltage(-12000);
+
+    pros::delay(10);
+
+    moveWings(false);
+    
 }
