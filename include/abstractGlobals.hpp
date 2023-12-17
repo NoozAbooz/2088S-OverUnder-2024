@@ -9,7 +9,7 @@
 #include "robodash/api.h"
 extern rd::Selector selector;
 extern rd::Console console;
-extern rd::Image image;
+extern rd::Image logo;
 
 // gif-pros
 //#include "gif-pros/gifclass.hpp"

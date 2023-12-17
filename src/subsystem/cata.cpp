@@ -65,14 +65,7 @@ void loadCatapult() {
 void fireCatapult() {
 	if (cataLoaded == true) {
 		// Fire cata
-		catapult.move_voltage(12000);
-
-		// Delay and brake motors
-		while(cataLineSensor.get_value() < 2400) {
-			catapult.move_voltage(12000);
-		}
-		pros::c::task_delay(500);
-		catapult.move_voltage(0);
+		catapult.move_voltage(10000);
 
 		// Set cataLoaded to false
 		cataLoaded = false;

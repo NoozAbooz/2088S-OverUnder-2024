@@ -11,7 +11,7 @@
 
 rd::Selector selector;
 rd::Console console;
-rd::Image logo("/usd/logo.bin", "Logo");
+rd::Image logo("/usd/logo.bin", "Team Logo");
 
 
 void initialize() {
@@ -19,7 +19,7 @@ void initialize() {
     //loadCatapult();
 
     selector.add_autons({
-        {"Plow 1 Triball", &close_1tri}
+        {"Plow_1_Triball", &close_1tri}
     });
 
     console.clear();

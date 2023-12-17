@@ -11,6 +11,7 @@
  */
 
 void opcontrol() {
+	logo.focus();
 	while (true) { // Main continuous loop
 		/* Drive */
 		arcadeDrive();

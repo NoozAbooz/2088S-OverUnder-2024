@@ -16,7 +16,8 @@
  * from where it left off.
  */
 void autonomous() {
-    selector.do_auton();
+    //selector.do_auton();
+    close_1tri();
 
     // // example movement: Move to x: 20 and y:15, and face heading 90. Timeout set to 4000 ms
     // chassis.moveTo(20, 15, 90, 4000);
@@ -40,16 +41,26 @@ void autonomous() {
 
 
 void close_1tri() {
-    moveWings(true);
+    //moveWings(true);
 
     leftDrive.move_voltage(-12000);
     rightDrive.move_voltage(-12000);
 
-    pros::delay(3000);
+    pros::delay(4000);
 
     leftDrive.move_voltage(0);
     rightDrive.move_voltage(0);
 
-    moveWings(false);
+    //moveWings(false);
+    //intakePiston.extend();
+
+    leftDrive.move_voltage(4000);
+    rightDrive.move_voltage(4000);
+
+    pros::delay(1000);
+
+    leftDrive.move_voltage(0);
+    rightDrive.move_voltage(0);
+
     intakePiston.extend();
 }
