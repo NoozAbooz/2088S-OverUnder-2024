@@ -9,19 +9,19 @@
  * to keep execution time for this mode under a few seconds.
  */
 
-rd::Selector selector;
+rd::Selector selector({
+   {"Plow_1_Triball", &close_1tri},
+   {"Skills Run", &skills}
+});
+
 rd::Console console;
-rd::Image logo("/usd/logo.bin", "Team Logo");
+rd::Image logo("/usd/logo.bin", "2088S Logo");
 
 
 void initialize() {
     //intakePiston.extend();
     //loadCatapult();
     cataLineSensor.calibrate();
-
-    selector.add_autons({
-        {"Plow_1_Triball", &close_1tri}
-    });
 
     console.clear();
     console.println("Robodash is running");

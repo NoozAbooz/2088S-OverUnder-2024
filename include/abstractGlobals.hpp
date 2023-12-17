@@ -33,4 +33,5 @@ void refreshWings();
 void moveWings(bool status);
 
 // Auton
+void skills();
 void close_1tri();

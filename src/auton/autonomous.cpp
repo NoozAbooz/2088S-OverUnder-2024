@@ -37,7 +37,9 @@ void autonomous() {
     // pros::lcd::print(4, "pure pursuit finished!");
 }
 
-
+void skills() {
+    
+}
 
 void close_1tri() {
     //moveWings(true);
