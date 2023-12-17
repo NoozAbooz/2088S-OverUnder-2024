@@ -255,7 +255,7 @@
                 "version": "8.3.7"
             },
             "robodash": {
-                "location": "C:\\Users\\zheng\\AppData\\Roaming\\PROS\\templates\\robodash@2.0.0",
+                "location": "C:\\Users\\Michael\\AppData\\Roaming\\PROS\\templates\\robodash@2.0.0",
                 "metadata": {
                     "origin": "local"
                 },
@@ -263,17 +263,17 @@
                 "py/object": "pros.conductor.templates.local_template.LocalTemplate",
                 "supported_kernels": "^4.0.6",
                 "system_files": [
-                    "include\\robodash\\apix.h",
-                    "ASSET_FILES",
-                    "include\\robodash\\core.h",
-                    "include\\robodash\\views\\console.hpp",
-                    "include\\robodash\\api.h",
-                    "include\\robodash\\views\\selector.hpp",
                     "include\\robodash\\impl\\assets.h",
-                    "include\\robodash\\impl\\filesystem.h",
-                    "firmware\\robodash.a",
                     "include\\robodash\\impl\\styles.h",
-                    "include\\robodash\\views\\image.hpp"
+                    "include\\robodash\\views\\image.hpp",
+                    "include\\robodash\\impl\\filesystem.h",
+                    "include\\robodash\\views\\selector.hpp",
+                    "include\\robodash\\core.h",
+                    "ASSET_FILES",
+                    "include\\robodash\\api.h",
+                    "include\\robodash\\views\\console.hpp",
+                    "firmware\\robodash.a",
+                    "include\\robodash\\apix.h"
                 ],
                 "target": "v5",
                 "user_files": [],

@@ -16,8 +16,7 @@
  * from where it left off.
  */
 void autonomous() {
-    //selector.do_auton();
-    close_1tri();
+    selector.run_auton();
 
     // // example movement: Move to x: 20 and y:15, and face heading 90. Timeout set to 4000 ms
     // chassis.moveTo(20, 15, 90, 4000);

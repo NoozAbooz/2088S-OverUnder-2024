@@ -17,6 +17,7 @@ rd::Image logo("/usd/logo.bin", "Team Logo");
 void initialize() {
     //intakePiston.extend();
     //loadCatapult();
+    cataLineSensor.calibrate();
 
     selector.add_autons({
         {"Plow_1_Triball", &close_1tri}
