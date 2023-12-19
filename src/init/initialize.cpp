@@ -1,5 +1,3 @@
-#include "abstractGlobals.hpp"
-#include "deviceGlobals.hpp"
 #include "main.h"
 
 /**
@@ -10,18 +8,17 @@
  */
 
 rd::Selector selector({
-   {"Plow_1_Triball", &close_1tri},
-   {"Skills Run", &skills}
+{"Plow Triball", &close_1tri},
+{"Skills", &skills},
+{"Wings", &autonomous}
 });
 
+//rd::Image logo("/usd/logo.bin", "Logo");
 rd::Console console;
-rd::Image logo("/usd/logo.bin", "2088S Logo");
-
 
 void initialize() {
     //intakePiston.extend();
     //loadCatapult();
-    cataLineSensor.calibrate();
 
     console.clear();
     console.println("Robodash is running");
@@ -40,7 +37,6 @@ void initialize() {
  */
 void competition_initialize() {
     moveWings(false);
-    intakePiston.retract();
     loadCatapult();
 }
 

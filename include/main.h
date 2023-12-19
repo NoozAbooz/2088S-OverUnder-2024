@@ -38,6 +38,7 @@
 
 #include "deviceGlobals.hpp"
 #include "abstractGlobals.hpp"
+#include "autonGlobals.hpp"
 
 /**
  * You should add more #includes here

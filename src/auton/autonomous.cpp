@@ -1,8 +1,8 @@
 #include "abstractGlobals.hpp"
-#include "deviceGlobals.hpp"
+#include "autonGlobals.hpp"
 #include "main.h"
 
-//ASSET(test_txt); // '.' replaced with "_" to make c++ happy
+ASSET(test_txt); // '.' replaced with "_" to make c++ happy
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -16,7 +16,11 @@
  * from where it left off.
  */
 void autonomous() {
-    selector.run_auton();
+    chassis.setPose({0, 0, 0});
+    chassis.moveTo(10, 10, 0, 5000);
+    //chassis.moveTo(0, 0, 90, 4000);
+    //chassis.moveTo(10, 10, 50, 4000);
+    //selector.run_auton();
 
     // // example movement: Move to x: 20 and y:15, and face heading 90. Timeout set to 4000 ms
     // chassis.moveTo(20, 15, 90, 4000);
@@ -38,137 +42,134 @@ void autonomous() {
 }
 
 void skills() {
-    
+    console.println("Skills run");
 }
 
 void close_1tri() {
-    //moveWings(true);
 
-    leftDrive.move_voltage(-12000);
-    rightDrive.move_voltage(-12000);
+    // leftDrive.move_voltage(-12000);
+    // rightDrive.move_voltage(-12000);
 
-    pros::delay(4000);
+    // pros::delay(4000);
 
-    leftDrive.move_voltage(0);
-    rightDrive.move_voltage(0);
+    // leftDrive.move_voltage(0);
+    // rightDrive.move_voltage(0);
 
-    //moveWings(false);
-    //intakePiston.extend();
 
-    leftDrive.move_voltage(4000);
-    rightDrive.move_voltage(4000);
+    // leftDrive.move_voltage(4000);
+    // rightDrive.move_voltage(4000);
 
-    pros::delay(1000);
+    // pros::delay(1000);
 
-    leftDrive.move_voltage(0);
-    rightDrive.move_voltage(0);
+    // leftDrive.move_voltage(0);
+    // rightDrive.move_voltage(0);
 
-    intakePiston.extend();
+    // intakePiston.extend();
 
 }
 
 void concept_auton() {
 
-    leftDrive.move_voltage(-12000);
-    rightDrive.move_voltage(-12000);
+    // leftDrive.move_voltage(-12000);
+    // rightDrive.move_voltage(-12000);
 
-    pros::delay(3000);
+    // pros::delay(3000);
 
-    leftDrive.move_voltage(0);
-    rightDrive.move_voltage(0);
+    // leftDrive.move_voltage(0);
+    // rightDrive.move_voltage(0);
 
-    pros::delay(100);
+    // pros::delay(100);
 
-    intakePiston.extend();
-    leftDrive.move_voltage(-12000);
-    rightDrive.move_voltage(12000);
+    // intakePiston.extend();
+    // leftDrive.move_voltage(-12000);
+    // rightDrive.move_voltage(12000);
 
-    pros::delay(1000);
+    // pros::delay(1000);
 
-    leftDrive.move_voltage(0);
-    rightDrive.move_voltage(0);
+    // leftDrive.move_voltage(0);
+    // rightDrive.move_voltage(0);
 
-    pros::delay(100);
+    // pros::delay(100);
     
-    leftDrive.move_voltage(12000);
-    rightDrive.move_voltage(12000);
+    // leftDrive.move_voltage(12000);
+    // rightDrive.move_voltage(12000);
 
-    pros::delay(1000);   
+    // pros::delay(1000);   
 
-    leftDrive.move_voltage(0);
-    rightDrive.move_voltage(0);
+    // leftDrive.move_voltage(0);
+    // rightDrive.move_voltage(0);
 
-    pros::delay(10);
+    // pros::delay(10);
 
-    intake.move_voltage(-12000);
+    // intake.move_voltage(-12000);
 
-    pros::delay(500);
+    // pros::delay(500);
 
-    leftDrive.move_voltage(12000);
-    rightDrive.move_voltage(-12000);
+    // leftDrive.move_voltage(12000);
+    // rightDrive.move_voltage(-12000);
 
-    pros::delay(1000);
+    // pros::delay(1000);
 
-    leftDrive.move_voltage(0);
-    rightDrive.move_voltage(0);
+    // leftDrive.move_voltage(0);
+    // rightDrive.move_voltage(0);
 
-    pros::delay(100);
+    // pros::delay(100);
 
-    intake.move_voltage(12000);
+    // intake.move_voltage(12000);
 
-    pros::delay(500);
+    // pros::delay(500);
 
-    intake.move_voltage(0);
-    leftDrive.move_voltage(-12000);
-    rightDrive.move_voltage(12000);
+    // intake.move_voltage(0);
+    // leftDrive.move_voltage(-12000);
+    // rightDrive.move_voltage(12000);
 
-    pros::delay(1000);
+    // pros::delay(1000);
 
-    leftDrive.move_voltage(0);
-    rightDrive.move_voltage(0);
+    // leftDrive.move_voltage(0);
+    // rightDrive.move_voltage(0);
 
-    pros::delay(10);
+    // pros::delay(10);
 
-    intake.move_voltage(-12000);
+    // intake.move_voltage(-12000);
 
-    pros::delay(10);
+    // pros::delay(10);
 
-    leftDrive.move_voltage(-12000);
-    rightDrive.move_voltage(-12000);
+    // leftDrive.move_voltage(-12000);
+    // rightDrive.move_voltage(-12000);
 
-    pros::delay(200);
+    // pros::delay(200);
 
-    leftDrive.move_voltage(12000);
-    rightDrive.move_voltage(-12000);
+    // leftDrive.move_voltage(12000);
+    // rightDrive.move_voltage(-12000);
 
-    pros::delay(1000);
+    // pros::delay(1000);
 
-    moveWings(true);
-    leftDrive.move_voltage(-12000);
-    rightDrive.move_voltage(-12000);
+    // moveWings(true);
+    // leftDrive.move_voltage(-12000);
+    // rightDrive.move_voltage(-12000);
 
-    pros::delay(-250);
+    // pros::delay(-250);
 
-    leftDrive.move_voltage(12000);
-    rightDrive.move_voltage(12000);
+    // leftDrive.move_voltage(12000);
+    // rightDrive.move_voltage(12000);
 
-    pros::delay(100);
+    // pros::delay(100);
 
-    leftDrive.move_voltage(-12000);
-    rightDrive.move_voltage(-12000);
+    // leftDrive.move_voltage(-12000);
+    // rightDrive.move_voltage(-12000);
 
-    pros::delay(100);
+    // pros::delay(100);
 
-    leftDrive.move_voltage(12000);
-    rightDrive.move_voltage(12000);
+    // leftDrive.move_voltage(12000);
+    // rightDrive.move_voltage(12000);
 
-    pros::delay(100);
+    // pros::delay(100);
 
-    leftDrive.move_voltage(-12000);
-    rightDrive.move_voltage(-12000);
+    // leftDrive.move_voltage(-12000);
+    // rightDrive.move_voltage(-12000);
 
-    pros::delay(10);
+    // pros::delay(10);
 
-    moveWings(false);
+    // moveWings(false);
     
 }

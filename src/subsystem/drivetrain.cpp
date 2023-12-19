@@ -2,9 +2,9 @@
 
 void arcadeDrive() {
 	int power = driveCurve(controller.get_analog(ANALOG_LEFT_Y), 15);
- 	int turn = driveCurve(controller.get_analog(ANALOG_RIGHT_X), 8);
-  	leftDrive.move_voltage((power + turn) * (12000 / 127));
-  	rightDrive.move_voltage((power - turn) * (12000 / 127));
+ 	int turn = driveCurve(controller.get_analog(ANALOG_RIGHT_X), 4);
+
+	chassis.arcade(power, turn);
 }
 
 // Calculates the output of a drive curve function.

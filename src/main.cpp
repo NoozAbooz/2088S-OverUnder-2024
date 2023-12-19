@@ -1,5 +1,4 @@
 #include "main.h"
-#include "deviceGlobals.hpp"
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -11,7 +10,6 @@
  */
 
 void opcontrol() {
-	logo.focus();
 	while (true) { // Main continuous loop
 		/* Drive */
 		arcadeDrive();
@@ -22,8 +20,8 @@ void opcontrol() {
 		refreshWings();
 
 		// Crazy? I was crazy once. They put me in elo. Low elo. A low elo with rats in it. And rats make me crazy.
-		controller.print(1, 0, "%.0lf %.0lf %.0lf %d", leftDrive.get_temperature(), catapult.get_temperature(), intake.get_temperature(), !cataLock);
+		controller.print(1, 0, "Cat%.0lf°C In%.0lf°C %d", catapult.get_temperature(), intake.get_temperature(), !cataLock);
 
-		pros::delay(10); // Run for 20 ms then update
+		pros::delay(10); // Run for 10 ms then update
 	}
 }

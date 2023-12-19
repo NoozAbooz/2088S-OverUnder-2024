@@ -4,6 +4,55 @@
         "project_name": "2088S V2",
         "target": "v5",
         "templates": {
+            "LemLib": {
+                "location": "C:\\Users\\zheng\\AppData\\Roaming\\PROS\\templates\\LemLib@0.5.0-rc2+7bdd27",
+                "metadata": {
+                    "origin": "local"
+                },
+                "name": "LemLib",
+                "py/object": "pros.conductor.templates.local_template.LocalTemplate",
+                "supported_kernels": "^4.0.6",
+                "system_files": [
+                    "include/lemlib/logger/baseSink.hpp",
+                    "include/lemlib/chassis/differential.hpp",
+                    "include/lemlib/api.hpp",
+                    "firmware/asset.mk",
+                    "include/lemlib/logger/message.hpp",
+                    "include/lemlib/devices/encoder/rotation.hpp",
+                    "include/fmt/format.h",
+                    "include/fmt/core.h",
+                    "include/lemlib/logger/stdout.hpp",
+                    "include/fmt/args.h",
+                    "firmware/LemLib.a",
+                    "include/lemlib/pid.hpp",
+                    "include/lemlib/movements/movement.hpp",
+                    "include/lemlib/devices/encoder/encoder.hpp",
+                    "include/lemlib/movements/turn.hpp",
+                    "include/lemlib/chassis/chassis.hpp",
+                    "include/lemlib/logger/telemetrySink.hpp",
+                    "include/lemlib/logger/buffer.hpp",
+                    "include/lemlib/odom/differentialArc.hpp",
+                    "include/lemlib/devices/gyro/gyro.hpp",
+                    "include/lemlib/asset.hpp",
+                    "static/example.txt",
+                    "include/lemlib/timer.hpp",
+                    "include/lemlib/movements/purepursuit.hpp",
+                    "include/lemlib/devices/encoder/optical.hpp",
+                    "include/lemlib/devices/encoder/motor.hpp",
+                    "include/lemlib/devices/gyro/imu.hpp",
+                    "include/lemlib/odom/odom.hpp",
+                    "include/fmt/format-inl.h",
+                    "include/lemlib/util.hpp",
+                    "include/lemlib/logger/infoSink.hpp",
+                    "include/lemlib/movements/boomerang.hpp",
+                    "include/lemlib/devices/trackingWheel.hpp",
+                    "include/lemlib/logger/logger.hpp",
+                    "include/lemlib/pose.hpp"
+                ],
+                "target": "v5",
+                "user_files": [],
+                "version": "0.5.0-rc2+7bdd27"
+            },
             "kernel": {
                 "location": "C:\\Users\\zheng\\AppData\\Roaming\\PROS\\templates\\kernel@4.0.6",
                 "metadata": {
@@ -255,7 +304,7 @@
                 "version": "8.3.7"
             },
             "robodash": {
-                "location": "C:\\Users\\Michael\\AppData\\Roaming\\PROS\\templates\\robodash@2.0.0",
+                "location": "C:\\Users\\zheng\\AppData\\Roaming\\PROS\\templates\\robodash@2.0.0",
                 "metadata": {
                     "origin": "local"
                 },
@@ -263,17 +312,17 @@
                 "py/object": "pros.conductor.templates.local_template.LocalTemplate",
                 "supported_kernels": "^4.0.6",
                 "system_files": [
-                    "include\\robodash\\impl\\assets.h",
-                    "include\\robodash\\impl\\styles.h",
-                    "include\\robodash\\views\\image.hpp",
-                    "include\\robodash\\impl\\filesystem.h",
-                    "include\\robodash\\views\\selector.hpp",
-                    "include\\robodash\\core.h",
                     "ASSET_FILES",
-                    "include\\robodash\\api.h",
-                    "include\\robodash\\views\\console.hpp",
-                    "firmware\\robodash.a",
-                    "include\\robodash\\apix.h"
+                    "include/robodash/views/console.hpp",
+                    "firmware/robodash.a",
+                    "include/robodash/core.h",
+                    "include/robodash/impl/assets.h",
+                    "include/robodash/api.h",
+                    "include/robodash/impl/styles.h",
+                    "include/robodash/impl/filesystem.h",
+                    "include/robodash/apix.h",
+                    "include/robodash/views/image.hpp",
+                    "include/robodash/views/selector.hpp"
                 ],
                 "target": "v5",
                 "user_files": [],

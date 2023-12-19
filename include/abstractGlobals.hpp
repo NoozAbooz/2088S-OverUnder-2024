@@ -1,9 +1,8 @@
 #pragma once
-#include "main.h"
 
 /* Libaries */
 // LemLib
-//#include "lemlib/api.hpp"
+#include "lemlib/api.hpp"
 
 // Robodash
 #include "robodash/api.h"
@@ -31,7 +30,3 @@ void refreshIntake();
 // Wings
 void refreshWings();
 void moveWings(bool status);
-
-// Auton
-void skills();
-void close_1tri();

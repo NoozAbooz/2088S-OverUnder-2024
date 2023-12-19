@@ -1,4 +1,3 @@
-#include "abstractGlobals.hpp"
 #include "main.h"
 
 bool wingsToggle = false;
