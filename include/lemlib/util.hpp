@@ -12,6 +12,8 @@
 #pragma once
 
 #include <vector>
+#include <math.h>
+#include "lemlib/pose.hpp"
 
 namespace lemlib {
 /**
@@ -31,7 +33,7 @@ float slew(float target, float current, float maxChange);
  * @param rad radians
  * @return float degrees
  */
-float radToDeg(float rad);
+constexpr float radToDeg(float rad) { return rad * 180 / M_PI; }
 
 /**
  * @brief Convert degrees to radians
@@ -39,7 +41,7 @@ float radToDeg(float rad);
  * @param deg degrees
  * @return float radians
  */
-float degToRad(float deg);
+constexpr float degToRad(float deg) { return deg * M_PI / 180; }
 
 /**
  * @brief Calculate the error between 2 angles. Useful when calculating the error between 2 headings
@@ -55,9 +57,9 @@ float angleError(float angle1, float angle2, bool radians = false);
  * @brief Return the sign of a number
  *
  * @param x the number to get the sign of
- * @return float - -1 if negative, 1 if positive
+ * @return int - -1 if negative, 1 if positive
  */
-float sgn(float x);
+template <typename T> constexpr T sgn(T value) { return value < 0 ? -1 : 1; }
 
 /**
  * @brief Return the average of a vector of numbers
@@ -68,10 +70,26 @@ float sgn(float x);
 float avg(std::vector<float> values);
 
 /**
- * @brief Return the average of a vector of numbers
+ * @brief Exponential moving average
  *
- * @param values
- * @return double
+ * @param current current measurement
+ * @param previous previous output
+ * @param smooth smoothing factor (0-1). 1 means no smoothing, 0 means no change
+ * @return float - the smoothed output
  */
-double avg(std::vector<double> values);
+float ema(float current, float previous, float smooth);
+
+/**
+ * @brief Get the signed curvature of a circle that intersects the first pose and the second pose
+ *
+ * @note The circle will be tangent to the theta value of the first pose
+ * @note The curvature is signed. Positive curvature means the circle is going clockwise, negative means
+ * counter-clockwise
+ * @note Theta has to be in radians and in standard form. That means 0 is right and increases counter-clockwise
+ *
+ * @param pose the first pose
+ * @param other the second pose
+ * @return float curvature
+ */
+float getCurvature(Pose pose, Pose other);
 } // namespace lemlib

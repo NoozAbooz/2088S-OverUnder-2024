@@ -18,18 +18,11 @@ void initialize() {
     bodyLED.set_all(0x7CFEF0);
     bodyLED.update();
 
-    // Motor holds
-    catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
-    expansion.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-
-    // Setup Cata
-    loadCatapult();
-
     // Initialize the auton selector screen on brain LCD
-    selectorInit();
+    //selectorInit();
 
     // Debug screen
-    //debugInit();
+    debugInit();
 
     // Calibrate chassis inertial sensor
     pros::Task chassisCalibrateTask{[=] {

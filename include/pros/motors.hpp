@@ -1120,8 +1120,6 @@ class Motor_Group {
 	/****************************************************************************/
 
 	/**
-<<<<<<< Updated upstream
-=======
 	 * Indexes Motor in the Motor_Group in the same way as an array.
 	 * 
 	 * This function uses the following values of errno when an error state is
@@ -1159,7 +1157,6 @@ class Motor_Group {
 	std::int32_t size();
 
 	/**
->>>>>>> Stashed changes
 	 * Sets the position for the motor in its encoder units.
 	 *
 	 * This will be the future reference point for the motors' "absolute"

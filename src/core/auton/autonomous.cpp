@@ -18,76 +18,11 @@
  * from where it left off.
  */
 
+ASSET(example_txt);
+
 void autonomous() {
-	// Init debug screen for auton
-    debugInit();
-
-    switch (autonSelection) {
-		// Solo autons
-		case RED_1: // Main auton - 2 rollers, 
-
-			break;
-		case RED_2: // Outside auton starting line
-
-			break;
-		case RED_3:
-
-			break;
-		case RED_4:
-
-			break;
-
-		case RED_5:
-			//chassis.moveTo(20, 20, 2000);
-			break;
-
-		// Duo
-		case BLUE_1:
-			break;
-		case BLUE_2:
-			break;
-		case BLUE_3:
-			break;
-		case BLUE_4:
-			break;
-		case BLUE_5:
-			break;
-			
-		case SKILLS:
-			break;
-
-		case TEST:
-			rollerAuton();
-
-			//chassis.setPose(
-			break;
-	}
+    chassis.follow(example_txt, 15, 4000, false);
 }
-
-//void autonomous() {
-//	roller.move_voltage(-5000);
-//
-//	frontLeft.move_voltage(6000);
-//	backLeft.move_voltage(6000);
-//	frontRight.move_voltage(6000);
-//	backRight.move_voltage(6000);
-//
-//	pros::delay(500);
-//
-//	roller.brake();
-//
-//	frontLeft.move_voltage(-3000);
-//	backLeft.move_voltage(-3000);
-//	frontRight.move_voltage(-3000);
-//	backRight.move_voltage(-3000);
-//	
-//	pros::delay(1000);
-//
-//	frontLeft.brake();
-//	backLeft.brake();
-//	frontRight.brake();
-//	backRight.brake();
-//}
 
 //void autonomous() {
 //	chassis.setPose(0, 0, 0);

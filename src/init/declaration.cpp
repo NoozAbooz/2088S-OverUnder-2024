@@ -4,6 +4,7 @@
  * @brief Defines all motors and sensors. Also sets up the chasis and additional sensor info for autonomous.
  */
 
+#include "declaration.hpp"
 #include "main.h"
 
 /* Declare functional components */
@@ -15,80 +16,59 @@ bool cataLoaded = false;
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-pros::Motor frontLeft(20, pros::E_MOTOR_GEAR_BLUE, true);
-pros::Motor backLeft(19, pros::E_MOTOR_GEAR_BLUE, true);
-pros::Motor frontRight(18, pros::E_MOTOR_GEAR_BLUE, false);
-pros::Motor backRight(17, pros::E_MOTOR_GEAR_BLUE, false);
-
-pros::MotorGroup leftSide({frontLeft, backLeft});
-pros::MotorGroup rightSide({frontRight, backRight});
+pros::MotorGroup leftSide({-8, -17, -10});
+pros::MotorGroup rightSide({18, 19, 20});
 
 // Intake
-pros::Motor intake(10, pros::E_MOTOR_GEAR_GREEN, true);
-
-// Catapult
-pros::Motor catapultLeft(6, pros::E_MOTOR_GEAR_RED, false);
-pros::Motor catapultRight(7, pros::E_MOTOR_GEAR_RED, true);
-pros::MotorGroup catapult({catapultLeft, catapultRight});
-
-// Expansion
-pros::Motor expansion(3, pros::E_MOTOR_GEAR_RED, false);
+pros::Motor intake(-3);
 
 // LED
 pros::ADILed bodyLED('E', 64);
 
 /* Declare sensors */
 // Inertial
-pros::Imu inertialSensor(2);
+pros::Imu inertial(2);
 
 // Cata Position
 pros::ADIAnalogIn cataPosition('A');
 
-// Horizontal tracking wheel encoder
-pros::ADIEncoder trackingWheel('B', 'C', true);
+// drivetrain settings
+lemlib::Drivetrain drivetrain(&leftSide, // left motor group
+                              &rightSide, // right motor group
+                              10, // 10 inch track width
+                              lemlib::Omniwheel::NEW_4, // using new 3.25" omnis
+                              257, // drivetrain rpm is 360
+                              2 // chase power is 2. If we had traction wheels, it would have been 8
+);
 
-/* Auton setup with lemlib */
-// Setup drivetrain
-lemlib::Drivetrain_t drivetrain {
-    &leftSide,
-    &rightSide,
-    15, // Chassis width
-    3.25, // Wheel diameter
-    360 // Wheel rpm (after gear ratio)
-};
+// lateral motion controller
+lemlib::ControllerSettings linearController(10, // proportional gain (kP)
+                                            30, // derivative gain (kD)
+                                            1, // small error range, in inches
+                                            100, // small error range timeout, in milliseconds
+                                            3, // large error range, in inches
+                                            500, // large error range timeout, in milliseconds
+                                            20 // maximum acceleration (slew)
+);
 
-// Tracking wheel info
-lemlib::TrackingWheel horizontal_tracking_wheel(&trackingWheel, 2.75, 1);
-lemlib::OdomSensors_t sensors {
-    nullptr,
-    nullptr,
-    &horizontal_tracking_wheel,
-    nullptr,
-    &inertialSensor
-};
+// angular motion controller
+lemlib::ControllerSettings angularController(2, // proportional gain (kP)
+                                             10, // derivative gain (kD)
+                                             1, // small error range, in degrees
+                                             100, // small error range timeout, in milliseconds
+                                             3, // large error range, in degrees
+                                             500, // large error range timeout, in milliseconds
+                                             20 // maximum acceleration (slew)
+);
 
-/* PID Calibration */
-// Front/back PID
-lemlib::ChassisController_t lateralController {
-    8, // kP
-    30, // kD
-    1, // smallErrorRange
-    100, // smallErrorTimeout
-    3, // largeErrorRange
-    500, // largeErrorTimeout
-    5 // slew rate
-};
+// sensors for odometry
+// note that in this example we use internal motor encoders, so we don't pass vertical tracking wheels
+lemlib::OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to nullptr as we don't have one
+                            nullptr, // vertical tracking wheel 2, set to nullptr as we don't have one
+                            nullptr, // horizontal tracking wheel 1
+                            nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
+                            &inertial // inertial sensor
+);
 
-// Turning/angle PID
-lemlib::ChassisController_t angularController {
-    4, // kP
-    40, // kD
-    1, // smallErrorRange
-    100, // smallErrorTimeout
-    3, // largeErrorRange
-    500, // largeErrorTimeout
-    40 // slew rate
-};
-
-// Create the chassis
-lemlib::Chassis chassis(drivetrain, lateralController, angularController, sensors);
+// create the chassis
+lemlib::Chassis chassis(drivetrain, linearController, angularController, sensors);

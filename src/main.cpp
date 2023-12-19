@@ -50,27 +50,8 @@ void opcontrol() {
       intake.move_voltage(0);
     }
 
-    // Catapult
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      fireCatapult();
-      loadCatapult();
-    } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-      loadCatapult();
-    }
-
-    // Expansion
-		if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-			expansion.move_voltage(10000);
-			pros::delay(500);
-			expansion.brake();
-
-      bodyLED.set_all(0xCBC5EA);
-    } else {
-      expansion.brake();
-    }
-
     //-- Print debug info to controller //--
-    controller.print(1, 0, "%.0f°C %.0f°C %.0f°C      ", frontLeft.get_temperature(), catapultLeft.get_temperature(), intake.get_temperature());
+    controller.print(1, 0, "%.0f°C %.0f°C %.0f°C      ", intake.get_temperature());
 
     // Delay to prevent overloading brain :)
     pros::delay(10);

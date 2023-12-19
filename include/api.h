@@ -28,12 +28,6 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
-
-#include "vector"
-#include "variant"
-#include "array"
-#include "map"
-#include "string"
 #else /* (not) __cplusplus */
 #include <errno.h>
 #include <math.h>

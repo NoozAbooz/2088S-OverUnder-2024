@@ -17,11 +17,6 @@ extern bool cataLoaded;
 extern pros::Controller controller;
 
 // Drivetrain
-extern pros::Motor frontLeft;
-extern pros::Motor backLeft;
-extern pros::Motor frontRight;
-extern pros::Motor backRight;
-
 extern pros::MotorGroup leftSide;
 extern pros::MotorGroup rightSide;
 
@@ -32,8 +27,6 @@ extern pros::Motor intake;
 
 // Catapult
 extern pros::Motor catapultLeft;
-extern pros::Motor catapultRight;
-extern pros::MotorGroup catapult;
 
 // Expansion
 extern pros::Motor expansion;
