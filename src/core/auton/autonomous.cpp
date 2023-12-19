@@ -21,7 +21,8 @@
 ASSET(example_txt);
 
 void autonomous() {
-    chassis.follow(example_txt, 15, 4000, false);
+    //chassis.calibrate();
+    chassis.follow(example_txt, 15, 4000);
 }
 
 //void autonomous() {

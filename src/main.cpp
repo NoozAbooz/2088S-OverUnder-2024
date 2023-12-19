@@ -10,27 +10,6 @@
 #include <string>
 
 void opcontrol() {
-	bodyLED.set_all(0x0000FF);
-	bodyLED.update();
-
-  pros::Task flashLED{[=] {
-    while (true) {
-      bodyLED.set_all(0x0000FF);
-      bodyLED.update();
-      pros::delay(500);
-      bodyLED.set_all(0x000000);
-      bodyLED.update();
-      pros::delay(500);
-    }
-  }};
-  
-  //-- Render funny gif on screen //--
-  // lv_obj_clean(lv_scr_act());
-  // lv_obj_t* obj = lv_obj_create(lv_scr_act(), NULL);
-  // lv_obj_set_size(obj, 540, 300);
-  // lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 30, 30);
-  // Gif gif("/usd/gif/logo.gif", obj);
-
   while (true) {
     //-- Main drive code - Split Arcade Format //--
     int power = controller.get_analog(ANALOG_LEFT_Y);
@@ -51,7 +30,8 @@ void opcontrol() {
     }
 
     //-- Print debug info to controller //--
-    controller.print(1, 0, "%.0f°C %.0f°C %.0f°C      ", intake.get_temperature());
+    lemlib::Pose pose = chassis.getPose();
+    controller.print(1, 0, "%.0f°C X:%f Y:%f Deg:%f", intake.get_temperature(), pose.x, pose.y, pose.theta);
 
     // Delay to prevent overloading brain :)
     pros::delay(10);

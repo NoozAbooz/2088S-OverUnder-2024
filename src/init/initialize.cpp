@@ -22,7 +22,7 @@ void initialize() {
     //selectorInit();
 
     // Debug screen
-    debugInit();
+    //debugInit();
 
     // Calibrate chassis inertial sensor
     pros::Task chassisCalibrateTask{[=] {
