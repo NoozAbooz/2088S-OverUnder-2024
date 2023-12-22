@@ -1,1 +1,0 @@
-git-auto-sync-daemon
