@@ -1,166 +1,185 @@
-/**
- * @file main.cpp
- * @author Michael Zheng
- * @brief LVGL Auton Selector screen
- */
-
 #include "main.h"
 
-int autonSelection = TEST; // specifies the default auton selected
-
-/* Set up button map for solo and duo autonomouses */
-static const char *soloBtnmMap[] = {"Auton 1", "Auton 2", "Auton 3", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing", ""};
-static const char *duoBtnmMap[] = {"Auton 1", "Auton 2", "Auton 3", "\n", "Auton 4", "Auton 5", "\n", "Do Nothing", ""};
-
-/* Selector code when solo tab is pressed */
-lv_res_t soloBtnmAction(lv_obj_t *btnm, const char *txt){
-	printf("solo button: %s released\n", txt);
-	lv_theme_t *th = lv_theme_nemo_init(0, NULL);
-	lv_theme_set_current(th);
-	if (strcmp(txt, "Auton 1") == 0)
-	{
-		autonSelection = RED_1;
-	}
-	if (strcmp(txt, "Auton 2") == 0)
-	{
-		autonSelection = RED_2;
-	}
-	if (strcmp(txt, "Auton 3") == 0)
-	{
-		autonSelection = RED_3;
-	}
-	if (strcmp(txt, "Auton 4") == 0)
-	{
-		autonSelection = RED_4;
-	}
-	if (strcmp(txt, "Auton 5") == 0)
-	{
-		autonSelection = RED_5;
-	}
-	if (strcmp(txt, "Do Nothing") == 0)
-	{
-		autonSelection = NOTHING;
-	}
-
-	return LV_RES_OK; // return OK because the button matrix is not deleted
-}
-
-
-/* Selector code when duo tab is pressed */
-lv_res_t duoBtnmAction(lv_obj_t *btnm, const char *txt)
+using namespace pros;
+// Modified... original credit: https://github.com/kunwarsahni01/Vex-Autonomous-Selector
+namespace selector
 {
-	printf("duo button: %s released\n", txt);
-
-	lv_theme_t *th = lv_theme_nemo_init(230, NULL);
-	lv_theme_set_current(th);
-
-	if (strcmp(txt, "Auton 1") == 0)
-	{
-		autonSelection = BLUE_1;
-	}
-	if (strcmp(txt, "Auton 2") == 0)
-	{
-		autonSelection = BLUE_2;
-	}
-	if (strcmp(txt, "Auton 3") == 0)
-	{
-		autonSelection = BLUE_3;
-	}
-	if (strcmp(txt, "Auton 4") == 0)
-	{
-		autonSelection = BLUE_4;
-	}
-	if (strcmp(txt, "Auton 5") == 0)
-	{
-		autonSelection = BLUE_5;
-	}
-	if (strcmp(txt, "Do Nothing") == 0)
-	{
-		autonSelection = NOTHING;
-	}
-
-	return LV_RES_OK;
-}
-
-/* Selector code for when Skills tab is pressed */
-lv_res_t skillsBtnAction(lv_obj_t *btn)
-{
-	// lvgl theme
-	lv_theme_t *th = lv_theme_nemo_init(286, NULL);
-	lv_theme_set_current(th);
-	
-	lv_style_scr.body.main_color = LV_COLOR_BLACK; 
-	
-	printf("skills pressed");
-	autonSelection = SKILLS;
-	return LV_RES_OK;
-}
-
-/* Selector code for when Test tab is pressed */
-lv_res_t testBtnAction(lv_obj_t *btn)
-{
-	// lvgl theme
-	lv_theme_t *th = lv_theme_nemo_init(286, NULL);
-	lv_theme_set_current(th);
-	
-	lv_style_scr.body.main_color = LV_COLOR_BLACK; 
-	
-	autonSelection = TEST;
-	return LV_RES_OK;
-}
-
-/* INITIALIZE SELECTOR */
-void selectorInit(){
-	// lvgl theme
-	lv_theme_t *th = lv_theme_nemo_init(286, NULL);
-	lv_theme_set_current(th);
-
-	// create a tab view object
+	lv_res_t switchhandle1(lv_obj_t *s);
+			lv_res_t switchhandle2(lv_obj_t *s);
+					lv_res_t switchhandle3(lv_obj_t *s);
+	int auton;
+	int autonCount;
+	const char *btnmMap[] = {"", "", "", "", "", "", "", "", "", "", ""}; // up to 10 autons
+	const char *b[] = {AUTONS, ""};
 	lv_obj_t *tabview;
-	tabview = lv_tabview_create(lv_scr_act(), NULL);
+	lv_obj_t *redBtnm;
+	lv_obj_t *blueBtnm;
+	lv_obj_t *l;
+	lv_res_t redBtnmAction(lv_obj_t *btnm, const char *txt)
+	{
+		// printf("red button: %s released\n", txt);
 
-	// add 4 tabs (the tabs are page (lv_page) and can be scrolled
-	lv_obj_t *soloTab = lv_tabview_add_tab(tabview, "Solo");
-	lv_obj_t *duoTab = lv_tabview_add_tab(tabview, "Duo");
-	lv_obj_t *skillsTab = lv_tabview_add_tab(tabview, "Skills");
-	lv_obj_t *testTab = lv_tabview_add_tab(tabview, "Testing");
+		for (int i = 0; i < autonCount; i++)
+		{
+			if (strcmp(txt, btnmMap[i]) == 0)
+			{
+				auton = i + 1;
+			}
+		}
 
-	// add content to the tabs
-	// button matrix
-	lv_obj_t *soloBtnm = lv_btnm_create(soloTab, NULL);
-	lv_btnm_set_map(soloBtnm, soloBtnmMap);
-	lv_btnm_set_action(soloBtnm, soloBtnmAction);
-	lv_btnm_set_toggle(soloBtnm, true, 3);//3
-	lv_obj_set_size(soloBtnm, 450, 130);
-	lv_obj_set_pos(soloBtnm, 0, 100);
-	lv_obj_align(soloBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
+		return LV_RES_OK; // return OK because the button matrix is not deleted
+	}
 
-	// duo tab
-	lv_obj_t *duoBtnm = lv_btnm_create(duoTab, NULL);
-	lv_btnm_set_map(duoBtnm, duoBtnmMap);
-	lv_btnm_set_action(duoBtnm, duoBtnmAction);
-	lv_btnm_set_toggle(duoBtnm, true, 3);
-	lv_obj_set_size(duoBtnm, 450, 130);
-	lv_obj_set_pos(duoBtnm, 0, 100);
-	lv_obj_align(duoBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
+	lv_res_t blueBtnmAction(lv_obj_t *btnm, const char *txt)
+	{
+		// printf("blue button: %s released\n", txt);
 
-	// skills tab
-	lv_obj_t *skillsBtn = lv_btn_create(skillsTab, NULL);
-	lv_obj_t *label = lv_label_create(skillsBtn, NULL);
-	lv_label_set_text(label, "Skills");
-	lv_btn_set_action(skillsBtn, LV_BTN_ACTION_CLICK, skillsBtnAction);
-	// lv_btn_set_state(skillsBtn, LV_BTN_STATE_TGL_REL);
-	lv_obj_set_size(skillsBtn, 450, 50);
-	lv_obj_set_pos(skillsBtn, 0, 100);
-	lv_obj_align(skillsBtn, NULL, LV_ALIGN_CENTER, 0, 0);
+		for (int i = 0; i < autonCount; i++)
+		{
+			if (strcmp(txt, btnmMap[i]) == 0)
+			{
+				auton = -(i + 1);
+			}
+		}
 
-	// test tab
-	lv_obj_t *testBtn = lv_btn_create(testTab, NULL);
-	lv_obj_t *label2 = lv_label_create(testBtn, NULL);
-	lv_label_set_text(label2, "Testing Script");
-	lv_btn_set_action(testBtn, LV_BTN_ACTION_CLICK, testBtnAction);
-	// lv_btn_set_state(testBtn, LV_BTN_STATE_TGL_REL);
-	lv_obj_set_size(testBtn, 450, 50);
-	lv_obj_set_pos(testBtn, 0, 100);
-	lv_obj_align(testBtn, NULL, LV_ALIGN_CENTER, 0, 0);
-}
+		return LV_RES_OK; // return OK because the button matrix is not deleted
+	}
+
+	lv_res_t skillsBtnAction(lv_obj_t *btn)
+	{
+		// printf("skills pressed");
+		auton = 0;
+		return LV_RES_OK;
+	}
+
+	int tabWatcher()
+	{
+		int activeTab = lv_tabview_get_tab_act(tabview);
+		while (1)
+		{
+			int currentTab = lv_tabview_get_tab_act(tabview);
+
+			if (currentTab != activeTab)
+			{
+				activeTab = currentTab;
+				if (activeTab == 0)
+				{
+					if (auton == 0)
+						auton = 1;
+					auton = abs(auton);
+					lv_btnm_set_toggle(redBtnm, true, abs(auton) - 1);
+				}
+				else if (activeTab == 1)
+				{
+					if (auton == 0)
+						auton = -1;
+					auton = -abs(auton);
+					lv_btnm_set_toggle(blueBtnm, true, abs(auton) - 1);
+				}
+				else
+				{
+					auton = 0;
+				}
+			}
+
+			pros::delay(20);
+		}
+	}
+
+	void init(int hue, int default_auton, const char **autons)
+	{
+
+		int i = 0;
+		do
+		{
+			memcpy(&btnmMap[i], &autons[i], sizeof(&autons));
+			i++;
+		} while (strcmp(autons[i], "") != 0);
+
+		autonCount = i;
+		auton = default_auton;
+
+		// lvgl theme
+		lv_theme_t *th = lv_theme_alien_init(hue, NULL); // Set a HUE value and keep font default RED
+		lv_theme_set_current(th);
+
+		// create a tab view object
+		tabview = lv_tabview_create(lv_scr_act(), NULL);
+		lv_tabview_set_anim_time(tabview, 500);
+
+		// add 3 tabs (the tabs are page (lv_page) and can be scrolled
+		lv_obj_t *redTab = lv_tabview_add_tab(tabview, "Red");
+		lv_obj_t *blueTab = lv_tabview_add_tab(tabview, "Blue");
+		lv_obj_t *skillsTab = lv_tabview_add_tab(tabview, "Skills");
+		
+		lv_obj_t *pneumatics = lv_tabview_add_tab(tabview, "Pneumatics");
+		// set default tab
+		if (auton < 0)
+		{
+			lv_tabview_set_tab_act(tabview, 1, LV_ANIM_NONE);
+		}
+		else if (auton == 0)
+		{
+			lv_tabview_set_tab_act(tabview, 2, LV_ANIM_NONE);
+		}
+		// add content to the tabs
+		// button matrix
+		redBtnm = lv_btnm_create(redTab, NULL);
+		lv_btnm_set_map(redBtnm, btnmMap);
+		lv_btnm_set_action(redBtnm, redBtnmAction);
+		lv_btnm_set_toggle(redBtnm, true, abs(auton) - 1); // 3
+		lv_obj_set_size(redBtnm, 450, 50);
+		lv_obj_set_pos(redBtnm, 0, 100);
+		
+		lv_obj_align(redBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
+
+		// blue tab
+		blueBtnm = lv_btnm_create(blueTab, NULL);
+		
+		lv_btnm_set_map(blueBtnm, btnmMap);
+		lv_btnm_set_action(blueBtnm, *blueBtnmAction);
+		lv_btnm_set_toggle(blueBtnm, true, abs(auton) - 1);
+		lv_obj_set_size(blueBtnm, 450, 50);
+		lv_obj_set_pos(blueBtnm, 0, 100);
+		lv_obj_align(blueBtnm, NULL, LV_ALIGN_CENTER, 0, 0);
+
+		// skills tab
+		lv_obj_t *skillsBtn = lv_btn_create(skillsTab, NULL);
+		lv_obj_t *label = lv_label_create(skillsBtn, NULL);
+		lv_label_set_text(label, "Skills");
+		lv_btn_set_action(skillsBtn, LV_BTN_ACTION_CLICK, *skillsBtnAction);
+		// lv_btn_set_state(skillsBtn, LV_BTN_STATE_TGL_REL);
+		lv_obj_set_size(skillsBtn, 450, 50);
+		lv_obj_set_pos(skillsBtn, 0, 100);
+		
+		lv_obj_t *cylinder1 = lv_sw_create(pneumatics, NULL);
+		lv_sw_set_action(cylinder1, switchhandle1);
+		lv_obj_align(cylinder1, pneumatics, LV_ALIGN_IN_TOP_MID, 0, 10);
+
+		lv_obj_t *cylinder2 = lv_sw_create(pneumatics, NULL);
+		lv_sw_set_action(cylinder2, switchhandle2);
+		lv_obj_align(cylinder2, pneumatics, LV_ALIGN_CENTER, 0,20);
+
+		lv_obj_t *cylinder3 = lv_sw_create(pneumatics, NULL);
+		lv_sw_set_action(cylinder3, switchhandle3);
+		lv_obj_align(cylinder3, pneumatics, LV_ALIGN_IN_BOTTOM_MID, 0, 10);
+
+		// start tab watcher
+		pros::Task tabWatcher_task(tabWatcher);
+	}
+	lv_res_t switchhandle1(lv_obj_t *s){
+		ADIDigitalOut p ('F');
+		p.set_value(lv_sw_get_state(s));
+		return LV_RES_OK;
+	}
+		lv_res_t switchhandle2(lv_obj_t *s){
+		ADIDigitalOut p ('G');
+		p.set_value(lv_sw_get_state(s));
+		return LV_RES_OK;
+	}
+		lv_res_t switchhandle3(lv_obj_t *s){
+		ADIDigitalOut p ('H');
+		p.set_value(lv_sw_get_state(s));
+		return LV_RES_OK;
+	}
+} // namespace selector

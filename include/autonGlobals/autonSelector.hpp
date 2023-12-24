@@ -1,8 +1,18 @@
-#ifndef GLOBALS
-#define GLOBALS
+#pragma once
 
-// Global macros for corresponding auton selections
-extern int autonSelection;
-enum AutonEnum {BLUE_1 = -1, BLUE_2 = -2, BLUE_3 = -3, BLUE_4 = -4, BLUE_5 = -5, RED_1 = 1, RED_2 = 2, RED_3 = 3, RED_4 = 4, RED_5 = 5, NOTHING = 10, SKILLS = 0, TEST = 11};
+#include <string>
+#include "main.h"
 
-#endif
+// selector configuration
+#define HUE 130
+#define DEFAULT 1
+#define AUTONS "Far Side", "Close Side", "Do Nothing"
+
+namespace selector
+{
+
+    extern int auton;
+    extern const char *b[];
+    void init(int hue = HUE, int default_auton = DEFAULT, const char **autons = b);
+
+}

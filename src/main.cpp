@@ -24,14 +24,14 @@ void opcontrol() {
     if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
       intake.move_voltage(12000);
     } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-      intake.move_voltage(-11000);
+      intake.move_voltage(-12000);
     } else {
       intake.move_voltage(0);
     }
 
     //-- Print debug info to controller //--
-    lemlib::Pose pose = chassis.getPose();
-    controller.print(1, 0, "%.0f°C X:%f Y:%f Deg:%f", intake.get_temperature(), pose.x, pose.y, pose.theta);
+    //lemlib::Pose pose = chassis.getPose();
+    //controller.print(1, 0, "%.0f°C X:%f Y:%f Deg:%f", intake.get_temperature(), pose.x, pose.y, pose.theta);
 
     // Delay to prevent overloading brain :)
     pros::delay(10);

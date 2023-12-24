@@ -27,7 +27,7 @@ pros::ADILed bodyLED('E', 64);
 
 /* Declare sensors */
 // Inertial
-pros::Imu inertial(2);
+pros::Imu inertial(6);
 
 // Cata Position
 pros::ADIAnalogIn cataPosition('A');
@@ -35,30 +35,34 @@ pros::ADIAnalogIn cataPosition('A');
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftSide, // left motor group
                               &rightSide, // right motor group
-                              10, // 10 inch track width
+                              15, // 10 inch track width
                               lemlib::Omniwheel::NEW_4, // using new 3.25" omnis
-                              257, // drivetrain rpm is 360
+                              257.14, // drivetrain rpm is 360
                               2 // chase power is 2. If we had traction wheels, it would have been 8
 );
 
 // lateral motion controller
 lemlib::ControllerSettings linearController(10, // proportional gain (kP)
-                                            30, // derivative gain (kD)
+                                            0, // integral gain (kI)
+                                            3, // derivative gain (kD)
+                                            3, // anti windup
                                             1, // small error range, in inches
                                             100, // small error range timeout, in milliseconds
                                             3, // large error range, in inches
                                             500, // large error range timeout, in milliseconds
-                                            20 // maximum acceleration (slew)
+                                            10 // maximum acceleration (slew)
 );
 
 // angular motion controller
 lemlib::ControllerSettings angularController(2, // proportional gain (kP)
+                                             0, // integral gain (kI)
                                              10, // derivative gain (kD)
+                                             3, // anti windup
                                              1, // small error range, in degrees
                                              100, // small error range timeout, in milliseconds
                                              3, // large error range, in degrees
                                              500, // large error range timeout, in milliseconds
-                                             20 // maximum acceleration (slew)
+                                             0 // maximum acceleration (slew)
 );
 
 // sensors for odometry

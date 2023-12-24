@@ -4,6 +4,8 @@
  * @brief Extra code that runs on robot init (mainly auton selector)
  */
 
+#include "autonGlobals/autonSelector.h"
+#include "autonGlobals/autonSelector.hpp"
 #include "main.h"
 #include "pros/rtos.hpp"
 
@@ -14,20 +16,31 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-    // Init LEDs
-    bodyLED.set_all(0x7CFEF0);
-    bodyLED.update();
+    //pros::lcd::initialize();
+    //chassis.calibrate();
+
+    selector::init();
+
+    pros::Task screenTask([&]() {
+        lemlib::Pose pose(0, 0, 0);
+        while (true) {
+            // print robot location to the brain screen
+            //pros::lcd::print(0, "X: %f", chassis.getPose().x); // x
+            //pros::lcd::print(1, "Y: %f", chassis.getPose().y); // y
+            //pros::lcd::print(2, "Theta: %f", chassis.getPose().theta); // heading
+            // log position telemetry
+            //lemlib::telemetrySink()->info("Chassis pose: {}", chassis.getPose());
+            printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+            // delay to save resources
+            pros::delay(50);
+        }
+    });
 
     // Initialize the auton selector screen on brain LCD
     //selectorInit();
 
     // Debug screen
     //debugInit();
-
-    // Calibrate chassis inertial sensor
-    pros::Task chassisCalibrateTask{[=] {
-         chassis.calibrate();
-    }};
 }
 
 /**
@@ -50,5 +63,5 @@ void disabled() {
  */
 void competition_initialize() {
     // Initialize the auton selector on brain LCD
-    selectorInit();
+    //selectorInit();
 }
