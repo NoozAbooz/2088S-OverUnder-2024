@@ -80,8 +80,12 @@ jobs:
           cp docs/output/main.pdf docs/main.pdf
         shell: sh
 
-      - name: Commit PDF file
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Update release PDF
+        uses: johnwbyrd/update-release@v1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: ./docs/output/main.pdf
+          release: Docs
 
 
       - name: Upload PDF file
