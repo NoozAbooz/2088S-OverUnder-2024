@@ -86,7 +86,7 @@ jobs:
       - name: Copy PDF
         run: |
           cp docs/output/main.pdf docs/main.pdf
-          rm -rf docs/output
+          sudo rm -rf docs/output
           cd docs/
         shell: sh
 
