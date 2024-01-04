@@ -56,13 +56,16 @@ def main():
             # It is good convention to keep all your header files in include/
             # Sub directories within include/ will still be found
             if('api.h' in components
+            or ('include' and 'main.h') in components
             or ('include' and 'liblvgl') in components
+
             or ('include' and 'gif-pros') in components
             or ('include' and 'lemlib') in components
+            or ('include' and 'fmt') in components
             or ('include' and 'robodash') in components
-            or ('include' and 'pros') in components
-            or ('include' and 'main.h') in components
             or ('include' and 'sylib') in components
+
+            or ('include' and 'pros') in components
             or ('include' and 'output') in components
             or 'cquery_cached_index' in components
             or (not 'include') in components

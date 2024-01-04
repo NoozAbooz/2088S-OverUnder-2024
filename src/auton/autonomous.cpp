@@ -54,24 +54,6 @@ void autonomous() {
     // pros::lcd::print(4, "pure pursuit finished!");
 }
 
-void skills() {
-    console.println("Skills run");
-}
-
-void close_1tri() {
-    chassis.arcade(-127, 0);
-
-    pros::delay(4000);
-
-    chassis.arcade(42, 0);
-
-    pros::delay(1000);
-
-    chassis.arcade(0, 0);
-
-    liftPiston.extend();
-}
-
 void concept_auton() {
 
     // leftDrive.move_voltage(-12000);

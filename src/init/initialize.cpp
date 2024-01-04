@@ -8,7 +8,7 @@
  */
 
 rd::Selector selector({
-{"Plow 1 Triball", &close_1tri},
+{"Plow 1 Triball", &far_1tri},
 {"Skills", &skills}
 });
 

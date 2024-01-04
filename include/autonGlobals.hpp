@@ -2,7 +2,7 @@
 #include "main.h"
 
 // Auton
-void close_1tri();
+void far_1tri();
 void skills();
 
 /* LemLib */
