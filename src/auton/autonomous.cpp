@@ -14,8 +14,9 @@ ASSET(test_txt); // '.' replaced with "_" to make c++ happy
  * from where it left off.
  */
 void autonomous() {
-    chassis.calibrate();
-    chassis.setPose({0, 0, 0});
+    pros::Task calibrateTask([&]() {
+        chassis.initialize();
+    });
 
     pros::Task telemetryTask([&]() {
         console.println("Running LemLib auton");

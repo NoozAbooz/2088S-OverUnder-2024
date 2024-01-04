@@ -16,9 +16,6 @@ rd::Image logo("/usd/logo.bin", "Logo");
 rd::Console console;
 
 void initialize() {
-    //intakePiston.extend();
-    //loadCatapult();
-
     console.clear();
     console.println("Robodash is running");
 }
