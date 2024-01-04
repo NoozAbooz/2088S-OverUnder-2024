@@ -44,9 +44,68 @@ def main():
     wrapper_dest = zip_source / "wrapper.tex"
     wrapper_dest.touch(exist_ok=True)
     with wrapper_dest.open(mode='w') as f:
-        # Recursively search the entire project for any header files
+        # Recursively search the entire project for any relevant source files
         f.write("%%---------------------\n")
         f.write("\\AddToHook{cmd/section/before}{\clearpage}\n")
+        f.write("\\section{Driver Code}\n\n")
+        for source in root.cwd().glob('**/*.c*'):
+            # break source into components starting from the root
+            components = source.parts[ROOT_START:]
+
+            '''
+                It is good practice to only have .c and .cpp files in src
+                PROS projects may contain .c image arrays or .csv files but
+                those should be organized outside of src directory
+            '''
+            if(not 'src' in components
+            or ('src' and 'auton') in components):
+                continue
+
+            # Build a relative unix path for Overleaf to find the source files
+            rel_src_path = ""
+            for i in range(0, len(components)-1):
+                rel_src_path += components[i] + "/"
+            name = components[-1]
+            rel_src_path += name
+            copy(source, zip_source)
+
+            # Generate LaTeX code for any valid source file
+            f.write("\\subsection{" + rel_src_path + "}\n")
+            f.write("\\inputminted[linenos,tabsize=2,breaklines,frame=lines,framesep=3mm,bgcolor=LightGray]{c}{" + name + "}\n")
+            f.write("\\pagebreak\n\n")
+
+        # Recursively search the entire project for any relevant autonomous files
+        f.write("%%---------------------\n")
+        f.write("\\section{Autonomous Code}\n\n")
+        for source in root.cwd().glob('**/*.c*'):
+            # break source into components starting from the root
+            components = source.parts[ROOT_START:]
+
+            '''
+                It is good practice to only have .c and .cpp files in src
+                PROS projects may contain .c image arrays or .csv files but
+                those should be organized outside of src directory
+            '''
+            if(not 'auton' in components
+            or '.d' in components
+            or 'bin' in components):
+                continue
+
+            # Build a relative unix path for Overleaf to find the source files
+            rel_src_path = ""
+            for i in range(0, len(components)-1):
+                rel_src_path += components[i] + "/"
+            name = components[-1]
+            rel_src_path += name
+            copy(source, zip_source)
+
+            # Generate LaTeX code for any valid source file
+            f.write("\\subsection{" + rel_src_path + "}\n")
+            f.write("\\inputminted[linenos,tabsize=2,breaklines,frame=lines,framesep=3mm,bgcolor=LightGray]{c}{" + name + "}\n")
+            f.write("\\pagebreak\n\n")
+
+        # Recursively search the entire project for any header files
+        f.write("%%---------------------\n")
         f.write("\\section{Header Files}\n\n")
         for header in root.cwd().glob('**/*.h*'):
             # break header into components starting from the root
@@ -87,34 +146,6 @@ def main():
             f.write("\\inputminted[linenos,tabsize=2,breaklines,frame=lines,framesep=3mm,bgcolor=LightGray]{c}{" + name + "}\n")
             f.write("\\pagebreak\n\n")
 
-        # Recursively search the entire project for any relevant source files
-        f.write("%%---------------------\n")
-        f.write("\\section{Source Files}\n\n")
-        for source in root.cwd().glob('**/*.c*'):
-            # break source into components starting from the root
-            components = source.parts[ROOT_START:]
-
-            '''
-                It is good practice to only have .c and .cpp files in src
-                PROS projects may contain .c image arrays or .csv files but
-                those should be organized outside of src directory
-            '''
-            if(not 'src' in components):
-                continue
-
-            # Build a relative unix path for Overleaf to find the source files
-            rel_src_path = ""
-            for i in range(0, len(components)-1):
-                rel_src_path += components[i] + "/"
-            name = components[-1]
-            rel_src_path += name
-            copy(source, zip_source)
-
-            # Generate LaTeX code for any valid source file
-            f.write("\\subsection{" + rel_src_path + "}\n")
-            f.write("\\inputminted[linenos,tabsize=2,breaklines,frame=lines,framesep=3mm,bgcolor=LightGray]{c}{" + name + "}\n")
-            f.write("\\pagebreak\n\n")
-
     # Create the path to a main.tex file and insert boilerplate tex code
     main_dest = zip_source / "main.tex"
     main_dest.touch(exist_ok=True)
@@ -122,7 +153,7 @@ def main():
         f.write(r"""% !TEX program = xelatex
 \documentclass[12pt, letterpaper]{article}
 \usepackage[margin=0.8in]{geometry}
-\usepackage{datetime}
+\usepackage{datetime2}
 \usepackage{url}
 
 \usepackage{minted}
@@ -151,8 +182,8 @@ def main():
 \predate{\begin{center}}
     \postdate{\par\end{center}}
 
-\title{\textbf{2088S Programming Guide}}
-\author{Michael Z\thanks{with support from Western Mechatronics and VTOW}}
+\title{\textbf{2088S Programming Docs}}
+\author{Michael Z and Brandon K\thanks{with support from Western Mechatronics and VTOW}}
 \date{\today}
 
 \begin{document}
