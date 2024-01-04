@@ -5,7 +5,9 @@
  */
 
 #include "declaration.hpp"
+#include "lemlib/chassis/trackingWheel.hpp"
 #include "main.h"
+#include "pros/adi.hpp"
 
 /* Declare functional components */
 
@@ -16,28 +18,28 @@ bool cataLoaded = false;
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-pros::MotorGroup leftSide({-8, -17, -10});
-pros::MotorGroup rightSide({18, 19, 20});
+pros::MotorGroup leftSide({-16, -17, -18});
+pros::MotorGroup rightSide({1, 2, 3});
 
 // Intake
-pros::Motor intake(-3);
+pros::Motor intake(-5);
 
 // LED
-pros::ADILed bodyLED('E', 64);
+pros::ADILed bodyLED('A', 64);
+
+// Pneumatics
+pros::ADIDigitalOut wings('H');
 
 /* Declare sensors */
 // Inertial
-pros::Imu inertial(6);
-
-// Cata Position
-pros::ADIAnalogIn cataPosition('A');
+pros::Imu inertial(11);
 
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftSide, // left motor group
                               &rightSide, // right motor group
-                              15, // 10 inch track width
-                              lemlib::Omniwheel::NEW_4, // using new 3.25" omnis
-                              257.14, // drivetrain rpm is 360
+                              13.5, // 10 inch track width
+                              lemlib::Omniwheel::OLD_275, // using new 3.25" omnis
+                              450, // drivetrain rpm is 360
                               2 // chase power is 2. If we had traction wheels, it would have been 8
 );
 

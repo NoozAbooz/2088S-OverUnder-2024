@@ -6,6 +6,7 @@
 
 #include "autonGlobals/autonSelector.h"
 #include "autonGlobals/autonSelector.hpp"
+#include "declaration.hpp"
 #include "main.h"
 #include "pros/rtos.hpp"
 
@@ -15,9 +16,12 @@
  * All other competition modes are blocked by initialize; it is recommended
  * to keep execution time for this mode under a few seconds.
  */
+auto myLights = sylib::Addrled(2, 1, 64);
 void initialize() {
     //pros::lcd::initialize();
     //chassis.calibrate();
+
+    myLights.set_all(0xE62169);
 
     selector::init();
 
@@ -36,11 +40,9 @@ void initialize() {
         }
     });
 
-    // Initialize the auton selector screen on brain LCD
+
     //selectorInit();
 
-    // Debug screen
-    //debugInit();
 }
 
 /**
