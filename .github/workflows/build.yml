@@ -75,27 +75,39 @@ jobs:
           latexmk_shell_escape: true
           latexmk_use_xelatex: true
 
-      - name: Copy PDF
-        run: |
-          cp docs/output/main.pdf docs/main.pdf
-        shell: sh
-
-      - name: Update PDF release
-        uses: WebFreak001/deploy-nightly@v3.0.0
-        with:
-          upload_url: https://uploads.github.com/repos/NoozAbooz/2088S-OverUnder-2024/releases/135895802/assets{?name,label} # find out this value by opening https://api.github.com/repos/<owner>/<repo>/releases in your browser and copy the full "upload_url" value including the {?name,label} part
-          release_id: 135895802 # same as above (id can just be taken out the upload_url, it's used to find old releases)
-          asset_path: ./docs/output/main.pdf # path to archive to upload
-          asset_name: main.pdf # name to upload the release as, use $$ to insert date (YYYYMMDD) and 6 letter commit hash
-          asset_content_type: application/zip # required by GitHub API
-          max_releases: 1 # optional, if there are more releases than this matching the asset_name, the oldest ones are going to be deleted
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDF
           path: |
-            docs/output
+            docs/output/
             !docs/output/_minted-main
+
+      - name: Copy PDF
+        run: |
+          cp docs/output/main.pdf docs/main.pdf
+          rm -rf docs/output
+          cd docs/
+        shell: sh
+
+      # - name: Update PDF release
+      #   uses: WebFreak001/deploy-nightly@v3.0.0
+      #   with:
+      #     upload_url: https://uploads.github.com/repos/NoozAbooz/2088S-OverUnder-2024/releases/135895802/assets{?name,label} # find out this value by opening https://api.github.com/repos/<owner>/<repo>/releases in your browser and copy the full "upload_url" value including the {?name,label} part
+      #     release_id: 135895802 # same as above (id can just be taken out the upload_url, it's used to find old releases)
+      #     asset_path: ./docs/output/main.pdf # path to archive to upload
+      #     asset_name: main.pdf # name to upload the release as, use $$ to insert date (YYYYMMDD) and 6 letter commit hash
+      #     asset_content_type: application/zip # required by GitHub API
+      #     max_releases: 1 # optional, if there are more releases than this matching the asset_name, the oldest ones are going to be deleted
+      #     token: ${{ secrets.GITHUB_TOKEN }}
           
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
