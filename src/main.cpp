@@ -6,7 +6,6 @@
 
 #include "main.h"
 #include "declaration.hpp"
-#include "pros/rtos.hpp"
 #include <string>
 
 void opcontrol() {
@@ -29,7 +28,11 @@ void opcontrol() {
       intake.move_voltage(0);
     }
 
-  
+  if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+    wings.set_value(true);
+  } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
+    wings.set_value(false);
+  }
 
     //-- Print debug info to controller //--
     //lemlib::Pose pose = chassis.getPose();

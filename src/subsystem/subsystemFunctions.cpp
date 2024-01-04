@@ -56,22 +56,6 @@ void fireCatapult() {
 	}
 }
 
-// Spin rollers
-void rollerAuton() {
-	intake.move_voltage(-5500);
-
-	drivetrainMove(6000, 2000);
-	intake.brake();
-
-	drivetrainMove(-1000, 1000);
-
-}
-
-// Move discs OUT of the intake
-void dispenseDiscs() {
-
-}
-
 /* Drivetrain */
 void drivetrainMove(int voltage, int time) {
 	leftSide.move_voltage(voltage);

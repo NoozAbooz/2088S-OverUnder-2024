@@ -39,3 +39,5 @@ extern pros::ADIAnalogIn cataPosition;
 
 // LED
 extern pros::ADILed bodyLED;
+
+extern pros::ADIDigitalOut wings;
