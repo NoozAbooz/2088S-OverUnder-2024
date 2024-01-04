@@ -8,8 +8,8 @@ void skills();
 /* LemLib */
 
 // Drivetrain
-auto inline leftDrive = lemlib::makeMotorGroup({-8, -17, -10}, pros::v5::MotorGears::blue);
-auto inline rightDrive = lemlib::makeMotorGroup({18, 19, 20}, pros::v5::MotorGears::blue);
+auto inline leftDrive = lemlib::makeMotorGroup({-16, -17, -18}, pros::v5::MotorGears::blue);
+auto inline rightDrive = lemlib::makeMotorGroup({1, 2, 3}, pros::v5::MotorGears::blue);
 
 // horizontal tracking wheel. Port 4, 2.75" diameter, 3.7" offset, back of the robot
 //lemlib::TrackingWheel horizontal(4, lemlib::Omniwheel::NEW_275, -3.7);
@@ -18,9 +18,9 @@ auto inline rightDrive = lemlib::makeMotorGroup({18, 19, 20}, pros::v5::MotorGea
 inline lemlib::Drivetrain drivetrain(
 	leftDrive, // left motor group
     rightDrive, // right motor group
-    15, // 10 inch track width
-    lemlib::Omniwheel::NEW_4, // using new 3.25" omnis
-    257.14, // drivetrain rpm is 360
+    13.5, // 10 inch track width
+    lemlib::Omniwheel::OLD_275, // using new 3.25" omnis
+    450, // drivetrain rpm is 360
     2 // chase power is 2. If we had traction wheels, it would have been 8
 );
 

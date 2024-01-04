@@ -10,15 +10,15 @@ extern rd::Selector selector;
 extern rd::Console console;
 extern rd::Image logo;
 
+// Sylib
+#include "sylib/sylib.hpp"
+
 // gif-pros
 //#include "gif-pros/gifclass.hpp"
 
 /* Functions */
-// Cata
-void refreshCatapult();
-void loadCatapult();
-void fireCatapult();
-extern bool cataLock;
+// Slapper
+void refreshSlapper();
 
 // DT
 void arcadeDrive();

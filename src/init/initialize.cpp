@@ -8,12 +8,11 @@
  */
 
 rd::Selector selector({
-{"Plow Triball", &close_1tri},
-{"Skills", &skills},
-{"Wings", &autonomous}
+{"Plow 1 Triball", &close_1tri},
+{"Skills", &skills}
 });
 
-//rd::Image logo("/usd/logo.bin", "Logo");
+rd::Image logo("/usd/logo.bin", "Logo");
 rd::Console console;
 
 void initialize() {
@@ -22,8 +21,6 @@ void initialize() {
 
     console.clear();
     console.println("Robodash is running");
-
-    // Render funny gif on screen
 }
 
 /**
@@ -37,7 +34,6 @@ void initialize() {
  */
 void competition_initialize() {
     moveWings(false);
-    loadCatapult();
 }
 
 /**

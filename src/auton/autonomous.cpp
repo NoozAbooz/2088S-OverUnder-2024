@@ -1,5 +1,3 @@
-#include "abstractGlobals.hpp"
-#include "autonGlobals.hpp"
 #include "main.h"
 
 ASSET(test_txt); // '.' replaced with "_" to make c++ happy
@@ -16,8 +14,22 @@ ASSET(test_txt); // '.' replaced with "_" to make c++ happy
  * from where it left off.
  */
 void autonomous() {
+    chassis.calibrate();
     chassis.setPose({0, 0, 0});
-    chassis.moveTo(10, 10, 0, 5000);
+
+    pros::Task telemetryTask([&]() {
+        console.println("Running LemLib auton");
+        lemlib::Pose pose(0, 0, 0);
+        while (true) {
+            pose = chassis.getPose();
+            console.printf("X: %f Y:%f Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+            printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+            // delay to save resources
+            pros::delay(500);
+        }
+    });
+
+    chassis.follow(test_txt, 15, 4000, false);
     //chassis.moveTo(0, 0, 90, 4000);
     //chassis.moveTo(10, 10, 50, 4000);
     //selector.run_auton();
@@ -46,26 +58,17 @@ void skills() {
 }
 
 void close_1tri() {
+    chassis.arcade(-127, 0);
 
-    // leftDrive.move_voltage(-12000);
-    // rightDrive.move_voltage(-12000);
+    pros::delay(4000);
 
-    // pros::delay(4000);
+    chassis.arcade(42, 0);
 
-    // leftDrive.move_voltage(0);
-    // rightDrive.move_voltage(0);
+    pros::delay(1000);
 
+    chassis.arcade(0, 0);
 
-    // leftDrive.move_voltage(4000);
-    // rightDrive.move_voltage(4000);
-
-    // pros::delay(1000);
-
-    // leftDrive.move_voltage(0);
-    // rightDrive.move_voltage(0);
-
-    // intakePiston.extend();
-
+    liftPiston.extend();
 }
 
 void concept_auton() {
