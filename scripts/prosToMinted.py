@@ -126,6 +126,9 @@ def main():
 
             or ('include' and 'pros') in components
             or ('include' and 'output') in components
+
+            or ('docs' and 'index.html') in components
+
             or 'cquery_cached_index' in components
             or (not 'include') in components
             or '.cache' in components
