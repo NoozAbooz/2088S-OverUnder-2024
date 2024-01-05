@@ -92,7 +92,7 @@ jobs:
         run: |
           cp docs/output/main.pdf docs/main.pdf
           sudo rm -rf docs/output
-          cd docs/
+          rm docs/output.zip
         shell: sh
 
       # - name: Update PDF release
@@ -112,7 +112,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '.'
+          path: './docs/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
