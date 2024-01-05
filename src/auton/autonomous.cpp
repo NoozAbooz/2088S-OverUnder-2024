@@ -5,13 +5,8 @@ ASSET(test_txt); // '.' replaced with "_" to make c++ happy
 /**
  * Runs the user autonomous code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
- * the Field Management System or the VEX Competition Switch in the autonomous
- * mode. Alternatively, this function may be called in initialize or opcontrol
+ * the Field Management System. This function may be called in initialize or opcontrol
  * for non-competition testing purposes.
- *
- * If the robot is disabled or communications is lost, the autonomous task
- * will be stopped. Re-enabling the robot will restart the task, not re-start it
- * from where it left off.
  */
 void autonomous() {
     pros::Task calibrateTask([&]() {
@@ -52,110 +47,4 @@ void autonomous() {
     // // wait until the movement is done
     // chassis.waitUntil(1000000);
     // pros::lcd::print(4, "pure pursuit finished!");
-}
-
-void concept_auton() {
-
-    // leftDrive.move_voltage(-12000);
-    // rightDrive.move_voltage(-12000);
-
-    // pros::delay(3000);
-
-    // leftDrive.move_voltage(0);
-    // rightDrive.move_voltage(0);
-
-    // pros::delay(100);
-
-    // intakePiston.extend();
-    // leftDrive.move_voltage(-12000);
-    // rightDrive.move_voltage(12000);
-
-    // pros::delay(1000);
-
-    // leftDrive.move_voltage(0);
-    // rightDrive.move_voltage(0);
-
-    // pros::delay(100);
-    
-    // leftDrive.move_voltage(12000);
-    // rightDrive.move_voltage(12000);
-
-    // pros::delay(1000);   
-
-    // leftDrive.move_voltage(0);
-    // rightDrive.move_voltage(0);
-
-    // pros::delay(10);
-
-    // intake.move_voltage(-12000);
-
-    // pros::delay(500);
-
-    // leftDrive.move_voltage(12000);
-    // rightDrive.move_voltage(-12000);
-
-    // pros::delay(1000);
-
-    // leftDrive.move_voltage(0);
-    // rightDrive.move_voltage(0);
-
-    // pros::delay(100);
-
-    // intake.move_voltage(12000);
-
-    // pros::delay(500);
-
-    // intake.move_voltage(0);
-    // leftDrive.move_voltage(-12000);
-    // rightDrive.move_voltage(12000);
-
-    // pros::delay(1000);
-
-    // leftDrive.move_voltage(0);
-    // rightDrive.move_voltage(0);
-
-    // pros::delay(10);
-
-    // intake.move_voltage(-12000);
-
-    // pros::delay(10);
-
-    // leftDrive.move_voltage(-12000);
-    // rightDrive.move_voltage(-12000);
-
-    // pros::delay(200);
-
-    // leftDrive.move_voltage(12000);
-    // rightDrive.move_voltage(-12000);
-
-    // pros::delay(1000);
-
-    // moveWings(true);
-    // leftDrive.move_voltage(-12000);
-    // rightDrive.move_voltage(-12000);
-
-    // pros::delay(-250);
-
-    // leftDrive.move_voltage(12000);
-    // rightDrive.move_voltage(12000);
-
-    // pros::delay(100);
-
-    // leftDrive.move_voltage(-12000);
-    // rightDrive.move_voltage(-12000);
-
-    // pros::delay(100);
-
-    // leftDrive.move_voltage(12000);
-    // rightDrive.move_voltage(12000);
-
-    // pros::delay(100);
-
-    // leftDrive.move_voltage(-12000);
-    // rightDrive.move_voltage(-12000);
-
-    // pros::delay(10);
-
-    // moveWings(false);
-    
 }
