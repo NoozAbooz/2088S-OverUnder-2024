@@ -1,10 +1,12 @@
+#include "autonGlobals.hpp"
 #include "main.h"
 
 void arcadeDrive() {
-	int power = driveCurve(controller.get_analog(ANALOG_LEFT_Y), 15);
- 	int turn = driveCurve(controller.get_analog(ANALOG_RIGHT_X), 4);
+	int power = driveCurve(controller.get_analog(ANALOG_LEFT_Y), 12);
+ 	int turn = driveCurve(controller.get_analog(ANALOG_RIGHT_X), 3);
 
-	chassis.arcade(power, turn);
+	leftDrive->move_voltage((power + turn) * (12000 / 127));
+	rightDrive->move_voltage((power - turn) * (12000 / 127));
 }
 
 double driveCurve(double input, double curve) {

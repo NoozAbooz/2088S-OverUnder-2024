@@ -20,7 +20,7 @@ void opcontrol() {
 		refreshWings();
 
 		// Crazy? I was crazy once. They put me in elo. Low elo. A low elo with rats in it. And rats make me crazy.
-		controller.print(1, 0, "%.0lfC Slap%.0lfC In%.0lfC", leftDrive->get_temperature(), slapper.get_temperature(), intake.get_temperature());
+		controller.print(1, 0, "%.0lfC %.0lfC %.0lfC", leftDrive->get_temperature(), slapper.get_temperature(), intake.get_temperature());
 
 		pros::delay(10); // Run for 10 ms then update
 	}
