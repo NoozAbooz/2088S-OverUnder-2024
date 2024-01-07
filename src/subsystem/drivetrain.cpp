@@ -1,4 +1,3 @@
-#include "autonGlobals.hpp"
 #include "main.h"
 
 void arcadeDrive() {
