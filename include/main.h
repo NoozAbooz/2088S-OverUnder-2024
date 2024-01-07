@@ -75,7 +75,6 @@ void opcontrol(void);
 
 // Device Init
 #include "declaration.hpp"
-#include "globalFunctions.hpp"
 
 // 3rd party libraries
 #include "sylib/sylib.hpp"

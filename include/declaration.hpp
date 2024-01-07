@@ -17,8 +17,8 @@ extern bool cataLoaded;
 extern pros::Controller controller;
 
 // Drivetrain
-extern pros::MotorGroup leftSide;
-extern pros::MotorGroup rightSide;
+extern pros::MotorGroup leftDrive;
+extern pros::MotorGroup rightDrive;
 
 extern lemlib::Chassis chassis;
 
@@ -26,18 +26,27 @@ extern lemlib::Chassis chassis;
 extern pros::Motor intake;
 
 // Catapult
-extern pros::Motor catapultLeft;
-
-// Expansion
-extern pros::Motor expansion;
+extern pros::Motor slapper;
 
 // Inertial
 extern pros::Imu inertial;
 
-// Cata Sensor
-extern pros::ADIAnalogIn cataPosition;
-
 // LED
 extern pros::ADILed bodyLED;
 
-extern pros::ADIDigitalOut wings;
+extern pros::ADIDigitalOut wingsPiston;
+
+/* Functions */
+// Slapper
+void refreshSlapper();
+
+// DT
+void arcadeDrive();
+double driveCurve(double input, double curve);
+
+// Intake
+void refreshIntake();
+
+// Wings
+void refreshWings();
+void moveWings(bool status);

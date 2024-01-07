@@ -1,44 +1,27 @@
+#include "main.h"
+
 /**
- * @file main.cpp
- * @author Michael Zheng
- * @brief Main opcontrol loop. Runs drivetrain as well as additional subsystems.
+ * Runs the operator control code. This function will be started in its own task
+ * with the default priority and stack size whenever the robot is enabled.
+ *
+ * If the robot is disabled or communications is lost, the
+ * operator control task will be stopped. Re-enabling the robot will not resume 
+ * the task from where it left off.
  */
 
-#include "main.h"
-#include "declaration.hpp"
-#include <string>
-
 void opcontrol() {
-  while (true) {
-    //-- Main drive code - Split Arcade Format //--
-    int power = controller.get_analog(ANALOG_LEFT_Y);
-    int turn = controller.get_analog(ANALOG_RIGHT_X);
-    int left = (power + turn) * (12000 / 127);
-    int right = (power - turn) * (12000 / 127);
-    leftSide.move_voltage(left);
-    rightSide.move_voltage(right);
+	while (true) { // Main continuous loop
+		/* Drive */
+		arcadeDrive();
 
-    //-- Subsystem controls //--
-    // Intake/Roller
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-      intake.move_voltage(12000);
-    } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-      intake.move_voltage(-12000);
-    } else {
-      intake.move_voltage(0);
-    }
+		/* Subsystem Listeners */
+		refreshIntake();
+		refreshSlapper();
+		refreshWings();
 
-  if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-    wings.set_value(true);
-  } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
-    wings.set_value(false);
-  }
+		// Report temperature telemetry (this line of code has never worked from the beginning)
+		controller.print(1, 0, "%.0lfC S%.0lfC I%.0lfC", leftDrive.get_temperatures(), slapper.get_temperature(), intake.get_temperature());
 
-    //-- Print debug info to controller //--
-    //lemlib::Pose pose = chassis.getPose();
-    //controller.print(1, 0, "%.0f°C X:%f Y:%f Deg:%f", intake.get_temperature(), pose.x, pose.y, pose.theta);
-
-    // Delay to prevent overloading brain :)
-    pros::delay(10);
-  }
+		pros::delay(10); // Delay to save resources on brain
+	}
 }

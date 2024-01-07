@@ -18,25 +18,27 @@ bool cataLoaded = false;
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-pros::MotorGroup leftSide({-16, -17, -18});
-pros::MotorGroup rightSide({1, 2, 3});
+pros::MotorGroup leftDrive({-16, -17, -18});
+pros::MotorGroup rightDrive({1, 2, 3});
 
 // Intake
 pros::Motor intake(-5);
+
+pros::Motor slapper(7);
 
 // LED
 pros::ADILed bodyLED('A', 64);
 
 // Pneumatics
-pros::ADIDigitalOut wings('H');
+pros::ADIDigitalOut wingsPiston('H');
 
 /* Declare sensors */
 // Inertial
 pros::Imu inertial(11);
 
 // drivetrain settings
-lemlib::Drivetrain drivetrain(&leftSide, // left motor group
-                              &rightSide, // right motor group
+lemlib::Drivetrain drivetrain(&leftDrive, // left motor group
+                              &rightDrive, // right motor group
                               13.5, // 10 inch track width
                               lemlib::Omniwheel::OLD_275, // using new 3.25" omnis
                               450, // drivetrain rpm is 360

@@ -6,7 +6,6 @@
 
 #include "declaration.hpp"
 #include "main.h"
-#include "pros/rtos.hpp"
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
