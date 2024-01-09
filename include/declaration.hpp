@@ -19,6 +19,7 @@ extern pros::Controller controller;
 // Drivetrain
 extern pros::MotorGroup leftDrive;
 extern pros::MotorGroup rightDrive;
+extern pros::Motor driveMotor;
 
 extern lemlib::Chassis chassis;
 

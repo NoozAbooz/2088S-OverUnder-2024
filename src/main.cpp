@@ -20,7 +20,7 @@ void opcontrol() {
 		refreshWings();
 
 		// Report temperature telemetry (this line of code has never worked from the beginning)
-		controller.print(1, 0, "%.0lfC S%.0lfC I%.0lfC", leftDrive.get_temperatures(), slapper.get_temperature(), intake.get_temperature());
+		controller.print(1, 0, "%.0lfC S%.0lfC I%.0lfC", driveMotor.get_temperature(), slapper.get_temperature(), intake.get_temperature());
 
 		pros::delay(10); // Delay to save resources on brain
 	}
