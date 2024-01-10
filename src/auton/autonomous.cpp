@@ -22,11 +22,24 @@
 ASSET(test_txt);
 
 void autonomous() {
-    chassis.calibrate();
+    //chassis.calibrate();
 
-    //pros::delay(1000);
+    if(selector::auton == 1){ //run auton for Front Red 
+        drivetrainMove(-12000, 4000);
+        drivetrainMove(4000, 1000);
+    }
 
-    //chassis.follow(test_txt, 14, 15000, true);
+    if(selector::auton == 2){ //run auton for Back Red
+        chassis.arcade(-127, 0);
+
+        pros::delay(4000);
+
+        chassis.arcade(42, 0);
+
+        pros::delay(1000);
+
+        chassis.arcade(0, 0);
+    }
 
     intake.move(127);
 chassis.moveToPoint(0, 0, 5000);
@@ -47,3 +60,12 @@ chassis.moveToPoint(1.884, 50.34, 5000);
 //	chassis.moveToPoint(0, 5, 5000, 50);
 //}	
 
+void drivetrainMove(int voltage, int time) {
+	leftDrive.move_voltage(voltage);
+	rightDrive.move_voltage(voltage);
+
+	pros::delay(time);
+
+	leftDrive.move_voltage(0);
+	rightDrive.move_voltage(0);
+}

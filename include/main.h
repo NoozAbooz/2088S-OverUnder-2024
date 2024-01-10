@@ -82,7 +82,6 @@ void opcontrol(void);
 #include "gif-pros/gifclass.hpp"
 
 // Autonomous Selector
-#include "autonGlobals/autonSelector.h"
 #include "autonGlobals/autonSelector.hpp"
 
 /**

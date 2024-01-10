@@ -19,6 +19,8 @@ void initialize() {
     selector::init();
 
     pros::Task screenTask([&]() {
+        chassis.calibrate();
+
         lemlib::Pose pose(0, 0, 0);
         while (true) {
             // print robot location to the brain screen

@@ -35,6 +35,7 @@ extern pros::Imu inertial;
 extern pros::ADILed bodyLED;
 
 extern pros::ADIDigitalOut wingsPiston;
+extern pros::ADIDigitalOut liftPiston;
 
 /* Functions */
 // Slapper
@@ -43,6 +44,7 @@ void refreshSlapper();
 // DT
 void arcadeDrive();
 double driveCurve(double input, double curve);
+void drivetrainMove(int voltage, int time);
 
 // Intake
 void refreshIntake();
