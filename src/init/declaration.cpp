@@ -18,13 +18,15 @@ bool cataLoaded = false;
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-pros::MotorGroup leftDrive({-16, -17, -18});
-pros::MotorGroup rightDrive({1, 2, 3});
+pros::MotorGroup leftDrive({-8, -9, -10});
+pros::MotorGroup rightDrive({18, 19, 20});
+
+pros::Motor driveMotor(8);
 
 // Intake
-pros::Motor intake(-5);
+pros::Motor intake(-15);
 
-pros::Motor slapper(7);
+pros::Motor slapper(6);
 
 // LED
 pros::ADILed bodyLED('A', 64);
@@ -35,7 +37,7 @@ pros::ADIDigitalOut liftPiston('G');
 
 /* Declare sensors */
 // Inertial
-pros::Imu inertial(11);
+pros::Imu inertial(5);
 
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftDrive, // left motor group
