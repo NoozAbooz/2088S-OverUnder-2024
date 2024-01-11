@@ -1,10 +1,3 @@
-/**
- * @file main.cpp
- * @author Michael Zheng
- * @brief Main auton routine. Different autons are selected via the auton selector.
- */
-
-#include "declaration.hpp"
 #include "main.h"
 
 /**
@@ -20,6 +13,16 @@
  */
 
 ASSET(test_txt);
+
+void drivetrainMove(int voltage, int time) {
+	leftDrive.move_voltage(voltage);
+	rightDrive.move_voltage(voltage);
+
+	pros::delay(time);
+
+	leftDrive.move_voltage(0);
+	rightDrive.move_voltage(0);
+}
 
 void autonomous() {
     //chassis.calibrate();
@@ -41,31 +44,39 @@ void autonomous() {
         chassis.arcade(0, 0);
     }
 
+    if(selector::auton == 0){ // skills
+        //chassis.MoveToPoint(0, 0, 60000);
+//chassis.MoveToPoint(-15.291, 41.093, 60000);
+//match load
+//chassis.MoveToPoint(-20.642, 18.157, 60000);
+//chassis.MoveToPoint(-9.939, 9.939, 60000);
+//chassis.MoveToPoint(13.953, 10.703, 60000);
+//chassis.MoveToPoint(43.769, 10.512, 60000);
+//chassis.MoveToPoint(71.674, 10.13, 60000);
+//chassis.MoveToPoint(88.303, 9.748, 60000);
+//chassis.MoveToPoint(95.375, 9.557, 60000);
+//chassis.MoveToPoint(99.962, 40.902, 60000);
+//chassis.MoveToPoint(94.419, 30.581, 60000);
+//chassis.MoveToPoint(72.057, 29.817, 60000);
+//chassis.MoveToPoint(49.312, 34.213, 60000);
+//chassis.MoveToPoint(65.94, 46.063, 60000);
+//chassis.MoveToPoint(85.245, 51.606, 60000);
+//chassis.MoveToPoint(50.841, 61.735, 60000);
+//chassis.MoveToPoint(84.098, 65.558, 60000);
+//chassis.MoveToPoint(48.93, 97.286, 60000);
+//chassis.MoveToPoint(81.804, 80.275, 60000);
+//chassis.MoveToPoint(80.275, 109.327, 60000);
+//chassis.MoveToPoint(103.211, 94.801, 60000);
+    }
+
     intake.move(127);
 chassis.moveToPoint(0, 0, 5000);
 chassis.moveToPoint(-17.075, 59.401, 5000);
 chassis.moveToPoint(0.538, 49.532, 5000);
-chassis.moveToPoint(-10.423, 50.34, 5000, false);
+chassis.moveToPoint(-10.423, 50.34, 5000);
 intake.move(-127);
 chassis.moveToPoint(1.884, 50.34, 5000);
 
-
-
     //chassis.setPose(0, 0, 0);
 
-}
-
-//void autonomous() {
-//	chassis.setPose(0, 0, 0);
-//	chassis.moveToPoint(0, 5, 5000, 50);
-//}	
-
-void drivetrainMove(int voltage, int time) {
-	leftDrive.move_voltage(voltage);
-	rightDrive.move_voltage(voltage);
-
-	pros::delay(time);
-
-	leftDrive.move_voltage(0);
-	rightDrive.move_voltage(0);
 }

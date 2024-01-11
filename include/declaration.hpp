@@ -42,6 +42,9 @@ extern pros::ADIDigitalOut liftPiston;
 // Slapper
 void refreshSlapper();
 
+// Lift
+void refreshLift();
+
 // DT
 void arcadeDrive();
 double driveCurve(double input, double curve);

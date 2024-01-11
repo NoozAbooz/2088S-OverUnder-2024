@@ -16,11 +16,15 @@ void opcontrol() {
 
 		/* Subsystem Listeners */
 		refreshIntake();
+		refreshLift();
 		refreshSlapper();
 		refreshWings();
 
 		// Report temperature telemetry (this line of code has never worked from the beginning)
-		controller.print(1, 0, "%.0lfC S%.0lfC I%.0lfC", driveMotor.get_temperature(), slapper.get_temperature(), intake.get_temperature());
+		controller.print(1, 0, "Drivetrain %.0lf°C", driveMotor.get_temperature());
+		controller.print(2, 0, "Slapper %.0lf°C", slapper.get_temperature());
+		controller.print(3, 0, "Intake %.0lf°C", intake.get_temperature());
+
 
 		pros::delay(10); // Delay to save resources on brain
 	}

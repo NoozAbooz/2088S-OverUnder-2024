@@ -1,13 +1,4 @@
-/**
- * @file main.cpp
- * @author Michael Zheng
- * @brief Defines all motors and sensors. Also sets up the chasis and additional sensor info for autonomous.
- */
-
-#include "declaration.hpp"
-#include "lemlib/chassis/trackingWheel.hpp"
 #include "main.h"
-#include "pros/adi.hpp"
 
 /* Declare functional components */
 

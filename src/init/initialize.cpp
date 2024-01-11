@@ -1,9 +1,3 @@
-/**
- * @file main.cpp
- * @author Michael Zheng
- * @brief Extra code that runs on robot init (mainly auton selector)
- */
-
 #include "main.h"
 
 /**
@@ -13,9 +7,6 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-    //pros::lcd::initialize();
-    //chassis.calibrate();
-
     selector::init();
 
     pros::Task screenTask([&]() {
@@ -23,15 +14,10 @@ void initialize() {
 
         lemlib::Pose pose(0, 0, 0);
         while (true) {
-            // print robot location to the brain screen
-            //pros::lcd::print(0, "X: %f", chassis.getPose().x); // x
-            //pros::lcd::print(1, "Y: %f", chassis.getPose().y); // y
-            //pros::lcd::print(2, "Theta: %f", chassis.getPose().theta); // heading
             // log position telemetry
-            //lemlib::telemetrySink()->info("Chassis pose: {}", chassis.getPose());
             printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
             // delay to save resources
-            pros::delay(50);
+            pros::delay(1000);
         }
     });
 

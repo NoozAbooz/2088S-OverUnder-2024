@@ -1,0 +1,118 @@
+name: Build Project
+
+on:
+  push:
+    branches: '*'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: PROS CI Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Get short SHA
+        uses: benjlevesque/short-sha@v2.2
+        id: short-sha
+        with:
+          length: 6
+      
+      - name: Set short SHA
+        run: echo $SHA
+        env:
+          SHA: ${{ steps.short-sha.outputs.sha }}
+    
+      - name: Install ARM Toolchain
+        uses: fiam/arm-none-eabi-gcc@v1.0.4
+        with:
+          release: "10-2020-q4"
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+  
+      - name: PIP Installer
+        uses: BSFishy/pip-action@v1
+        with:
+          packages: pros-cli
+  
+      - name: Testing PROS Install 
+        run: pros --version
+
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Build PROS Project  
+        run: pros make clean all
+        
+  docs:
+    name: Compile Docs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Generate LaTeX Files
+        run: |
+          python scripts/prosToMinted.py
+          cp logo.png docs/output/
+        shell: sh
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: 'docs/output/'
+        
+          root_file: main.tex
+          latexmk_shell_escape: true
+          latexmk_use_xelatex: true
+
+      # - name: Upload PDF file
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: PDF
+      #     path: |
+      #       docs/output/
+      #       !docs/output/_minted-main
+
+      - name: Copy PDF
+        run: |
+          cp docs/output/main.pdf docs/main.pdf
+          sudo rm -rf docs/output
+          rm docs/output.zip
+        shell: sh
+
+      - name: Update PDF release
+        uses: WebFreak001/deploy-nightly@v3.0.0
+        with:
+          upload_url: https://uploads.github.com/repos/NoozAbooz/2088S-OverUnder-2024/releases/135895802/assets{?name,label} # find out this value by opening https://api.github.com/repos/<owner>/<repo>/releases in your browser and copy the full "upload_url" value including the {?name,label} part
+          release_id: 135895802 # same as above (id can just be taken out the upload_url, it's used to find old releases)
+          asset_path: ./docs/main.pdf # path to archive to upload
+          asset_name: main.pdf # name to upload the release as, use $$ to insert date (YYYYMMDD) and 6 letter commit hash
+          asset_content_type: application/zip # required by GitHub API
+          max_releases: 1 # optional, if there are more releases than this matching the asset_name, the oldest ones are going to be deleted
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: './docs/'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
