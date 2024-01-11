@@ -44,6 +44,66 @@ def main():
     wrapper_dest = zip_source / "wrapper.tex"
     wrapper_dest.touch(exist_ok=True)
     with wrapper_dest.open(mode='w') as f:
+        # Recursively search the entire project for any relevant source files
+        f.write("%%---------------------\n")
+        f.write("\\AddToHook{cmd/section/before}{\clearpage}\n")
+        f.write("\\section{Driver Code}\n\n")
+        for source in root.cwd().glob('**/*.c*'):
+            # break source into components starting from the root
+            components = source.parts[ROOT_START:]
+
+            '''
+                It is good practice to only have .c and .cpp files in src
+                PROS projects may contain .c image arrays or .csv files but
+                those should be organized outside of src directory
+            '''
+            if(not 'src' in components
+            or ('src' and 'auton') in components):
+                continue
+
+            # Build a relative unix path for Overleaf to find the source files
+            rel_src_path = ""
+            for i in range(0, len(components)-1):
+                rel_src_path += components[i] + "/"
+            name = components[-1]
+            rel_src_path += name
+            copy(source, zip_source)
+
+            # Generate LaTeX code for any valid source file
+            f.write("\\subsection{" + rel_src_path + "}\n")
+            f.write("\\inputminted[linenos,tabsize=2,breaklines,frame=lines,framesep=3mm,bgcolor=LightGray]{c}{" + name + "}\n")
+            f.write("\\pagebreak\n\n")
+
+        # Recursively search the entire project for any relevant autonomous files
+        f.write("%%---------------------\n")
+        f.write("\\section{Autonomous Code}\n\n")
+        for source in root.cwd().glob('**/*.c*'):
+            # break source into components starting from the root
+            components = source.parts[ROOT_START:]
+
+            '''
+                It is good practice to only have .c and .cpp files in src
+                PROS projects may contain .c image arrays or .csv files but
+                those should be organized outside of src directory
+            '''
+            if(not 'auton' in components
+            or '.d' in components
+            or 'bin' in components):
+                continue
+
+            # Build a relative unix path for Overleaf to find the source files
+            rel_src_path = ""
+            for i in range(0, len(components)-1):
+                rel_src_path += components[i] + "/"
+            name = components[-1]
+            rel_src_path += name
+            copy(source, zip_source)
+
+            # Generate LaTeX code for any valid source file
+            f.write("\\subsection{" + rel_src_path + "}\n")
+            f.write("\\inputminted[linenos,tabsize=2,breaklines,frame=lines,framesep=3mm,bgcolor=LightGray]{c}{" + name + "}\n")
+            f.write("\\pagebreak\n\n")
+
         # Recursively search the entire project for any header files
         f.write("%%---------------------\n")
         f.write("\\section{Header Files}\n\n")
@@ -55,12 +115,20 @@ def main():
             # It is good convention to keep all your header files in include/
             # Sub directories within include/ will still be found
             if('api.h' in components
-            or ('include' and 'display') in components
+            or ('include' and 'main.h') in components
+            or ('include' and 'liblvgl') in components
+
             or ('include' and 'gif-pros') in components
-            #or ('include' and 'lemlib') in components
+            or ('include' and 'lemlib') in components
+            or ('include' and 'fmt') in components
+            or ('include' and 'robodash') in components
+            or ('include' and 'sylib') in components
+
             or ('include' and 'pros') in components
-            #or ('include' and 'sylib') in components
             or ('include' and 'output') in components
+
+            or ('docs' and 'index.html') in components
+
             or 'cquery_cached_index' in components
             or (not 'include') in components
             or '.cache' in components
@@ -75,57 +143,64 @@ def main():
             rel_header_path += name
             copy(header, zip_source)
 
-
             # Generate LaTeX code for any valid header
             # Write it to the 'Code' LaTeX file
             f.write("\\subsection{" + rel_header_path + "}\n")
-            f.write("\\inputminted[linenos,tabsize=2,breaklines, breakanywhere]{c}{" + name + "}\n")
-            f.write("\\pagebreak\n\n")
-
-        # Recursively search the entire project for any relevant source files
-        f.write("%%---------------------\n")
-        f.write("\\section{Source Files}\n\n")
-        for source in root.cwd().glob('**/*.c*'):
-            # break source into components starting from the root
-            components = source.parts[ROOT_START:]
-
-            '''
-                It is good practice to only have .c and .cpp files in src
-                PROS projects may contain .c image arrays or .csv files but
-                those should be organized outside of src directory
-            '''
-            if(not 'src' in components):
-                continue
-
-            # Build a relative unix path for Overleaf to find the source files
-            rel_src_path = ""
-            for i in range(0, len(components)-1):
-                rel_src_path += components[i] + "/"
-            name = components[-1]
-            rel_src_path += name
-            copy(source, zip_source)
-
-            # Generate LaTeX code for any valid source file
-            f.write("\\subsection{" + rel_src_path + "}\n")
-            f.write("\\inputminted[linenos,tabsize=2,breaklines, breakanywhere]{c}{" + name + "}\n")
+            f.write("\\inputminted[linenos,tabsize=2,breaklines,frame=lines,framesep=3mm,bgcolor=LightGray]{c}{" + name + "}\n")
             f.write("\\pagebreak\n\n")
 
     # Create the path to a main.tex file and insert boilerplate tex code
     main_dest = zip_source / "main.tex"
     main_dest.touch(exist_ok=True)
     with main_dest.open("w") as f:
-        f.write("\\documentclass{article}\n"
-                 + "\\usepackage[utf8]{inputenc}\n"
-                 + "\\usepackage[margin=1in]{geometry}\n"
-                 + "\\title{2088S Programming Logbook}\n"
-                 + "\\author{Michael Zheng}\n"
-                 + "\\date{Apr 2023}\n"
-                 + "\\usepackage{minted}\n"
-                 + "\\begin{document}\n\n"
-                 + "\\maketitle\n\n"
-                 + "\\tableofcontents\n\n"  
-                 + "\\input{wrapper.tex}\n\n"
-                 + "\\end{document}")
+        f.write(r"""% !TEX program = xelatex
+\documentclass[12pt, letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{datetime2}
+\usepackage{url}
+
+\usepackage{minted}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\usepackage{titlepic}
+\usepackage{titling}
+\usepackage{hyperref}
+
+\hypersetup{
+     colorlinks=true, 
+     urlcolor=cyan,
+}
+
+\definecolor{LightGray}{gray}{0.9}
+\usemintedstyle{friendly}
+\setmainfont{Comfortaa}
+\setmonofont{DejaVu Sans}
+
+\pretitle{\begin{center}\fontsize{40bp}{40bp}\selectfont}
+    \posttitle{\vspace{14bp}\par\includegraphics[width=100mm]{logo}\par\end{center}}
+\preauthor{\begin{center}\fontsize{14bp}{14bp}\selectfont}
+    \postauthor{\par\end{center}}
+\predate{\begin{center}}
+    \postdate{\par\end{center}}
+
+\title{\textbf{2088S Programming Docs}}
+\author{Michael Z and Brandon K\thanks{with support from Western Mechatronics and VTOW}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{centering}
+\url{https://github.com/NoozAbooz/2088S-OverUnder-2024/}\\
+\end{centering}
+\newpage
+
+\tableofcontents
+\input{wrapper.tex}
+
+\end{document}""")
 
     '''
     Ultimately, create a zipfile which can be automatically read by Overleaf
@@ -146,8 +221,11 @@ def main():
     except OSError as e:
         print(e)
 
-    #zipf.extractall("/Users/michael/Documents/WestMech/Spin Up/docs/")
+    #zipf.extractall("/Users/Michael/Documents/GitHub/2088S-OverUnder-2024/docs/")
     zipf.close()
+
+    with zipfile.ZipFile(zip_dest, 'r') as zip_ref:
+        zip_ref.extractall(docs_dest)
 
     print("\033[92m" + "Success! Find your zip at: docs/output.zip" + "\033[0m")
     print("Upload the zip directly to overleaf and let it compile into a PDF!")
