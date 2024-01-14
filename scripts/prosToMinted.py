@@ -117,6 +117,7 @@ def main():
             if('api.h' in components
             or ('include' and 'main.h') in components
             or ('include' and 'liblvgl') in components
+            or ('include' and 'display') in components
 
             or ('include' and 'gif-pros') in components
             or ('include' and 'lemlib') in components
