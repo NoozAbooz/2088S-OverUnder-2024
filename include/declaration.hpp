@@ -1,9 +1,3 @@
-/**
- * @file main.cpp
- * @author Michael Zheng
- * @brief Declare subsystems for use in other files
- */
-
 #pragma once
 
 #include "main.h"
