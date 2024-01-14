@@ -4,7 +4,7 @@ bool liftToggle = false;
 
 // Refresh lift status
 void refreshLift() {
-    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
     	liftToggle = !liftToggle; 
 
 		if(liftToggle == true) {
