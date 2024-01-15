@@ -1,4 +1,3 @@
-#include "declaration.hpp"
 #include "main.h"
 
 /**
