@@ -6,12 +6,11 @@
  * All other competition modes are blocked by initialize; it is recommended
  * to keep execution time for this mode under a few seconds.
  */
+ASSET(logo_gif)
 void initialize() {
-    selector::init();
+    Gif gif(logo_gif, lv_scr_act());
 
-    pros::Task screenTask([&]() {
-        chassis.calibrate();
-
+    pros::Task telemetryTask([&]() {
         lemlib::Pose pose(0, 0, 0);
         while (true) {
             // log position telemetry

@@ -74,12 +74,8 @@ void opcontrol(void);
 #ifdef __cplusplus
 
 // Device Init
-#include "declaration.hpp"
-
-// 3rd party libraries
-#include "sylib/sylib.hpp"
-#include "lemlib/api.hpp"
-#include "gif-pros/gifclass.hpp"
+#include "abstractGlobals.hpp"
+#include "deviceGlobals.hpp"
 
 // Autonomous Selector
 #include "autonGlobals/autonSelector.hpp"

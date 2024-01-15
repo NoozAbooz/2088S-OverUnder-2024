@@ -1,11 +1,5 @@
 #pragma once
-
 #include "main.h"
-#include "lemlib/api.hpp"
-#include "pros/adi.hpp"
-
-//-- Booleans //--
-extern bool cataLoaded;
 
 // Controller
 extern pros::Controller controller;
@@ -31,22 +25,3 @@ extern pros::ADILed bodyLED;
 
 extern pros::ADIDigitalOut wingsPiston;
 extern pros::ADIDigitalOut liftPiston;
-
-/* Functions */
-// Slapper
-void refreshSlapper();
-
-// Lift
-void refreshLift();
-
-// DT
-void arcadeDrive();
-double driveCurve(double input, double curve);
-void drivetrainMove(int voltage, int time);
-
-// Intake
-void refreshIntake();
-
-// Wings
-void refreshWings();
-void moveWings(bool status);

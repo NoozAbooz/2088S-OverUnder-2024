@@ -25,7 +25,7 @@ void drivetrainMove(int voltage, int time) {
 }
 
 void autonomous() {
-    //chassis.calibrate();
+    chassis.calibrate();
 
     if(selector::auton == 1){ //run auton for Front Red 
         drivetrainMove(-12000, 4000);
