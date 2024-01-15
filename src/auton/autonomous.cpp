@@ -1,3 +1,4 @@
+#include "declaration.hpp"
 #include "main.h"
 
 /**
@@ -45,6 +46,16 @@ void autonomous() {
     }
 
     if(selector::auton == 0){ // skills
+        slapper.move_voltage(12000);
+        //pros::delay(1000);
+        pros::delay(40000);
+        slapper.move_voltage(0);
+        
+        drivetrainMove(12000, 3000);
+
+        moveWings(true);
+
+        drivetrainMove(12000, 2000);
         //chassis.MoveToPoint(0, 0, 60000);
 //chassis.MoveToPoint(-15.291, 41.093, 60000);
 //match load
@@ -69,13 +80,6 @@ void autonomous() {
 //chassis.MoveToPoint(103.211, 94.801, 60000);
     }
 
-    intake.move(127);
-chassis.moveToPoint(0, 0, 5000);
-chassis.moveToPoint(-17.075, 59.401, 5000);
-chassis.moveToPoint(0.538, 49.532, 5000);
-chassis.moveToPoint(-10.423, 50.34, 5000);
-intake.move(-127);
-chassis.moveToPoint(1.884, 50.34, 5000);
 
     //chassis.setPose(0, 0, 0);
 
