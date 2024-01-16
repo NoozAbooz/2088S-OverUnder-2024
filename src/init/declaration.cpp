@@ -9,13 +9,13 @@ bool cataLoaded = false;
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-pros::MotorGroup leftDrive({-7, -8, -10});
-pros::MotorGroup rightDrive({17, 18, 19});
+pros::MotorGroup leftDrive({-11, -12, -13});
+pros::MotorGroup rightDrive({6, 7, 8});
 
 pros::Motor driveMotor(8);
 
 // Intake
-pros::Motor intake(-15);
+pros::Motor intake(-10);
 
 pros::Motor slapper(6);
 
