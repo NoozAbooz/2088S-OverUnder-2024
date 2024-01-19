@@ -77,37 +77,48 @@ chassis.moveToPoint(24.545, 2.681, 5000, false);
     }
 
     if(selector::auton == 0){ // skills
+       
+        chassis.moveToPoint(0, 0, 5000);
+        chassis.moveToPoint(-21.598, 16.628, 5000);
+        chassis.moveToPoint(-21.024, 37.462, 5000);
+        chassis.moveToPoint(-18.922, 7.454, 5000);
+        chassis.moveToPoint(-15.482, 10.13, 5000);
         slapper.move_voltage(12000);
         //pros::delay(1000);
         pros::delay(40000);
         slapper.move_voltage(0);
         
-        drivetrainMove(12000, 3000);
-
+        chassis.moveToPoint(7.454, 3.44, 5000);
+        chassis.moveToPoint(37.271, 3.058, 5000);
+        chassis.moveToPoint(42.813, 3.44, 5000);
+        chassis.moveToPoint(73.394, 3.44, 5000);
+        chassis.moveToPoint(66.705, 26.95, 5000);
+        chassis.moveToPoint(43.196, 32.492, 5000);
         moveWings(true);
+        chassis.moveToPoint(84.48, 47.783, 5000);
+        moveWings(false);
+        chassis.moveToPoint(43.769, 60.206, 5000);
+        moveWings(true);
+        chassis.moveToPoint(84.862, 60.589, 5000);
+        moveWings(false);
+        chassis.moveToPoint(44.916, 70.145, 5000);
+        chassis.moveToPoint(43.387, 88.494, 5000);
+        moveWings(true);
+        chassis.moveToPoint(83.524, 75.306, 5000);
+        moveWings(false);
+        chassis.moveToPoint(65.558, 88.303, 5000);
+        chassis.moveToPoint(68.043, 102.446, 5000);
+        chassis.moveToPoint(97.095, 105.122, 5000);
+        moveWings(true);
+        chassis.moveToPoint(97.286, 86.009, 5000);
+        moveWings(false);
+        chassis.moveToPoint(89.45, 99.006, 5000);
+        chassis.moveToPoint(48.739, 98.242, 5000);
+        chassis.moveToPoint(57.339, 30.008, 5000);
+        chassis.moveToPoint(95.948, 18.349, 5000);
+        moveWings(true);
+        chassis.moveToPoint(96.904, 37.462, 5000);   
+        moveWings(false);
 
-        drivetrainMove(12000, 2000);
-        //chassis.MoveToPoint(0, 0, 60000);
-//chassis.MoveToPoint(-15.291, 41.093, 60000);
-//match load
-//chassis.MoveToPoint(-20.642, 18.157, 60000);
-//chassis.MoveToPoint(-9.939, 9.939, 60000);
-//chassis.MoveToPoint(13.953, 10.703, 60000);
-//chassis.MoveToPoint(43.769, 10.512, 60000);
-//chassis.MoveToPoint(71.674, 10.13, 60000);
-//chassis.MoveToPoint(88.303, 9.748, 60000);
-//chassis.MoveToPoint(95.375, 9.557, 60000);
-//chassis.MoveToPoint(99.962, 40.902, 60000);
-//chassis.MoveToPoint(94.419, 30.581, 60000);
-//chassis.MoveToPoint(72.057, 29.817, 60000);
-//chassis.MoveToPoint(49.312, 34.213, 60000);
-//chassis.MoveToPoint(65.94, 46.063, 60000);
-//chassis.MoveToPoint(85.245, 51.606, 60000);
-//chassis.MoveToPoint(50.841, 61.735, 60000);
-//chassis.MoveToPoint(84.098, 65.558, 60000);
-//chassis.MoveToPoint(48.93, 97.286, 60000);
-//chassis.MoveToPoint(81.804, 80.275, 60000);
-//chassis.MoveToPoint(80.275, 109.327, 60000);
-//chassis.MoveToPoint(103.211, 94.801, 60000);
-    }
+
 }
