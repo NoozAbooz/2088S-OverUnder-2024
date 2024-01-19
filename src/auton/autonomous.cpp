@@ -29,14 +29,38 @@ void autonomous() {
     if(selector::auton == 1){ //run auton for Front Red 
 
 chassis.moveToPoint(0, 0, 5000);
-chassis.moveToPoint(-1.65, -37.539, 5000);
-chassis.moveToPoint(12.994, -54.865, 5000);
-chassis.moveToPoint(33.001, -54.659, 5000);
-chassis.moveToPoint(19.801, -45.171, 5000);
-chassis.moveToPoint(34.033, -4.125, 5000);
-chassis.moveToPoint(42.077, -11.138, 5000);
-chassis.moveToPoint(57.546, 0.413, 5000);
-chassis.moveToPoint(58.165, -39.395, 5000);
+intake.move_voltage(12000);
+pros::delay(1000);
+intake.move_voltage(0);
+chassis.moveToPoint(-0.956, -41.284, 5000, false);
+// descore down
+chassis.moveToPoint(14.526, -57.339, 5000, false);
+// descore up
+chassis.moveToPoint(33.639, -57.913, 5000, false);
+chassis.moveToPoint(14.144, -56.575, 5000);
+chassis.moveToPoint(33.257, -57.531, 5000);
+chassis.moveToPoint(15.291, -56.193, 5000);
+chassis.moveToPoint(34.595, -3.823, 5000);
+intake.move_voltage(12000);
+pros::delay(1000);
+intake.move_voltage(0);
+chassis.moveToPoint(39.755, -7.836, 5000);
+intake.move_voltage(-12000);
+pros::delay(500);
+intake.move_voltage(0);
+chassis.moveToPoint(58.677, -2.676, 5000);
+intake.move_voltage(12000);
+pros::delay(1000);
+intake.move_voltage(0);
+chassis.moveToPoint(58.869, -10.703, 5000);
+moveWings(true);
+pros::delay(500);
+chassis.moveToPoint(59.633, -42.431, 5000);
+chassis.moveToPoint(58.869, -30.581, 5000);
+chassis.moveToPoint(59.633, -42.431, 5000);
+chassis.moveToPoint(58.869, -30.581, 5000);
+moveWings(false);
+
     }
 
     if(selector::auton == 2){ //run auton for Back Red
