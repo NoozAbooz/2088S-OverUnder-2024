@@ -1,3 +1,4 @@
+#include "autonGlobals/autonSelector.hpp"
 #include "main.h"
 
 /**
@@ -6,12 +7,8 @@
  * All other competition modes are blocked by initialize; it is recommended
  * to keep execution time for this mode under a few seconds.
  */
-ASSET(logo_gif)
 void initialize() {
-    Gif gif(logo_gif, lv_scr_act());
-
     pros::Task telemetryTask([&]() {
-        lemlib::Pose pose(0, 0, 0);
         while (true) {
             // log position telemetry
             printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
@@ -20,16 +17,15 @@ void initialize() {
         }
     });
 
-
-    //selectorInit();
-
+    selector::init();
 }
 
 /**
  * Runs while the robot is in the disabled state of Field Management System or
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
- */
+ 
+
 void disabled() {
     bodyLED.clear();
 }

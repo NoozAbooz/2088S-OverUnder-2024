@@ -5,7 +5,7 @@
 
 // selector configuration
 #define HUE 130
-#define DEFAULT 1
+#define DEFAULT 2
 #define AUTONS "Far Side", "Close Side", "Do Nothing"
 
 namespace selector

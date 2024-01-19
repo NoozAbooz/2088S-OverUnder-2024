@@ -26,22 +26,30 @@ void drivetrainMove(int voltage, int time) {
 
 void autonomous() {
     chassis.calibrate();
-
     if(selector::auton == 1){ //run auton for Front Red 
-        drivetrainMove(-12000, 4000);
-        drivetrainMove(4000, 1000);
+
+chassis.moveToPoint(0, 0, 5000);
+chassis.moveToPoint(-1.65, -37.539, 5000);
+chassis.moveToPoint(12.994, -54.865, 5000);
+chassis.moveToPoint(33.001, -54.659, 5000);
+chassis.moveToPoint(19.801, -45.171, 5000);
+chassis.moveToPoint(34.033, -4.125, 5000);
+chassis.moveToPoint(42.077, -11.138, 5000);
+chassis.moveToPoint(57.546, 0.413, 5000);
+chassis.moveToPoint(58.165, -39.395, 5000);
     }
 
     if(selector::auton == 2){ //run auton for Back Red
-        chassis.arcade(-127, 0);
+chassis.moveToPoint(0, 0, 5000);
+chassis.moveToPoint(11.963, 59.815, 5000);
+chassis.moveToPoint(-5.982, 60.021, 5000);
+chassis.moveToPoint(18.976, 34.239, 5000);
+chassis.moveToPoint(-20.213, 23.514, 5000);
 
-        pros::delay(4000);
+chassis.moveToPoint(-5.569, 2.475, 5000, false);
+chassis.moveToPoint(24.545, 2.681, 5000, false);
 
-        chassis.arcade(42, 0);
 
-        pros::delay(1000);
-
-        chassis.arcade(0, 0);
     }
 
     if(selector::auton == 0){ // skills
@@ -78,8 +86,4 @@ void autonomous() {
 //chassis.MoveToPoint(80.275, 109.327, 60000);
 //chassis.MoveToPoint(103.211, 94.801, 60000);
     }
-
-
-    //chassis.setPose(0, 0, 0);
-
 }
