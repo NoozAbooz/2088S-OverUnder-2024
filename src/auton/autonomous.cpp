@@ -61,7 +61,7 @@ chassis.moveToPoint(59.633, -42.431, 5000);
 chassis.moveToPoint(58.869, -30.581, 5000);
 moveWings(false);
 
-    }
+}
 
     if(selector::auton == 2){ //run auton for Back Red
 chassis.moveToPoint(0, 0, 5000);
@@ -72,6 +72,25 @@ chassis.moveToPoint(-20.213, 23.514, 5000);
 
 chassis.moveToPoint(-5.569, 2.475, 5000, false);
 chassis.moveToPoint(24.545, 2.681, 5000, false);
+
+
+    if(selector::auton == 3){ //NOT FRONT BLUE NEW AUTON WP THING THAT MAY OR MAY NOT WORK
+chassis.moveToPoint(0, 0, 5000);
+chassis.moveToPoint(0, 21.98, 5000);
+chassis.moveToPoint(13.188, 35.359, 5000);
+intake.move_voltage(12000);
+pros::delay(1000);
+intake.move_voltage(0);
+chassis.moveToPoint(13.188, 50.268, 5000, false);
+chassis.moveToPoint(13.761, 21.024, 5000, false);
+chassis.moveToPoint(-2.485, -4.969, 5000, false);
+chassis.moveToPoint(-22.171, 12.997, 5000, false);
+chassis.moveToPoint(-22.554, 32.875, 5000, false);
+chassis.moveToPoint(-24.847, 13.57, 5000, false);
+//descore down
+chassis.moveToPoint(-3.823, -4.587, 5000, false);
+//descore up
+chassis.moveToPoint(28.479, -3.058, 5000, false);
 
 
     }
@@ -121,4 +140,5 @@ chassis.moveToPoint(24.545, 2.681, 5000, false);
         moveWings(false);
 
 
+}
 }
