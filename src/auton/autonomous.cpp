@@ -73,6 +73,7 @@ chassis.moveToPoint(-20.213, 23.514, 5000);
 chassis.moveToPoint(-5.569, 2.475, 5000, false);
 chassis.moveToPoint(24.545, 2.681, 5000, false);
 
+    }
 
     if(selector::auton == 3){ //NOT FRONT BLUE NEW AUTON WP THING THAT MAY OR MAY NOT WORK
 chassis.moveToPoint(0, 0, 5000);
