@@ -25,6 +25,7 @@ pros::ADILed bodyLED('A', 64);
 // Pneumatics
 pros::ADIDigitalOut wingsPiston('H');
 pros::ADIDigitalOut liftPiston('G');
+pros::ADIDigitalIn button('A');
 
 /* Declare sensors */
 // Inertial

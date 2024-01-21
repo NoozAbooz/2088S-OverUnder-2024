@@ -1,4 +1,3 @@
-#include "autonGlobals/autonSelector.hpp"
 #include "main.h"
 
 /**

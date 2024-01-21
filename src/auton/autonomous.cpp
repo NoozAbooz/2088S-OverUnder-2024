@@ -26,7 +26,7 @@ void drivetrainMove(int voltage, int time) {
 
 void autonomous() {
     chassis.calibrate();
-    if(selector::auton == 1){ //run auton for Front Red 
+    if(selector::auton == 2){ //run auton for Front Red 
 
 chassis.moveToPoint(0, 0, 5000);
 intake.move_voltage(12000);
@@ -63,7 +63,7 @@ moveWings(false);
 
 }
 
-    if(selector::auton == 2){ //run auton for Back Red
+    if(selector::auton == 3){ //run auton for Back Red
 chassis.moveToPoint(0, 0, 5000);
 chassis.moveToPoint(11.963, 59.815, 5000);
 chassis.moveToPoint(-5.982, 60.021, 5000);
@@ -75,7 +75,7 @@ chassis.moveToPoint(24.545, 2.681, 5000, false);
 
     }
 
-    if(selector::auton == 3){ //NOT FRONT BLUE NEW AUTON WP THING THAT MAY OR MAY NOT WORK
+    if(selector::auton == 4){ //NOT FRONT BLUE NEW AUTON WP THING THAT MAY OR MAY NOT WORK
 chassis.moveToPoint(0, 0, 5000);
 chassis.moveToPoint(0, 21.98, 5000);
 chassis.moveToPoint(13.188, 35.359, 5000);
@@ -96,7 +96,7 @@ chassis.moveToPoint(28.479, -3.058, 5000, false);
 
     }
 
-    if(selector::auton == 0){ // skills
+    if(selector::auton == 1){ // skills
        
         chassis.moveToPoint(0, 0, 5000);
         chassis.moveToPoint(-21.598, 16.628, 5000);
