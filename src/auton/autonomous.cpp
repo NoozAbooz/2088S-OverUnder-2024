@@ -26,6 +26,8 @@ void drivetrainMove(int voltage, int time) {
 
 void autonomous() {
     chassis.calibrate();
+    chassis.moveToPose(0, 0, 0, 4000);
+    chassis.follow(test_txt, 15, 4000, false);
     if(selector::auton == 2){ //run auton for Front Red 
 
 chassis.moveToPoint(0, 0, 5000);
