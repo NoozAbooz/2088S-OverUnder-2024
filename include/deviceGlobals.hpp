@@ -25,5 +25,6 @@ extern pros::ADILed bodyLED;
 
 extern pros::ADIDigitalOut wingsPiston;
 extern pros::ADIDigitalOut liftPiston;
+extern pros::ADIDigitalOut tailPiston;
 
 extern pros::ADIDigitalIn button;

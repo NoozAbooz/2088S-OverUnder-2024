@@ -1,3 +1,4 @@
+#include "deviceGlobals.hpp"
 #include "main.h"
 
 /**
@@ -8,6 +9,7 @@
  */
 void initialize() {
     pros::Task telemetryTask([&]() {
+        chassis.calibrate();
         while (true) {
             // log position telemetry
             printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);

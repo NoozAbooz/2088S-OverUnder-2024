@@ -1,17 +1,22 @@
+#include "abstractGlobals.hpp"
+#include "deviceGlobals.hpp"
 #include "main.h"
 
 bool wingsToggle = false;
+bool tailToggle = true;
 
 // Refresh wing status
 void refreshWings() {
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
     	wingsToggle = !wingsToggle; 
 
-		if(wingsToggle == true) {
-			moveWings(true);
-		} else {
-			moveWings(false);
-		}
+		moveWings(wingsToggle);
+    }
+
+	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
+    	tailToggle = !tailToggle;
+
+		tailPiston.set_value(tailToggle);
     }
 }
 
