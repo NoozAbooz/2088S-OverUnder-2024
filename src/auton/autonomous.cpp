@@ -30,43 +30,35 @@ void autonomous() {
     if(selector::auton == 2){ //run auton for Far Side 6 Triball NOAWP 
 
 chassis.moveToPoint(0, 0, 1500);
-
 intake.move_voltage(12000);
-chassis.moveToPoint(-0.413, 3.219, 1500);
-
-chassis.moveToPoint(-0.413, -35.27, 1500, false);
-//descore down
-chassis.moveToPoint(17.326, -55.484, 1500, false);
-//up
-chassis.moveToPoint(34.445, -56.102, 1500, false);
-chassis.moveToPoint(17.532, -54.452, 1500);
-intake.move_voltage(0);
-
-chassis.moveToPoint(34.239, -54.246, 1500);
-chassis.moveToPoint(16.294, -45.996, 1500, false);
-chassis.moveToPoint(31.764, -3.094, 1500);
-chassis.moveToPoint(43.852, -3.094, 1500);
-
-intake.move_voltage(12000);
-pros::delay(500);
-intake.move_voltage(0);
-
-chassis.moveToPoint(51.977, -0.8, 1500);
-chassis.moveToPoint(60, -0.8, 1500);
-
-
+chassis.moveToPoint(-0.382, 3.645, 1000);
+chassis.moveToPoint(-2.294, -25.229, 1000, false);
+chassis.moveToPoint(-1.147, -33.066, 1000, false);
+tailPiston.set_value(false);
+chassis.moveToPoint(15.099, -48.739, 1000, false);
+tailPiston.set_value(true);
+chassis.moveToPoint(31.537, -49.503, 1000, false);
+chassis.moveToPoint(15.099, -41.667, 1500);
+chassis.moveToPoint(32.875, -45.68, 1500);
 intake.move_voltage(-12000);
-pros::delay(500);
+chassis.moveToPoint(16.055, -46.063, 1000, false);
 intake.move_voltage(0);
-
-chassis.moveToPoint(59.609, -9.9, 1500);
-
+chassis.moveToPoint(23.318, -17.966, 1000);
 intake.move_voltage(12000);
-pros::delay(500);
-intake.move_voltage(0);
+chassis.moveToPoint(33.448, 2.867, 1000);
+intake.move_voltage(-12000);
+chassis.moveToPoint(43.005, -13.188, 1000);
+intake.move_voltage(12000);
+chassis.moveToPoint(59.06, 5.734, 1000);
+chassis.moveToPoint(59.251, -4.969, 1000);
 moveWings(true);
-
-chassis.moveToPoint(58.784, -38.983, 1500);
+intake.move_voltage(-12000);
+chassis.moveToPoint(58.869, -33.257, 1000);
+chassis.moveToPoint(59.251, -20.969, 1000);
+chassis.moveToPoint(58.869, -33.257, 1000);
+chassis.moveToPoint(59.251, -20.969, 1000);
+intake.move_voltage(0);
+moveWings(false);
 
 }
 
