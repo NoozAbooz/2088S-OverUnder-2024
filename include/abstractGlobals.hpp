@@ -1,8 +1,6 @@
 #pragma once
 
 // 3rd party libraries
-#include "sylib/sylib.hpp"
-
 #include "lemlib/api.hpp"
 
 #include "gif-pros/asset.h"

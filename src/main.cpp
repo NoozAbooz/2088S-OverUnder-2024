@@ -1,5 +1,4 @@
 #include "main.h"
-#include "deviceGlobals.hpp"
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -11,7 +10,7 @@
  */
 ASSET(logo_gif)
 void opcontrol() {
-	Gif gif(logo_gif, lv_scr_act());
+	//Gif gif(logo_gif, lv_scr_act());
 
 	while (true) { // Main continuous loop
 		/* Drive */

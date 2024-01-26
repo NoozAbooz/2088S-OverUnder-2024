@@ -1,9 +1,7 @@
-#include "abstractGlobals.hpp"
-#include "deviceGlobals.hpp"
 #include "main.h"
 
 bool wingsToggle = false;
-bool tailToggle = true;
+bool tailToggle = false;
 
 // Refresh wing status
 void refreshWings() {

@@ -1,4 +1,5 @@
 #include "abstractGlobals.hpp"
+#include "api.h"
 #include "deviceGlobals.hpp"
 #include "main.h"
 
@@ -13,8 +14,6 @@
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-
-ASSET(test_txt);
 
 void drivetrainMove(int voltage, int time) {
 	leftDrive.move_voltage(voltage);
@@ -34,9 +33,9 @@ intake.move_voltage(12000);
 chassis.moveToPoint(-0.382, 3.645, 1000);
 chassis.moveToPoint(-2.294, -25.229, 1000, false);
 chassis.moveToPoint(-1.147, -33.066, 1000, false);
-tailPiston.set_value(false);
-chassis.moveToPoint(15.099, -48.739, 1000, false);
 tailPiston.set_value(true);
+chassis.moveToPoint(15.099, -48.739, 1000, false);
+tailPiston.set_value(false);
 chassis.moveToPoint(31.537, -49.503, 1000, false);
 chassis.moveToPoint(15.099, -41.667, 1500);
 chassis.moveToPoint(32.875, -45.68, 1500);
@@ -148,9 +147,9 @@ intake.move_voltage(12000);
 chassis.moveToPoint(0, 2.982, 1500);
 chassis.moveToPoint(1.031, -32.176, 1000, false);
 chassis.moveToPoint(15.469, -51.565, 1000, false);
-tailPiston.set_value(false);
-chassis.moveToPoint(30.239, -45.565, 1500, false);
 tailPiston.set_value(true);
+chassis.moveToPoint(30.239, -45.565, 1500, false);
+tailPiston.set_value(false);
 intake.move_voltage(0);
 chassis.moveToPoint(16.501, -53.834, 1500);
 chassis.moveToPoint(35.526, -55.69, 1500);
