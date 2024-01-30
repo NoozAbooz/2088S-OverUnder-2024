@@ -26,7 +26,7 @@ pros::Motor slapper(3);
 // Pneumatics
 pros::ADIDigitalOut wingsPiston('H');
 pros::ADIDigitalOut liftPiston('G');
-pros::ADIDigitalOut tailPiston('F');
+pros::ADIDigitalOut tailPiston('F', true);
 
 pros::ADIDigitalIn button('A');
 

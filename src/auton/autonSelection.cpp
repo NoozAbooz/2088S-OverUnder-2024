@@ -4,7 +4,7 @@ using namespace pros;
 // Modified... original credit: https://github.com/kunwarsahni01/Vex-Autonomous-Selector
 namespace selector
 {
-	int auton = 2;
+	int auton = 3;
 	void tabWatcher() {
 		while (1) {
 			if(button.get_new_press()) {
