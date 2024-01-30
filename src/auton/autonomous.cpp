@@ -1,6 +1,3 @@
-#include "abstractGlobals.hpp"
-#include "api.h"
-#include "deviceGlobals.hpp"
 #include "main.h"
 
 /**
