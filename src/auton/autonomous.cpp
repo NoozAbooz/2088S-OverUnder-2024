@@ -155,29 +155,29 @@ if (selector::auton == 5) { //run auton for testing pruportes
 chassis.moveToPoint(0, 0, 1500);
 intake.move_voltage(12000);
 chassis.moveToPoint(0, 2.982, 1500);
-chassis.moveToPoint(1.031, -32.176, 1000, false);
-chassis.moveToPoint(15.469, -51.565, 1000, false);
+chassis.moveToPoint(1.031, -33.176, 1000, false);
+chassis.moveToPoint(15.469, -51.565, 1000, false, 40);
 tailPiston.set_value(false);
-chassis.moveToPoint(30.239, -45.565, 1500, false);
+chassis.moveToPoint(30.239, -42.565, 1500, false);
 tailPiston.set_value(true);
+chassis.moveToPoint(16.501, -53.834, 1500, false, 127);
+chassis.moveToPoint(37.526, -55.69, 1000);
 intake.move_voltage(0);
-chassis.moveToPoint(16.501, -53.834, 1500);
-chassis.moveToPoint(35.526, -55.69, 1500);
 
 chassis.moveToPoint(16.913, -32.589, 1000, false);
-chassis.moveToPoint(39.683, .4, 1000);
+chassis.moveToPoint(39.683, 2.4, 1000);
 intake.move_voltage(12000);
 pros::delay(1500);
-chassis.moveToPoint(60.403, -12.994, 1500);
-chassis.moveToPoint(60.228, -24.952, 1500);
+chassis.moveToPoint(57.403, -12.994, 1500);
+chassis.moveToPoint(56.228, -24.952, 1000);
 moveWings(true);
 intake.move_voltage(0);
-chassis.moveToPoint(60.228, -39.952, 1500);
+chassis.moveToPoint(58.228, -41.952, 1000);
 pros::delay(1000);
 moveWings(false);
-chassis.moveToPoint(62.259, -1.681, 1500);
+chassis.moveToPoint(58.259, -1.181, 1500);
 intake.move_voltage(12000);
-chassis.moveToPoint(62.64, -39.189, 1500);
-chassis.moveToPoint(62.64, -20, 1000, false);
+chassis.moveToPoint(58.64, -42.189, 1500);
+chassis.moveToPoint(58.64, -22, 1000, false);
 }
 }

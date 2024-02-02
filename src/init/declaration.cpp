@@ -21,7 +21,7 @@ pros::Motor intake(-10);
 pros::Motor slapper(3);
 
 // LED
-//pros::ADILed bodyLED('A', 64);
+pros::ADILed bodyLED('B', 64);
 
 // Pneumatics
 pros::ADIDigitalOut wingsPiston('H');
@@ -32,7 +32,7 @@ pros::ADIDigitalIn button('A');
 
 /* Declare sensors */
 // Inertial
-pros::Imu inertial(18);
+pros::Imu inertial(16);
 
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftDrive, // left motor group
