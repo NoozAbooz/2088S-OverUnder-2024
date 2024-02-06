@@ -24,7 +24,7 @@ pros::Motor slapper(3);
 pros::ADILed bodyLED('B', 64);
 
 // Pneumatics
-pros::ADIDigitalOut wingsPiston('H');
+pros::ADIDigitalOut wingsPiston('C');
 pros::ADIDigitalOut liftPiston('G');
 pros::ADIDigitalOut tailPiston('F', true);
 
@@ -32,7 +32,7 @@ pros::ADIDigitalIn button('A');
 
 /* Declare sensors */
 // Inertial
-pros::Imu inertial(16);
+pros::Imu inertial(21);
 
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftDrive, // left motor group
@@ -52,7 +52,7 @@ lemlib::ControllerSettings linearController(10, // proportional gain (kP)
                                             100, // small error range timeout, in milliseconds
                                             3, // large error range, in inches
                                             500, // large error range timeout, in milliseconds
-                                            15 // maximum acceleration (slew)
+                                            20 // maximum acceleration (slew)
 );
 
 // angular motion controller

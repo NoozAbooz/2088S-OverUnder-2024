@@ -11,10 +11,11 @@ void initialize() {
     pros::Task telemetryTask([&]() {
         chassis.calibrate();
         while (true) {
-            // log position telemetry
-            printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
-            // delay to save resources
-            pros::delay(1000);
+            // printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+            // pros::delay(1000);
+            if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+                printf("chassis.moveToPoint(%f, %f, 1500)\n", chassis.getPose().x, chassis.getPose().y);
+            }
         }
     });
 
@@ -43,4 +44,5 @@ void disabled() {
 void competition_initialize() {
     // Initialize the auton selector on brain LCD
     //selectorInit();
+    chassis.calibrate();
 }
