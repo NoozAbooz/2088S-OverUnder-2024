@@ -13,7 +13,7 @@ void initialize() {
         while (true) {
             // printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
             // pros::delay(1000);
-            if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+            if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
                 printf("chassis.moveToPoint(%f, %f, 1500)\n", chassis.getPose().x, chassis.getPose().y);
             }
         }
