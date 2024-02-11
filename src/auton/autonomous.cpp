@@ -56,7 +56,7 @@ chassis.moveToPoint(59.251, -20.969, 1000);
 chassis.moveToPoint(58.869, -33.257, 1000);
 chassis.moveToPoint(59.251, -20.969, 1000);
 intake.move_voltage(0);
-
+    
 }
 
     if(selector::auton == 3){ //Close Side (1 scored)
@@ -179,5 +179,42 @@ if (selector::auton == 6) { //testing skills
 
         drivetrainMove(12000, 2000);
 }
+if (selector::auton == 7) { //rush auton w path.jerryio
+chassis.moveToPoint(0, 0, 500);
+chassis.moveToPoint(2.939, 65.648, 1000);
+intake.move_voltage(12000);
+chassis.moveToPoint(9.104, 64.967, 500);
+wingsPiston.set_value(true);
+pros::delay(500);
+chassis.moveToPoint(34.117, 44.228, 1000);
+intake.move_voltage(-12000);
+chassis.moveToPoint(23.283, 53.319, 1000, false);
+intake.move_voltage(0);
+chassis.moveToPoint(34.287, 43.835, 1000);
+wingsPiston.set_value(false);
+pros::delay(500);
+chassis.moveToPoint(12.591, 46.821, 1000, false);
+chassis.moveToPoint(-6.186, 52.097, 1000);
+intake.move_voltage(12000);
+chassis.moveToPoint(-4.547, 30.263, 1000);
+chassis.moveToPoint(1.857, 20.648, 1000);
+intake.move_voltage(-12000);
+pros::delay(500);
+chassis.moveToPoint(-11.681, 4.812, 1000);
+intake.move_voltage(0);
+chassis.moveToPoint(-34.376, 23.855, 1000);
+intake.move_voltage(12000);
+chassis.moveToPoint(-6.293, -0.958, 1000, false);
+tailPiston.set_value(false);
+pros::delay(500);
+chassis.moveToPoint(14.418, 1.126, 1000, false, 45);
+tailPiston.set_value(true);
+pros::delay(500);
+chassis.moveToPoint(27.378, 12.706, 1000, false, 127);
+chassis.moveToPoint(16.567, -0.179, 1000);
+chassis.moveToPoint(26.921, 14.837, 1000, false);
+chassis.moveToPoint(16.567, -0.179, 1000);
+chassis.moveToPoint(26.921, 14.837, 1000, false);
 
+}
 }
