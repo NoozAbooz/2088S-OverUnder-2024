@@ -10,7 +10,7 @@ namespace selector
 			if(button.get_new_press()) {
 				auton += 1;
 
-				if(auton > 7) {
+				if(auton > 8) {
 					auton = 0;
 				}
 			}
