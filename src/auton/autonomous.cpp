@@ -219,7 +219,7 @@ chassis.moveToPoint(26.921, 14.837, 1000, false);
 if (selector::auton == 8) { // skills auton with hang
 
 slapper.move_voltage(12000);
-pros::delay(35000);
+pros::delay(31000);
 chassis.moveToPoint(0, 0, 1000);
 chassis.moveToPoint(-28.292, 12.577, 1000, false);
 chassis.moveToPoint(-17.694, -1.61, 1000);
@@ -255,6 +255,28 @@ pros::delay(500);
 chassis.moveToPoint(-65.154, 107.22, 1000);
 liftPiston.set_value(false);
 
+
+}
+
+if (selector::auton == 9) { //auton wp tester
+
+chassis.moveToPoint(0, 0, 1000, false);
+tailPiston.set_value(false);
+pros::delay(500);
+chassis.moveToPoint(4.689, -10.172, 1000);
+tailPiston.set_value(true);
+pros::delay(500);
+chassis.moveToPoint(47.463, 25.045, 1000);
+wingsPiston.set_value(true);
+pros::delay(500);
+chassis.moveToPoint(61.372, 13.374, 1000);
+wingsPiston.set_value(false);
+pros::delay(500);
+chassis.moveToPoint(1.909, 21.602, 1000);
+chassis.moveToPoint(12.545, 33.386, 1000);
+chassis.moveToPoint(7.472, 16.934, 1000, false);
+chassis.moveToPoint(9.862, -7.277, 1000, false);
+chassis.moveToPoint(29.798, -24.255, 1000, false);
 
 }
 }
