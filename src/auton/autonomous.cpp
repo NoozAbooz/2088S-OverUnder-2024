@@ -25,8 +25,15 @@ void drivetrainMove(int voltage, int time) {
 	rightDrive.move_voltage(0);
 }
 
+/** THE GREAT AUTON INDEX  **/
+// 0: Do nothing
+// 6: Skills (run kicker only and simple movements to goal)
+
+// 2: NORUSH 6-ball far side start with preload under alley
+// 3: AWP close side descore and touch bar
+
 void autonomous() {
-    if(selector::auton == 2){ //run auton for Far Side 6 Triball NOAWP 
+    if(selector::auton == 2){ //run auton for Far Side 6 Triball NORUSH
 
 chassis.moveToPoint(0, 0, 1500);
 intake.move_voltage(12000);
@@ -59,7 +66,7 @@ intake.move_voltage(0);
     
 }
 
-    if(selector::auton == 3){ //Close Side (1 scored)
+    if(selector::auton == 3){ //Close Side AWP no triball literally just descore and touch bar
 //chassis.calibrate();
 
 pros::delay(1000);
@@ -83,23 +90,7 @@ drivetrainMove(-12000, 10000);
 
     }
 
-    if(selector::auton == 4){ //NOT FRONT BLUE NEW AUTON WP THING THAT MAY OR MAY NOT WORK
-chassis.moveToPoint(0, 0, 1500);
-chassis.moveToPoint(0, 21.98, 1500);
-chassis.moveToPoint(13.188, 35.359, 1500);
-intake.move_voltage(12000);
-pros::delay(1000);
-intake.move_voltage(0);
-chassis.moveToPoint(13.188, 50.268, 1500, false);
-chassis.moveToPoint(13.761, 21.024, 1500, false);
-chassis.moveToPoint(-2.485, -4.969, 1500, false);
-chassis.moveToPoint(-22.171, 12.997, 1500, false);
-chassis.moveToPoint(-22.554, 32.875, 1500, false);
-chassis.moveToPoint(-24.847, 13.57, 1500, false);
-//descore down
-chassis.moveToPoint(-3.823, -4.587, 1500, false);
-//descore up
-chassis.moveToPoint(28.479, -3.058, 1500, false);
+    if(selector::auton == 4){
 
 
     }
@@ -170,15 +161,23 @@ chassis.moveToPoint(50.64, -22, 1000, false);
 }
 
 if (selector::auton == 6) { //testing skills
-        slapper.move_voltage(10000);
-        //pros::delay(1000);
-        pros::delay(40000);
-        slapper.move_voltage(0);
+    slapper.move_voltage(10000);
+    //pros::delay(1000);
+    pros::delay(45000);
+    slapper.move_voltage(0);
 
-        drivetrainMove(12000, 3000);
+    chassis.moveToPoint(0, 0, 1500);
+    chassis.moveToPoint(24.969, 24.772, 2000);
+    chassis.moveToPoint(25.952, 54.853, 2000);
+    chassis.moveToPoint(109.705, 56.622, 3000);
 
-        drivetrainMove(12000, 2000);
+    drivetrainMove(-12000, 1000);
+    wingsPiston.set_value(true);
+    drivetrainMove(12000, 1500);
+    drivetrainMove(-12000, 1000);
+    drivetrainMove(12000, 3000);
 }
+
 if (selector::auton == 7) { //rush auton w path.jerryio
 chassis.moveToPoint(0, 0, 500);
 chassis.moveToPoint(2.939, 65.648, 1000);
@@ -217,7 +216,7 @@ chassis.moveToPoint(16.567, -0.179, 1000);
 chassis.moveToPoint(26.921, 14.837, 1000, false);
 
 }
-if (selector::auton == 8) { //auton with hang
+if (selector::auton == 8) { // skills auton with hang
 
 slapper.move_voltage(12000);
 pros::delay(35000);
