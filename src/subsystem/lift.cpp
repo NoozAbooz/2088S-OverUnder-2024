@@ -9,10 +9,10 @@ void refreshLift() {
 
 		if(liftToggle == true) {
 			liftPiston.set_value(true);
-			controller.rumble("..");
+			controller.rumble("---");
 		} else {
 			liftPiston.set_value(false);
-			controller.rumble("-.-");
+			controller.rumble("..");
 		}
     }
 
