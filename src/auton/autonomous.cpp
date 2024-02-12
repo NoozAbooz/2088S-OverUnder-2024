@@ -34,60 +34,75 @@ void drivetrainMove(int voltage, int time) {
 
 void autonomous() {
     if(selector::auton == 2){ //run auton for Far Side 6 Triball NORUSH
+        chassis.moveToPoint(0, 0, 1500);
+        intake.move_voltage(12000);
+        chassis.moveToPoint(-0.382, 3.645, 1000);
+        chassis.moveToPoint(-2.294, -25.229, 1000, false);
+        chassis.moveToPoint(-1.147, -33.066, 1000, false);
+        chassis.moveToPoint(15.099, -48.739, 1000, false);
+        tailPiston.set_value(false);
+        chassis.moveToPoint(31.537, -49.503, 1000, false);
+        tailPiston.set_value(true);
+        chassis.moveToPoint(15.099, -46.667, 1500);
+        chassis.moveToPoint(32.875, -46.68, 1500);
+        chassis.moveToPoint(16.055, -46.063, 1000, false);
+        intake.move_voltage(-12000);
+        chassis.moveToPoint(23.318, -30.966, 1000);
+        intake.move_voltage(12000);
+        chassis.moveToPoint(33.448, 2.867, 1000);
+        intake.move_voltage(-12000);
+        chassis.moveToPoint(43.005, -13.188, 1000);
+        intake.move_voltage(12000);
+        chassis.moveToPoint(59.06, 5.734, 1000);
+        chassis.moveToPoint(59.251, -4.969, 1000);
 
-chassis.moveToPoint(0, 0, 1500);
-intake.move_voltage(12000);
-chassis.moveToPoint(-0.382, 3.645, 1000);
-chassis.moveToPoint(-2.294, -25.229, 1000, false);
-chassis.moveToPoint(-1.147, -33.066, 1000, false);
-chassis.moveToPoint(15.099, -48.739, 1000, false);
-tailPiston.set_value(false);
-chassis.moveToPoint(31.537, -49.503, 1000, false);
-tailPiston.set_value(true);
-chassis.moveToPoint(15.099, -46.667, 1500);
-chassis.moveToPoint(32.875, -46.68, 1500);
-chassis.moveToPoint(16.055, -46.063, 1000, false);
-intake.move_voltage(-12000);
-chassis.moveToPoint(23.318, -30.966, 1000);
-intake.move_voltage(12000);
-chassis.moveToPoint(33.448, 2.867, 1000);
-intake.move_voltage(-12000);
-chassis.moveToPoint(43.005, -13.188, 1000);
-intake.move_voltage(12000);
-chassis.moveToPoint(59.06, 5.734, 1000);
-chassis.moveToPoint(59.251, -4.969, 1000);
-
-intake.move_voltage(-12000);
-chassis.moveToPoint(58.869, -33.257, 1000);
-chassis.moveToPoint(59.251, -20.969, 1000);
-chassis.moveToPoint(58.869, -33.257, 1000);
-chassis.moveToPoint(59.251, -20.969, 1000);
-intake.move_voltage(0);
-    
-}
+        intake.move_voltage(-12000);
+        chassis.moveToPoint(58.869, -33.257, 1000);
+        chassis.moveToPoint(59.251, -20.969, 1000);
+        chassis.moveToPoint(58.869, -33.257, 1000);
+        chassis.moveToPoint(59.251, -20.969, 1000);
+        intake.move_voltage(0); 
+    }
 
     if(selector::auton == 3){ //Close Side AWP no triball literally just descore and touch bar
-//chassis.calibrate();
+        //chassis.calibrate();
 
-pros::delay(1000);
+        pros::delay(1000);
 
-pros::delay(1000);
+        pros::delay(1000);
 
-chassis.moveToPoint(0, 0, 1500);
-tailPiston.set_value(false);
-pros::delay(600);
-chassis.turnTo(-10, 0, 1000, true, 100);
-pros::delay(600);
-tailPiston.set_value(true);
+        chassis.moveToPoint(0, 0, 1500);
+        tailPiston.set_value(false);
+        pros::delay(600);
+        chassis.turnTo(-10, 0, 1000, true, 100);
+        pros::delay(600);
+        tailPiston.set_value(true);
 
-chassis.moveToPoint(15.057, 18.738, 1500, false);
-chassis.moveToPoint(51.521, 10.238, 1500, false);
+        chassis.moveToPoint(15.057, 18.738, 1500, false);
+        chassis.moveToPoint(51.521, 10.238, 1500, false);
 
-pros::delay(2000);
-tailPiston.set_value(false);
+        pros::delay(2000);
+        tailPiston.set_value(false);
 
-drivetrainMove(-12000, 10000);
+        drivetrainMove(-12000, 10000);
+    }
 
+    if (selector::auton == 6) { //testing skills
+        slapper.move_voltage(10000);
+        //pros::delay(1000);
+        pros::delay(45000);
+        slapper.move_voltage(0);
+    
+        chassis.moveToPoint(0, 0, 1500);
+        chassis.moveToPoint(24.969, 24.772, 2000);
+        chassis.moveToPoint(25.952, 54.853, 2000);
+        chassis.moveToPoint(109.705, 56.622, 3000);
+    
+        drivetrainMove(-12000, 1000);
+        wingsPiston.set_value(true);
+        drivetrainMove(12000, 1500);
+        drivetrainMove(-12000, 1000);
+        drivetrainMove(12000, 3000);
     }
 
     if(selector::auton == 4){
@@ -158,24 +173,6 @@ chassis.moveToPoint(58.259, -1.181, 1500);
 intake.move_voltage(12000);
 chassis.moveToPoint(55.64, -42.189, 1500);
 chassis.moveToPoint(50.64, -22, 1000, false);
-}
-
-if (selector::auton == 6) { //testing skills
-    slapper.move_voltage(10000);
-    //pros::delay(1000);
-    pros::delay(45000);
-    slapper.move_voltage(0);
-
-    chassis.moveToPoint(0, 0, 1500);
-    chassis.moveToPoint(24.969, 24.772, 2000);
-    chassis.moveToPoint(25.952, 54.853, 2000);
-    chassis.moveToPoint(109.705, 56.622, 3000);
-
-    drivetrainMove(-12000, 1000);
-    wingsPiston.set_value(true);
-    drivetrainMove(12000, 1500);
-    drivetrainMove(-12000, 1000);
-    drivetrainMove(12000, 3000);
 }
 
 if (selector::auton == 7) { //rush auton w path.jerryio
