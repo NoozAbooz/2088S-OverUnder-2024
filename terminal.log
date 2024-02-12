@@ -22,3 +22,212 @@ chassis.moveToPoint(-0.000003, 0.006806, 1500)
 chassis.moveToPoint(-0.000004, 0.006937, 1500)
 chassis.moveToPoint(-0.000004, 0.006876, 1500)
 WARNING - pros.serial.terminal.terminal:stop - Stopping terminal - pros-cli version:3.5.0
+Established terminal connection
+
+
+
+         [1;33m_+=+_[0m
+     [1;33m .-`  .  `-. [0m         8888888b.  8888888b.   .d88888b.   .d8888b.
+  [1;33m _+`     "     `+_ [0m      888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  [1;33m\\\sssssssssssss///[0m      888    888 888    888 888     888 Y88b.
+     [1;33m.ss\  [37m*[33m  /ss.[0m         888   d88P 888   d88P 888     888  "Y888b.
+ [1;33m.+bm[0m  [1;33m.s[37m  *  [33ms.[0m  [1;33mmd+.[0m     8888888P"  8888888P"  888     888     "Y88b.
+[1;33m.hMMMMs[0m [1;33m.[37m  *  [33m.[0m [1;33msMMMMh.[0m    888        888 T88b   888     888       "888
+ [1;33m`\hMMMb[0m [1;33m\[37m | [33m/[0m [1;33mdMMMh:[0m      888        888  T88b  Y88b. .d88P Y88b  d88P
+   [1;33m-SNMNo[0m  [1;33m-[0m  [1;33moNMNs-[0m       888        888   T88b  "Y88888P"   "Y8888P"
+     [1;33m`+dMh\./dMd/[0m
+        [1;33m`:yNy:`[0m                      [1;33mPowered by PROS for VEX V5[0m
+           [1;33m"[0m                Copyright (c) Purdue University ACM SIGBots
+Version:[1m        3.8.0[0m     Platform:  [1mV1.1.2 (b34)[0m     Uptime:[1m    0.000 s[0m
+Compiled:   [1mFeb  9 2024 15:44:17[0m     Directory:  [1m                      [0m
+
+
+chassis.moveToPoint(0.010755, -0.498484, 1500);
+chassis.moveToPoint(8.260670, 64.472458, 1500);
+chassis.moveToPoint(26.827698, 46.572906, 1500);
+chassis.moveToPoint(30.097393, 44.770184, 1500);
+WARNING - pros.serial.terminal.terminal:stop - Stopping terminal - pros-cli version:3.4.3
+WARNING - pros.serial.terminal.terminal:reader - Connection to COM3 broken - pros-cli version:3.4.3
+Established terminal connection
+
+
+
+         [1;33m_+=+_[0m
+     [1;33m .-`  .  `-. [0m         8888888b.  8888888b.   .d88888b.   .d8888b.
+  [1;33m _+`     "     `+_ [0m      888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  [1;33m\\\sssssssssssss///[0m      888    888 888    888 888     888 Y88b.
+     [1;33m.ss\  [37m*[33m  /ss.[0m         888   d88P 888   d88P 888     888  "Y888b.
+ [1;33m.+bm[0m  [1;33m.s[37m  *  [33ms.[0m  [1;33mmd+.[0m     8888888P"  8888888P"  888     888     "Y88b.
+[1;33m.hMMMMs[0m [1;33m.[37m  *  [33m.[0m [1;33msMMMMh.[0m    888        888 T88b   888     888       "888
+ [1;33m`\hMMMb[0m [1;33m\[37m | [33m/[0m [1;33mdMMMh:[0m      888        888  T88b  Y88b. .d88P Y88b  d88P
+   [1;33m-SNMNo[0m  [1;33m-[0m  [1;33moNMNs-[0m       888        888   T88b  "Y88888P"   "Y8888P"
+     [1;33m`+dMh\./dMd/[0m
+        [1;33m`:yNy:`[0m                      [1;33mPowered by PROS for VEX V5[0m
+           [1;33m"[0m                Copyright (c) Purdue University ACM SIGBots
+Version:[1m        3.8.0[0m     Platform:  [1mV1.1.2 (b34)[0m     Uptime:[1m    0.000 s[0m
+Compiled:   [1mFeb  9 2024 15:46:13[0m     Directory:  [1m                      [0m
+
+
+chassis.moveToPoint(-22.342514, -9.600858, 1500);
+chassis.moveToPoint(-24.624022, 58.350540, 1500);
+chassis.moveToPoint(-23.061176, 54.076790, 1500);
+chassis.moveToPoint(2.505654, 40.135170, 1500);
+chassis.moveToPoint(-17.685541, 53.163048, 1500);
+WARNING - pros.serial.terminal.terminal:stop - Stopping terminal - pros-cli version:3.4.3
+Established terminal connection
+
+
+
+         [1;33m_+=+_[0m
+     [1;33m .-`  .  `-. [0m         8888888b.  8888888b.   .d88888b.   .d8888b.
+  [1;33m _+`     "     `+_ [0m      888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  [1;33m\\\sssssssssssss///[0m      888    888 888    888 888     888 Y88b.
+     [1;33m.ss\  [37m*[33m  /ss.[0m         888   d88P 888   d88P 888     888  "Y888b.
+ [1;33m.+bm[0m  [1;33m.s[37m  *  [33ms.[0m  [1;33mmd+.[0m     8888888P"  8888888P"  888     888     "Y88b.
+[1;33m.hMMMMs[0m [1;33m.[37m  *  [33m.[0m [1;33msMMMMh.[0m    888        888 T88b   888     888       "888
+ [1;33m`\hMMMb[0m [1;33m\[37m | [33m/[0m [1;33mdMMMh:[0m      888        888  T88b  Y88b. .d88P Y88b  d88P
+   [1;33m-SNMNo[0m  [1;33m-[0m  [1;33moNMNs-[0m       888        888   T88b  "Y88888P"   "Y8888P"
+     [1;33m`+dMh\./dMd/[0m
+        [1;33m`:yNy:`[0m                      [1;33mPowered by PROS for VEX V5[0m
+           [1;33m"[0m                Copyright (c) Purdue University ACM SIGBots
+Version:[1m        3.8.0[0m     Platform:  [1mV1.1.2 (b34)[0m     Uptime:[1m    0.000 s[0m
+Compiled:   [1mFeb  9 2024 15:50:23[0m     Directory:  [1m                      [0m
+
+
+chassis.moveToPoint(-0.000011, 0.012201, 1500);
+chassis.moveToPoint(-0.274225, 51.387421, 1500);
+chassis.moveToPoint(-1.667365, 49.902313, 1500);
+wingsPiston.set_value(1);
+chassis.moveToPoint(23.883310, 51.755173, 1500);
+wingsPiston.set_value(0);
+chassis.moveToPoint(-21.649008, 13.819814, 1500);
+tailPiston.set_value(1);
+chassis.moveToPoint(-10.644348, -3.957258, 1500);
+tailPiston.set_value(0);
+chassis.moveToPoint(13.610392, 2.338050, 1500);
+tailPiston.set_value(1);
+
+
+
+         [1;33m_+=+_[0m
+     [1;33m .-`  .  `-. [0m         8888888b.  8888888b.   .d88888b.   .d8888b.
+  [1;33m _+`     "     `+_ [0m      888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  [1;33m\\\sssssssssssss///[0m      888    888 888    888 888     888 Y88b.
+     [1;33m.ss\  [37m*[33m  /ss.[0m         888   d88P 888   d88P 888     888  "Y888b.
+ [1;33m.+bm[0m  [1;33m.s[37m  *  [33ms.[0m  [1;33mmd+.[0m     8888888P"  8888888P"  888     888     "Y88b.
+[1;33m.hMMMMs[0m [1;33m.[37m  *  [33m.[0m [1;33msMMMMh.[0m    888        888 T88b   888     888       "888
+ [1;33m`\hMMMb[0m [1;33m\[37m | [33m/[0m [1;33mdMMMh:[0m      888        888  T88b  Y88b. .d88P Y88b  d88P
+   [1;33m-SNMNo[0m  [1;33m-[0m  [1;33moNMNs-[0m       888        888   T88b  "Y88888P"   "Y8888P"
+     [1;33m`+dMh\./dMd/[0m
+        [1;33m`:yNy:`[0m                      [1;33mPowered by PROS for VEX V5[0m
+           [1;33m"[0m                Copyright (c) Purdue University ACM SIGBots
+Version:[1m        3.8.0[0m     Platform:  [1mV1.1.2 (b34)[0m     Uptime:[1m    0.000 s[0m
+Compiled:   [1mFeb  9 2024 15:50:23[0m     Directory:  [1m                      [0m
+
+
+tailPiston.set_value(1);
+tailPiston.set_value(0);
+tailPiston.set_value(1);
+WARNING - pros.serial.terminal.terminal:stop - Stopping terminal - pros-cli version:3.4.3
+WARNING - pros.serial.terminal.terminal:reader - Connection to COM6 broken - pros-cli version:3.4.3
+Established terminal connection
+
+
+
+         [1;33m_+=+_[0m
+     [1;33m .-`  .  `-. [0m         8888888b.  8888888b.   .d88888b.   .d8888b.
+  [1;33m _+`     "     `+_ [0m      888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  [1;33m\\\sssssssssssss///[0m      888    888 888    888 888     888 Y88b.
+     [1;33m.ss\  [37m*[33m  /ss.[0m         888   d88P 888   d88P 888     888  "Y888b.
+ [1;33m.+bm[0m  [1;33m.s[37m  *  [33ms.[0m  [1;33mmd+.[0m     8888888P"  8888888P"  888     888     "Y88b.
+[1;33m.hMMMMs[0m [1;33m.[37m  *  [33m.[0m [1;33msMMMMh.[0m    888        888 T88b   888     888       "888
+ [1;33m`\hMMMb[0m [1;33m\[37m | [33m/[0m [1;33mdMMMh:[0m      888        888  T88b  Y88b. .d88P Y88b  d88P
+   [1;33m-SNMNo[0m  [1;33m-[0m  [1;33moNMNs-[0m       888        888   T88b  "Y88888P"   "Y8888P"
+     [1;33m`+dMh\./dMd/[0m
+        [1;33m`:yNy:`[0m                      [1;33mPowered by PROS for VEX V5[0m
+           [1;33m"[0m                Copyright (c) Purdue University ACM SIGBots
+Version:[1m        3.8.0[0m     Platform:  [1mV1.1.2 (b34)[0m     Uptime:[1m    0.000 s[0m
+Compiled:   [1mFeb  9 2024 16:01:13[0m     Directory:  [1m                      [0m
+
+
+tailPiston.set_value(0);
+tailPiston.set_value(1);
+
+
+
+         [1;33m_+=+_[0m
+     [1;33m .-`  .  `-. [0m         8888888b.  8888888b.   .d88888b.   .d8888b.
+  [1;33m _+`     "     `+_ [0m      888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  [1;33m\\\sssssssssssss///[0m      888    888 888    888 888     888 Y88b.
+     [1;33m.ss\  [37m*[33m  /ss.[0m         888   d88P 888   d88P 888     888  "Y888b.
+ [1;33m.+bm[0m  [1;33m.s[37m  *  [33ms.[0m  [1;33mmd+.[0m     8888888P"  8888888P"  888     888     "Y88b.
+[1;33m.hMMMMs[0m [1;33m.[37m  *  [33m.[0m [1;33msMMMMh.[0m    888        888 T88b   888     888       "888
+ [1;33m`\hMMMb[0m [1;33m\[37m | [33m/[0m [1;33mdMMMh:[0m      888        888  T88b  Y88b. .d88P Y88b  d88P
+   [1;33m-SNMNo[0m  [1;33m-[0m  [1;33moNMNs-[0m       888        888   T88b  "Y88888P"   "Y8888P"
+     [1;33m`+dMh\./dMd/[0m
+        [1;33m`:yNy:`[0m                      [1;33mPowered by PROS for VEX V5[0m
+           [1;33m"[0m                Copyright (c) Purdue University ACM SIGBots
+Version:[1m        3.8.0[0m     Platform:  [1mV1.1.2 (b34)[0m     Uptime:[1m    0.000 s[0m
+Compiled:   [1mFeb  9 2024 16:01:13[0m     Directory:  [1m                      [0m
+
+
+tailPiston.set_value(0);
+tailPiston.set_value(1);
+WARNING - pros.serial.terminal.terminal:stop - Stopping terminal - pros-cli version:3.4.3
+WARNING - pros.serial.terminal.terminal:reader - Connection to COM6 broken - pros-cli version:3.4.3
+Established terminal connection
+
+
+
+         [1;33m_+=+_[0m
+     [1;33m .-`  .  `-. [0m         8888888b.  8888888b.   .d88888b.   .d8888b.
+  [1;33m _+`     "     `+_ [0m      888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  [1;33m\\\sssssssssssss///[0m      888    888 888    888 888     888 Y88b.
+     [1;33m.ss\  [37m*[33m  /ss.[0m         888   d88P 888   d88P 888     888  "Y888b.
+ [1;33m.+bm[0m  [1;33m.s[37m  *  [33ms.[0m  [1;33mmd+.[0m     8888888P"  8888888P"  888     888     "Y88b.
+[1;33m.hMMMMs[0m [1;33m.[37m  *  [33m.[0m [1;33msMMMMh.[0m    888        888 T88b   888     888       "888
+ [1;33m`\hMMMb[0m [1;33m\[37m | [33m/[0m [1;33mdMMMh:[0m      888        888  T88b  Y88b. .d88P Y88b  d88P
+   [1;33m-SNMNo[0m  [1;33m-[0m  [1;33moNMNs-[0m       888        888   T88b  "Y88888P"   "Y8888P"
+     [1;33m`+dMh\./dMd/[0m
+        [1;33m`:yNy:`[0m                      [1;33mPowered by PROS for VEX V5[0m
+           [1;33m"[0m                Copyright (c) Purdue University ACM SIGBots
+Version:[1m        3.8.0[0m     Platform:  [1mV1.1.2 (b34)[0m     Uptime:[1m    0.000 s[0m
+Compiled:   [1mFeb  9 2024 16:03:44[0m     Directory:  [1m                      [0m
+
+
+chassis.moveToPoint(-2.223017, 5.006891, 1500, true, 127, false);
+WARNING - pros.serial.terminal.terminal:stop - Stopping terminal - pros-cli version:3.4.3
+WARNING - pros.serial.terminal.terminal:reader - Connection to COM6 broken - pros-cli version:3.4.3
+Established terminal connection
+
+
+
+         [1;33m_+=+_[0m
+     [1;33m .-`  .  `-. [0m         8888888b.  8888888b.   .d88888b.   .d8888b.
+  [1;33m _+`     "     `+_ [0m      888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  [1;33m\\\sssssssssssss///[0m      888    888 888    888 888     888 Y88b.
+     [1;33m.ss\  [37m*[33m  /ss.[0m         888   d88P 888   d88P 888     888  "Y888b.
+ [1;33m.+bm[0m  [1;33m.s[37m  *  [33ms.[0m  [1;33mmd+.[0m     8888888P"  8888888P"  888     888     "Y88b.
+[1;33m.hMMMMs[0m [1;33m.[37m  *  [33m.[0m [1;33msMMMMh.[0m    888        888 T88b   888     888       "888
+ [1;33m`\hMMMb[0m [1;33m\[37m | [33m/[0m [1;33mdMMMh:[0m      888        888  T88b  Y88b. .d88P Y88b  d88P
+   [1;33m-SNMNo[0m  [1;33m-[0m  [1;33moNMNs-[0m       888        888   T88b  "Y88888P"   "Y8888P"
+     [1;33m`+dMh\./dMd/[0m
+        [1;33m`:yNy:`[0m                      [1;33mPowered by PROS for VEX V5[0m
+           [1;33m"[0m                Copyright (c) Purdue University ACM SIGBots
+Version:[1m        3.8.0[0m     Platform:  [1mV1.1.2 (b34)[0m     Uptime:[1m    0.000 s[0m
+Compiled:   [1mFeb  9 2024 16:03:44[0m     Directory:  [1m                      [0m
+
+
+chassis.moveToPoint(-0.000007, 0.009849, 1500, true, 127, false);
+chassis.moveToPoint(-0.496214, 54.813904, 1500, true, 127, false);
+chassis.moveToPoint(0.191369, 53.297867, 1500, true, 127, false);
+wingsPiston.set_value(0);
+chassis.moveToPoint(22.775356, 54.524052, 1500, true, 127, false);
+wingsPiston.set_value(1);
+chassis.moveToPoint(-19.858633, 7.959767, 1500, false);
+chassis.moveToPoint(-17.376307, 9.043244, 1500, false);
+tailPiston.set_value(0);
+tailPiston.set_value(1);
+chassis.moveToPoint(-14.459858, -0.731839, 1500, false);
+WARNING - pros.serial.terminal.terminal:stop - Stopping terminal - pros-cli version:3.4.3
+WARNING - pros.serial.terminal.terminal:reader - Connection to COM6 broken - pros-cli version:3.4.3

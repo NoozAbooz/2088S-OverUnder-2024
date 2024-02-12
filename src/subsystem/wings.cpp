@@ -1,7 +1,7 @@
 #include "main.h"
 
 bool wingsToggle = false;
-bool tailToggle = false;
+bool tailToggle = true;
 
 // Refresh wing status
 void refreshWings() {
@@ -9,7 +9,7 @@ void refreshWings() {
     	wingsToggle = !wingsToggle; 
 		wingsPiston.set_value(wingsToggle);
 
-		printf("wingsPiston.set_value(%d);\n", wingsToggle);
+		printf("wingsPiston.set_value(%d);\n", !wingsToggle);
     }
 
 	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
