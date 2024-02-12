@@ -41,6 +41,7 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
+    chassis.calibrate();
     // Initialize the auton selector on brain LCD
     //selectorInit();
 }
