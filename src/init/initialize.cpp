@@ -50,5 +50,4 @@ void competition_initialize() {
     chassis.calibrate();
     // Initialize the auton selector on brain LCD
     //selectorInit();
-    chassis.calibrate();
 }

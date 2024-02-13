@@ -276,4 +276,10 @@ chassis.moveToPoint(9.862, -7.277, 1000, false);
 chassis.moveToPoint(29.798, -24.255, 1000, false);
 
 }
+
+if (selector::auton == 10) { //PID tuner
+chassis.moveToPoint(0, 0, 1000);
+//chassis.moveToPoint(0, 24, 1000);
+chassis.turnTo(30, 0, 1500);
+}
 }
