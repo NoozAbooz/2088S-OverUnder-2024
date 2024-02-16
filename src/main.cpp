@@ -10,7 +10,7 @@
  */
 ASSET(logo_gif)
 void opcontrol() {
-	//Gif gif(logo_gif, lv_scr_act());
+	Gif gif(logo_gif, lv_scr_act());
 
 	while (true) { // Main continuous loop
 		/* Drive */
