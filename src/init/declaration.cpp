@@ -18,7 +18,7 @@ pros::Motor driveMotor(8);
 // Intake
 pros::Motor intake(-10);
 
-pros::Motor slapper(3);
+pros::Motor slapper((9));
 
 // LED
 pros::ADILed bodyLED('B', 64);
