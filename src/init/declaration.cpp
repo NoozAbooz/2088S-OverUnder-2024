@@ -18,7 +18,7 @@ pros::Motor driveMotor(8);
 // Intake
 pros::Motor intake(-10);
 
-pros::Motor slapper((9));
+pros::Motor slapper(3);
 
 // LED
 pros::ADILed bodyLED('B', 64);
@@ -56,9 +56,9 @@ lemlib::ControllerSettings linearController(21, // proportional gain (kP)
 );
 
 // angular motion controller
-lemlib::ControllerSettings angularController(5, // proportional gain (kP)
+lemlib::ControllerSettings angularController(1, // proportional gain (kP)
                                              0, // integral gain (kI)
-                                             10, // derivative gain (kD)
+                                             8, // derivative gain (kD)
                                              3, // anti windup
                                              1, // small error range, in degrees
                                              100, // small error range timeout, in milliseconds

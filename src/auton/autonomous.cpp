@@ -67,19 +67,19 @@ void autonomous() {
     if(selector::auton == 3){ //Close Side AWP no triball literally just descore and touch bar
         //chassis.calibrate();
 
-        pros::delay(1000);
-
-        pros::delay(1000);
+        wingsPiston.set_value(true);
+        pros::delay(600);
+        wingsPiston.set_value(false);
 
         chassis.moveToPoint(0, 0, 1500);
         tailPiston.set_value(false);
         pros::delay(600);
-        chassis.turnTo(-10, 0, 1000, true, 100);
+        chassis.turnTo(-10, 0, 1000, true, 127);
         pros::delay(600);
         tailPiston.set_value(true);
 
-        chassis.moveToPoint(15.057, 18.738, 1500, false);
-        chassis.moveToPoint(51.521, 10.238, 1500, false);
+        chassis.moveToPoint(0.057, 20.738, 1500, false, 80);
+        chassis.moveToPoint(51.521, 8.238, 1500, false, 80);
 
         pros::delay(2000);
         tailPiston.set_value(false);
@@ -88,7 +88,7 @@ void autonomous() {
     }
 
     if (selector::auton == 6) { //testing skills
-        slapper.move_voltage(10000);
+        slapper.move_voltage(12000);
         //pros::delay(1000);
         pros::delay(45000);
         slapper.move_voltage(0);
@@ -103,11 +103,6 @@ void autonomous() {
         drivetrainMove(12000, 1500);
         drivetrainMove(-12000, 1000);
         drivetrainMove(12000, 3000);
-    }
-
-    if(selector::auton == 4){
-
-
     }
 
     if(selector::auton == 1){ // skills
@@ -256,30 +251,32 @@ liftPiston.set_value(false);
 }
 
 if (selector::auton == 9) { //auton wp tester
+chassis.moveToPoint(0, 0, 1500);
 
-chassis.moveToPoint(0, 0, 1000, false);
 tailPiston.set_value(false);
-pros::delay(500);
-chassis.moveToPoint(4.689, -10.172, 1000);
+pros::delay(600);
+chassis.turnTo(-10, 0, 1000, true, 127);
+pros::delay(600);
 tailPiston.set_value(true);
-pros::delay(500);
-chassis.moveToPoint(47.463, 25.045, 1000);
-wingsPiston.set_value(true);
-pros::delay(500);
-chassis.moveToPoint(61.372, 13.374, 1000);
-wingsPiston.set_value(false);
-pros::delay(500);
-chassis.moveToPoint(1.909, 21.602, 1000);
-chassis.moveToPoint(12.545, 33.386, 1000);
-chassis.moveToPoint(7.472, 16.934, 1000, false);
-chassis.moveToPoint(9.862, -7.277, 1000, false);
-chassis.moveToPoint(29.798, -24.255, 1000, false);
+
+intake.move(-127);
+chassis.moveToPoint(-9.488, 25.339, 1000, 100);
+intake.move(0);
+
+chassis.moveToPoint(-2, 28.738, 1500, false, 80);
+chassis.moveToPoint(51.521, 8.238, 1500, false, 80);
+pros::delay(2000);
+tailPiston.set_value(false);
+drivetrainMove(-12000, 10000);
 
 }
 
 if (selector::auton == 10) { //PID tuner
 chassis.moveToPoint(0, 0, 1000);
-//chassis.moveToPoint(0, 24, 1000);
-chassis.turnTo(30, 0, 1500);
+chassis.moveToPoint(0, 10, 1000);
+
+// chassis.turnTo(100, 0, 1500);
+// chassis.turnTo(0, -100, 1500);
+// chassis.turnTo(0, 100, 1500);  
 }
 }
