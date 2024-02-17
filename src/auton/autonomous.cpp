@@ -275,7 +275,7 @@ if (selector::auton == 10) { //PID tuner
 chassis.moveToPoint(0, 0, 1000);
 chassis.moveToPoint(0, 10, 1000);
 
-// chassis.turnTo(100, 0, 1500);
+// chassis.turnTo(1000000, 0, 1500);
 // chassis.turnTo(0, -100, 1500);
 // chassis.turnTo(0, 100, 1500);  
 }
