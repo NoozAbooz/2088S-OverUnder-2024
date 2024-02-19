@@ -9,7 +9,7 @@
  */
 void initialize() {
     pros::Task telemetryTask([&]() {
-        chassis.calibrate();
+        //chassis.calibrate();
         while (true) {
             // printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
             // pros::delay(1000);
@@ -47,7 +47,7 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-    chassis.calibrate();
+    //chassis.calibrate();
     // Initialize the auton selector on brain LCD
     //selectorInit();
 }

@@ -8,7 +8,7 @@
  * operator control task will be stopped. Re-enabling the robot will not resume 
  * the task from where it left off.
  */
-ASSET(logo_gif)
+//ASSET(logo_gif)
 void opcontrol() {
 	//Gif gif(logo_gif, lv_scr_act());
 

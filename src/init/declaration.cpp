@@ -21,14 +21,14 @@ pros::Motor intake(-10);
 pros::Motor slapper(3);
 
 // LED
-pros::ADILed bodyLED('B', 64);
+//pros::ADILed bodyLED('B', 64);
 
 // Pneumatics
 pros::ADIDigitalOut wingsPiston('C');
 pros::ADIDigitalOut liftPiston('G');
 pros::ADIDigitalOut tailPiston('F', true);
 
-pros::ADIDigitalIn button('A');
+pros::ADIDigitalIn button('B');
 
 /* Declare sensors */
 // Inertial
@@ -57,8 +57,8 @@ lemlib::ControllerSettings linearController(21, // proportional gain (kP)
 
 // angular motion controller
 lemlib::ControllerSettings angularController(1, // proportional gain (kP)
-                                             0, // integral gain (kI)
-                                             8, // derivative gain (kD)
+                                             5.5, // integral gain (kI)
+                                             25, // derivative gain (kD)
                                              3, // anti windup
                                              1, // small error range, in degrees
                                              100, // small error range timeout, in milliseconds

@@ -1,16 +1,17 @@
 #include "main.h"
+#include "pros/misc.h"
 
 using namespace pros;
 // Modified... original credit: https://github.com/kunwarsahni01/Vex-Autonomous-Selector
 namespace selector
 {
-	int auton = 9;
+	int auton = 5;
 	void tabWatcher() {
 		while (1) {
-			if(button.get_new_press()) {
-				auton =+ 1;
+			if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
+				auton = auton + 1;
 
-				if(auton > 9) {
+				if(auton > 10) {
 					auton = 0;
 				}
 			}
