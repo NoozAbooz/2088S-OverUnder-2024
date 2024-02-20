@@ -34,8 +34,9 @@ void drivetrainMove(int voltage, int time) {
 
 // 9: AWP close side descore and touch bar
 
+// 4: Elims disrupt
+
 void autonomous() {
-    chassis.calibrate();
     chassis.setPose(0,0,0);
     if(selector::auton == 2){ //run auton for Far Side 6 Triball NORUSH
         chassis.moveToPoint(0, 0, 1500);
@@ -87,6 +88,25 @@ void autonomous() {
         tailPiston.set_value(false);
 
         drivetrainMove(-12000, 10000);
+    }
+
+    if (selector::auton == 4) { //disrupt elims
+        chassis.moveToPoint(0, 0, 1500);
+chassis.moveToPoint(0.503, 48.737, 1500);
+pros::delay(1000);
+wingsPiston.set_value(true);
+chassis.turnTo(100, 48, 1500);
+chassis.moveToPoint(28.392, 48.234, 1500);
+
+chassis.turnTo(-100, 49, 1500);
+chassis.moveToPoint(14, 49, 1500);
+
+pros::delay(500);
+intake.move(-127);
+wingsPiston.set_value(false);
+
+pros::delay(2000);
+intake.brake();
     }
 
     if (selector::auton == 6) { //testing skills
@@ -227,9 +247,9 @@ liftPiston.set_value(false);
 if (selector::auton == 9) { //auton wp tester
 chassis.moveToPoint(0, 0, 1500);
 
-wingsPiston.set_value(true);
-pros::delay(600);
-wingsPiston.set_value(false); //open wings for triball
+// wingsPiston.set_value(true);
+// pros::delay(600);
+// wingsPiston.set_value(false); //open wings for triball
 
 tailPiston.set_value(false);
 pros::delay(600);
@@ -247,9 +267,9 @@ chassis.turnTo(0, -100, 1000, true, 80);
 // drivetrainMove(-12000, 10000);
 
 chassis.moveToPoint(8.811, -2.277, 5000);
-chassis.moveToPoint(36.09, -2.026, 5000, true, 80);
+chassis.moveToPoint(36.09, -3.026, 5000, true, 80);
 
-
+intake.move(-127);
 }
 
 if (selector::auton == 10) { //PID tuner

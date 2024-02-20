@@ -8,6 +8,7 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
+    pros::delay(10);
     pros::Task telemetryTask([&]() {
         //chassis.calibrate();
         while (true) {
@@ -23,8 +24,9 @@ void initialize() {
             }
         }
     });
-
     selector::init();
+
+    chassis.calibrate();
 }
 
 /**
