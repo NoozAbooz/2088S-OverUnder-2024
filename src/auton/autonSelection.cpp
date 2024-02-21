@@ -5,7 +5,7 @@ using namespace pros;
 // Modified... original credit: https://github.com/kunwarsahni01/Vex-Autonomous-Selector
 namespace selector
 {
-	int auton = 9;
+	int auton = 4;
 	void tabWatcher() {
 		while (1) {
 			if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
