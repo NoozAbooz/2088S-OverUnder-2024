@@ -38,7 +38,7 @@ void drivetrainMove(int voltage, int time) {
 
 void autonomous() {
     chassis.setPose(0,0,0);
-    if(selector::auton == 2){ //run auton for Far Side 6 Triball NORUSH
+    if(strait::selector::auton == 2){ //run auton for Far Side 6 Triball NORUSH
         chassis.moveToPoint(0, 0, 1500);
         intake.move_voltage(12000);
         chassis.moveToPoint(-0.382, 3.645, 1000);
@@ -69,7 +69,7 @@ void autonomous() {
         intake.move_voltage(0); 
     }
 
-    if(selector::auton == 3){ //Close Side AWP no triball literally just descore and touch bar
+    if(strait::selector::auton == 3){ //Close Side AWP no triball literally just descore and touch bar
         wingsPiston.set_value(true);
         pros::delay(600);
         wingsPiston.set_value(false);
@@ -90,7 +90,7 @@ void autonomous() {
         drivetrainMove(-12000, 10000);
     }
 
-    if (selector::auton == 4) { //disrupt elims
+    if (strait::selector::auton == 4) { //disrupt elims
         chassis.moveToPoint(0, 0, 1500);
 chassis.moveToPoint(0.503, 48.737, 1500);
 pros::delay(1000);
@@ -109,7 +109,7 @@ pros::delay(2000);
 intake.brake();
     }
 
-    if (selector::auton == 6) { //testing skills
+    if (strait::selector::auton == 6) { //testing skills
         slapper.move_voltage(12000);
         //pros::delay(1000);
         pros::delay(45000);
@@ -127,7 +127,7 @@ intake.brake();
         drivetrainMove(12000, 3000);
     }
 
-    if(selector::auton == 1){ // skills
+    if(strait::selector::auton == 1){ // skills
     chassis.moveToPoint(0, 0, 1500);
 chassis.moveToPoint(-4.734, -21.999, 1500, false);
 chassis.moveToPoint(-7.519, -17.544, 1500);
@@ -160,11 +160,11 @@ chassis.moveToPoint(-82.15, 98.301, 1500, false);
 
 }
 
-if (selector::auton == 5) { //one triball
+if (strait::selector::auton == 5) { //one triball
 drivetrainMove(-12000, 5000);
 }
 
-if (selector::auton == 7) { //rush auton w path.jerryio
+if (strait::selector::auton == 7) { //rush auton w path.jerryio
 chassis.moveToPoint(0, 0, 500);
 chassis.moveToPoint(2.939, 65.648, 1000);
 intake.move_voltage(12000);
@@ -202,7 +202,7 @@ chassis.moveToPoint(16.567, -0.179, 1000);
 chassis.moveToPoint(26.921, 14.837, 1000);
 
 }
-if (selector::auton == 8) { // skills auton with hang
+if (strait::selector::auton == 8) { // skills auton with hang
 
 slapper.move_voltage(12000);
 pros::delay(31000);
@@ -244,7 +244,7 @@ liftPiston.set_value(false);
 
 }
 
-if (selector::auton == 9) { //auton wp tester
+if (strait::selector::auton == 9) { //auton wp tester
 chassis.moveToPoint(0, 0, 1500);
 
 // wingsPiston.set_value(true);
@@ -272,7 +272,7 @@ chassis.moveToPoint(36.09, -3.026, 5000, true, 80);
 intake.move(-127);
 }
 
-if (selector::auton == 10) { //PID tuner
+if (strait::selector::auton == 10) { //PID tuner
 chassis.moveToPoint(0, 0, 1000);
 // chassis.moveToPoint(0, 10, 1000);
 

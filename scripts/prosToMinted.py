@@ -187,8 +187,8 @@ def main():
 \predate{\begin{center}}
     \postdate{\par\end{center}}
 
-\title{\textbf{2088S Programming Docs}}
-\author{Michael Z and Brandon K\thanks{with support from Western Mechatronics and VTOW}}
+\title{\textbf{2088S Code (libSTRAIT)}}
+\author{Michael Z and Brandon K\thanks{with support from WestMech and VTOW}}
 \date{\today}
 
 \begin{document}

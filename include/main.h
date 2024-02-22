@@ -77,8 +77,8 @@ void opcontrol(void);
 #include "abstractGlobals.hpp"
 #include "deviceGlobals.hpp"
 
-// Autonomous Selector
-#include "autonGlobals.hpp"
+// libSTRAIT
+#include "libSTRAIT/strait.hpp"
 
 /**
  * You can add C++-only headers here

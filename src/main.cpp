@@ -8,9 +8,8 @@
  * operator control task will be stopped. Re-enabling the robot will not resume 
  * the task from where it left off.
  */
-ASSET(logo_gif)
 void opcontrol() {
-	Gif gif(logo_gif, lv_scr_act());
+	// Gif gif(logo_gif, lv_scr_act());
 
 	while (true) { // Main continuous loop
 		/* Drive */
@@ -23,7 +22,7 @@ void opcontrol() {
 		refreshWings();
 
 		// Report temperature telemetry (this line of code has never worked from the beginning)
-		controller.print(0, 0, "DT%.0lf°S%.0lf°In%.0lf° %d ", driveMotor.get_temperature(), slapper.get_temperature(), intake.get_temperature(), selector::auton);
+		controller.print(0, 0, "D%.0lf°S%.0lf° %d %.0lf,%.0lf", driveMotor.get_temperature(), slapper.get_temperature(), strait::selector::auton, chassis.getPose().x, chassis.getPose().y);
 
 		pros::delay(10); // Delay to save resources on brain
 	}
