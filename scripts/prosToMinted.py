@@ -58,7 +58,8 @@ def main():
                 those should be organized outside of src directory
             '''
             if(not 'src' in components
-            or ('src' and 'auton') in components):
+            or ('src' and 'auton') in components
+            or ('src' and 'libSTRAIT') in components):
                 continue
 
             # Build a relative unix path for Overleaf to find the source files
@@ -87,6 +88,36 @@ def main():
                 those should be organized outside of src directory
             '''
             if(not 'auton' in components
+            or '.d' in components
+            or 'bin' in components):
+                continue
+
+            # Build a relative unix path for Overleaf to find the source files
+            rel_src_path = ""
+            for i in range(0, len(components)-1):
+                rel_src_path += components[i] + "/"
+            name = components[-1]
+            rel_src_path += name
+            copy(source, zip_source)
+
+            # Generate LaTeX code for any valid source file
+            f.write("\\subsection{" + rel_src_path + "}\n")
+            f.write("\\inputminted[linenos,tabsize=2,breaklines,frame=lines,framesep=3mm,bgcolor=LightGray]{c}{" + name + "}\n")
+            f.write("\\pagebreak\n\n")
+
+        # Recursively search the entire project for any relevant libstrait files
+        f.write("%%---------------------\n")
+        f.write("\\section{libSTRAIT}\n\n")
+        for source in root.cwd().glob('**/*.c*'):
+            # break source into components starting from the root
+            components = source.parts[ROOT_START:]
+
+            '''
+                It is good practice to only have .c and .cpp files in src
+                PROS projects may contain .c image arrays or .csv files but
+                those should be organized outside of src directory
+            '''
+            if(not 'libSTRAIT' in components
             or '.d' in components
             or 'bin' in components):
                 continue
