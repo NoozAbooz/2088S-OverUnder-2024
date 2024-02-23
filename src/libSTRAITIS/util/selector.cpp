@@ -1,6 +1,6 @@
 #include "main.h"
 
-namespace straitis
+namespace strait
 {
 	namespace selector
 	{
