@@ -107,7 +107,7 @@ def main():
 
         # Recursively search the entire project for any relevant libstrait files
         f.write("%%---------------------\n")
-        f.write("\\section{libSTRAIT}\n\n")
+        f.write("\\section{libSTRAITIS}\n\n")
         for source in root.cwd().glob('**/*.c*'):
             # break source into components starting from the root
             components = source.parts[ROOT_START:]
@@ -117,7 +117,7 @@ def main():
                 PROS projects may contain .c image arrays or .csv files but
                 those should be organized outside of src directory
             '''
-            if(not 'libSTRAIT' in components
+            if(not 'libSTRAITIS' in components
             or '.d' in components
             or 'bin' in components):
                 continue

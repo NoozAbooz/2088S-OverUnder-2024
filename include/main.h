@@ -78,7 +78,7 @@ void opcontrol(void);
 #include "deviceGlobals.hpp"
 
 // libSTRAIT
-#include "libSTRAIT/strait.hpp"
+#include "libSTRAITIS/strait.hpp"
 
 /**
  * You can add C++-only headers here
