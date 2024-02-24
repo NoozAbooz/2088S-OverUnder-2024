@@ -10,7 +10,9 @@
 void initialize() {
     pros::delay(10);
     pros::Task telemetryTask([&]() {
-        //chassis.calibrate();
+        strait::selector::init();
+        chassis.calibrate();
+        
         while (true) {
             // printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
             // pros::delay(1000);
@@ -24,9 +26,6 @@ void initialize() {
             }
         }
     });
-    
-    strait::selector::init();
-    chassis.calibrate();
 }
 
 /**

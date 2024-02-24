@@ -15,15 +15,7 @@
  * from where it left off.
  */
 
-void drivetrainMove(int voltage, int time) {
-	leftDrive.move_voltage(voltage);
-	rightDrive.move_voltage(voltage);
 
-	pros::delay(time);
-
-	leftDrive.move_voltage(0);
-	rightDrive.move_voltage(0);
-}
 
 /** THE GREAT AUTON INDEX  **/
 // 0: Do nothing
@@ -38,81 +30,73 @@ void drivetrainMove(int voltage, int time) {
 
 void autonomous() {
     chassis.setPose(0,0,0);
+
     if(strait::selector::auton == 2){ //run auton for Far Side 6 Triball NORUSH
         chassis.moveToPoint(0, 0, 1500);
         intake.move_voltage(12000);
         chassis.moveToPoint(-0.382, 3.645, 1000);
-        chassis.moveToPoint(-2.294, -25.229, 1000, false);
+        chassis.moveToPoint(4.294, -25.229, 1000, false);
         chassis.moveToPoint(-1.147, -33.066, 1000, false);
         chassis.moveToPoint(15.099, -48.739, 1000, false);
         tailPiston.set_value(false);
+        
+        chassis.turnTo(100, -49, 1500);
         chassis.moveToPoint(31.537, -49.503, 1000, false);
+        intake.move_velocity(-12000);
+
         tailPiston.set_value(true);
+
         chassis.moveToPoint(15.099, -46.667, 1500);
         chassis.moveToPoint(32.875, -46.68, 1500);
         chassis.moveToPoint(16.055, -46.063, 1000, false);
-        intake.move_voltage(-12000);
-        chassis.moveToPoint(23.318, -30.966, 1000);
-        intake.move_voltage(12000);
-        chassis.moveToPoint(33.448, 2.867, 1000);
-        intake.move_voltage(-12000);
-        chassis.moveToPoint(43.005, -13.188, 1000);
-        intake.move_voltage(12000);
-        chassis.moveToPoint(59.06, 5.734, 1000);
-        chassis.moveToPoint(59.251, -4.969, 1000);
-
-        intake.move_voltage(-12000);
-        chassis.moveToPoint(58.869, -33.257, 1000);
-        chassis.moveToPoint(59.251, -20.969, 1000);
-        chassis.moveToPoint(58.869, -33.257, 1000);
-        chassis.moveToPoint(59.251, -20.969, 1000);
-        intake.move_voltage(0); 
+       
     }
 
-    if(strait::selector::auton == 3){ //Close Side AWP no triball literally just descore and touch bar
-        wingsPiston.set_value(true);
-        pros::delay(600);
-        wingsPiston.set_value(false);
-
+    if(strait::selector::auton == 3){ //test
         chassis.moveToPoint(0, 0, 1500);
-        tailPiston.set_value(false);
-        pros::delay(600);
-        chassis.turnTo(-10, 0, 1000, true, 127);
-        pros::delay(600);
-        tailPiston.set_value(true);
+        chassis.moveToPoint(0.494, 71.252, 1500);
+        chassis.moveToPoint(32.388, 47.3, 1500, false);
+        chassis.moveToPoint(16.485, 59.503, 1500);
+        chassis.moveToPoint(31.934, 47.388, 1500);
+        chassis.moveToPoint(-12.234, 52.627, 1500);
+        chassis.moveToPoint(7.326, 15.998, 1500);
+        chassis.moveToPoint(-12.864, 10.392, 1500);
+        chassis.moveToPoint(-35.676, 25.812, 1500, false);
+        chassis.moveToPoint(-8.007, 4.841, 1500, false);
+        chassis.moveToPoint(17.381, 5.678, 1500, false);
+        chassis.moveToPoint(27.822, 19.286, 1500,false);
+        chassis.moveToPoint(12.612, 0.481, 1500);
+        chassis.moveToPoint(27.735, 18.832, 1500);
 
-        chassis.moveToPoint(0.057, 20.738, 1500, false, 80);
-        chassis.moveToPoint(51.521, 8.238, 1500, false, 80);
-
-        pros::delay(2000);
-        tailPiston.set_value(false);
-
-        drivetrainMove(-12000, 10000);
     }
 
     if (strait::selector::auton == 4) { //disrupt elims
         chassis.moveToPoint(0, 0, 1500);
-chassis.moveToPoint(0.503, 48.737, 1500);
-pros::delay(1000);
-wingsPiston.set_value(true);
-chassis.turnTo(100, 48, 1500);
-chassis.moveToPoint(28.392, 48.234, 1500);
+        chassis.moveToPoint(0.503, 52.737, 1500);
+        pros::delay(1000);
+        chassis.turnTo(100, 52, 1500);
 
-chassis.turnTo(-100, 49, 1500);
-chassis.moveToPoint(14, 49, 1500);
+        pros::delay(500);
+        wingsPiston.set_value(true);
+        chassis.moveToPoint(24.392, 52.234, 1500);
 
-pros::delay(500);
-intake.move(-127);
-wingsPiston.set_value(false);
+        pros::delay(1000);
+        wingsPiston.set_value(false);
 
-pros::delay(2000);
-intake.brake();
+        chassis.turnTo(-100, 54, 1500);
+        chassis.moveToPoint(14, 53, 1500);
+
+        pros::delay(500);
+        intake.move(-127);
+
+        pros::delay(2000);
+        intake.brake();
     }
 
     if (strait::selector::auton == 6) { //testing skills
         slapper.move_voltage(12000);
         //pros::delay(1000);
-        pros::delay(45000);
+        pros::delay(41500);
         slapper.move_voltage(0);
     
         chassis.moveToPoint(0, 0, 1500);
@@ -120,11 +104,11 @@ intake.brake();
         chassis.moveToPoint(25.952, 54.853, 2000);
         chassis.moveToPoint(109.705, 56.622, 3000);
     
-        drivetrainMove(-12000, 1000);
+        strait::moveRaw(-12000, 1000);
         wingsPiston.set_value(true);
-        drivetrainMove(12000, 1500);
-        drivetrainMove(-12000, 1000);
-        drivetrainMove(12000, 3000);
+        strait::moveRaw(12000, 1500);
+        strait::moveRaw(-12000, 1000);
+        strait::moveRaw(12000, 3000);
     }
 
     if(strait::selector::auton == 1){ // skills
@@ -161,7 +145,7 @@ chassis.moveToPoint(-82.15, 98.301, 1500, false);
 }
 
 if (strait::selector::auton == 5) { //one triball
-drivetrainMove(-12000, 5000);
+strait::moveRaw(-12000, 1500);
 }
 
 if (strait::selector::auton == 7) { //rush auton w path.jerryio
@@ -264,10 +248,10 @@ chassis.turnTo(0, -100, 1000, true, 80);
 // chassis.moveToPoint(51.521, 10.238, 1500, false, 80);
 // pros::delay(2000);
 // tailPiston.set_value(false);
-// drivetrainMove(-12000, 10000);
+// strait::moveRaw(-12000, 10000);
 
-chassis.moveToPoint(8.811, -2.277, 5000);
-chassis.moveToPoint(36.09, -3.026, 5000, true, 80);
+chassis.moveToPoint(8.811, -2.277, 1500);
+chassis.moveToPoint(34.09, -3.026, 1500, true, 60);
 
 intake.move(-127);
 }
@@ -276,7 +260,7 @@ if (strait::selector::auton == 10) { //PID tuner
 chassis.moveToPoint(0, 0, 1000);
 // chassis.moveToPoint(0, 10, 1000);
 
-chassis.turnTo(1000000, 0, 1500);
+chassis.turnTo(1000000, 0, 10000);
 // chassis.turnTo(0, -100, 1500);
 // chassis.turnTo(0, 100, 1500);  
 }
