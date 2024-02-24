@@ -4,8 +4,7 @@
 #include "lemlib/api.hpp"
 //#include "sylib/sylib.hpp"
 
-// #include "gif-pros/asset.h"
-// #include "gif-pros/gifclass.hpp"
+#include "gif-pros/gifclass.hpp"
 
 /* Functions */
 // Slapper

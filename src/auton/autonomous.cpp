@@ -36,20 +36,18 @@ void autonomous() {
         intake.move_voltage(12000);
         chassis.moveToPoint(-0.382, 3.645, 1000);
         chassis.moveToPoint(4.294, -25.229, 1000, false);
-        chassis.moveToPoint(-1.147, -33.066, 1000, false);
-        chassis.moveToPoint(15.099, -48.739, 1000, false);
+        chassis.moveToPoint(-1.147, -33.066, 1000, false, 70);
+        chassis.moveToPoint(15.099, -48.739, 1000, false, 70);
         tailPiston.set_value(false);
         
-        chassis.turnTo(100, -49, 1500);
-        chassis.moveToPoint(31.537, -49.503, 1000, false);
+        chassis.turnTo(100, -60, 1500);
+        pros::delay(1000);
         intake.move_velocity(-12000);
 
+        chassis.moveToPoint(28.537, -60, 1500, true);
         tailPiston.set_value(true);
-
-        chassis.moveToPoint(15.099, -46.667, 1500);
-        chassis.moveToPoint(32.875, -46.68, 1500);
-        chassis.moveToPoint(16.055, -46.063, 1000, false);
-       
+        intake.move_voltage(0);
+        
     }
 
     if(strait::selector::auton == 3){ //test
