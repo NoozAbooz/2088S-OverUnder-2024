@@ -29,10 +29,11 @@
 
 // 4: Elims disrupt
 
+using namespace strait;
 void autonomous() {
     chassis.setPose(0,0,0);
 
-    if(strait::selector::auton == 2){ //run auton for Far Side 6 Triball NORUSH
+    if(selector::auton == 2){ //run auton for Far Side 6 Triball NORUSH
         chassis.moveToPoint(0, 0, 1500);
         intake.move_voltage(12000);
         chassis.moveToPoint(-0.382, 3.645, 1000);
@@ -51,7 +52,7 @@ void autonomous() {
         
     }
 
-    if(strait::selector::auton == 3){ //not rush six ball new
+    if(selector::auton == 3){ //not rush six ball new
         chassis.moveToPoint(0, 0, 1250);
         chassis.moveToPoint(0, 6.511, 1250);
         intake.move_voltage(12000);
@@ -86,7 +87,7 @@ void autonomous() {
 
     }
 
-    if (strait::selector::auton == 4) { //disrupt elims
+    if (selector::auton == 4) { //disrupt elims
         chassis.moveToPoint(0, 0, 1500);
         chassis.moveToPoint(0.503, 52.737, 1500); //move to field centre
         pros::delay(1000);
@@ -113,7 +114,7 @@ void autonomous() {
         // intake.brake();
     }
 
-    if (strait::selector::auton == 6) { 
+    if (selector::auton == 6) { 
         slapper.move_voltage(12000);
         //pros::delay(1000);
         pros::delay(41500); // run kicker
@@ -131,7 +132,7 @@ void autonomous() {
         strait::moveRaw(12000, 3000);
     }
 
-    if(strait::selector::auton == 1){ // skills
+    if(selector::auton == 1){ // skills
     chassis.moveToPoint(0, 0, 1500);
     chassis.moveToPoint(-4.734, -21.999, 1500, false);
     chassis.moveToPoint(-7.519, -17.544, 1500);
@@ -164,11 +165,11 @@ void autonomous() {
 
     }
 
-    if (strait::selector::auton == 5) { //one triball
+    if (selector::auton == 5) { //one triball
         strait::moveRaw(-12000, 2000);
     }
 
-    if (strait::selector::auton == 7) { //rush auton w path.jerryio
+    if (selector::auton == 7) { //rush auton w path.jerryio
     chassis.moveToPoint(0, 0, 500);
     chassis.moveToPoint(2.939, 65.648, 1000);
     intake.move_voltage(12000);
@@ -206,7 +207,7 @@ void autonomous() {
     chassis.moveToPoint(26.921, 14.837, 1000);
 
     }
-    if (strait::selector::auton == 8) { // skills auton with hang
+    if (selector::auton == 8) { // skills auton with hang
 
     slapper.move_voltage(12000);
     pros::delay(31000);
@@ -248,7 +249,7 @@ void autonomous() {
 
     }
 
-    if (strait::selector::auton == 9) { //auton wp tester
+    if (selector::auton == 9) { //auton wp tester
         chassis.moveToPoint(0, 0, 1500);
 
         // wingsPiston.set_value(true);
@@ -276,7 +277,7 @@ void autonomous() {
         intake.move(-127);
     }
 
-    if (strait::selector::auton == 10) { //PID tuner
+    if (selector::auton == 10) { //PID tuner
         chassis.moveToPoint(0, 0, 1000);
         // chassis.moveToPoint(0, 10, 1000);
 

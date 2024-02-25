@@ -16,6 +16,7 @@ void initialize() {
         while (true) {
             // printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
             // pros::delay(1000);
+
             if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
                 printf("chassis.moveToPoint(%f, %f, 1500, true, 127);\n", chassis.getPose().x, chassis.getPose().y);
                 //printf("chassis.moveToPose(%f, %f, %f, 1500);\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
