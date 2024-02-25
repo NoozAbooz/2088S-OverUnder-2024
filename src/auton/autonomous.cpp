@@ -50,21 +50,38 @@ void autonomous() {
         
     }
 
-    if(strait::selector::auton == 3){ //test
-        chassis.moveToPoint(0, 0, 1500);
-        chassis.moveToPoint(0.494, 71.252, 1500);
-        chassis.moveToPoint(32.388, 47.3, 1500, false);
-        chassis.moveToPoint(16.485, 59.503, 1500);
-        chassis.moveToPoint(31.934, 47.388, 1500);
-        chassis.moveToPoint(-12.234, 52.627, 1500);
-        chassis.moveToPoint(7.326, 15.998, 1500);
-        chassis.moveToPoint(-12.864, 10.392, 1500);
-        chassis.moveToPoint(-35.676, 25.812, 1500, false);
-        chassis.moveToPoint(-8.007, 4.841, 1500, false);
-        chassis.moveToPoint(17.381, 5.678, 1500, false);
-        chassis.moveToPoint(27.822, 19.286, 1500,false);
-        chassis.moveToPoint(12.612, 0.481, 1500);
-        chassis.moveToPoint(27.735, 18.832, 1500);
+    if(strait::selector::auton == 3){ //not rush six ball new
+        chassis.moveToPoint(0, 0, 1250);
+        chassis.moveToPoint(0, 6.511, 1250);
+        intake.move_voltage(12000);
+        pros::delay(10);
+        chassis.moveToPoint(-0.383, -30.639, 1250, false);
+         tailPiston.set_value(false);
+        pros::delay(10);
+        chassis.moveToPoint(15.511, -46.533, 1250, false, 40);
+        chassis.moveToPoint(32.746, -47.108, 1250, false, 127);
+        tailPiston.set_value(true);
+        pros::delay(10);
+        chassis.moveToPoint(14.937, -48.257, 1250);
+        chassis.moveToPoint(32.746, -48.831, 1250);
+        intake.move_voltage(0);
+        pros::delay(10);
+        chassis.moveToPoint(14.935, -48.427, 1250, false);
+        chassis.moveToPoint(33.703, 3.638, 1250);
+        intake.move_voltage(12000);
+        pros::delay(10);
+        chassis.moveToPoint(40.022, -11.873, 1250);
+        intake.move_voltage(-12000);
+        pros::delay(1000);
+        intake.move_voltage(12000);
+        pros::delay(10);
+        chassis.moveToPoint(58.98, 6.894, 1250);
+        wingsPiston.set_value(true);
+        pros::delay(10);
+        chassis.moveToPoint(58.789, -34.278, 1250);
+        chassis.moveToPoint(59.172, -20.298, 1250);
+        wingsPiston.set_value(false);
+        pros::delay(10);
 
     }
 
