@@ -81,14 +81,18 @@ void autonomous() {
         pros::delay(1000);
         wingsPiston.set_value(false);
 
-        chassis.turnTo(-100, 54, 1500);
-        chassis.moveToPoint(14, 53, 1500);
-
-        pros::delay(500);
-        intake.move(-127);
-
+        intake.move_voltage(-12000);
         pros::delay(2000);
-        intake.brake();
+        intake.move_voltage(0);
+
+        // chassis.turnTo(-100, 54, 1500);
+        // chassis.moveToPoint(14, 53, 1500);
+
+        // pros::delay(500);
+        // intake.move(-127);
+
+        // pros::delay(2000);
+        // intake.brake();
     }
 
     if (strait::selector::auton == 6) { //testing skills
