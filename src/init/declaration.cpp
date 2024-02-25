@@ -1,10 +1,6 @@
 #include "main.h"
-#include "pros/adi.hpp"
 
 /* Declare functional components */
-
-//-- Booleans //--
-bool cataLoaded = false;
 
 // Controller
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
@@ -27,8 +23,6 @@ pros::Motor slapper(3);
 pros::ADIDigitalOut wingsPiston('C');
 pros::ADIDigitalOut liftPiston('G');
 pros::ADIDigitalOut tailPiston('F', true);
-
-pros::ADIDigitalIn button('B');
 
 /* Declare sensors */
 // Inertial

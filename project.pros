@@ -4,6 +4,23 @@
         "project_name": "2088S V2",
         "target": "v5",
         "templates": {
+            "Graphy": {
+                "location": "C:\\Users\\Michael\\AppData\\Roaming\\PROS\\templates\\Graphy@1.2.0",
+                "metadata": {
+                    "origin": "local"
+                },
+                "name": "Graphy",
+                "py/object": "pros.conductor.templates.local_template.LocalTemplate",
+                "supported_kernels": "^3.8.0",
+                "system_files": [
+                    "include/Graphy/Grapher.hpp",
+                    "include/Graphy/TaskWrapper.hpp",
+                    "firmware/Graphy.a"
+                ],
+                "target": "v5",
+                "user_files": [],
+                "version": "1.2.0"
+            },
             "LemLib": {
                 "location": "C:\\Users\\Michael\\AppData\\Roaming\\PROS\\templates\\LemLib@0.5.0-rc5",
                 "metadata": {
