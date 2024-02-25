@@ -15,8 +15,6 @@ void refreshLift();
 
 // DT
 void arcadeDrive();
-double driveCurve(double input, double curve);
-void drivetrainMove(int voltage, int time);
 
 // Intake
 void refreshIntake();

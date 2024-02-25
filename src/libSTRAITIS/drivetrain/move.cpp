@@ -3,12 +3,12 @@
 namespace strait
 {
 	void moveRaw(int voltage, int time) {
-			leftDrive.move_voltage(voltage);
-			rightDrive.move_voltage(voltage);
+		leftDrive.move_voltage(voltage);
+		rightDrive.move_voltage(voltage);
 
-			pros::delay(time);
+		pros::delay(time);
 
-			leftDrive.move_voltage(0);
-			rightDrive.move_voltage(0);
-		}
+		leftDrive.move_voltage(0);
+		rightDrive.move_voltage(0);
+	}
 }
