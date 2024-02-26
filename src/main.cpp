@@ -21,7 +21,7 @@ void opcontrol() {
 		refreshWings();
 
 		// Report temperature telemetry (this line of code has never worked from the beginning)
-		controller.print(0, 0, "D%.0lf S%.0lf %d %.0lf,%.0lf", driveMotor.get_temperature(), slapper.get_temperature(), strait::selector::auton, chassis.getPose().x, chassis.getPose().y);
+		controller.print(0, 0, "D%.0lf S%.0lf %d %.0lf,%.0lf", driveMotor.get_temperature(), slapper.get_temperature(), strait::selector::auton, chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
 
 		pros::delay(10); // Delay to save resources on brain
 	}
