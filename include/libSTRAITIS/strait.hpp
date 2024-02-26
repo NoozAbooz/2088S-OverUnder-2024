@@ -9,3 +9,5 @@
 
 #include "drivetrain/move.hpp"
 #include "drivetrain/opcontrol.hpp"
+
+#include "libSTRAITIS/drivetrain/PID.hpp"

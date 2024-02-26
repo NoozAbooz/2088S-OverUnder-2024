@@ -49,6 +49,10 @@ void autonomous() {
         chassis.moveToPoint(28.537, -60, 1500, true);
         tailPiston.set_value(true);
         intake.move_voltage(0);
+
+        moveRaw(-12000, 1000);
+        moveRaw(12000, 1000);
+        moveRaw(-12000, 1000);
         
     }
 
@@ -89,29 +93,29 @@ void autonomous() {
 
     if (selector::auton == 4) { //disrupt elims
         chassis.moveToPoint(0, 0, 1500);
-        chassis.moveToPoint(0.503, 52.737, 1500); //move to field centre
+        chassis.moveToPoint(0.503, 53.737, 1500); //move to field centre
         pros::delay(1000);
-        chassis.turnTo(100, 52, 1500); //turnto other offensive zone
+        chassis.turnTo(100, 53, 1500); //turnto other offensive zone
 
         pros::delay(500);
         wingsPiston.set_value(true); //open wings
-        chassis.moveToPoint(24.392, 52.234, 1500); //move to barrier for plow
+        chassis.moveToPoint(28.392, 53.234, 1500); //move to barrier for plow
 
         pros::delay(1000);
         wingsPiston.set_value(false);
 
-        intake.move_voltage(-12000); //outtake into other offensive zone
-        pros::delay(2000); 
-        intake.move_voltage(0);
+        // intake.move_voltage(-12000); //outtake into other offensive zone
+        // pros::delay(2000); 
+        // intake.move_voltage(0);
 
-        // chassis.turnTo(-100, 54, 1500); // outtake into opponent goal
-        // chassis.moveToPoint(14, 53, 1500);
+        chassis.turnTo(-100, 54, 1500); // outtake into opponent goal
+        chassis.moveToPoint(14, 53, 1500);
 
-        // pros::delay(500);
-        // intake.move(-127);
+        pros::delay(500);
+        intake.move(-127);
 
-        // pros::delay(2000);
-        // intake.brake();
+        pros::delay(2000);
+        intake.brake();
     }
 
     if (selector::auton == 6) { 
@@ -272,7 +276,7 @@ void autonomous() {
         // strait::moveRaw(-12000, 10000);
 
         chassis.moveToPoint(8.811, -2.277, 1500);
-        chassis.moveToPoint(34.09, -3.026, 1500, true, 60);
+        chassis.moveToPoint(35.09, -3.026, 1500, true, 60);
 
         intake.move(-127);
     }
