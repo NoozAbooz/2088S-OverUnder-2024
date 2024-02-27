@@ -99,7 +99,7 @@ void autonomous() {
 
         pros::delay(500);
         wingsPiston.set_value(true); //open wings
-        chassis.moveToPoint(28.392, 53.234, 1500); //move to barrier for plow
+        chassis.moveToPoint(28.392, 53.734, 1500); //move to barrier for plow
 
         pros::delay(1000);
         wingsPiston.set_value(false);
@@ -109,7 +109,7 @@ void autonomous() {
         // intake.move_voltage(0);
 
         chassis.turnTo(-100, 54, 1500); // outtake into opponent goal
-        chassis.moveToPoint(14, 53, 1500);
+        chassis.moveToPoint(14, 54, 1500);
 
         pros::delay(500);
         intake.move(-127);
