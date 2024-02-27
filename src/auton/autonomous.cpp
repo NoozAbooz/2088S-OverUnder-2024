@@ -116,6 +116,9 @@ void autonomous() {
 
         pros::delay(2000);
         intake.brake();
+
+        chassis.turnTo(100, 54, 1500);
+        chassis.moveToPoint(-20, 54, 1500);
     }
 
     if (selector::auton == 6) { 
