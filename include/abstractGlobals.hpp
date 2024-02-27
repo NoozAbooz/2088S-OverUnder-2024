@@ -2,7 +2,7 @@
 
 // 3rd party libraries
 #include "lemlib/api.hpp"
-//#include "sylib/sylib.hpp"
+#include "sylib/sylib.hpp"
 #include "gif-pros/gifclass.hpp"
 #include "Graphy/Grapher.hpp"
 

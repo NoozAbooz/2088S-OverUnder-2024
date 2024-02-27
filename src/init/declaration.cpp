@@ -16,9 +16,6 @@ pros::Motor intake(-10);
 
 pros::Motor slapper(3);
 
-// LED
-//pros::ADILed bodyLED('B', 64);
-
 // Pneumatics
 pros::ADIDigitalOut wingsPiston('C');
 pros::ADIDigitalOut liftPiston('G');
