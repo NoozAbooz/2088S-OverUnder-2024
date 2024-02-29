@@ -9,8 +9,6 @@ pros::Controller controller(pros::E_CONTROLLER_MASTER);
 pros::MotorGroup leftDrive({-11, -13, -14});
 pros::MotorGroup rightDrive({6, 7, 8});
 
-pros::Motor driveMotor(8);
-
 // Intake
 pros::Motor intake(-10);
 
