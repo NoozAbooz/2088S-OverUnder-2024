@@ -57,7 +57,7 @@ double strait::LateralPID::compute_lateral_pid(double target, double maxSpeed, d
 		return power * (12000.0 / 127);
 
 		if (local_timer > (pid.timeOut * 100)) {
-			return;
+			// return;
 		}
 
 		local_timer++;

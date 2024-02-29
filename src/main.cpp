@@ -11,8 +11,8 @@
 void opcontrol() {
 	Gif gif("/usd/logo2.gif", lv_scr_act());
 
-	auto myLights = sylib::Addrled(22, 3, 64);
-	myLights.set_all(0xE62169);
+	// auto myLights = sylib::Addrled(22, 3, 64);
+	// myLights.set_all(0xE62169);
 
 	while (true) { // Main continuous loop
 		/* Drive */
