@@ -14,21 +14,26 @@ void initialize() {
         sylib::initialize();
         chassis.calibrate();
 
-        // while (true) {
-        //     // printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
-        //     // pros::delay(1000);
+        int timer = 0;
 
-        //     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
-        //         printf("chassis.moveToPoint(%f, %f, 1500, true, 127);\n", chassis.getPose().x, chassis.getPose().y);
-        //         //printf("chassis.moveToPose(%f, %f, %f, 1500);\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
-        //     }
-        //     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
-        //         printf("chassis.moveToPoint(%f, %f, 1500, false, 127);\n", chassis.getPose().x, chassis.getPose().y);
-        //         //printf("chassis.moveToPose(%f, %f, %f, 1500);\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
-        //     }
+        while (true) {
+            // printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+            // pros::delay(1000);
 
-        //     pros::delay(10);
-        // }
+            if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+                printf("chassis.moveToPoint(%f, %f, 1500, true, 127);\n", chassis.getPose().x, chassis.getPose().y);
+                //printf("chassis.moveToPose(%f, %f, %f, 1500);\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+            }
+            if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
+                printf("chassis.moveToPoint(%f, %f, 1500, false, 127);\n", chassis.getPose().x, chassis.getPose().y);
+                //printf("chassis.moveToPose(%f, %f, %f, 1500);\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+            }
+
+            printf("%d,%d\n", timer, inertial.get_accel());
+
+            timer++;
+            pros::delay(10);
+        }
     });
 }
 

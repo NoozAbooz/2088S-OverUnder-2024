@@ -25,7 +25,7 @@ void strait::LateralPID::set_lateral_constants(double kp, double ki, double kd, 
 	pid.timeOut = timeOut;
 }
 
-double strait::LateralPID::compute_lateral_pid(double target, double maxSpeed, double minSpeed) {
+void strait::LateralPID::compute_lateral_pid(double target, double maxSpeed, double minSpeed) {
 	double prevError = 0;
 	double integral = 0;
 	double derivative = 0;
@@ -54,10 +54,13 @@ double strait::LateralPID::compute_lateral_pid(double target, double maxSpeed, d
 			power = -minSpeed;
 		}
 
-		return power * (12000.0 / 127);
+		leftDrive.move_voltage(power * (12000.0 / 127));
+		rightDrive.move_voltage(power * (12000.0 / 127));
 
 		if (local_timer > (pid.timeOut * 100)) {
-			// return;
+			leftDrive.move_voltage(0);
+			rightDrive.move_voltage(0);
+			return;
 		}
 
 		local_timer++;

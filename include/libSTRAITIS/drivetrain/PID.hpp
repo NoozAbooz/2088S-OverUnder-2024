@@ -11,7 +11,7 @@ namespace strait {
 			double timeOut;
 
 			void set_lateral_constants(double kp, double ki, double kd, double timeOut);
-			double compute_lateral_pid(double target, double maxSpeed, double minSpeed);	
+			void compute_lateral_pid(double target, double maxSpeed, double minSpeed);	
 
 	};
 	extern strait::LateralPID pid;
