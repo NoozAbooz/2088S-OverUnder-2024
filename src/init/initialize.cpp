@@ -31,7 +31,7 @@ void initialize() {
 
             printf("%d,%d\n", timer, inertial.get_accel());
 
-            timer++;
+            timer += 10;
             pros::delay(10);
         }
     });
