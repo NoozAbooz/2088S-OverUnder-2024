@@ -16,7 +16,7 @@ pros::Motor slapper(3);
 
 // Pneumatics
 pros::ADIDigitalOut wingsPiston('C');
-pros::ADIDigitalOut liftPiston('G');
+pros::ADIDigitalOut liftPiston('D');
 pros::ADIDigitalOut tailPiston('F', true);
 
 /* Declare sensors */

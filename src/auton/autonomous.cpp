@@ -20,7 +20,7 @@
 /** THE GREAT AUTON INDEX  **/
 // 0: Do nothing
 // 6: Skills (run kicker only and simple movements to goal)
-
+// 3 new code
 // 5: Push 1 triball with back
 // 2: NORUSH 6-ball far side start with preload under alley
 // 7: RUSH 6-ball
@@ -58,36 +58,45 @@ void autonomous() {
 
     if(selector::auton == 3){ //not rush six ball new
         chassis.moveToPoint(0, 0, 1250);
-        chassis.moveToPoint(0, 6.511, 1250);
+        chassis.moveToPoint(0.413, 7.646, 1250);
         intake.move_voltage(12000);
         pros::delay(10);
-        chassis.moveToPoint(-0.383, -30.639, 1250, false);
-         tailPiston.set_value(false);
+        chassis.moveToPoint(1.033, -28.105, 1250, false);
+        chassis.moveToPoint(16.945, -43.603, 1250, false, 40);
+        tailPiston.set_value(false);
         pros::delay(10);
-        chassis.moveToPoint(15.511, -46.533, 1250, false, 40);
-        chassis.moveToPoint(32.746, -47.108, 1250, false, 127);
+        chassis.moveToPoint(28.891, -35.537, 1250, false);
         tailPiston.set_value(true);
         pros::delay(10);
-        chassis.moveToPoint(14.937, -48.257, 1250);
-        chassis.moveToPoint(32.746, -48.831, 1250);
+        chassis.moveToPoint(10.539, -42.983, 1250, false, 127);
+        chassis.setPose(10.5, -42.983, 270);
+        
+        chassis.moveToPoint(.924, -42.983, 1250);
+        chassis.turnTo(100, 100, 500);
         intake.move_voltage(0);
         pros::delay(10);
-        chassis.moveToPoint(14.935, -48.427, 1250, false);
-        chassis.moveToPoint(33.703, 3.638, 1250);
+        chassis.moveToPoint(.292, -45.67, 1250);
         intake.move_voltage(12000);
         pros::delay(10);
-        chassis.moveToPoint(40.022, -11.873, 1250);
-        intake.move_voltage(-12000);
-        pros::delay(1000);
+        chassis.moveToPoint(34.717, 9.093, 1250, true, 90);
+        chassis.moveToPoint(59.309, -5.373, 1250, true, 90);
+        chassis.turnTo(59.309, -1000, 500);
+        intake.move_voltage(0);
+        pros::delay(10);
+        chassis.moveToPoint(60.342, -29.138, 1250, true, 90);
+        chassis.setPose(60.342, -29.138, 180);
         intake.move_voltage(12000);
         pros::delay(10);
-        chassis.moveToPoint(58.98, 6.894, 1250);
+        chassis.moveToPoint(59.929, 12.399, 1250);
+        chassis.moveToPoint(59.929, 12.399, 250, false);
+        chassis.turnTo(59.309, -1000, 500);
         wingsPiston.set_value(true);
         pros::delay(10);
-        chassis.moveToPoint(58.789, -34.278, 1250);
-        chassis.moveToPoint(59.172, -20.298, 1250);
+        chassis.moveToPoint(60.135, -28.931, 1250);
+        chassis.moveToPoint(46.496, -10.952, 1250);
         wingsPiston.set_value(false);
         pros::delay(10);
+
 
     }
 
@@ -117,8 +126,8 @@ void autonomous() {
         pros::delay(2000);
         intake.brake();
 
-        chassis.turnTo(100, 54, 1500);
-        chassis.moveToPoint(-20, 54, 1500);
+        chassis.turnTo(100, 55, 1500);
+        chassis.moveToPoint(-20, 54, 1500, false);
     }
 
     if (selector::auton == 6) { 
@@ -265,10 +274,11 @@ void autonomous() {
 
         tailPiston.set_value(false);
         pros::delay(600);
-        chassis.turnTo(-10, 0, 1000, true, 127);
+        chassis.turnTo(-100, 0, 1000, true, 127);
         pros::delay(600);
         tailPiston.set_value(true); //descore turn -90deg
-        chassis.turnTo(0, -100, 1000, true, 80);
+        chassis.turnTo(10, -100, 1000, true, 100);
+        chassis.turnTo(100, -20, 1000, true, 100);
 
         //chassis.moveToPoint(0, 25.339, 1000, false);
 
@@ -278,7 +288,7 @@ void autonomous() {
         // tailPiston.set_value(false);
         // strait::moveRaw(-12000, 10000);
 
-        chassis.moveToPoint(8.811, -2.277, 1500);
+        chassis.moveToPoint(8.811, -5.277, 1500);
         chassis.moveToPoint(35.09, -3.026, 1500, true, 60);
 
         intake.move(-127);

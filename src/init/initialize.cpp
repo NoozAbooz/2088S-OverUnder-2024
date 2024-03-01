@@ -11,7 +11,6 @@ void initialize() {
     pros::delay(10);
     pros::Task telemetryTask([&]() {
         strait::selector::init();
-        sylib::initialize();
         chassis.calibrate();
 
         // while (true) {
