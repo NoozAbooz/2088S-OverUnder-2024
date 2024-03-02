@@ -28,7 +28,9 @@ void initialize() {
                 //printf("chassis.moveToPose(%f, %f, %f, 1500);\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
             }
 
-            printf("%d,%d\n", timer, inertial.get_accel());
+            pros::c::imu_accel_s_t accel = inertial.get_accel();
+            //printf("IMU accel values: {x: %f, y: %f, z: %f}\n", accel.x, accel.y, accel.z);
+            printf("%d,%f\n", timer, accel.y);
 
             timer += 10;
             pros::delay(10);

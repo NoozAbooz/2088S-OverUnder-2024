@@ -4,7 +4,7 @@ namespace strait
 {
 	namespace selector
 	{
-		int auton = 3;
+		int auton = 7;
 		void tabWatcher() {
 			while (1) {
 				if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {

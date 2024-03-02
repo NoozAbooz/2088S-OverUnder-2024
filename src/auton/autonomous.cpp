@@ -108,7 +108,7 @@ void autonomous() {
 
         pros::delay(500);
         wingsPiston.set_value(true); //open wings
-        chassis.moveToPoint(28.392, 53.734, 1500); //move to barrier for plow
+        chassis.moveToPoint(27.392, 53.734, 1500); //move to barrier for plow
 
         pros::delay(1000);
         wingsPiston.set_value(false);
@@ -117,8 +117,8 @@ void autonomous() {
         // pros::delay(2000); 
         // intake.move_voltage(0);
 
-        chassis.turnTo(-100, 54, 1500); // outtake into opponent goal
-        chassis.moveToPoint(14, 54, 1500);
+        chassis.turnTo(-100, 55, 1500); // outtake into opponent goal
+        chassis.moveToPoint(20, 54, 1500);
 
         pros::delay(500);
         intake.move(-127);
@@ -186,41 +186,13 @@ void autonomous() {
     }
 
     if (selector::auton == 7) { //rush auton w path.jerryio
-    chassis.moveToPoint(0, 0, 500);
-    chassis.moveToPoint(2.939, 65.648, 1000);
-    intake.move_voltage(12000);
-    chassis.moveToPoint(10.104, 64.967, 500);
-    chassis.moveToPoint(12.117, 44.228, 1000);
-    wingsPiston.set_value(true);
-    pros::delay(500);
-    intake.move_voltage(-12000);
-    chassis.moveToPoint(25.283, 53.319, 1000, false);
-    intake.move_voltage(0);
-    chassis.moveToPoint(39.287, 43.835, 1000);
-    wingsPiston.set_value(false);
-    pros::delay(500);
-    chassis.moveToPoint(12.591, 46.821, 1000, false);
-    chassis.moveToPoint(5.186, 66.097, 1000);
-    intake.move_voltage(12000);
-    chassis.moveToPoint(1.547, 30.263, 1000);
-    chassis.moveToPoint(1.857, 20.648, 1000);
-    intake.move_voltage(-12000);
-    pros::delay(500);
-    chassis.moveToPoint(-11.681, 4.812, 1000);
-    intake.move_voltage(0);
-    chassis.moveToPoint(-34.376, 23.855, 1000);
-    intake.move_voltage(12000);
-    chassis.moveToPoint(-6.293, -0.958, 1000, false);
-    tailPiston.set_value(false);
-    pros::delay(500);
-    chassis.moveToPoint(14.418, 1.126, 1000, false, 45);
-    tailPiston.set_value(true);
-    pros::delay(500);
-    chassis.moveToPoint(27.378, 12.706, 1000, false, 127);
-    chassis.moveToPoint(16.567, -0.179, 1000);
-    chassis.moveToPoint(26.921, 14.837, 1000, false);
-    chassis.moveToPoint(16.567, -0.179, 1000);
-    chassis.moveToPoint(26.921, 14.837, 1000);
+        chassis.moveToPoint(0, 0, 1500);
+chassis.moveToPoint(-14.466, -31.411, 1500,false);
+chassis.moveToPoint(-4.96, -15.292, 1500);
+
+
+chassis.turnTo(100, -50, 1500);
+
 
     }
     if (selector::auton == 8) { // skills auton with hang
@@ -288,18 +260,18 @@ void autonomous() {
         // tailPiston.set_value(false);
         // strait::moveRaw(-12000, 10000);
 
-        chassis.moveToPoint(8.811, -5.277, 1500);
-        chassis.moveToPoint(35.09, -3.026, 1500, true, 60);
+        chassis.moveToPoint(8.811, -8.277, 1500);
+        chassis.moveToPoint(36, -8.026, 1500, true, 60);
 
         intake.move(-127);
     }
 
     if (selector::auton == 10) { //PID tuner
         chassis.moveToPoint(0, 0, 1000);
-        // chassis.moveToPoint(0, 10, 1000);
+        // chassis.moveToPoint(0, 24, 1000);
 
         chassis.turnTo(1000000, 0, 10000);
-        // chassis.turnTo(0, -100, 1500);
-        // chassis.turnTo(0, 100, 1500);  
+        chassis.turnTo(0, -100, 1500);
+        chassis.turnTo(0, 100, 1500);  
     }
 }

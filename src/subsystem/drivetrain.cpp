@@ -2,7 +2,7 @@
 
 void arcadeDrive() {
 	int power = strait::driveCurve(controller.get_analog(ANALOG_LEFT_Y), 12);
- 	int turn = strait::driveCurve(controller.get_analog(ANALOG_RIGHT_X), 0.5);
+ 	int turn = strait::driveCurve(controller.get_analog(ANALOG_RIGHT_X), 1);
 
 	// move motors and convert from joystick to voltage for accuracy
 	leftDrive.move_voltage((power + turn) * (12000 / 127));

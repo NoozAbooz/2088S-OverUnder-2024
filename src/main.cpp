@@ -9,7 +9,7 @@
  * the task from where it left off.
  */
 void opcontrol() {
-	Gif gif("/usd/logo2.gif", lv_scr_act());
+	Gif gif("/usd/logo2-waves.gif", lv_scr_act());
 
 	while (true) { // Main continuous loop
 		/* Drive */
