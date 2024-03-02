@@ -12,6 +12,7 @@ void initialize() {
     pros::Task telemetryTask([&]() {
         strait::selector::init();
         chassis.calibrate();
+        slapper.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
         int timer = 0;
 
@@ -28,9 +29,8 @@ void initialize() {
                 //printf("chassis.moveToPose(%f, %f, %f, 1500);\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
             }
 
-            pros::c::imu_accel_s_t accel = inertial.get_accel();
-            //printf("IMU accel values: {x: %f, y: %f, z: %f}\n", accel.x, accel.y, accel.z);
-            printf("%d,%f\n", timer, accel.y);
+            //pros::c::imu_accel_s_t accel = inertial.get_accel();
+            //printf("%d,%f\n", timer, accel.y);
 
             timer += 10;
             pros::delay(10);

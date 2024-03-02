@@ -185,13 +185,16 @@ void autonomous() {
         strait::moveRaw(-12000, 2000);
     }
 
-    if (selector::auton == 7) { //rush auton w path.jerryio
+    if (selector::auton == 7) { //skills with push triball at beginning
         chassis.moveToPoint(0, 0, 1500);
 chassis.moveToPoint(-14.466, -31.411, 1500,false);
-chassis.moveToPoint(-4.96, -15.292, 1500);
+chassis.moveToPoint(-10.96, -16.292, 1500);
 
+chassis.turnTo(100, -60, 1500);
+tailPiston.set_value(false);
 
-chassis.turnTo(100, -50, 1500);
+// slapper.move_voltage(12000);
+pros::delay(40000);
 
 
     }
