@@ -71,9 +71,9 @@ void autonomous() {
         tailPiston.set_value(true);
         intake.move_voltage(0);
 
-        moveRaw(-12000, 1000);
-        moveRaw(12000, 1000);
-        moveRaw(-12000, 1000);
+        dt.moveRaw(-12000, 1000);
+        dt.moveRaw(12000, 1000);
+        dt.moveRaw(-12000, 1000);
         
     }
 
@@ -160,11 +160,11 @@ void autonomous() {
         chassis.moveToPoint(25.952, 54.853, 2000);
         chassis.moveToPoint(109.705, 56.622, 3000); //move to goal
     
-        strait::moveRaw(-12000, 1000); // push repeatedly
+        dt.moveRaw(-12000, 1000); // push repeatedly
         wingsPiston.set_value(true);
-        strait::moveRaw(12000, 1500);
-        strait::moveRaw(-12000, 1000);
-        strait::moveRaw(12000, 3000);
+        dt.moveRaw(12000, 1500);
+        dt.moveRaw(-12000, 1000);
+        dt.moveRaw(12000, 3000);
     }
 
     if(selector::auton == 11){ // skills
@@ -201,7 +201,7 @@ void autonomous() {
     }
 
     if (selector::auton == 5) { //one triball
-        strait::moveRaw(-12000, 2000);
+        dt.moveRaw(-12000, 2000);
     }
 
     if (selector::auton == 7) { //skills with push triball at beginning
@@ -282,7 +282,7 @@ pros::delay(45000);
         // chassis.moveToPoint(51.521, 10.238, 1500, false, 80);
         // pros::delay(2000);
         // tailPiston.set_value(false);
-        // strait::moveRaw(-12000, 10000);
+        // dt.moveRaw(-12000, 10000);
 
         chassis.moveToPoint(8.811, -8.277, 1500);
         chassis.moveToPoint(36, -8.026, 1500, true, 60);
@@ -292,10 +292,10 @@ pros::delay(45000);
 
     if (selector::auton == 10) { //PID tuner
         chassis.moveToPoint(0, 0, 1000);
-        // chassis.moveToPoint(0, 24, 1000);
+        chassis.moveToPoint(0, 48, 2000);
 
-        chassis.turnTo(1000000, 0, 10000);
-        chassis.turnTo(0, -100, 1500);
-        chassis.turnTo(0, 100, 1500);  
+        // chassis.turnTo(1000000, 0, 10000);
+        // chassis.turnTo(0, -100, 1500);
+        // chassis.turnTo(0, 100, 1500);  
     }
 }

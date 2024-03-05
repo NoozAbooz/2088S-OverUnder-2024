@@ -4,6 +4,7 @@
 #include "lemlib/api.hpp"
 #include "gif-pros/gifclass.hpp"
 #include "Graphy/Grapher.hpp"
+#include "okapi/api.hpp"
 
 /* Functions */
 // Slapper

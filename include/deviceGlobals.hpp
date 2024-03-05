@@ -1,4 +1,5 @@
 #pragma once
+#include "libSTRAITIS/drivetrain/chassis.hpp"
 #include "main.h"
 
 // Controller
@@ -7,9 +8,9 @@ extern pros::Controller controller;
 // Drivetrain
 extern pros::MotorGroup leftDrive;
 extern pros::MotorGroup rightDrive;
-extern pros::Motor driveMotor;
 
 extern lemlib::Chassis chassis;
+extern strait::chassisConstructor dt;
 
 // Intake
 extern pros::Motor intake;
