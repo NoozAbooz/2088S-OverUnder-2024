@@ -1,8 +1,8 @@
 #include "main.h"
 
-namespace strait
-{
-	void void straitmoveRaw(int voltage, int time) {
+using namespace strait;
+
+void strait::moveRaw(int voltage, int time) {
 		leftDrive.move_voltage(voltage);
 		rightDrive.move_voltage(voltage);
 
@@ -10,5 +10,4 @@ namespace strait
 
 		leftDrive.move_voltage(0);
 		rightDrive.move_voltage(0);
-	}
 }

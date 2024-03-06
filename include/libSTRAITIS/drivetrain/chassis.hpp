@@ -3,9 +3,5 @@
 
 namespace strait
 {
-	class chassisConstructor
-    {
-        public:
-            void moveRaw(int voltage, int time);
-    };
+	void moveRaw(int voltage, int time);
 }

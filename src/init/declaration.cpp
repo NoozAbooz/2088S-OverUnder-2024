@@ -22,6 +22,7 @@ pros::ADIDigitalOut tailPiston('F', true);
 /* Declare sensors */
 // Inertial
 pros::Imu inertial(21);
+pros::Imu inertial2(21);
 
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftDrive, // left motor group

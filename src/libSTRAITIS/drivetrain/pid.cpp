@@ -1,5 +1,4 @@
 #include "main.h"
-
 #include <iostream>
 
 double global_kp = 0;
@@ -54,8 +53,8 @@ void strait::LateralPID::compute_lateral_pid(double target, double maxSpeed, dou
 			power = -minSpeed;
 		}
 
-		leftDrive.move_voltage(power * (12000.0 / 127));
-		rightDrive.move_voltage(power * (12000.0 / 127));
+		leftDrive.move_voltage(toMilivolt(power));
+		rightDrive.move_voltage(toMilivolt(power));
 
 		if (local_timer > (pid.timeOut * 100)) {
 			leftDrive.move_voltage(0);
