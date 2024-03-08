@@ -1,5 +1,6 @@
 #include "abstractGlobals.hpp"
 #include "deviceGlobals.hpp"
+#include "libSTRAITIS/drivetrain/chassis.hpp"
 #include "main.h"
 #include "pros/rtos.hpp"
 
@@ -195,7 +196,8 @@ void autonomous() {
             break;
         case 10: // PID tuner
             chassis.moveToPoint(0, 0, 1000);
-            chassis.moveToPoint(0, 48, 2000);
+            chassis.moveToPoint(0, 96, 10000);
+            //strait::moveRaw(12000, 2000);
 
             // chassis.turnTo(1000000, 0, 10000);
             // chassis.turnTo(0, -100, 1500);

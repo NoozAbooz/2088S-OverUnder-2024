@@ -7,6 +7,7 @@ namespace strait
     {
         extern int auton;
         void init();
-        void writeOrReadIntToFile(int num);
+        void writeIntToFile(int num);
+        void readIntFromFile();
     }
 }

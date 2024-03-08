@@ -53,8 +53,8 @@ void strait::LateralPID::compute_lateral_pid(double target, double maxSpeed, dou
 			power = -minSpeed;
 		}
 
-		leftDrive.move_voltage(toMilivolt(power));
-		rightDrive.move_voltage(toMilivolt(power));
+		leftDrive.move_voltage(to_milivolt(power));
+		rightDrive.move_voltage(to_milivolt(power));
 
 		if (local_timer > (pid.timeOut * 100)) {
 			leftDrive.move_voltage(0);

@@ -12,7 +12,7 @@ namespace strait
 	    return std::accumulate(v.begin(), v.end(), 0.0) / v.size();
 	}
 
-	double medianFilter(std::deque<double>& buffer, double newVal, int windowSize) {
+	double median_filter(std::deque<double>& buffer, double newVal, int windowSize) {
     	buffer.push_back(newVal);
     	if (buffer.size() > windowSize) {
     	    buffer.pop_front();
@@ -71,7 +71,7 @@ namespace strait
 	  return(false);
 	}
 
-	float toMilivolt(float input){
+	float to_milivolt(float input){
 	  return(input * (12000.0/127.0));
 	}
 
