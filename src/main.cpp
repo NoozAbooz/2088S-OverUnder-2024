@@ -1,4 +1,5 @@
 #include "main.h"
+#include "pros/motors.h"
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -10,6 +11,7 @@
  */
 void opcontrol() {
 	Gif gif("/usd/logo2-waves.gif", lv_scr_act());
+	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_BRAKE);
 
 	while (true) { // Main continuous loop
 		/* Drive */

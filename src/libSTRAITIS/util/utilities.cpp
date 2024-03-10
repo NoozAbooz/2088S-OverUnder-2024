@@ -24,6 +24,43 @@ namespace strait
     	return data[windowSize / 2];
 	}
 
+	double tripleIMUHeading(double heading1, double heading2, double heading3, double threshold) {
+		// Run through median filter
+        int windowSize = 20;
+		std::deque<double> buffer1;
+		std::deque<double> buffer2;
+		std::deque<double> buffer3;
+
+		heading1 = strait::median_filter(buffer1, heading1, windowSize);
+		heading2 = strait::median_filter(buffer2, heading2, windowSize);
+		heading3 = strait::median_filter(buffer3, heading3, windowSize);
+
+	    // Calculate the absolute differences between the headings
+	    double diff12 = std::abs(heading1 - heading2);
+	    double diff23 = std::abs(heading2 - heading3);
+	    double diff13 = std::abs(heading1 - heading3);
+
+	    // Check if one of the sensors is drifting
+	    if (diff12 > threshold && diff13 > threshold) {
+	        // Sensor 1 is drifting, return mean of sensor 2 and 3
+	        return (heading2 + heading3) / 2.0;
+	    } else if (diff12 > threshold && diff23 > threshold) {
+	        // Sensor 2 is drifting, return mean of sensor 1 and 3
+	        return (heading1 + heading3) / 2.0;
+	    } else if (diff23 > threshold && diff13 > threshold) {
+	        // Sensor 3 is drifting, return mean of sensor 1 and 2
+	        return (heading1 + heading2) / 2.0;
+	    } else {
+	        // No sensor is drifting, return mean of all sensors 
+			// (or all of them are drifing and we just gotta pray 💀)
+	        return (heading1 + heading2 + heading3) / 3.0;
+	    }
+	}
+
+	bool isDriverControl() {
+    	return pros::competition::is_connected() && !pros::competition::is_autonomous() && !pros::competition::is_disabled();
+	}
+
 	double getMotorDistanceTraveled() { 
 		return (float(leftDrive.at(1).get_position()) * 2.75 * M_PI / 360); 
 	}

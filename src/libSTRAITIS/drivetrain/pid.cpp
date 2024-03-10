@@ -1,5 +1,4 @@
 #include "main.h"
-#include <iostream>
 
 double global_kp = 0;
 double global_ki = 0;
@@ -24,7 +23,7 @@ void strait::LateralPID::set_lateral_constants(double kp, double ki, double kd, 
 	pid.timeOut = timeOut;
 }
 
-void strait::LateralPID::compute_lateral_pid(double target, double maxSpeed, double minSpeed) {
+void strait::LateralPID::move_lateral_pid(double target, double maxSpeed, double minSpeed) {
 	double prevError = 0;
 	double integral = 0;
 	double derivative = 0;

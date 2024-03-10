@@ -12,6 +12,7 @@ void initialize() {
     pros::delay(10);
     pros::Task telemetryTask([&]() {
         strait::selector::init();
+        chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
         chassis.calibrate();
 
         int timer = 0;

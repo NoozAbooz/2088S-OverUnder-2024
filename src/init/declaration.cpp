@@ -1,4 +1,5 @@
 #include "main.h"
+#include "pros/motors.hpp"
 
 /* Declare functional components */
 
@@ -11,7 +12,6 @@ pros::MotorGroup rightDrive({6, 7, 8});
 
 // Intake
 pros::Motor intake(-10);
-
 pros::Motor slapper(3);
 
 // Pneumatics
@@ -20,9 +20,10 @@ pros::ADIDigitalOut liftPiston('D');
 pros::ADIDigitalOut tailPiston('F', true);
 
 /* Declare sensors */
-// Inertial
 pros::Imu inertial(21);
-pros::Imu inertial2(21);
+pros::Imu inertial2(20);
+pros::Rotation verticalEnc(15, true);
+lemlib::TrackingWheel vertical(&verticalEnc, lemlib::Omniwheel::NEW_275, -3.7);
 
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftDrive, // left motor group
@@ -32,7 +33,6 @@ lemlib::Drivetrain drivetrain(&leftDrive, // left motor group
                               450, // drivetrain rpm is 360
                               2 // chase power is 2. If we had traction wheels, it would have been 8
 );
-
 // lateral motion controller
 lemlib::ControllerSettings linearController(21, // proportional gain (kP)
                                             0, // integral gain (kI)
@@ -42,10 +42,9 @@ lemlib::ControllerSettings linearController(21, // proportional gain (kP)
                                             100, // small error range timeout, in milliseconds
                                             3, // large error range, in inches
                                             500, // large error range timeout, in milliseconds
-                                            18 // maximum acceleration (slew)
+                                            20 // maximum acceleration (slew)
 );
-
-// angular motion controllerW
+// angular motion controller
 lemlib::ControllerSettings angularController(5, // proportional gain (kP)
                                              0, // integral gain (kI)
                                              40, // derivative gain (kD)
@@ -56,7 +55,6 @@ lemlib::ControllerSettings angularController(5, // proportional gain (kP)
                                              500, // large error range timeout, in milliseconds
                                              0 // maximum acceleration (slew)
 );
-
 // sensors for odometry
 // note that in this example we use internal motor encoders, so we don't pass vertical tracking wheels
 lemlib::OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to nullptr as we don't have one
@@ -65,6 +63,5 @@ lemlib::OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to nullpt
                             nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
                             &inertial // inertial sensor
 );
-
 // create the chassis
 lemlib::Chassis chassis(drivetrain, linearController, angularController, sensors);
