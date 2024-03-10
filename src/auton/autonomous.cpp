@@ -16,8 +16,6 @@
  * from where it left off.
  */
 
-
-
 /** THE GREAT AUTON INDEX  **/
 // 0: Do nothing
 // 6: Skills (run kicker only and simple movements to goal)
@@ -33,6 +31,7 @@
 // 4: Elims disrupt
 
 using namespace strait;
+ASSET(bruh_txt);
 void autonomous() {
     chassis.setPose(0,0,0);
 
@@ -196,6 +195,7 @@ void autonomous() {
             break;
         case 10: // PID tuner
             chassis.moveToPoint(0, 0, 1000);
+            chassis.follow(bruh_txt, 15, 4000, false);
             chassis.moveToPoint(0, 96, 10000);
             //strait::moveRaw(12000, 2000);
 
