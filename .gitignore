@@ -8,16 +8,10 @@
 
 # PROS
 bin/
-.d/
-.cache/
-
 .vscode/
-
+.cache/
 compile_commands.json
 temp.log
 temp.errors
 *.ini
-
-docs/main.pdf
-docs/output/
-docs/output.zip
+.d/
