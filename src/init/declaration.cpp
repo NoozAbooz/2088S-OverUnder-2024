@@ -1,3 +1,4 @@
+#include "lemlib/chassis/trackingWheel.hpp"
 #include "main.h"
 #include "pros/motors.hpp"
 
@@ -31,9 +32,9 @@ lemlib::TrackingWheel vertical(&verticalEnc, lemlib::Omniwheel::NEW_275, -3.7);
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftDrive, // left motor group
                               &rightDrive, // right motor group
-                              13.5, // 10 inch track width
-                              lemlib::Omniwheel::OLD_275, // using new 3.25" omnis
-                              450, // drivetrain rpm is 360
+                              12.5, // 25 hole track width
+                              lemlib::Omniwheel::NEW_325,
+                              450, // drivetrain rpm
                               2 // chase power is 2. If we had traction wheels, it would have been 8
 );
 // lateral motion controller

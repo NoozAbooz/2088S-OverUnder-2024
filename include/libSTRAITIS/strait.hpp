@@ -8,6 +8,7 @@
 #include "util/selector.hpp"
 
 #include "drivetrain/chassis.hpp"
+#include "drivetrain/odom.hpp"
 #include "drivetrain/opcontrol.hpp"
 #include "drivetrain/PID.hpp"
 
