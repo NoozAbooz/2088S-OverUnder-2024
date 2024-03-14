@@ -1,5 +1,6 @@
 #pragma once
 #include "main.h"
+#include "pros/adi.hpp"
 
 // Controller
 extern pros::Controller controller;
@@ -21,7 +22,7 @@ extern pros::Imu inertial;
 extern pros::Imu inertial2;
 
 // LED
-extern pros::ADILed bodyLED;
+extern pros::ADILed light;
 extern pros::ADIPotentiometer potentiometer;
 
 extern pros::ADIDigitalOut wingsPiston;

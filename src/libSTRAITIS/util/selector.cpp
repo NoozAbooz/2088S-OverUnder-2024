@@ -52,17 +52,6 @@ namespace strait
     		    }
     		}
 		}
-
-		void readIntFromFile() {
-			FILE *load_file;
-			int num;
-
-			load_file = fopen("/usd/auton.txt", "r");
-			fscanf(load_file, "%d", &num); // Read an integer from the file
-			
-			//printf("%d\n", std::stof(auton)); // print the string read from the file
-			fclose(load_file); // always close files when you're done with them
-		}
 	}
 }
 

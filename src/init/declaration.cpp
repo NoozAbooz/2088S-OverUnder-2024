@@ -21,7 +21,7 @@ pros::ADIDigitalOut liftPiston('D');
 pros::ADIDigitalOut tailPiston('F', true);
 
 /* Declare sensors */
-pros::ADILed led('X', 64);
+pros::ADILed light('X', 64);
 pros::ADIPotentiometer potentiometer('X');
 
 pros::Imu inertial(21);
