@@ -61,10 +61,6 @@ namespace strait
     	return pros::competition::is_connected() && !pros::competition::is_autonomous() && !pros::competition::is_disabled();
 	}
 
-	double getMotorDistanceTraveled() { 
-		return (float(leftDrive.at(1).get_position()) * 2.75 * M_PI / 360); 
-	}
-
 	float reduce_0_to_360(float angle) {
 	  while(!(angle >= 0 && angle < 360)) {
 	    if( angle < 0 ) { angle += 360; }

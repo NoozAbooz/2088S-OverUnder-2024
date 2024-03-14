@@ -7,8 +7,6 @@ double global_timeOut = 0;
 
 using namespace strait;
 
-//strait::LateralPID pid;
-
 strait::LateralPID::LateralPID() {
 	pid.kp = global_kp;
 	pid.ki = global_ki;
@@ -34,7 +32,7 @@ void strait::LateralPID::move_lateral_pid(double target, double maxSpeed, double
 	double local_timer = 0;
 
 	while (true) {
-		double error = target - leftDrive.get_positions().at(0);
+		double error = target - ((leftDrive.get_positions().at(0) + rightDrive.get_positions().at(0)) / 2);
 		integral = (integral + error);
 		derivative = (error - prevError);
 
