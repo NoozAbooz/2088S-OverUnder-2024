@@ -1,4 +1,3 @@
-#include "deviceGlobals.hpp"
 #include "main.h"
 #include "selector.hpp"
 #include <cstdio>
