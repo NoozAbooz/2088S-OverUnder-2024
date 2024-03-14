@@ -121,7 +121,7 @@ namespace strait
     	    fade_width = 64;
     	}
     	for (int i = 0; i < fade_width; i++) {
-    	    buffer[start_pos + i] = interpolate_rgb(start_color, end_color, i, fade_width);
+    	    light[start_pos + i] = interpolate_rgb(start_color, end_color, i, fade_width);
     	}
 	}
 
