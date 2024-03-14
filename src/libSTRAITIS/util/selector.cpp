@@ -1,3 +1,4 @@
+#include "deviceGlobals.hpp"
 #include "main.h"
 #include "selector.hpp"
 #include <cstdio>
@@ -15,6 +16,10 @@ namespace strait
 			//readIntFromFile();
 
 			while (1) {
+				if(potentiometer.get_angle() > 15) {
+					auton = 1;
+				} else if (potentiometer.get_angle() > 30)
+
 				if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
 					auton = auton + 1;
 
