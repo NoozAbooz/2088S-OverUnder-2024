@@ -1,3 +1,4 @@
+#include "abstractGlobals.hpp"
 #include "main.h"
 
 #include <vector>
@@ -113,6 +114,34 @@ namespace strait
 	    return(0);
 	  }
 	  return(input);
+	}
+
+	void writeIntToFile(int num) {
+    	FILE *save_file;
+    	char buffer[51]; // 50 bytes for data, 1 byte for '\0'
+
+    	if (num != -1) { // If num is not -1, write it to the file
+    	    save_file = fopen("/usd/auton.txt", "w");
+    	    if (save_file != NULL) {
+    	        fprintf(save_file, "%d", num);
+    	        fclose(save_file);
+    	    } else {
+    	        printf("Error opening file for writing\n");
+    	    }
+    	}
+	}
+
+	void driveCurveTune() {
+		int rotCurve = 1;
+		while (true) {
+			if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
+				int rotCurve = rotCurve + 0.1;
+			} else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+				int rotCurve = rotCurve - 0.1;
+			}
+			printf("Rotational Curve: %d\n", rotCurve);
+			strait::arcadeDrive(12, rotCurve);
+		}
 	}
 }
 

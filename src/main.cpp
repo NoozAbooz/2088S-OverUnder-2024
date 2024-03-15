@@ -15,7 +15,7 @@ void opcontrol() {
 
 	while (true) { // Main continuous loop
 		/* Drive */
-		arcadeDrive();
+		strait::arcadeDrive(12, 1);
 
 		/* Subsystem Listeners */
 		refreshIntake();

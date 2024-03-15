@@ -4,4 +4,5 @@
 namespace strait
 {
 	double driveCurve(double input, double curve);
+	void arcadeDrive(int linCurve, int rotCurve);
 }
