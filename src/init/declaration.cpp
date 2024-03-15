@@ -18,11 +18,11 @@ pros::Motor slapper(3);
 // Pneumatics
 pros::ADIDigitalOut wingsPiston('C');
 pros::ADIDigitalOut liftPiston('D');
-pros::ADIDigitalOut tailPiston('F', true);
+pros::ADIDigitalOut tailPiston('E', true);
 
 /* Declare sensors */
 pros::ADILed light('X', 64);
-pros::ADIPotentiometer potentiometer('X');
+pros::ADIPotentiometer potentiometer('A');
 
 pros::Imu inertial(21);
 pros::Imu inertial2(20);

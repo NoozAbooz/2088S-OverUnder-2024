@@ -1,4 +1,5 @@
 #include "main.h"
+#include "pros/rtos.h"
 #include "selector.hpp"
 #include <cstdio>
 #include <stdio.h>
@@ -9,24 +10,18 @@ namespace strait
 {
 	namespace selector
 	{
-		int auton = 10;
-		
+		int auton;
 		void tabWatcher() {
 			//readIntFromFile();
 
-			while (1) {
-				if(potentiometer.get_angle() > 15) {
-					auton = 1;
-				} else if (potentiometer.get_angle() > 30)
+			while (true) {
+				auton = round(((4096.0 - potentiometer.get_value()) / 4096.0) * 10);
 
-				if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
-					auton = auton + 1;
-
-					if(auton > 10) {
-						auton = 0;
-					}
-
-					//writeIntToFile(auton);
+    			// Ensure auton is within the range 1-10
+    			if (auton < 1) {
+    			    auton = 1;
+    			} else if (auton > 10) {
+    			    auton = 10;
 				}
 
 				pros::delay(10);

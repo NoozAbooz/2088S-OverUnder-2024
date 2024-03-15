@@ -11,7 +11,7 @@
  */
 void opcontrol() {
 	Gif gif("/usd/logo2-waves.gif", lv_scr_act());
-	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_BRAKE);
+	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
 
 	while (true) { // Main continuous loop
 		/* Drive */

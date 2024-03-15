@@ -12,36 +12,36 @@ void initialize() {
     pros::delay(10);
     pros::Task telemetryTask([&]() {
         strait::selector::init();
-        chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-        chassis.calibrate();
+        // //chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+        // //chassis.calibrate();
 
-        int timer = 0;
-        std::deque<double> buffer;
-        int windowSize = 20; // Adjust this value as needed
-        FILE *save_file;
-        save_file = fopen("/usd/log.txt", "w");
+        // // int timer = 0;
+        // // std::deque<double> buffer;
+        // // int windowSize = 20; // Adjust this value as needed
+        // // FILE *save_file;
+        // // save_file = fopen("/usd/log.txt", "w");
 
-        while (true) {
-            //printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+        // while (true) {
+        //     //printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
 
-            if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
-                printf("chassis.moveToPoint(%f, %f, 1500, true, 127);\n", chassis.getPose().x, chassis.getPose().y);
-                //printf("chassis.moveToPose(%f, %f, %f, 1500);\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
-            }
+        //     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+        //         printf("chassis.moveToPoint(%f, %f, 1500, true, 127);\n", chassis.getPose().x, chassis.getPose().y);
+        //         //printf("chassis.moveToPose(%f, %f, %f, 1500);\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+        //     }
 
-            pros::c::imu_accel_s_t accel = inertial.get_accel();
-            double filteredAccelY = strait::median_filter(buffer, accel.y, windowSize);
-            printf("%d,%f,%f\n", timer, accel.y, chassis.getPose().y);
-            fprintf(save_file, "%d,%f,%f\n", timer, filteredAccelY, chassis.getPose().y);
+        //     // pros::c::imu_accel_s_t accel = inertial.get_accel();
+        //     // double filteredAccelY = strait::median_filter(buffer, accel.y, windowSize);
+        //     // printf("%d,%f,%f\n", timer, accel.y, chassis.getPose().y);
+        //     // fprintf(save_file, "%d,%f,%f\n", timer, filteredAccelY, chassis.getPose().y);
 
-            timer += 1;
-            pros::delay(1);
+        //     // timer += 1;
+        //     // pros::delay(1);
 
-            if (timer > 10000) {
-                fclose(save_file);
-                break;
-            }
-        }
+        //     // if (timer > 10000) {
+        //     //     fclose(save_file);
+        //     //     break;
+        //     // }
+        // }
     });
 }
 
