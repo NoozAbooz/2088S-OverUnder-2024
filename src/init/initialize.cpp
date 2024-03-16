@@ -11,6 +11,7 @@
 void initialize() {
     pros::delay(10);
     pros::Task telemetryTask([&]() {
+        static Gif gif("/usd/logo2-waves.gif", lv_scr_act());
         strait::selector::init();
         // //chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
         // //chassis.calibrate();
