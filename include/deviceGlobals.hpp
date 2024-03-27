@@ -22,7 +22,7 @@ extern pros::Imu inertial;
 extern pros::Imu inertial2;
 
 // LED
-extern pros::ADILed light;
+extern pros::ADILed lightStrip;
 extern pros::ADIPotentiometer potentiometer;
 
 extern pros::ADIDigitalOut wingsPiston;
