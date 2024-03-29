@@ -1,5 +1,4 @@
 #include "main.h"
-#include "pros/motors.h"
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -11,7 +10,11 @@
  */
 void opcontrol() {
 	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
+<<<<<<< HEAD
 	light.set_all(0x808080);
+=======
+	lightStrip.set_all(0xeb4034);
+>>>>>>> 93daa5807b7308fc6bc62102f3919a62b3c0d33f
 
 	while (true) { // Main continuous loop
 		/* Drive */

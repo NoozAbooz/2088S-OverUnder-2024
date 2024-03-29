@@ -24,13 +24,13 @@ pros::ADIDigitalOut tailPiston('E');
 pros::ADIDigitalOut ptoPiston('X');
 
 /* Declare sensors */
-pros::ADILed light('B', 64);
+pros::ADILed lightStrip('B', 64);
 pros::ADIPotentiometer potentiometer('A');
 
 pros::Imu inertial(2);
 pros::Imu inertial2(3);
-pros::Rotation verticalEnc(15, true);
-lemlib::TrackingWheel vertical(&verticalEnc, lemlib::Omniwheel::NEW_275, -3.7);
+// pros::Rotation verticalEnc(15, true);
+// lemlib::TrackingWheel vertical(&verticalEnc, lemlib::Omniwheel::NEW_275, -3.7);
 
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftDrive, // left motor group
