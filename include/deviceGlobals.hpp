@@ -25,6 +25,9 @@ extern pros::Imu inertial2;
 extern pros::ADILed light;
 extern pros::ADIPotentiometer potentiometer;
 
-extern pros::ADIDigitalOut wingsPiston;
+extern pros::ADIDigitalOut leftWingPiston;
+extern pros::ADIDigitalOut rightWingPiston;
+
 extern pros::ADIDigitalOut liftPiston;
 extern pros::ADIDigitalOut tailPiston;
+extern pros::ADIDigitalOut ptoPiston;

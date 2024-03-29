@@ -1,16 +1,20 @@
 #include "main.h"
 
 // Wings
-bool wingsToggle = false;
+bool leftWingToggle = false;
+bool rightWingToggle = false;
 bool tailToggle = true;
 
 // Refresh wing status
 void refreshWings() {
-    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
-    	wingsToggle = !wingsToggle; 
-		wingsPiston.set_value(wingsToggle);
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+    	leftWingToggle = !leftWingToggle; 
+		leftWingPiston.set_value(leftWingToggle);
+    }
 
-		printf("wingsPiston.set_value(%d);\n", !wingsToggle);
+	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
+    	rightWingToggle = !rightWingToggle; 
+		rightWingPiston.set_value(rightWingToggle);
     }
 
 	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
@@ -32,10 +36,11 @@ void refreshSlapper() {
 
 // Lift
 bool liftToggle = false;
+bool ptoToggle = false;
 
 // Refresh lift status
 void refreshLift() {
-    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
     	liftToggle = !liftToggle; 
 
 		if(liftToggle == true) {
@@ -44,4 +49,15 @@ void refreshLift() {
 			liftPiston.set_value(false);
 		}
     }
+
+	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+    	ptoToggle = !ptoToggle; 
+
+		if(ptoToggle == true) {
+			ptoPiston.set_value(true);
+		} else {
+			ptoPiston.set_value(false);
+		}
+    }
+
 }

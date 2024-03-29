@@ -11,6 +11,7 @@
  */
 void opcontrol() {
 	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
+	light.set_all(0x808080);
 
 	while (true) { // Main continuous loop
 		/* Drive */

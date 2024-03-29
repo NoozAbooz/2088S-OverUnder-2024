@@ -92,11 +92,11 @@ void autonomous() {
             pros::delay(10);
             chassis.moveToPoint(55.929,-1.399, 1250);
             chassis.moveToPoint(55.929, -10.399, 1000, {false});
-            wingsPiston.set_value(true);
+            leftWingPiston.set_value(true);
             pros::delay(10);
             chassis.moveToPoint(55.135, -40.931, 1200);
             chassis.moveToPoint(46.496, -10.952, 1250, {false});
-            wingsPiston.set_value(false);
+            leftWingPiston.set_value(false);
             pros::delay(10);
             break;
         case 4: // Elims disrupt
@@ -106,11 +106,11 @@ void autonomous() {
             chassis.turnToPoint(100, 53, 1500); //turnto other offensive zone
 
             pros::delay(500);
-            wingsPiston.set_value(true); //open wings
+            leftWingPiston.set_value(true); //open wings
             chassis.moveToPoint(27.392, 53.734, 1500); //move to barrier for plow
 
             pros::delay(1000);
-            wingsPiston.set_value(false);
+            leftWingPiston.set_value(false);
 
             // intake.move_voltage(-12000); //outtake into other offensive zone
             // pros::delay(2000); 
@@ -146,7 +146,7 @@ void autonomous() {
             chassis.moveToPoint(109.705, 56.622, 3000); //move to goal
 
             strait::moveRaw(-12000, 1000); // push repeatedly
-            wingsPiston.set_value(true);
+            leftWingPiston.set_value(true);
             strait::moveRaw(12000, 1500);
             strait::moveRaw(-12000, 1000);
             strait::moveRaw(12000, 3000);
@@ -167,9 +167,9 @@ void autonomous() {
         case 9: // AWP close side descore and touch bar
             chassis.moveToPoint(0, 0, 1500);
 
-            // wingsPiston.set_value(true);
+            // leftWingPiston.set_value(true);
             // pros::delay(600);
-            // wingsPiston.set_value(false); //open wings for triball
+            // leftWingPiston.set_value(false); //open wings for triball
 
             tailPiston.set_value(false);
             pros::delay(600);
