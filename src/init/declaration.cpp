@@ -1,6 +1,4 @@
-#include "lemlib/chassis/trackingWheel.hpp"
 #include "main.h"
-#include "pros/motors.hpp"
 
 /* Declare functional components */
 

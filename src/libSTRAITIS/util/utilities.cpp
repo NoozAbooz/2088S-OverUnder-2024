@@ -25,7 +25,8 @@ namespace strait
     	return data[windowSize / 2];
 	}
 
-	double tripleIMUHeading(double heading1, double heading2, double heading3, double threshold) {
+	// prolly dont use this 💀
+	double tripleIMUHeading(double heading1, double heading2, double heading3, double threshold) { 
 		// Run through median filter
         int windowSize = 20;
 		std::deque<double> buffer1;
@@ -86,11 +87,11 @@ namespace strait
 	  return(angle);
 	}
 
-	float toRad(float angle_deg){
+	double to_rad(double angle_deg){
 	  return(angle_deg/(180.0/M_PI));
 	}
 
-	float toDeg(float angle_rad){
+	double to_deg(float angle_rad){
 	  return(angle_rad*(180.0/M_PI));
 	}
 

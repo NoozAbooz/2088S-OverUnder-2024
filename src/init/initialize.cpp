@@ -1,6 +1,7 @@
 #include "deviceGlobals.hpp"
+#include "libSTRAITIS/drivetrain/chassis.hpp"
 #include "main.h"
-#include "pros/motors.h"
+#include "pros/rtos.hpp"
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -10,38 +11,39 @@
  */
 void initialize() {
     pros::delay(10);
-    pros::Task telemetryTask([&]() {
-        static Gif gif("/usd/logo2-waves.gif", lv_scr_act());
-        strait::selector::init();
-        // //chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-        // //chassis.calibrate();
 
-        // // int timer = 0;
-        // // std::deque<double> buffer;
-        // // int windowSize = 20; // Adjust this value as needed
-        // // FILE *save_file;
-        // // save_file = fopen("/usd/log.txt", "w");
+    static Gif gif("/usd/logo2-waves.gif", lv_scr_act());
+    strait::selector::init();
+
+    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+    leftDrive.set_encoder_units(pros::E_MOTOR_ENCODER_DEGREES);
+    rightDrive.set_encoder_units(pros::E_MOTOR_ENCODER_DEGREES);
+    strait::calibrateIMU();
+
+    pros::Task odomTask(strait::odomThread);
+
+    pros::Task telemetryTask([&]() {
+        // int timer = 0;
+        // std::deque<double> buffer;
+        // int windowSize = 20; // Adjust this value as needed
+        // FILE *save_file;
+        // save_file = fopen("/usd/log.txt", "w");
 
         // while (true) {
-        //     //printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+        //     printf("X: %f, Y: %f, Theta: %f\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
 
-        //     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
-        //         printf("chassis.moveToPoint(%f, %f, 1500, true, 127);\n", chassis.getPose().x, chassis.getPose().y);
-        //         //printf("chassis.moveToPose(%f, %f, %f, 1500);\n", chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+        //     pros::c::imu_accel_s_t accel = inertial.get_accel();
+        //     double filteredAccelY = strait::median_filter(buffer, accel.y, windowSize);
+        //     printf("%d,%f,%f\n", timer, accel.y, chassis.getPose().y);
+        //     fprintf(save_file, "%d,%f,%f\n", timer, filteredAccelY, chassis.getPose().y);
+
+        //     timer += 1;
+        //     pros::delay(1);
+
+        //     if (timer > 10000) {
+        //         fclose(save_file);
+        //         break;
         //     }
-
-        //     // pros::c::imu_accel_s_t accel = inertial.get_accel();
-        //     // double filteredAccelY = strait::median_filter(buffer, accel.y, windowSize);
-        //     // printf("%d,%f,%f\n", timer, accel.y, chassis.getPose().y);
-        //     // fprintf(save_file, "%d,%f,%f\n", timer, filteredAccelY, chassis.getPose().y);
-
-        //     // timer += 1;
-        //     // pros::delay(1);
-
-        //     // if (timer > 10000) {
-        //     //     fclose(save_file);
-        //     //     break;
-        //     // }
         // }
     });
 }
@@ -50,10 +52,8 @@ void initialize() {
  * Runs while the robot is in the disabled state of Field Management System or
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
- 
-
+ */
 void disabled() {
-    bodyLED.clear();
 }
 
 /**
@@ -66,7 +66,4 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-    //chassis.calibrate();
-    // Initialize the auton selector on brain LCD
-    //selectorInit();
 }

@@ -10,11 +10,6 @@
  */
 void opcontrol() {
 	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
-<<<<<<< HEAD
-	light.set_all(0x808080);
-=======
-	lightStrip.set_all(0xeb4034);
->>>>>>> 93daa5807b7308fc6bc62102f3919a62b3c0d33f
 
 	while (true) { // Main continuous loop
 		/* Drive */
@@ -26,7 +21,7 @@ void opcontrol() {
 		refreshSlapper();
 		refreshWings();
 
-		// Report temperature telemetry (this line of code has never worked from the beginning)
+		// Report temperature telemetry (this code has never worked since the beginning 😭)
 		double drivetrainTemps = strait::vector_average(leftDrive.get_temperatures());
 		controller.print(0, 0, "D%.0lf S%.0lf %d %.0lf,%.0lf", drivetrainTemps, slapper.get_temperature(), strait::selector::auton, chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
 

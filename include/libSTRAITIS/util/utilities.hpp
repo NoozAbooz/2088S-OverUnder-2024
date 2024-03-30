@@ -8,6 +8,9 @@ namespace strait
     float to_milivolt(float input);
     bool isDriverControl();
 
+    double to_rad(double angle_deg);
+    double to_deg(double angle_rad);
+
     namespace led
     {
         typedef struct {
