@@ -91,7 +91,7 @@ namespace strait
 	  return(angle_deg/(180.0/M_PI));
 	}
 
-	double to_deg(float angle_rad){
+	double to_deg(double angle_rad){
 	  return(angle_rad*(180.0/M_PI));
 	}
 
