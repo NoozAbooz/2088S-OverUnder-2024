@@ -64,6 +64,7 @@ void strait::odomThread() {
 
 		// print for debugging
 		printf("X: %f, Y: %f, Theta: %f\n", x, y, heading);
+		chassis.setPose(x, y, heading);
 
         pros::delay(10);
     }
