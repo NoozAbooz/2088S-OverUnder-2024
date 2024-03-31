@@ -17,8 +17,8 @@ pros::Motor slapper(3);
 pros::ADIDigitalOut leftWingPiston('X');
 pros::ADIDigitalOut rightWingPiston('X');
 
-pros::ADIDigitalOut liftPiston('D');
-pros::ADIDigitalOut tailPiston('E');
+pros::ADIDigitalOut liftPiston('B');
+pros::ADIDigitalOut tailPiston('C');
 pros::ADIDigitalOut ptoPiston('X');
 
 /* Declare sensors */

@@ -11,6 +11,8 @@ namespace strait
     double to_rad(double angle_deg);
     double to_deg(double angle_rad);
 
+    void tuneDriveCurve();
+
     namespace led
     {
         typedef struct {

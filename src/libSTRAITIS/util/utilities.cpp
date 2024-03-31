@@ -132,17 +132,16 @@ namespace strait
     	}
 	}
 
-	void driveCurveTune() {
+	void tuneDriveCurve() {
 		int rotCurve = 1;
-		while (true) {
-			if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
-				int rotCurve = rotCurve + 0.1;
-			} else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-				int rotCurve = rotCurve - 0.1;
-			}
-			printf("Rotational Curve: %d\n", rotCurve);
-			strait::arcadeDrive(12, rotCurve);
+		
+		if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
+			int rotCurve = rotCurve + 0.1;
+		} else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+			int rotCurve = rotCurve - 0.1;
 		}
+		printf("Rotational Curve: %d\n", rotCurve);
+		strait::arcadeDrive(12, rotCurve);
 	}
 }
 

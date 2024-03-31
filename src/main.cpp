@@ -1,4 +1,5 @@
 #include "main.h"
+#include "libSTRAITIS/util/utilities.hpp"
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -10,10 +11,19 @@
  */
 void opcontrol() {
 	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
+	int rotCurve = 1;
 
 	while (true) { // Main continuous loop
 		/* Drive */
-		strait::arcadeDrive(12, 1);
+		//strait::arcadeDrive(12, 1);
+		
+		if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
+			int rotCurve = rotCurve + 0.1;
+		} else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+			int rotCurve = rotCurve - 0.1;
+		}
+		//printf("Rotational Curve: %d\n", rotCurve);
+		strait::arcadeDrive(12, rotCurve);
 
 		/* Subsystem Listeners */
 		refreshIntake();
@@ -23,7 +33,7 @@ void opcontrol() {
 
 		// Report temperature telemetry (this code has never worked since the beginning 😭)
 		double drivetrainTemps = strait::vector_average(leftDrive.get_temperatures());
-		controller.print(0, 0, "D%.0lf S%.0lf %d %.0lf,%.0lf", drivetrainTemps, slapper.get_temperature(), strait::selector::auton, chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta);
+		controller.print(0, 0, "D%.0lf S%.0lf %d %.0lf,%.0lf,%f", drivetrainTemps, slapper.get_temperature(), strait::selector::auton, chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta, rotCurve);
 
 		pros::delay(10); // Delay to save resources on brain
 	}
