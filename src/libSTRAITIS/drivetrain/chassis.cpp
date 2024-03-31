@@ -1,3 +1,4 @@
+#include "deviceGlobals.hpp"
 #include "main.h"
 
 using namespace strait;
@@ -18,11 +19,17 @@ void strait::calibrateIMU() {
     // calibrate inertial, and if calibration fails, then repeat 5 times or until successful
     while (attempt <= 5 && !isDriverControl()) {
         inertial.reset();
+        inertial2.reset();
         // wait until IMU is calibrated
         do pros::delay(10);
         while (inertial.get_status() != 0xFF && inertial.is_calibrating() && !isDriverControl());
         // exit if imu has been calibrated
         if (!isnanf(inertial.get_heading()) && !isinf(inertial.get_heading())) {
+            calibrated = true;
+            break;
+        }
+        while (inertial2.get_status() != 0xFF && inertial2.is_calibrating() && !isDriverControl());
+        if (!isnanf(inertial2.get_heading()) && !isinf(inertial2.get_heading())) {
             calibrated = true;
             break;
         }
