@@ -15,22 +15,22 @@ double gyro_scale1 = 360.0;
 double gyro_scale2 = 360.0;
 
 constexpr double wheel_radius = (3.25 / 2.0);
-constexpr double gear_ratio = ((double)36/48);
-constexpr double track_width = 12.5;
+constexpr double gear_ratio = (36.0 / 48.0);
+constexpr double track_width = 11.5;
 
 double get_dt_distance_traveled() { 
 	constexpr double wheel_circumference = 2 * M_PI * wheel_radius;
-	double avg_position = (leftDrive.at(1).get_position() + rightDrive.at(1).get_position()) / 2;
+	double avg_position = (leftDrive.at(0).get_position() + rightDrive.at(0).get_position()) / 2;
 	return ((avg_position / 360) * wheel_circumference * gear_ratio);
 }
 
 double get_imu_heading() {
-	//double start_heading = 90;
-	double heading1 = inertial.get_heading();
-	double heading2 = inertial2.get_rotation();
+	double start_heading = 90;
+	double heading1 = std::fmod((360 - inertial.get_rotation()) + start_heading, 360);
+	double heading2 = std::fmod((360 - inertial.get_rotation()) + start_heading, 360);
 
 	// apply gyro offset and find average between two imus
-	return ((heading1 * (360.0 / gyro_scale1)) + (heading2 * (360.0 / gyro_scale2)) / 2);
+	return ((heading1 * (360.0 / gyro_scale1)) + (heading2 * (360.0 / gyro_scale2))) / 2;
 }
 
 double get_dt_heading() {
