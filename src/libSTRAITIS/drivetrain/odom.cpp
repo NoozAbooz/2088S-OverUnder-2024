@@ -37,8 +37,8 @@ double get_dt_heading() {
 	constexpr double wheel_circumference = 2 * M_PI * wheel_radius;
 	double start_heading = 90;
 
-	double left_distance = (leftDrive.at(1).get_position() / 360) * wheel_circumference * gear_ratio;
-	double right_distance = (rightDrive.at(1).get_position() / 360) * wheel_circumference * gear_ratio;
+	double left_distance = (leftDrive.at(0).get_position() / 360) * wheel_circumference * gear_ratio;
+	double right_distance = (rightDrive.at(0).get_position() / 360) * wheel_circumference * gear_ratio;
 
 	double heading_in_radians = (right_distance - left_distance) / track_width;
 	return std::fmod((360 - strait::to_deg(heading_in_radians)) + start_heading, 360);
