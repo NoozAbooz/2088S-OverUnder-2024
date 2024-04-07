@@ -41,7 +41,7 @@ double get_dt_heading() {
 	double right_distance = (rightDrive.at(0).get_position() / 360) * wheel_circumference * gear_ratio;
 
 	double heading_in_radians = (right_distance - left_distance) / track_width;
-	return std::fmod((360 - strait::to_deg(heading_in_radians)) + start_heading, 360);
+	return std::fmod((360 - (heading_in_radians * (180 / M_PI))) + start_heading, 360);
 }
 
 void strait::odomThread() {
