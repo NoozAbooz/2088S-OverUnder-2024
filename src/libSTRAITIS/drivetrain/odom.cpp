@@ -15,7 +15,7 @@ double gyro_scale1 = 357.91;
 double gyro_scale2 = 360.2;
 
 double wheel_diameter = 3.25;
-double gear_ratio = (36.0/48.0);
+double gear_ratio = (36.0 / 48.0);
 double track_width = 10.75;
 
 double get_imu_heading() {
@@ -51,7 +51,7 @@ void strait::odomThread() {
 	while (true) {
 		// Find average between dt and imu heading
 		// wrap to [0, 360)
-		heading = fmod(get_imu_heading() - 90, 360);
+		heading = fmod((360 - get_imu_heading()) + 90, 360);
 		while (heading < 0) {
     		heading += 360;
   		}
@@ -60,13 +60,11 @@ void strait::odomThread() {
   		}
 
 		theta = get_imu_heading();
-
 		distance_travelled = get_dt_distance_travelled();
-
         change_in_distance = distance_travelled - previous_distance_travelled;
         
 		// std trig functions are in radians, so we have intermediary conversion to radians
-        x -= change_in_distance * std::cos(to_rad(heading));
+        x += change_in_distance * std::cos(to_rad(heading));
         y += change_in_distance * std::sin(to_rad(heading));
 
         // At the end of the loop, set previous_distance_travelled for the next loop iteration
