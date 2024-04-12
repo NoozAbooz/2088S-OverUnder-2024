@@ -14,12 +14,12 @@ pros::Motor intake(-10);
 pros::Motor slapper(3);
 
 // Pneumatics
-pros::ADIDigitalOut leftWingPiston('X');
-pros::ADIDigitalOut rightWingPiston('X');
+pros::ADIDigitalOut leftWingPiston('E');
+pros::ADIDigitalOut rightWingPiston('G');
 
 pros::ADIDigitalOut liftPiston('B');
 pros::ADIDigitalOut tailPiston('C');
-pros::ADIDigitalOut ptoPiston('X');
+pros::ADIDigitalOut ptoPiston('D');
 
 /* Declare sensors */
 pros::ADILed lightStrip('B', 64);

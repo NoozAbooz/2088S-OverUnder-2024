@@ -1,3 +1,4 @@
+#include "deviceGlobals.hpp"
 #include "main.h"
 
 // Wings
@@ -42,22 +43,12 @@ bool ptoToggle = false;
 void refreshLift() {
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
     	liftToggle = !liftToggle; 
-
-		if(liftToggle == true) {
-			liftPiston.set_value(true);
-		} else {
-			liftPiston.set_value(false);
-		}
+		liftPiston.set_value(liftToggle);
     }
 
 	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
     	ptoToggle = !ptoToggle; 
-
-		if(ptoToggle == true) {
-			ptoPiston.set_value(true);
-		} else {
-			ptoPiston.set_value(false);
-		}
+		ptoPiston.set_value(ptoToggle);
     }
 
 }

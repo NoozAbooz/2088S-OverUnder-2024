@@ -20,9 +20,6 @@ void initialize() {
     rightDrive.set_encoder_units(pros::E_MOTOR_ENCODER_DEGREES);
 
     strait::calibrateIMU();
-    // inertial.reset(true);
-    // inertial2.reset(true);
-
     pros::Task odomTask(strait::odomThread);
 
     // pros::Task telemetryTask([&]() {

@@ -33,7 +33,7 @@ void opcontrol() {
 
 		// Report temperature telemetry (this code has never worked since the beginning 😭)
 		double drivetrainTemps = strait::vector_average(leftDrive.get_temperatures());
-		controller.print(0, 0, "D%.0lf S%.0lf %d %.0lf,%.0lf,%f", drivetrainTemps, slapper.get_temperature(), strait::selector::auton, chassis.getPose().x, chassis.getPose().y, chassis.getPose().theta, rotCurve);
+		controller.print(0, 0, "D%.0lf S%.0lf %d %.0lf,%.0lf", drivetrainTemps, slapper.get_temperature(), strait::selector::auton, chassis.getPose().theta, rotCurve);
 
 		pros::delay(10); // Delay to save resources on brain
 	}

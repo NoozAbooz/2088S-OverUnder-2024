@@ -18,8 +18,8 @@ void strait::calibrateIMU() {
     bool calibrated = false;
     // calibrate inertial, and if calibration fails, then repeat 5 times or until successful
     while (attempt <= 5 && !isDriverControl()) {
-        inertial.reset();
-        inertial2.reset();
+        inertial.reset(false);
+        inertial2.reset(false);
         // wait until IMU is calibrated
         do pros::delay(10);
         while (inertial.get_status() != 0xFF && inertial.is_calibrating() && !isDriverControl());
