@@ -56,9 +56,11 @@ void strait::odomThread() {
 		distance_travelled = get_dt_distance_travelled();
         delta_distance = distance_travelled - previous_distance_travelled;
         
-		// std trig functions are in radians, so we have intermediary conversion to radians
-        x += delta_distance * std::cos(to_rad(heading));
-        y +=delta_distance * std::sin(to_rad(heading));
+		if (inertial.get_accel().x > 0.1 || inertial.get_accel().y > 0.1) {
+			// std trig functions are in radians, so we have intermediary conversion to radians
+        	x += delta_distance * std::cos(to_rad(heading));
+        	y += delta_distance * std::sin(to_rad(heading));
+		}
 
         // At the end of the loop, set previous_distance_travelled for the next loop iteration
         previous_distance_travelled = distance_travelled;
