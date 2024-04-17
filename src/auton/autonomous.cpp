@@ -102,8 +102,9 @@ void autonomous() {
         case 9:
             break;
         case 10: // PID tuner
-            chassis.moveToPoint(0, 0, 1000);
-            chassis.moveToPoint(0, 96, 10000);
+            chassis.turnToHeading(90, 1000);
+            chassis.turnToHeading(270, 1000);
+            chassis.moveToPoint(0, 24, 10000);
             //strait::moveRaw(12000, 2000);
 
             // chassis.turnToHeading(90, 1000);

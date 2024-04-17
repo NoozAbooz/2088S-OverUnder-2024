@@ -12,14 +12,13 @@
 void initialize() {
     pros::delay(10);
 
-    static Gif gif("/usd/logo2-waves.gif", lv_scr_act());
+    static Gif gif("/usd/logo2.gif", lv_scr_act());
     strait::selector::init();
-
-    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-    leftDrive.set_encoder_units(pros::E_MOTOR_ENCODER_DEGREES);
-    rightDrive.set_encoder_units(pros::E_MOTOR_ENCODER_DEGREES);
-
-    strait::calibrateIMU();
+    
+    chassis.calibrate();
+    inertial.tare_rotation();
+    inertial2.tare_rotation();
+    //strait::calibrateIMU();
     pros::Task odomTask(strait::odomThread);
 
     // pros::Task telemetryTask([&]() {

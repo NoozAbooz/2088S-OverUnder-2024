@@ -1,5 +1,4 @@
 #include "main.h"
-#include "libSTRAITIS/util/utilities.hpp"
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -10,8 +9,8 @@
  * the task from where it left off.
  */
 void opcontrol() {
-	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
-	int rotCurve = 1;
+	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+	int rotCurve = 10;
 
 	while (true) { // Main continuous loop
 		/* Drive */
@@ -33,8 +32,8 @@ void opcontrol() {
 
 		// Report temperature telemetry (this code has never worked since the beginning 😭)
 		double drivetrainTemps = strait::vector_average(leftDrive.get_temperatures());
-		controller.print(0, 0, "D%.0lf S%.0lf %d %.0lf,%.0lf", drivetrainTemps, slapper.get_temperature(), strait::selector::auton, chassis.getPose().theta, rotCurve);
+		controller.print(0, 0, "D%.0lf S%.0lf %d %.0lf,%.0lf", drivetrainTemps, slapper.get_temperature(), strait::selector::auton, chassis.getPose().y, rotCurve);
 
-		pros::delay(10); // Delay to save resources on brain
+		pros::delay(100); // Delay to save resources on brain
 	}
 }

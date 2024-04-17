@@ -33,7 +33,7 @@ pros::Imu inertial2(3);
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftDrive, // left motor group
                               &rightDrive, // right motor group
-                              12.5, // 25 hole track width
+                              10.5, // 25 hole track width
                               lemlib::Omniwheel::NEW_325,
                               450, // drivetrain rpm
                               2 // chase power is 2. If we had traction wheels, it would have been 8
