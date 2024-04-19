@@ -1,7 +1,4 @@
-#include "deviceGlobals.hpp"
-#include "libSTRAITIS/drivetrain/chassis.hpp"
 #include "main.h"
-#include "pros/rtos.hpp"
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
