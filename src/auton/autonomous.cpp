@@ -1,8 +1,5 @@
-#include "abstractGlobals.hpp"
 #include "deviceGlobals.hpp"
-#include "libSTRAITIS/drivetrain/chassis.hpp"
 #include "main.h"
-#include "pros/rtos.hpp"
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -82,9 +79,87 @@ void autonomous() {
             chassis.moveToPoint(-26.426, 50.363, 5000);
             chassis.moveToPoint(12.639, 50.938, 5000);
             break;
-        case 5: 
+        case 5: // old awp
+            chassis.moveToPoint(0, 0, 1500);
+
+            intake.move_voltage(-10000);
+            pros::delay(200);
+            intake.move_voltage(0);
+
+            // leftWingPiston.set_value(true);
+            // pros::delay(600);
+            // leftWingPiston.set_value(false); //open wings for triball
+
+            tailPiston.set_value(true);
+            pros::delay(600);
+            chassis.turnToHeading(-90, 1000);
+            pros::delay(600);
+            tailPiston.set_value(false); //descore turn -90deg
+            chassis.turnToPoint(10, -100, 1000, {true, 110});
+            chassis.turnToPoint(100, -20, 1000, {true, 110});
+
+            //chassis.moveToPoint(0, 25.339, 1000, false);
+
+            // chassis.moveToPoint(8, 28.738, 1500, false, 80);
+            // chassis.moveToPoint(51.521, 10.238, 1500, false, 80);
+            // pros::delay(2000);
+            // tailPiston.set_value(false);
+            // strait::moveRaw(-12000, 10000);
+            leftWingPiston.set_value(true);
+            rightWingPiston.set_value(true);
+
+            chassis.moveToPoint(8.811, -8.277, 1500);
+            chassis.moveToPoint(38, -9.026, 1500, {true, 70});
+
+            intake.move(-127);
+
+            pros::delay(5000);
+            leftWingPiston.set_value(false);
+            rightWingPiston.set_value(false);
             break;
-        case 6: 
+        case 6: // provs 6ball
+            chassis.moveToPoint(0, 0, 1000);
+
+            intake.move_voltage(-10000);
+            pros::delay(200);
+            intake.move_voltage(0);
+
+            intake.move_voltage(12000);
+            pros::delay(10);
+            chassis.moveToPoint(0.413, 7.646, 1000);
+            chassis.moveToPoint(1.033, -28.105, 1000, {false});
+            chassis.moveToPoint(16.945, -43.603, 1150, {false, 40});
+            tailPiston.set_value(false);
+            pros::delay(10);
+            chassis.moveToPoint(28.891, -35.537, 1250, {false});
+            tailPiston.set_value(true);
+            pros::delay(10);
+            chassis.moveToPoint(34.539, -57.983, 1000, {false}, 127);    
+            chassis.moveToPoint(9.093, -46.083, 1000);
+            chassis.moveToPoint(36.511, -46.91, 1000);
+            pros::delay(100);
+            intake.move_voltage(-12000);
+            chassis.moveToPoint(.292, -45.67, 1050, {false});
+            intake.move_voltage(0);
+            pros::delay(10);
+            chassis.moveToPoint(31.717, -4.093, 1250, {true});
+            intake.move_voltage(12000);
+            pros::delay(500);
+            chassis.moveToPoint(55.309, -15.373, 1000, {true});
+            chassis.turnToPoint(55.309, -1000, 500);
+            intake.move_voltage(-12000);
+            pros::delay(10);
+            chassis.moveToPoint(55.342, -30.138, 1050, {true});
+            intake.move_voltage(12000);
+            pros::delay(10);
+            chassis.moveToPoint(55.929,-1.399, 1250);
+            chassis.moveToPoint(55.929, -10.399, 1000, {false});
+            leftWingPiston.set_value(true);
+            pros::delay(10);
+            chassis.moveToPoint(55.135, -40.931, 1200);
+            chassis.moveToPoint(46.496, -10.952, 1250, {false});
+            leftWingPiston.set_value(false);
+            pros::delay(10);
             break;
         case 7: // beta better skills push triball at beginning
             chassis.moveToPoint(0, 0, 1500);

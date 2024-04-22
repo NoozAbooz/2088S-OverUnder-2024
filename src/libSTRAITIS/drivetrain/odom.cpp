@@ -72,7 +72,7 @@ void strait::odomThread() {
 
 		// print for debugging
 		chassis.setPose(chassis.getPose().x, chassis.getPose().y, get_imu_rotation());
-		printf("X: %f, Y: %f, Theta: %f, %f\n", x, y, get_imu_rotation());
+		printf("X: %f, Y: %f, Theta: %f\n", x, y, get_imu_rotation());
 
         pros::delay(2); // todo
     }

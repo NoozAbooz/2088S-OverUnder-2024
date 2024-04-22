@@ -6,24 +6,23 @@
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-pros::MotorGroup leftDrive({-6, -16, -4});
-pros::MotorGroup rightDrive({7, 17, 14});
+pros::MotorGroup leftDrive({-13, -14, -15});
+pros::MotorGroup rightDrive({16, 17, 18});
 
 // Intake
-pros::Motor intake(-10);
+pros::Motor intake(10);
 pros::Motor slapper(3);
 
 // Pneumatics
-pros::ADIDigitalOut leftWingPiston('E');
-pros::ADIDigitalOut rightWingPiston('G');
+pros::ADIDigitalOut leftWingPiston('B');
+pros::ADIDigitalOut rightWingPiston('C');
 
-pros::ADIDigitalOut liftPiston('B');
-pros::ADIDigitalOut tailPiston('C');
-pros::ADIDigitalOut ptoPiston('D');
+pros::ADIDigitalOut liftPiston('E');
+pros::ADIDigitalOut tailPiston('D');
+pros::ADIDigitalOut ptoPiston('X');
 
 /* Declare sensors */
-pros::ADILed lightStrip('B', 64);
-pros::ADIPotentiometer potentiometer('A');
+pros::ADIPotentiometer potentiometer('G');
 
 pros::Imu inertial(2);
 pros::Imu inertial2(3);
