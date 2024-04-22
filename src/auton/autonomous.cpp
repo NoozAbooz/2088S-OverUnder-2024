@@ -68,7 +68,7 @@ void autonomous() {
             pros::delay(200);
             intake.move_voltage(0);
             chassis.moveToPoint(13.213, 39.065, 1250);
-            chassis.moveToPoint(-16, 56.363, 500, {false})
+            chassis.moveToPoint(-16, 56.363, 500, {false});
             chassis.moveToPoint(-26.426, 56.363, 1250);
             chassis.moveToPoint(12.639, 56.938, 1250);
             break;
