@@ -1,5 +1,6 @@
 #include "deviceGlobals.hpp"
 #include "main.h"
+#include "pros/adi.hpp"
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -37,20 +38,39 @@ void autonomous() {
         case 1: // Skills
             break;
         case 2: // far side rush 6-ball inception
-            chassis.moveToPoint(0, 0, 5000);
-            chassis.moveToPoint(-7.66, 46.342, 5000);
-            chassis.moveToPoint(6.511, -7.277, 5000);
-            chassis.moveToPoint(-25.469, -8.043, 5000);
-            chassis.moveToPoint(9.192, -6.128, 5000);
-            chassis.moveToPoint(26.618, 8.617, 5000);
-            chassis.moveToPoint(26.043, 24.894, 5000);
-            chassis.moveToPoint(25.277, 7.851, 5000);
-            chassis.moveToPoint(25.66, 24.703, 5000);
-            chassis.moveToPoint(19.341, 7.468, 5000);
-            chassis.moveToPoint(-25.086, 26.235, 5000);
-            chassis.moveToPoint(13.213, 39.065, 5000);
-            chassis.moveToPoint(-26.426, 50.363, 5000);
-            chassis.moveToPoint(12.639, 50.938, 5000);
+            chassis.moveToPoint(0, 0, 1250);
+            rightWingPiston.set_value(true);
+            pros::delay(400);
+            rightWingPiston.set_value(false);
+            chassis.moveToPoint(-7.66, 46.342, 1250);
+            intake.move_voltage(12000);
+            pros::delay(200);
+            intake.move_voltage(0);
+            chassis.moveToPoint(0, 0, 1250);
+            chassis.moveToPoint(7.511, -7.277, 1250);
+            intake.move_voltage(-12000);
+            pros::delay(800);
+            intake.move_voltage(12000);
+            chassis.moveToPoint(-25.469, -8.043, 1250);
+            chassis.moveToPoint(9.192, -6.128, 1250, {false, 127});
+            intake.move_voltage(0);
+            tailPiston.set_value(true);
+            chassis.moveToPoint(26.618, 8.617, 1250, {false, 127});
+            tailPiston.set_value(false);
+            chassis.moveToPoint(26.043, 24.894, 1250, {false, 127});
+            chassis.moveToPoint(23.277, 7.851, 1250);
+            rightWingPiston.set_value(true);    
+            chassis.moveToPoint(23.66, 24.703, 1250);
+            chassis.moveToPoint(19.341, 7.468, 1250);
+            rightWingPiston.set_value(false);
+            intake.move_voltage(12000);
+            chassis.moveToPoint(-25.086, 26.235, 1250);
+            pros::delay(200);
+            intake.move_voltage(0);
+            chassis.moveToPoint(13.213, 39.065, 1250);
+            chassis.moveToPoint(-16, 56.363, 500, {false})
+            chassis.moveToPoint(-26.426, 56.363, 1250);
+            chassis.moveToPoint(12.639, 56.938, 1250);
             break;
         case 3: // close side awp disrupt
             chassis.moveToPoint(0, 0, 1000);
@@ -64,20 +84,20 @@ void autonomous() {
             chassis.moveToPoint(-18.383, 0.957, 1000);
             break;
         case 4: // close side awp bowl
-            chassis.moveToPoint(0, 0, 5000);
-            chassis.moveToPoint(-7.66, 46.342, 5000);
-            chassis.moveToPoint(6.511, -7.277, 5000);
-            chassis.moveToPoint(-25.469, -8.043, 5000);
-            chassis.moveToPoint(9.192, -6.128, 5000);
-            chassis.moveToPoint(26.618, 8.617, 5000);
-            chassis.moveToPoint(26.043, 24.894, 5000);
-            chassis.moveToPoint(25.277, 7.851, 5000);
-            chassis.moveToPoint(25.66, 24.703, 5000);
-            chassis.moveToPoint(19.341, 7.468, 5000);
-            chassis.moveToPoint(-25.086, 26.235, 5000);
-            chassis.moveToPoint(13.213, 39.065, 5000);
-            chassis.moveToPoint(-26.426, 50.363, 5000);
-            chassis.moveToPoint(12.639, 50.938, 5000);
+            chassis.moveToPoint(0, 0, 1250);
+            chassis.moveToPoint(-7.66, 46.342, 1250);
+            chassis.moveToPoint(6.511, -7.277, 1250);
+            chassis.moveToPoint(-25.469, -8.043, 1250);
+            chassis.moveToPoint(9.192, -6.128, 1250);
+            chassis.moveToPoint(26.618, 8.617, 1250);
+            chassis.moveToPoint(26.043, 24.894, 1250);
+            chassis.moveToPoint(25.277, 7.851, 1250);
+            chassis.moveToPoint(25.66, 24.703, 1250);
+            chassis.moveToPoint(19.341, 7.468, 1250);
+            chassis.moveToPoint(-25.086, 26.235, 1250);
+            chassis.moveToPoint(13.213, 39.065, 1250);
+            chassis.moveToPoint(-26.426, 50.363, 1250);
+            chassis.moveToPoint(12.639, 50.938, 1250);
             break;
         case 5: // old awp
             chassis.moveToPoint(0, 0, 1500);
@@ -113,7 +133,7 @@ void autonomous() {
 
             intake.move(-127);
 
-            pros::delay(5000);
+            pros::delay(1250);
             leftWingPiston.set_value(false);
             rightWingPiston.set_value(false);
             break;
@@ -170,7 +190,7 @@ void autonomous() {
             tailPiston.set_value(false);
 
             slapper.move_voltage(12000);
-            pros::delay(45000);
+            pros::delay(41250);
             break;
         case 8:
             break;

@@ -9,7 +9,6 @@
  * the task from where it left off.
  */
 void opcontrol() {
-	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
 	int rotCurve = 10;
 
 	while (true) { // Main continuous loop
@@ -22,7 +21,7 @@ void opcontrol() {
 			int rotCurve =- 0.5;
 		}
 		//printf("Rotational Curve: %d\n", rotCurve);
-		strait::arcadeDrive(12, 2);
+		strait::arcadeDrive(12, 20);
 
 		/* Subsystem Listeners */
 		refreshIntake();
