@@ -9,19 +9,9 @@
  * the task from where it left off.
  */
 void opcontrol() {
-	int rotCurve = 10;
-
 	while (true) { // Main continuous loop
 		/* Drive */
-		//strait::arcadeDrive(12, 1);
-		
-		if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
-			int rotCurve =+ 0.5;
-		} else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-			int rotCurve =- 0.5;
-		}
-		//printf("Rotational Curve: %d\n", rotCurve);
-		strait::arcadeDrive(12, 20);
+		strait::arcadeDrive(12, 0, 0.5);
 
 		/* Subsystem Listeners */
 		refreshIntake();
@@ -31,7 +21,7 @@ void opcontrol() {
 
 		// Report temperature telemetry (this code has never worked since the beginning 😭)
 		double drivetrainTemps = strait::vector_average(leftDrive.get_temperatures());
-		controller.print(0, 0, "DT%.0lf %d %d", drivetrainTemps, strait::selector::auton, rotCurve);
+		controller.print(0, 0, "DT%.0lf %d %d", drivetrainTemps, strait::selector::auton);
 
 		pros::delay(100); // Delay to save resources on brain
 	}

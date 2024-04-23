@@ -141,7 +141,7 @@ namespace strait
 			int rotCurve = rotCurve - 0.1;
 		}
 		printf("Rotational Curve: %d\n", rotCurve);
-		strait::arcadeDrive(12, rotCurve);
+		strait::arcadeDrive(12, rotCurve, 1);
 	}
 }
 
