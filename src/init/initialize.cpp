@@ -12,10 +12,8 @@ void initialize() {
     static Gif gif("/usd/logo2.gif", lv_scr_act());
     strait::selector::init();
     
+    pros::Task bruh(strait::calibrateIMU);
     chassis.calibrate();
-    inertial.tare_rotation();
-    inertial2.tare_rotation();
-    //strait::calibrateIMU();
     pros::Task odomTask(strait::odomThread);
 
     // pros::Task telemetryTask([&]() {

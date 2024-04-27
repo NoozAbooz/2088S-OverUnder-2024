@@ -1,5 +1,6 @@
 #include "deviceGlobals.hpp"
 #include "main.h"
+#include "pros/rtos.hpp"
 
 // Wings
 bool leftWingToggle = false;
@@ -21,8 +22,6 @@ void refreshWings() {
 	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
     	tailToggle = !tailToggle;
 		tailPiston.set_value(tailToggle);
-
-		printf("tailPiston.set_value(%d);\n", tailToggle);
     }
 }
 
@@ -36,6 +35,14 @@ void refreshSlapper() {
 }
 
 // Lift
+void ezCTier() {
+	pros::delay(800);
+	if (inertial.get_roll() > 5){
+		tailPiston.set_value(true);
+		pros::delay(1000);
+		tailPiston.set_value(false);
+	}
+}
 bool liftToggle = false;
 
 // Refresh lift status
@@ -43,5 +50,9 @@ void refreshLift() {
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
     	liftToggle = !liftToggle; 
 		liftPiston.set_value(liftToggle);
+		
+		if(liftToggle == false){
+			pros::Task ezCTierTask(ezCTier);
+		}
     }
 }
