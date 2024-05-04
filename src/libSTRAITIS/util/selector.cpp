@@ -7,7 +7,7 @@ namespace strait
 		int auton;
 		void tabWatcher() {
 			while (true) {
-				auton = 6; // lock for elims
+				auton = round(((potentiometer.get_value()) / 4096.0) * 10);
 
     			// Ensure auton is within the range 1-10
     			if (auton < 1) {
