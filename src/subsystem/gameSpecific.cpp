@@ -1,6 +1,4 @@
-#include "deviceGlobals.hpp"
 #include "main.h"
-#include "pros/rtos.hpp"
 
 // Wings
 bool leftWingToggle = false;
