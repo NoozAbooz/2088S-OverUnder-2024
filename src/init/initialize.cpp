@@ -1,7 +1,4 @@
-#include "deviceGlobals.hpp"
-#include "libSTRAITIS/drivetrain/chassis.hpp"
 #include "main.h"
-#include "pros/rtos.hpp"
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -12,14 +9,11 @@
 void initialize() {
     pros::delay(10);
 
-    static Gif gif("/usd/logo2-waves.gif", lv_scr_act());
+    static Gif gif("/usd/logo2.gif", lv_scr_act());
     strait::selector::init();
-
-    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-    leftDrive.set_encoder_units(pros::E_MOTOR_ENCODER_DEGREES);
-    rightDrive.set_encoder_units(pros::E_MOTOR_ENCODER_DEGREES);
-
-    strait::calibrateIMU();
+    
+    pros::Task bruh(strait::calibrateIMU);
+    chassis.calibrate();
     pros::Task odomTask(strait::odomThread);
 
     // pros::Task telemetryTask([&]() {
