@@ -1,6 +1,5 @@
 #include "deviceGlobals.hpp"
 #include "main.h"
-#include "pros/adi.hpp"
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -35,59 +34,6 @@ void autonomous() {
     switch(selector::auton) {
         case 0: // Do nothing
             break;
-        case 1: // Skills
-            break;
-        case 2: // far side rush 6-ball inception
-            chassis.moveToPoint(0, 0, 1);
-            intake.move_voltage(12000);
-            pros::delay(100);
-            rightWingPiston.set_value(true);
-            pros::delay(100);
-            rightWingPiston.set_value(false);
-            chassis.moveToPoint(-7.66, 47.342, 1300);
-            pros::delay(200);
-            chassis.moveToPoint(0, -6, 1300, {false});
-            chassis.turnToHeading(90, 400);
-            intake.move_voltage(-12000);
-            pros::delay(500);
-            intake.move_voltage(12000);
-            chassis.turnToHeading(265, 400);
-            chassis.moveToPoint(-23.469, -6.043, 1100);
-            pros::delay(200);
-            chassis.moveToPoint(10.192, -7.128, 1000, {false, 127});
-            intake.move_voltage(0);
-            chassis.moveToPoint(22.618, 10.617, 750, {false, 127});
-            tailPiston.set_value(true);
-            chassis.moveToPoint(25.043, 21.894, 750, {false, 127});
-            tailPiston.set_value(false);
-            pros::delay(100);
-            chassis.moveToPoint(27.277, 10.851, 750); 
-            chassis.turnToHeading(0,400);
-            rightWingPiston.set_value(true);   
-            chassis.moveToPoint(29.66, 24.703, 750);
-            chassis.moveToPoint(29.341, 11.468, 1000, {false});
-            chassis.turnToHeading(310, 400);
-            rightWingPiston.set_value(false);
-            intake.move_voltage(12000);
-            pros::delay(100);
-            chassis.moveToPoint(-24.086, 28.235, 1000);
-            chassis.turnToHeading(70, 400);
-            chassis.moveToPoint(-11.213, 45.065, 1000);
-            intake.move_voltage(-12000);
-            pros::delay(500);
-            intake.move_voltage(12000);
-            pros::delay(100);
-            chassis.turnToHeading(270, 400);
-            chassis.moveToPoint(-40.426, 54.363, 1500);
-            pros::delay(200);
-            chassis.turnToHeading(90, 400);
-            leftWingPiston.set_value(true);
-            rightWingPiston.set_value(true);
-            chassis.moveToPoint(15.639, 52.938, 1000);
-            chassis.moveToPoint(0.639, 52.938, 450, {false});
-            leftWingPiston.set_value(false);
-            rightWingPiston.set_value(false);
-            break;
         case 3: // close side awp disrupt
             chassis.moveToPoint(0, 0, 1);
             intake.move_voltage(12000);
@@ -101,128 +47,95 @@ void autonomous() {
 
             chassis.turnToHeading(150, 1000);
 
-            chassis.moveToPoint(-26, 30, 1500, {false, 127, 127}); // jam it in 😏
-            chassis.moveToPoint(-28, 22, 1500);
-            chassis.moveToPoint(-20, 30, 1500, {false, 127, 127});
-            chassis.setPose(0, 0, 0); // positon reset cuz aughhhhhhh
+            intake.move_voltage(-12000);
+            pros::delay(1000);
+            chassis.turnToHeading(180, 800);
+            chassis.moveToPoint(-28, 30, 1000, {false, 80, 127}); // jam it in 😏
+            chassis.moveToPoint(-28, 34, 1000, {true, 80, 127});
+            chassis.moveToPoint(-28, 40, 800, {false, 80, 127});
+            
+            chassis.setPose(0, 0, 0); //reset
+            chassis.moveToPoint(0, 0, 1500);
+chassis.moveToPoint(-3.091, 12.126, 1500);
+chassis.moveToPoint(-13.553, 25.203, 1500);
 
-            chassis.moveToPoint(-10, 18, 1500);
-            tailPiston.set_value(true);
 
             
-
-
-            break;
-        case 4: // close side awp bowl
-            chassis.moveToPoint(0, 0, 1250);
-            chassis.moveToPoint(-7.66, 46.342, 1250);
-            chassis.moveToPoint(6.511, -7.277, 1250);
-            chassis.moveToPoint(-25.469, -8.043, 1250);
-            chassis.moveToPoint(9.192, -6.128, 1250);
-            chassis.moveToPoint(26.618, 8.617, 1250);
-            chassis.moveToPoint(26.043, 24.894, 1250);
-            chassis.moveToPoint(25.277, 7.851, 1250);
-            chassis.moveToPoint(25.66, 24.703, 1250);
-            chassis.moveToPoint(19.341, 7.468, 1250);
-            chassis.moveToPoint(-25.086, 26.235, 1250);
-            chassis.moveToPoint(13.213, 39.065, 1250);
-            chassis.moveToPoint(-26.426, 50.363, 1250);
-            chassis.moveToPoint(12.639, 50.938, 1250);
             break;
         case 5: // old awp
             chassis.moveToPoint(0, 0, 1500);
-
-            intake.move_voltage(-10000);
-            pros::delay(200);
-            intake.move_voltage(0);
-
-            // leftWingPiston.set_value(true);
-            // pros::delay(600);
-            // leftWingPiston.set_value(false); //open wings for triball
 
             tailPiston.set_value(true);
             pros::delay(600);
             chassis.turnToHeading(-90, 1000);
             pros::delay(600);
             tailPiston.set_value(false); //descore turn -90deg
-            chassis.turnToPoint(10, -100, 1000, {true, 110});
-            chassis.turnToPoint(100, -20, 1000, {true, 110});
 
-            //chassis.moveToPoint(0, 25.339, 1000, false);
-
-            // chassis.moveToPoint(8, 28.738, 1500, false, 80);
-            // chassis.moveToPoint(51.521, 10.238, 1500, false, 80);
-            // pros::delay(2000);
-            // tailPiston.set_value(false);
-            // strait::moveRaw(-12000, 10000);
-            leftWingPiston.set_value(true);
-            rightWingPiston.set_value(true);
-
-            chassis.moveToPoint(8.811, -8.277, 1500);
-            chassis.moveToPoint(38, -9.026, 1500, {true, 70});
-
+            chassis.moveToPoint(4.811, -10.277, 1500);
             intake.move(-127);
+            chassis.moveToPoint(41, -10.026, 1500, {true, 60});
+            chassis.turnToHeading(90, 1000);
 
             pros::delay(1250);
             leftWingPiston.set_value(false);
-            rightWingPiston.set_value(false);
             break;
-        case 6: // provs 6ball
-            chassis.moveToPoint(0, 0, 1000);
-
-            intake.move_voltage(-10000);
-            pros::delay(200);
-            intake.move_voltage(0);
-
+                
+        case 6: //pathing
+            chassis.moveToPoint(0, 0, 1500);
             intake.move_voltage(12000);
-            pros::delay(10);
-            chassis.moveToPoint(0.413, 7.646, 1000);
-            chassis.moveToPoint(1.033, -28.105, 1000, {false});
-            chassis.moveToPoint(16.945, -43.603, 1150, {false, 40});
-            tailPiston.set_value(false);
-            pros::delay(10);
-            chassis.moveToPoint(28.891, -35.537, 1250, {false});
-            tailPiston.set_value(true);
-            pros::delay(10);
-            chassis.moveToPoint(34.539, -57.983, 1000, {false}, 127);    
-            chassis.moveToPoint(9.093, -46.083, 1000);
-            chassis.moveToPoint(36.511, -46.91, 1000);
+            rightWingPiston.set_value(true);
+            pros::delay(150);
+            rightWingPiston.set_value(false);
+            chassis.moveToPoint(-10.021, 50.659, 1300);
+            chassis.moveToPoint(0.278, -4.34, 1300, {false});
+            chassis.turnToHeading(90, 600);
             pros::delay(100);
             intake.move_voltage(-12000);
-            chassis.moveToPoint(.292, -45.67, 1050, {false});
-            intake.move_voltage(0);
-            pros::delay(10);
-            chassis.moveToPoint(31.717, -4.093, 1250, {true});
-            intake.move_voltage(12000);
             pros::delay(500);
-            chassis.moveToPoint(55.309, -15.373, 1000, {true});
-            chassis.turnToPoint(55.309, -1000, 500);
-            intake.move_voltage(-12000);
-            pros::delay(10);
-            chassis.moveToPoint(55.342, -30.138, 1050, {true});
+            chassis.turnToHeading(270, 500);
             intake.move_voltage(12000);
-            pros::delay(10);
-            chassis.moveToPoint(55.929,-1.399, 1250);
-            chassis.moveToPoint(55.929, -10.399, 1000, {false});
+            chassis.moveToPoint(-31.67, -3.619, 1100);
+            chassis.moveToPoint(-1.68, -5.289, 800, {false});
+            chassis.moveToPoint(15.773, 11.134, 800, {false});
+            tailPiston.set_value(true);
+            pros::delay(500);
+            tailPiston.set_value(false);
+            chassis.moveToPoint(15.773, 29.227, 600, {false});
+            intake.move_voltage(0);
+            chassis.moveToPoint(16.946, 16.794, 800);
+            rightWingPiston.set_value(true);
+            chassis.turnToHeading(0, 400);
+            pros::delay(200);
+            intake.move_voltage(-12000);
+            chassis.moveToPoint(21.546, 34.505, 1000);
+            chassis.moveToPoint(16.701, 12.299, 800, {false});
+            rightWingPiston.set_value(false);
+            chassis.turnToHeading(310, 400);
+            intake.move_voltage(12000);
+            chassis.moveToPoint(-32.505, 30.618, 900);
+            chassis.moveToPoint(-12.526, 52, 900);
+            chassis.turnToHeading(90, 400);
+            intake.move_voltage(-12000);
+            pros::delay(500);
+            intake.move_voltage(12000);
+            chassis.turnToHeading(270, 400);
+            chassis.moveToPoint(-29.783, 55.443, 1300);
+            rightWingPiston.set_value(true);
             leftWingPiston.set_value(true);
-            pros::delay(10);
-            chassis.moveToPoint(55.135, -40.931, 1200);
-            chassis.moveToPoint(46.496, -10.952, 1250, {false});
-            leftWingPiston.set_value(false);
-            pros::delay(10);
+            chassis.turnToHeading(90, 500);
+            chassis.moveToPoint(11.412, 55.443, 1000);
             break;
-        case 7: // beta better skills push triball at beginning
+        case 4: // beta skills // beta better skills push triball at beginning
             chassis.moveToPoint(0, 0, 1500);
             chassis.moveToPoint(-14.466, -31.411, 1500, {false});
             chassis.moveToPoint(-11.96, -16.292, 1500);
-
+            intake.move_voltage(-12000);
             chassis.turnToHeading(110, 1500);
+            tailPiston.set_value(true);
+
+            pros::delay(50000);
             tailPiston.set_value(false);
 
-            slapper.move_voltage(12000);
-            pros::delay(41250);
-            break;
-        case 8:
             break;
         case 9: // PID tuner
             chassis.turnToHeading(90, 1000);
@@ -232,5 +145,6 @@ void autonomous() {
 
             // chassis.turnToHeading(90, 1000);
             break;
+
     }
 }

@@ -1,5 +1,6 @@
 #include "deviceGlobals.hpp"
 #include "main.h"
+#include "pros/misc.h"
 #include "pros/rtos.hpp"
 
 // Wings
@@ -9,12 +10,12 @@ bool tailToggle = true;
 
 // Refresh wing status
 void refreshWings() {
-    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
     	leftWingToggle = !leftWingToggle; 
 		leftWingPiston.set_value(leftWingToggle);
     }
 
-	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
+	if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
     	rightWingToggle = !rightWingToggle; 
 		rightWingPiston.set_value(rightWingToggle);
     }
@@ -35,24 +36,23 @@ void refreshSlapper() {
 }
 
 // Lift
-void ezCTier() {
-	pros::delay(800);
-	if (inertial.get_roll() > 5){
-		tailPiston.set_value(true);
-		pros::delay(1000);
-		tailPiston.set_value(false);
-	}
-}
+// void ezCTier() {
+// 	pros::delay(800);
+// 	while(inertial.get_roll() > 5){
+// 		tailPiston.set_value(true);
+// 	}
+// 	tailPiston.set_value(false);
+// }
 bool liftToggle = false;
 
 // Refresh lift status
 void refreshLift() {
-    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
     	liftToggle = !liftToggle; 
 		liftPiston.set_value(liftToggle);
 		
-		if(liftToggle == false){
-			pros::Task ezCTierTask(ezCTier);
-		}
+		// if(liftToggle == false){
+		// 	tailPiston.set_value(false);
+		// }
     }
 }
