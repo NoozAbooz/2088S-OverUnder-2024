@@ -6,26 +6,27 @@
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
-pros::MotorGroup leftDrive({-13, -14, -15});
-pros::MotorGroup rightDrive({16, 17, 18});
+pros::MotorGroup leftDrive({-11, -12, -13});
+pros::MotorGroup rightDrive({3, 4, 5});
 
 // Intake
-pros::Motor intake(10);
+pros::Motor intake(18);
+pros::Motor intake2(-7);
 pros::Motor slapper(3);
 
 // Pneumatics
-pros::ADIDigitalOut leftWingPiston('B');
-pros::ADIDigitalOut rightWingPiston('C');
+pros::ADIDigitalOut leftWingPiston('C');
+pros::ADIDigitalOut rightWingPiston('D');
 
-pros::ADIDigitalOut liftPiston('E');
-pros::ADIDigitalOut tailPiston('D');
+pros::ADIDigitalOut liftPiston('A');
+pros::ADIDigitalOut tailPiston('B');
 pros::ADIDigitalOut ptoPiston('X');
 
 /* Declare sensors */
 pros::ADIPotentiometer potentiometer('G');
 
-pros::Imu inertial(2);
-pros::Imu inertial2(3);
+pros::Imu inertial(10);
+pros::Imu inertial2(9);
 // pros::Rotation verticalEnc(15, true);
 // lemlib::TrackingWheel vertical(&verticalEnc, lemlib::Omniwheel::NEW_275, -3.7);
 

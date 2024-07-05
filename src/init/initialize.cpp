@@ -12,9 +12,9 @@ void initialize() {
     static Gif gif("/usd/logo2.gif", lv_scr_act());
     strait::selector::init();
     
-    pros::Task bruh(strait::calibrateIMU);
+    //pros::Task bruh(strait::calibrateIMU);
     chassis.calibrate();
-    pros::Task odomTask(strait::odomThread);
+    //pros::Task odomTask(strait::odomThread);
 
     // pros::Task telemetryTask([&]() {
         // int timer = 0;

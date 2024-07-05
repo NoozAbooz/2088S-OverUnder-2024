@@ -56,31 +56,12 @@ void autonomous() {
             
             chassis.setPose(0, 0, 0); //reset
             chassis.moveToPoint(0, 0, 1500);
-chassis.moveToPoint(-3.091, 12.126, 1500);
-chassis.moveToPoint(-13.553, 25.203, 1500);
-
-
+            chassis.moveToPoint(-3.091, 12.126, 1500);
+            chassis.moveToPoint(-13.553, 25.203, 1500);
             
             break;
-        case 5: // old awp
-            chassis.moveToPoint(0, 0, 1500);
-
-            tailPiston.set_value(true);
-            pros::delay(600);
-            chassis.turnToHeading(-90, 1000);
-            pros::delay(600);
-            tailPiston.set_value(false); //descore turn -90deg
-
-            chassis.moveToPoint(4.811, -10.277, 1500);
-            intake.move(-127);
-            chassis.moveToPoint(41, -10.026, 1500, {true, 60});
-            chassis.turnToHeading(90, 1000);
-
-            pros::delay(1250);
-            leftWingPiston.set_value(false);
-            break;
                 
-        case 6: //pathing
+        case 6: //6 ball
             chassis.moveToPoint(0, 0, 1500);
             intake.move_voltage(12000);
             rightWingPiston.set_value(true);
@@ -137,6 +118,13 @@ chassis.moveToPoint(-13.553, 25.203, 1500);
             tailPiston.set_value(false);
 
             break;
+        case 5: //push one triball for safety 
+            chassis.moveToPoint(0, 0, 1000);
+            chassis.moveToPoint(0, -40, 2000, {.forwards = false, .minSpeed = 127});
+            chassis.moveToPoint(0, -20, 2000);
+            chassis.moveToPoint(0, -30, 2000, {.forwards = false, .minSpeed = 127});
+            chassis.moveToPoint(0, -20, 2000);
+            chassis.moveToPoint(0, -30, 2000, {.forwards = false, .minSpeed = 127});
         case 9: // PID tuner
             chassis.turnToHeading(90, 1000);
             chassis.turnToHeading(270, 1000);

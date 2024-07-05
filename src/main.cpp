@@ -11,12 +11,12 @@
 void opcontrol() {
 	while (true) { // Main continuous loop
 		/* Drive */
-		strait::arcadeDrive(12, 0, 0.5);
+		strait::arcadeDrive(12, 0, 0.6);
 
 		/* Subsystem Listeners */
 		refreshIntake();
 		refreshLift();
-		refreshSlapper();
+		// refreshSlapper();
 		refreshWings();
 
 		// Report temperature telemetry (this code has never worked since the beginning 😭)

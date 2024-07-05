@@ -13,6 +13,7 @@ extern lemlib::Chassis chassis;
 
 // Intake
 extern pros::Motor intake;
+extern pros::Motor intake2;
 
 // Catapult
 extern pros::Motor slapper;
