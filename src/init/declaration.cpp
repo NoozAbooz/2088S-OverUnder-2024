@@ -7,7 +7,7 @@ pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // Drivetrain
 pros::MotorGroup leftDrive({-11, -12, -13});
-pros::MotorGroup rightDrive({3, 4, 5});
+pros::MotorGroup rightDrive({3, 6, 15});
 
 // Intake
 pros::Motor intake(18);

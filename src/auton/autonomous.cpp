@@ -13,26 +13,30 @@
  * from where it left off.
  */
 
-/** THE GREAT AUTON INDEX  **/
-// 0: Do nothing
-// 6: Skills (run kicker only and simple movements to goal)
-// 7: new skills with push triball
-
-// 3 new code
-// 5: Push 1 triball with back
-// 2: NORUSH 6-ball far side start with preload under alley
-// 7: RUSH 6-ball
-
-// 9: AWP close side descore and touch bar
-
-// 4: Elims disrupt
-
 using namespace strait;
 void autonomous() {
     chassis.setPose(0,0,0);
 
     switch(selector::auton) {
-        case 0: // Do nothing
+        case 1: // Do nothing
+        chassis.moveToPoint(0, 0, 5000);
+        chassis.moveToPoint(0, 1, 1500);
+        intake.move_voltage(12000);
+        chassis.moveToPoint(0.544, -31.544, 1500, {false});
+        chassis.moveToPoint(29.64, -49.219, 1500, {false});
+        chassis.moveToPoint(10.333, -45.956, 1500, {false});
+        chassis.moveToPoint(10.333, -25.956, 1500, {true});
+        chassis.moveToPoint(10.333, -45.956, 1500, {true});
+        intake.move_voltage(12000);
+        chassis.moveToPoint(34.263, 7.342, 1500);
+        chassis.moveToPoint(41.333, -20.026, 1500);
+        pros::delay(2500);
+        intake.move_voltage(-12000);
+        pros::delay(2500);
+        intake.move_voltage(12000);
+        chassis.moveToPoint(58.465, 2.342, 1500);
+        chassis.moveToPoint(57.921, -31.535, 1500);
+
             break;
         case 3: // close side awp disrupt
             chassis.moveToPoint(0, 0, 1);
@@ -50,9 +54,9 @@ void autonomous() {
             intake.move_voltage(-12000);
             pros::delay(1000);
             chassis.turnToHeading(180, 800);
-            chassis.moveToPoint(-28, 30, 1000, {false, 80, 127}); // jam it in 😏
-            chassis.moveToPoint(-28, 34, 1000, {true, 80, 127});
-            chassis.moveToPoint(-28, 40, 800, {false, 80, 127});
+            chassis.moveToPoint(-28, 23, 1000, {false, 80, 127}); // jam it in 😏
+            chassis.moveToPoint(-28, 23, 1000, {true, 80, 127});
+            chassis.moveToPoint(-28, 23, 800, {false, 80, 127});
             
             chassis.setPose(0, 0, 0); //reset
             chassis.moveToPoint(0, 0, 1500);
@@ -60,74 +64,70 @@ void autonomous() {
             chassis.moveToPoint(-13.553, 25.203, 1500);
             
             break;
-                
+        case 4: //descore only
+            tailPiston.set_value(true);
+            pros::delay(600);
+            chassis.turnToHeading(315, 1000);
+            pros::delay(1000);
+            tailPiston.set_value(false);
+            pros::delay(1000);
+            leftWingPiston.set_value(true);
+            intake.move_voltage(-12000);
+           chassis.moveToPoint(1.149, 32.079, 5000, {true, 40});
+            break;
         case 6: //6 ball
             chassis.moveToPoint(0, 0, 1500);
             intake.move_voltage(12000);
             rightWingPiston.set_value(true);
             pros::delay(150);
             rightWingPiston.set_value(false);
-            chassis.moveToPoint(-10.021, 50.659, 1300);
+            chassis.moveToPoint(-10.021, 52.659, 1300);
             chassis.moveToPoint(0.278, -4.34, 1300, {false});
             chassis.turnToHeading(90, 600);
-            pros::delay(100);
+            pros::delay(80);
             intake.move_voltage(-12000);
             pros::delay(500);
             chassis.turnToHeading(270, 500);
             intake.move_voltage(12000);
-            chassis.moveToPoint(-31.67, -3.619, 1100);
+            chassis.moveToPoint(-34.67, -3.619, 1100);
             chassis.moveToPoint(-1.68, -5.289, 800, {false});
             chassis.moveToPoint(15.773, 11.134, 800, {false});
             tailPiston.set_value(true);
             pros::delay(500);
             tailPiston.set_value(false);
-            chassis.moveToPoint(15.773, 29.227, 600, {false});
+            chassis.moveToPoint(15.773, 20.227, 600, {false});
             intake.move_voltage(0);
             chassis.moveToPoint(16.946, 16.794, 800);
             rightWingPiston.set_value(true);
-            chassis.turnToHeading(0, 400);
-            pros::delay(200);
+            chassis.turnToHeading(0, 800);
             intake.move_voltage(-12000);
-            chassis.moveToPoint(21.546, 34.505, 1000);
+            chassis.moveToPoint(16.546, 25.505, 1300);
             chassis.moveToPoint(16.701, 12.299, 800, {false});
             rightWingPiston.set_value(false);
             chassis.turnToHeading(310, 400);
             intake.move_voltage(12000);
-            chassis.moveToPoint(-32.505, 30.618, 900);
-            chassis.moveToPoint(-12.526, 52, 900);
+            chassis.moveToPoint(-32.505, 32.618, 1100);
+            chassis.moveToPoint(-12.526, 52, 1100);
             chassis.turnToHeading(90, 400);
             intake.move_voltage(-12000);
             pros::delay(500);
             intake.move_voltage(12000);
             chassis.turnToHeading(270, 400);
-            chassis.moveToPoint(-29.783, 55.443, 1300);
+            chassis.moveToPoint(-33.783, 53.443, 1500);
             rightWingPiston.set_value(true);
             leftWingPiston.set_value(true);
             chassis.turnToHeading(90, 500);
-            chassis.moveToPoint(11.412, 55.443, 1000);
-            break;
-        case 4: // beta skills // beta better skills push triball at beginning
-            chassis.moveToPoint(0, 0, 1500);
-            chassis.moveToPoint(-14.466, -31.411, 1500, {false});
-            chassis.moveToPoint(-11.96, -16.292, 1500);
-            intake.move_voltage(-12000);
-            chassis.turnToHeading(110, 1500);
-            tailPiston.set_value(true);
-
-            pros::delay(50000);
-            tailPiston.set_value(false);
-
+            chassis.moveToPoint(11.412, 53.443, 1000);
             break;
         case 5: //push one triball for safety 
             chassis.moveToPoint(0, 0, 1000);
-            chassis.moveToPoint(0, -40, 2000, {.forwards = false, .minSpeed = 127});
-            chassis.moveToPoint(0, -20, 2000);
-            chassis.moveToPoint(0, -30, 2000, {.forwards = false, .minSpeed = 127});
-            chassis.moveToPoint(0, -20, 2000);
-            chassis.moveToPoint(0, -30, 2000, {.forwards = false, .minSpeed = 127});
+            chassis.moveToPoint(0, 40, 2000, {.minSpeed = 127});
+            chassis.moveToPoint(0, -20, 2000, {.forwards = false});
+            chassis.moveToPoint(0, 30, 2000);
         case 9: // PID tuner
+            chassis.moveToPoint(0, 24, 2000);
             chassis.turnToHeading(90, 1000);
-            chassis.turnToHeading(270, 1000);
+            //chassis.turnToHeading(270, 1000);
             //chassis.moveToPoint(0, 24, 10000);
             //strait::moveRaw(12000, 2000);
 
